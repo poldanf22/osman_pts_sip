@@ -95,11 +95,10 @@ if authentication_status:
         k13_8smp_eng = 'E2p1O{toUmum_tahun}K13'
         k13_8smp_ipa = '5161A1{tahun}'
         k13_8smp_ips = 'G1p1O{toUmum_tahun}K13'
-        k13_8smp_mat_new = 'M2p1O{toUnik_tahun}K13'
         k13_8smp = [k13_8smp_mat, k13_8smp_ind,
                     k13_8smp_eng, k13_8smp_ipa, k13_8smp_ips]
         column_order_k13_8smp = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_8SMP', 'IND_8SMP',
-                                 'ENG_8SMP', 'IPA_8SMP', 'IPS_8SMP', 'MAT_NEW_8SMP']
+                                 'ENG_8SMP', 'IPA_8SMP', 'IPS_8SMP']
 
         # 9smp k13
         k13_9smp_mat = 'M3p1O{toUmum_tahun}K13'
@@ -132,6 +131,49 @@ if authentication_status:
         column_order_ppls_ips = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'GEO_PPLS_IPS',
                                  'EKO_PPLS_IPS', 'SEJ_PPLS_IPS', 'SOS_PPLS_IPS',]
 
+        # 4sd km
+        km_4sd_mat = 'M4d1O{toUmum_tahun}KM'
+        km_4sd_ind = 'I4d1O{toUmum_tahun}KM'
+        km_4sd_eng = 'E4d1O{toUmum_tahun}KM'
+        km_4sd_ipas = '1281D1{tahun}'
+        km_4sd = [km_4sd_mat, km_4sd_ind,
+                  km_4sd_eng, km_4sd_ipas]
+        column_order_km_4sd = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_4SD', 'IND_4SD',
+                               'ENG_4SD', 'IPAS_4SD']
+
+        # 5sd km
+        km_5sd_mat = 'M5d1O{toUmum_tahun}KM'
+        km_5sd_ind = 'I5d1O{toUmum_tahun}KM'
+        km_5sd_eng = 'E5d1O{toUmum_tahun}KM'
+        km_5sd_ipas = '2281D123-24'
+        km_5sd = [km_5sd_mat, km_5sd_ind,
+                  km_5sd_eng, km_5sd_ipas]
+        column_order_km_5sd = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_5SD', 'IND_5SD',
+                               'ENG_5SD', 'IPAS_5SD']
+
+        # 7smp km
+        km_7smp_mat = 'M1p1O{toUmum_tahun}KM'
+        km_7smp_ind = 'I1p1O{toUmum_tahun}KM'
+        km_7smp_eng = 'E1p1O{toUmum_tahun}KM'
+        km_7smp_ipa = '4281A1{tahun}'
+        km_7smp_ips = '4281S1{tahun}'
+        km_7smp = [km_7smp_mat, km_7smp_ind,
+                   km_7smp_eng, km_7smp_ipa, km_7smp_ips]
+        column_order_km_7smp = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_7SMP', 'IND_7SMP',
+                                'ENG_7SMP', 'IPA_7SMP', 'IPS_7SMP']
+
+        # 8smp km
+        km_8smp_mat = 'M2p1O{toUmum_tahun}KM'
+        km_8smp_ind = 'I2p1O{toUmum_tahun}KM'
+        km_8smp_eng = 'E2p1O{toUmum_tahun}KM'
+        km_8smp_ipa = 'B2p1O{toUmum_tahun}KM'
+        km_8smp_ips = '5281S1{tahun}'
+        km_8smp_mat_new = 'M2p1O{toUnik_tahun}KM'
+        km_8smp = [km_8smp_mat, km_8smp_ind,
+                   km_8smp_eng, km_8smp_ipa, km_8smp_ips, km_8smp_mat_new]
+        column_order_km_8smp = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_8SMP', 'IND_8SMP',
+                                'ENG_8SMP', 'IPA_8SMP', 'IPS_8SMP', 'MAT_NEW_8SMP']
+
         image = Image.open('logo resmi nf resize.png')
         st.image(image)
 
@@ -157,3 +199,28 @@ if authentication_status:
 
         TAHUN = st.text_input("Masukkan Tahun Ajaran",
                               placeholder="contoh: 2022-2023")
+
+        uploaded_detail = st.file_uploader(
+            'Letakkan file excel Detail Siswa', type='xlsx')
+        uploaded_to_pts = st.file_uploader(
+            'Letakkan file excel TO PTS', type='xlsx')
+
+        detail = None
+        to_pts = None
+
+        if uploaded_detail is not None:
+            detail = pd.read_excel(uploaded_detail)
+
+        if uploaded_to_pts is not None:
+            to_pts = pd.read_excel(uploaded_to_pts)
+
+        if detail is not None and to_pts is not None:
+            detail = detail.drop(['user_id', 'is_test_access', 'no_hp', 'lokasi_id', 'jenjang_id',
+                                  'riwayat_jenjang', 'jenjang_dipilih_id', 'kode_level', 'kode_kelas',
+                                  'tempat_lahir', 'tanggal_lahir', 'semester', 'tahun_ajar',
+                                  'program', 'pin', 'join_skolla', 'created_at', 'updated_at'], axis=1)  # Menghilangkan kolom sebelum dilakukan merge
+
+            result = pd.merge(detail, to_pts[['no_nf', 'kode_paket', 'tahun_ajaran', 'kelas_id',
+                                              'lokasi_id', 'jumlah_benar']], on='no_nf', how='left')
+
+            st.write(result)
