@@ -269,4 +269,9 @@ if authentication_status:
             result_filtered.drop_duplicates(
                 subset=['nama', 'kode_paket'], keep='first', inplace=True)
 
-            st.write(result_filtered)
+            # Menggunakan pivot_table untuk menjadikan konten kolom 'kode_paket' sebagai header dan menghilangkan duplikat
+            result_pivot = pd.pivot_table(result_filtered, index=[
+                'nama', 'no_nf', 'lokasi_id', 'sekolah', 'kelas_id', 'tahun_ajaran'], columns='kode_paket', values='jml_benar', aggfunc='first')
+            result_pivot.reset_index(inplace=True)  # Mengatur ulang indeks
+
+            st.write(result_pivot)
