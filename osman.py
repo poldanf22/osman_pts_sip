@@ -43,6 +43,7 @@ if authentication_status:
     toUmum_tahun = "0123-24"
     toUnik_tahun = "0323-24"
     tahun = "23-24"
+    st.write(toUmum_tahun)
     if selected_file == "Pivot PTS":
         # kurikulum - kelas - mapel
         # 4sd k13
