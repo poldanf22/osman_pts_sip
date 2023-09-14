@@ -94,7 +94,7 @@ if authentication_status:
         k13_8smp_ind = 'I2p1O'+toUmum_tahun+'K13'
         k13_8smp_eng = 'E2p1O'+toUmum_tahun+'K13'
         k13_8smp_ipa = '5161A1'+tahun
-        k13_8smp_ips = 'G1p1O'+toUmum_tahun+'K13'
+        k13_8smp_ips = 'G2p1O'+toUmum_tahun+'K13'
         k13_8smp = [k13_8smp_mat, k13_8smp_ind,
                     k13_8smp_eng, k13_8smp_ipa, k13_8smp_ips]
         column_order_k13_8smp = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_8SMP', 'IND_8SMP',
