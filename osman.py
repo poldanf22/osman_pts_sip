@@ -46,105 +46,105 @@ if authentication_status:
     if selected_file == "Pivot PTS":
         # kurikulum - kelas - mapel
         # 4sd k13
-        k13_4sd_mat = 'M4d1O{toUmum_tahun}K13'
-        k13_4sd_ind = 'I4d1O{toUmum_tahun}K13'
-        k13_4sd_eng = 'E4d1O{toUmum_tahun}K13'
-        k13_4sd_ipa = 'A4d1O{toUmum_tahun}K13'
-        k13_4sd_ips = 'Z4d1O{toUmum_tahun}K13'
+        k13_4sd_mat = 'M4d1O'+toUmum_tahun+'K13'
+        k13_4sd_ind = 'I4d1O'+toUmum_tahun+'K13'
+        k13_4sd_eng = 'E4d1O'+toUmum_tahun+'K13'
+        k13_4sd_ipa = 'A4d1O'+toUmum_tahun+'K13'
+        k13_4sd_ips = 'Z4d1O'+toUmum_tahun+'K13'
         k13_4sd = [k13_4sd_mat, k13_4sd_ind,
                    k13_4sd_eng, k13_4sd_ipa, k13_4sd_ips]
         column_order_k13_4sd = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_4SD', 'IND_4SD',
                                 'ENG_4SD', 'IPA_4SD', 'IPS_4SD']
 
         # 5sd k13
-        k13_5sd_mat = 'M5d1O{toUmum_tahun}K13'
-        k13_5sd_ind = 'I5d1O{toUmum_tahun}K13'
-        k13_5sd_eng = 'E5d1O{toUmum_tahun}K13'
-        k13_5sd_ipa = 'A5d1O{toUmum_tahun}K13'
-        k13_5sd_ips = 'Z5d1O{toUmum_tahun}K13'
+        k13_5sd_mat = 'M5d1O'+toUmum_tahun+'K13'
+        k13_5sd_ind = 'I5d1O'+toUmum_tahun+'K13'
+        k13_5sd_eng = 'E5d1O'+toUmum_tahun+'K13'
+        k13_5sd_ipa = 'A5d1O'+toUmum_tahun+'K13'
+        k13_5sd_ips = 'Z5d1O'+toUmum_tahun+'K13'
         k13_5sd = [k13_5sd_mat, k13_5sd_ind,
                    k13_5sd_eng, k13_5sd_ipa, k13_5sd_ips]
         column_order_k13_5sd = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_5SD', 'IND_5SD',
                                 'ENG_5SD', 'IPA_5SD', 'IPS_5SD']
 
         # 6sd k13
-        k13_6sd_mat = 'M6d1O{toUmum_tahun}K13'
-        k13_6sd_ind = 'I6d1O{toUmum_tahun}K13'
-        k13_6sd_eng = 'E6d1O{toUmum_tahun}K13'
-        k13_6sd_ipa = 'A6d1O{toUmum_tahun}K13'
-        k13_6sd_ips = 'Z6d1O{toUmum_tahun}K13'
+        k13_6sd_mat = 'M6d1O'+toUmum_tahun+'K13'
+        k13_6sd_ind = 'I6d1O'+toUmum_tahun+'K13'
+        k13_6sd_eng = 'E6d1O'+toUmum_tahun+'K13'
+        k13_6sd_ipa = 'A6d1O'+toUmum_tahun+'K13'
+        k13_6sd_ips = 'Z6d1O'+toUmum_tahun+'K13'
         k13_6sd = [k13_6sd_mat, k13_6sd_ind,
                    k13_6sd_eng, k13_6sd_ipa, k13_6sd_ips]
         column_order_k13_6sd = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_6SD', 'IND_6SD',
                                 'ENG_6SD', 'IPA_6SD', 'IPS_6SD']
 
         # 7smp k13
-        k13_7smp_mat = 'M1p1O{toUmum_tahun}K13'
-        k13_7smp_ind = 'I1p1O{toUmum_tahun}K13'
-        k13_7smp_eng = 'E1p1O{toUmum_tahun}K13'
-        k13_7smp_ipa = '4161A1{tahun}'
-        k13_7smp_ips = 'G1p1O{toUmum_tahun}K13'
+        k13_7smp_mat = 'M1p1O'+toUmum_tahun+'K13'
+        k13_7smp_ind = 'I1p1O'+toUmum_tahun+'K13'
+        k13_7smp_eng = 'E1p1O'+toUmum_tahun+'K13'
+        k13_7smp_ipa = '4161A1'+tahun
+        k13_7smp_ips = 'G1p1O'+toUmum_tahun+'K13'
         k13_7smp = [k13_7smp_mat, k13_7smp_ind,
                     k13_7smp_eng, k13_7smp_ipa, k13_7smp_ips]
         column_order_k13_7smp = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_7SMP', 'IND_7SMP',
                                  'ENG_7SMP', 'IPA_7SMP', 'IPS_7SMP']
 
         # 8smp k13
-        k13_8smp_mat = 'M2p1O{toUmum_tahun}K13'
-        k13_8smp_ind = 'I2p1O{toUmum_tahun}K13'
-        k13_8smp_eng = 'E2p1O{toUmum_tahun}K13'
-        k13_8smp_ipa = '5161A1{tahun}'
-        k13_8smp_ips = 'G1p1O{toUmum_tahun}K13'
+        k13_8smp_mat = 'M2p1O'+toUmum_tahun+'K13'
+        k13_8smp_ind = 'I2p1O'+toUmum_tahun+'K13'
+        k13_8smp_eng = 'E2p1O'+toUmum_tahun+'K13'
+        k13_8smp_ipa = '5161A1'+tahun
+        k13_8smp_ips = 'G1p1O'+toUmum_tahun+'K13'
         k13_8smp = [k13_8smp_mat, k13_8smp_ind,
                     k13_8smp_eng, k13_8smp_ipa, k13_8smp_ips]
         column_order_k13_8smp = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_8SMP', 'IND_8SMP',
                                  'ENG_8SMP', 'IPA_8SMP', 'IPS_8SMP']
 
         # 9smp k13
-        k13_9smp_mat = 'M3p1O{toUmum_tahun}K13'
-        k13_9smp_ind = 'I3p1O{toUmum_tahun}K13'
-        k13_9smp_eng = 'E3p1O{toUmum_tahun}K13'
-        k13_9smp_ipa = '6161A123-24'
-        k13_9smp_ips = 'G3p1O{toUmum_tahun}K13'
+        k13_9smp_mat = 'M3p1O'+toUmum_tahun+'K13'
+        k13_9smp_ind = 'I3p1O'+toUmum_tahun+'K13'
+        k13_9smp_eng = 'E3p1O'+toUmum_tahun+'K13'
+        k13_9smp_ipa = '6161A1'+tahun
+        k13_9smp_ips = 'G3p1O'+toUmum_tahun+'K13'
         k13_9smp = [k13_9smp_mat, k13_9smp_ind,
                     k13_9smp_eng, k13_9smp_ipa, k13_9smp_ips]
         column_order_k13_9smp = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_9SMP', 'IND_9SMP',
                                  'ENG_9SMP', 'IPA_9SMP', 'IPS_9SMP']
 
         # PPLS IPA
-        ppls_ipa_mat = 'M9a1O{toUmum_tahun}PPLS'
-        ppls_ipa_fis = 'F9a1O{toUmum_tahun}PPLS'
-        ppls_ipa_kim = 'K9a1O{toUmum_tahun}PPLS'
-        ppls_ipa_bio = 'B9a1O{toUmum_tahun}PPLS'
+        ppls_ipa_mat = 'M9a1O'+toUmum_tahun+'PPLS'
+        ppls_ipa_fis = 'F9a1O'+toUmum_tahun+'PPLS'
+        ppls_ipa_kim = 'K9a1O'+toUmum_tahun+'PPLS'
+        ppls_ipa_bio = 'B9a1O'+toUmum_tahun+'PPLS'
         ppls_ipa = [ppls_ipa_mat, ppls_ipa_bio,
                     ppls_ipa_fis, ppls_ipa_kim]
         column_order_ppls_ipa = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_PPLS_IPA',
                                  'FIS_PPLS_IPA', 'KIM_PPLS_IPA', 'BIO_PPLS_IPA',]
 
         # PPLS IPS
-        ppls_ips_geo = 'G9s1O{toUmum_tahun}PPLS'
-        ppls_ips_eko = 'O9s1O{toUmum_tahun}PPLS'
-        ppls_ips_sej = 'S9s1O{toUmum_tahun}PPLS'
-        ppls_ips_sos = 'L9s1O{toUmum_tahun}PPLS'
+        ppls_ips_geo = 'G9s1O'+toUmum_tahun+'PPLS'
+        ppls_ips_eko = 'O9s1O'+toUmum_tahun+'PPLS'
+        ppls_ips_sej = 'S9s1O'+toUmum_tahun+'PPLS'
+        ppls_ips_sos = 'L9s1O'+toUmum_tahun+'PPLS'
         ppls_ips = [ppls_ips_geo, ppls_ips_eko,
                     ppls_ips_sej, ppls_ips_sos]
         column_order_ppls_ips = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'GEO_PPLS_IPS',
                                  'EKO_PPLS_IPS', 'SEJ_PPLS_IPS', 'SOS_PPLS_IPS',]
 
         # 4sd km
-        km_4sd_mat = 'M4d1O{toUmum_tahun}KM'
-        km_4sd_ind = 'I4d1O{toUmum_tahun}KM'
-        km_4sd_eng = 'E4d1O{toUmum_tahun}KM'
-        km_4sd_ipas = '1281D1{tahun}'
+        km_4sd_mat = 'M4d1O'+toUmum_tahun+'KM'
+        km_4sd_ind = 'I4d1O'+toUmum_tahun+'KM'
+        km_4sd_eng = 'E4d1O'+toUmum_tahun+'KM'
+        km_4sd_ipas = '1281D1'+tahun
         km_4sd = [km_4sd_mat, km_4sd_ind,
                   km_4sd_eng, km_4sd_ipas]
         column_order_km_4sd = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_4SD', 'IND_4SD',
                                'ENG_4SD', 'IPAS_4SD']
 
         # 5sd km
-        km_5sd_mat = 'M5d1O{toUmum_tahun}KM'
-        km_5sd_ind = 'I5d1O{toUmum_tahun}KM'
-        km_5sd_eng = 'E5d1O{toUmum_tahun}KM'
+        km_5sd_mat = 'M5d1O'+toUmum_tahun+'KM'
+        km_5sd_ind = 'I5d1O'+toUmum_tahun+'KM'
+        km_5sd_eng = 'E5d1O'+toUmum_tahun+'KM'
         km_5sd_ipas = '2281D123-24'
         km_5sd = [km_5sd_mat, km_5sd_ind,
                   km_5sd_eng, km_5sd_ipas]
@@ -152,23 +152,23 @@ if authentication_status:
                                'ENG_5SD', 'IPAS_5SD']
 
         # 7smp km
-        km_7smp_mat = 'M1p1O{toUmum_tahun}KM'
-        km_7smp_ind = 'I1p1O{toUmum_tahun}KM'
-        km_7smp_eng = 'E1p1O{toUmum_tahun}KM'
-        km_7smp_ipa = '4281A1{tahun}'
-        km_7smp_ips = '4281S1{tahun}'
+        km_7smp_mat = 'M1p1O'+toUmum_tahun+'KM'
+        km_7smp_ind = 'I1p1O'+toUmum_tahun+'KM'
+        km_7smp_eng = 'E1p1O'+toUmum_tahun+'KM'
+        km_7smp_ipa = '4281A1'+tahun
+        km_7smp_ips = '4281S1'+tahun
         km_7smp = [km_7smp_mat, km_7smp_ind,
                    km_7smp_eng, km_7smp_ipa, km_7smp_ips]
         column_order_km_7smp = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_7SMP', 'IND_7SMP',
                                 'ENG_7SMP', 'IPA_7SMP', 'IPS_7SMP']
 
         # 8smp km
-        km_8smp_mat = 'M2p1O{toUmum_tahun}KM'
-        km_8smp_ind = 'I2p1O{toUmum_tahun}KM'
-        km_8smp_eng = 'E2p1O{toUmum_tahun}KM'
-        km_8smp_ipa = 'B2p1O{toUmum_tahun}KM'
-        km_8smp_ips = '5281S1{tahun}'
-        km_8smp_mat_new = 'M2p1O{toUnik_tahun}KM'
+        km_8smp_mat = 'M2p1O'+toUmum_tahun+'KM'
+        km_8smp_ind = 'I2p1O'+toUmum_tahun+'KM'
+        km_8smp_eng = 'E2p1O'+toUmum_tahun+'KM'
+        km_8smp_ipa = 'B2p1O'+toUmum_tahun+'KM'
+        km_8smp_ips = '5281S1'+tahun
+        km_8smp_mat_new = 'M2p1O'+toUnik_tahun+'KM'
         km_8smp = [km_8smp_mat, km_8smp_ind,
                    km_8smp_eng, km_8smp_ipa, km_8smp_ips, km_8smp_mat_new]
         column_order_km_8smp = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_8SMP', 'IND_8SMP',
@@ -274,4 +274,42 @@ if authentication_status:
                 'name', 'no_nf', 'lokasi_id', 'sekolah', 'kelas_id', 'tahun_ajaran'], columns='kode_paket', values='jml_benar', aggfunc='first')
             result_pivot.reset_index(inplace=True)  # Mengatur ulang indeks
 
-            st.write(result_pivot)
+            # Ubah nama kolom
+            result_pivot = result_pivot.rename(
+                columns={'name': 'NAMA', 'no_nf': 'NONF', 'lokasi_id': 'KD_LOK', 'sekolah': 'NAMA_SKLH', 'kelas_id': 'KELAS', 'tahun_ajaran': 'IDTAHUN',
+                         'M4d1O'+toUmum_tahun+'K13': 'MAT_4SD', 'I4d1O'+toUmum_tahun+'K13': 'IND_4SD', 'E4d1O'+toUmum_tahun+'K13': 'ENG_4SD', 'A4d1O'+toUmum_tahun+'K13': 'IPA_4SD', 'Z4d1O'+toUmum_tahun+'K13': 'IPS_4SD',
+                         'M5d1O'+toUmum_tahun+'K13': 'MAT_5SD', 'I5d1O'+toUmum_tahun+'K13': 'IND_5SD', 'E5d1O'+toUmum_tahun+'K13': 'ENG_5SD', 'A5d1O'+toUmum_tahun+'K13': 'IPA_5SD', 'Z5d1O'+toUmum_tahun+'K13': 'IPS_5SD',
+                         'M6d1O'+toUmum_tahun+'K13': 'MAT_6SD', 'I6d1O'+toUmum_tahun+'K13': 'IND_6SD', 'E6d1O'+toUmum_tahun+'K13': 'ENG_6SD', 'A6d1O'+toUmum_tahun+'K13': 'IPA_6SD', 'Z6d1O'+toUmum_tahun+'K13': 'IPS_6SD',
+                         'M1p1O'+toUmum_tahun+'K13': 'MAT_7SMP', 'I1p1O'+toUmum_tahun+'K13': 'IND_7SMP', 'E1p1O'+toUmum_tahun+'K13': 'ENG_7SMP', 'A1p1O'+toUmum_tahun+'K13': 'IPA_7SMP', 'Z1p1O'+toUmum_tahun+'K13': 'IPS_7SMP',
+                         'M2p1O'+toUmum_tahun+'K13': 'MAT_8SMP', 'I2p1O'+toUmum_tahun+'K13': 'IND_8SMP', 'E2p1O'+toUmum_tahun+'K13': 'ENG_8SMP', 'A2p1O'+toUmum_tahun+'K13': 'IPA_8SMP', 'Z2p1O'+toUmum_tahun+'K13': 'IPS_8SMP',
+                         'M3p1O'+toUmum_tahun+'K13': 'MAT_9SMP', 'I3p1O'+toUmum_tahun+'K13': 'IND_9SMP', 'E3p1O'+toUmum_tahun+'K13': 'ENG_9SMP', 'A3p1O'+toUmum_tahun+'K13': 'IPA_9SMP', 'Z3p1O'+toUmum_tahun+'K13': 'IPS_9SMP',
+                         'M4d1O'+toUmum_tahun+'KM': 'MAT_4SD', 'I4d1O'+toUmum_tahun+'KM': 'IND_4SD', 'E4d1O'+toUmum_tahun+'KM': 'ENG_4SD', 'A4d1O'+toUmum_tahun+'KM': 'IPAS_4SD',
+                         'M5d1O'+toUmum_tahun+'KM': 'MAT_5SD', 'I5d1O'+toUmum_tahun+'KM': 'IND_5SD', 'E5d1O'+toUmum_tahun+'KM': 'ENG_5SD', 'A5d1O'+toUmum_tahun+'KM': 'IPAS_5SD',
+                         'M1p1O'+toUmum_tahun+'KM': 'MAT_7SMP', 'I1p1O'+toUmum_tahun+'KM': 'IND_7SMP', 'E1p1O'+toUmum_tahun+'KM': 'ENG_7SMP', 'A1p1O'+toUmum_tahun+'KM': 'IPA_7SMP', 'Z1p1O'+toUmum_tahun+'KM': 'IPS_7SMP',
+                         'M2p1O'+toUmum_tahun+'KM': 'MAT_8SMP', 'I2p1O'+toUmum_tahun+'KM': 'IND_8SMP', 'E2p1O'+toUmum_tahun+'KM': 'ENG_8SMP', 'A2p1O'+toUmum_tahun+'KM': 'IPA_8SMP', 'Z2p1O'+toUmum_tahun+'KM': 'IPS_8SMP', 'M2p1O'+toUnik_tahun+'KM': 'MAT_NEW_8SMP',
+                         'M9a1O'+toUmum_tahun+'PPLS': 'MAT_PPLS_IPA', 'F9a1O'+toUmum_tahun+'PPLS': 'FIS_PPLS_IPA', 'K9a1O'+toUmum_tahun+'PPLS': 'KIM_PPLS_IPA', 'B9a1O'+toUmum_tahun+'PPLS': 'BIO_PPLS_IPA',
+                         'G9s1O'+toUmum_tahun+'PPLS': 'GEO_PPLS_IPS', 'O9s1O'+toUmum_tahun+'PPLS': 'EKO_PPLS_IPS', 'S9s1O'+toUmum_tahun+'PPLS': 'SEJ_PPLS_IPS', 'L9s1O'+toUmum_tahun+'PPLS': 'SOS_PPLS_IPS'})
+
+            result_pivot = result_pivot.reindex(columns=column_order)
+
+            kelas = KELAS.lower().replace(" ", "")
+            kurikulum = KURIKULUM.lower()
+            tahun = TAHUN.replace("-", "")
+            semester = SEMESTER.lower()
+
+            path_file = f"{kelas}_pts_{semester}_{kurikulum}_{tahun}_pivot.xlsx"
+
+            # Simpan file ke direktori temporer
+            temp_dir = tempfile.gettempdir()
+            file_path = temp_dir + '/' + path_file
+            # wb.save(file_path)
+
+            # Menyimpan DataFrame ke file Excel
+            result_pivot.to_excel(file_path, index=False)
+            st.success("File siap diunduh!")
+
+            # Tombol unduh file
+            with open(file_path, "rb") as f:
+                bytes_data = f.read()
+            st.download_button(label="Unduh File", data=bytes_data,
+                               file_name=path_file)
