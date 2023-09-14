@@ -183,13 +183,13 @@ if authentication_status:
         with col1:
             KURIKULUM = st.selectbox(
                 "KURIKULUM",
-                ("--Pilih Kurikulum--", "K13", "KM"))
+                ("--Pilih Kurikulum--", "K13", "KM", "PPLS"))
 
         col2 = st.container()
         with col2:
             KELAS = st.selectbox(
                 "KELAS",
-                ("--Pilih Kelas--", "4 SD", "5 SD", "6 SD", "7 SMP", "8 SMP", "9 SMP"))
+                ("--Pilih Kelas--", "4 SD", "5 SD", "6 SD", "7 SMP", "8 SMP", "9 SMP", "PPLS IPA", "PPLS IPS"))
 
         col3 = st.container()
         with col3:
@@ -225,4 +225,48 @@ if authentication_status:
             # Menghapus nilai NaN dari kolom 'kode_paket'
             result = result.dropna(subset=['kode_paket'])
 
-            st.write(result)
+            # k13
+            if KELAS == "4 SD" and KURIKULUM == "K13":
+                kode_kls_kur = k13_4sd
+                column_order = column_order_k13_4sd
+            elif KELAS == "5 SD" and KURIKULUM == "K13":
+                kode_kls_kur = k13_5sd
+                column_order = column_order_k13_5sd
+            elif KELAS == "6 SD" and KURIKULUM == "K13":
+                kode_kls_kur = k13_6sd
+                column_order = column_order_k13_6sd
+            elif KELAS == "7 SMP" and KURIKULUM == "K13":
+                kode_kls_kur = k13_7smp
+                column_order = column_order_k13_7smp
+            elif KELAS == "8 SMP" and KURIKULUM == "K13":
+                kode_kls_kur = k13_8smp
+                column_order = column_order_k13_8smp
+            elif KELAS == "9 SMP" and KURIKULUM == "K13":
+                kode_kls_kur = k13_9smp
+                column_order = column_order_k13_9smp
+            # km
+            elif KELAS == "4 SD" and KURIKULUM == "KM":
+                kode_kls_kur = km_4sd
+                column_order = column_order_km_4sd
+            elif KELAS == "5 SD" and KURIKULUM == "KM":
+                kode_kls_kur = km_5sd
+                column_order = column_order_km_5sd
+            elif KELAS == "7 SMP" and KURIKULUM == "KM":
+                kode_kls_kur = km_7smp
+                column_order = column_order_km_7smp
+            elif KELAS == "8 SMP" and KURIKULUM == "KM":
+                kode_kls_kur = km_8smp
+                column_order = column_order_km_8smp
+            # ppls
+            elif KELAS == "PPLS IPA" and KURIKULUM == "PPLS":
+                kode_kls_kur = ppls_ipa
+                column_order = column_order_ppls_ipa
+            elif KELAS == "PPLS IPS" and KURIKULUM == "PPLS":
+                kode_kls_kur = ppls_ips
+                column_order = column_order_ppls_ips
+
+            result_filtered = result[result['kode_paket'].isin(kode_kls_kur)]
+            result_filtered.drop_duplicates(
+                subset=['nama', 'kode_paket'], keep='first', inplace=True)
+
+            st.write(result_filtered)
