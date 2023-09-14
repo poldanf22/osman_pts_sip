@@ -112,6 +112,26 @@ if authentication_status:
         column_order_k13_9smp = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_9SMP', 'IND_9SMP',
                                  'ENG_9SMP', 'IPA_9SMP', 'IPS_9SMP']
 
+        # PPLS IPA
+        ppls_ipa_mat = 'M9a1O{toUmum_tahun}PPLS'
+        ppls_ipa_fis = 'F9a1O{toUmum_tahun}PPLS'
+        ppls_ipa_kim = 'K9a1O{toUmum_tahun}PPLS'
+        ppls_ipa_bio = 'B9a1O{toUmum_tahun}PPLS'
+        ppls_ipa = [ppls_ipa_mat, ppls_ipa_bio,
+                    ppls_ipa_fis, ppls_ipa_kim]
+        column_order_ppls_ipa = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_PPLS_IPA',
+                                 'FIS_PPLS_IPA', 'KIM_PPLS_IPA', 'BIO_PPLS_IPA',]
+
+        # PPLS IPS
+        ppls_ips_geo = 'G9s1O{toUmum_tahun}PPLS'
+        ppls_ips_eko = 'O9s1O{toUmum_tahun}PPLS'
+        ppls_ips_sej = 'S9s1O{toUmum_tahun}PPLS'
+        ppls_ips_sos = 'L9s1O{toUmum_tahun}PPLS'
+        ppls_ips = [ppls_ips_geo, ppls_ips_eko,
+                    ppls_ips_sej, ppls_ips_sos]
+        column_order_ppls_ips = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'GEO_PPLS_IPS',
+                                 'EKO_PPLS_IPS', 'SEJ_PPLS_IPS', 'SOS_PPLS_IPS',]
+
         image = Image.open('logo resmi nf resize.png')
         st.image(image)
 
