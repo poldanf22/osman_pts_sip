@@ -222,5 +222,7 @@ if authentication_status:
 
             result = pd.merge(detail, to_pts[['no_nf', 'kode_paket', 'tahun_ajaran', 'kelas_id',
                                               'lokasi_id', 'jumlah_benar']], on='no_nf', how='left')
+            # Menghapus nilai NaN dari kolom 'kode_paket'
+            result = result.dropna(subset=['kode_paket'])
 
             st.write(result)
