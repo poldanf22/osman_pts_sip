@@ -40,3 +40,17 @@ if authentication_status:
             menu_title="Pilih file:",
             options=["Pivot PTS", "Nilai Std. SD, SMP"],
         )
+    toUmum_tahun = "0123-24"
+    toUnik_tahun = "0323-24"
+    if selected_file == "Pivot PTS":
+        # kurikulum - kelas - mapel
+        # 4sd k13
+        k13_4sd_mat = 'M4d1O{toUmum_tahun}K13'
+        k13_4sd_ind = 'I4d1O{toUmum_tahun}K13'
+        k13_4sd_eng = 'E4d1O{toUmum_tahun}K13'
+        k13_4sd_ipa = 'A4d1O{toUmum_tahun}K13'
+        k13_4sd_ips = 'Z4d1O{toUmum_tahun}K13'
+        k13_4sd = [k13_4sd_mat, k13_4sd_ind,
+                   k13_4sd_eng, k13_4sd_ipa, k13_4sd_ips]
+        column_order_k13_4sd = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_4SD', 'IND_4SD',
+                                'ENG_4SD', 'IPA_4SD', 'IPS_4SD']
