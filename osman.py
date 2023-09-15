@@ -3109,7 +3109,7 @@ if authentication_status:
         st.image(image)
 
         st.title("Olah Nilai Standar PPLS")
-        st.header("PPLS IPA")
+        st.header("PPLS")
 
         col6 = st.container()
 
@@ -3150,17 +3150,17 @@ if authentication_status:
                 (15, 20, 25, 30, 35, 40, 45, 50))
 
         with col2:
-            IND = st.selectbox(
+            FIS = st.selectbox(
                 "JML. SOAL FIS.",
                 (15, 20, 25, 30, 35, 40, 45, 50))
 
         with col3:
-            ENG = st.selectbox(
+            KIM = st.selectbox(
                 "JML. SOAL KIM.",
                 (15, 20, 25, 30, 35, 40, 45, 50))
 
         with col4:
-            IPAS = st.selectbox(
+            BIO = st.selectbox(
                 "JML. SOAL BIO.",
                 (15, 20, 25, 30, 35, 40, 45, 50))
 
@@ -4323,9 +4323,9 @@ if authentication_status:
 
             # tambahan
             ws['EW1'] = 'MAT_20'
-            ws['EX1'] = 'FIS_20'
-            ws['EY1'] = 'KIM_20'
-            ws['EZ1'] = 'BIO_20'
+            ws['EX1'] = 'IND_20'
+            ws['EY1'] = 'ENG_20'
+            ws['EZ1'] = 'IPAS_20'
             ws['EW1'].font = Font(bold=False, name='Calibri', size=11)
             ws['EX1'].font = Font(bold=False, name='Calibri', size=11)
             ws['EY1'].font = Font(bold=False, name='Calibri', size=11)
