@@ -202,6 +202,12 @@ if authentication_status:
                 "SEMESTER",
                 ("--Pilih Semester--", "SEMESTER 1", "SEMESTER 2"))
 
+        col4 = st.container()
+        with col4:
+            PENILAIAN = st.selectbox(
+                "PENILAIAN",
+                ("--Pilih Penilaian--", "PENILAIAN TENGAH SEMESTER", "SUMATIF TENGAH SEMESTER"))
+
         TAHUN = st.text_input("Masukkan Tahun Ajaran",
                               placeholder="contoh: 2022-2023")
 
@@ -301,8 +307,9 @@ if authentication_status:
             kurikulum = KURIKULUM.lower()
             tahun = TAHUN.replace("-", "")
             semester = SEMESTER.lower()
+            penilaian = PENILAIAN.lower()
 
-            path_file = f"{kelas}_pts_{semester}_{kurikulum}_{tahun}_pivot.xlsx"
+            path_file = f"{kelas}_{penilaian}_{semester}_{kurikulum}_{tahun}_pivot.xlsx"
 
             # Simpan file ke direktori temporer
             temp_dir = tempfile.gettempdir()
@@ -360,7 +367,7 @@ if authentication_status:
         with col8:
             PENILAIAN = st.selectbox(
                 "PENILAIAN",
-                ("--Pilih Penilaian--", "PENILAIAN TENGAH SEMESTER"))
+                ("--Pilih Penilaian--", "PENILAIAN TENGAH SEMESTER", "SUMATIF TENGAH SEMESTER"))
 
         col9 = st.container()
 
