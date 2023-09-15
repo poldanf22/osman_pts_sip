@@ -4321,9 +4321,9 @@ if authentication_status:
 
             # tambahan
             ws['EW1'] = 'MAT_20'
-            ws['EX1'] = 'IND_20'
-            ws['EY1'] = 'ENG_20'
-            ws['EZ1'] = 'IPAS_20'
+            ws['EX1'] = 'FIS_20'
+            ws['EY1'] = 'KIM_20'
+            ws['EZ1'] = 'BIO_20'
             ws['EW1'].font = Font(bold=False, name='Calibri', size=11)
             ws['EX1'].font = Font(bold=False, name='Calibri', size=11)
             ws['EY1'].font = Font(bold=False, name='Calibri', size=11)
