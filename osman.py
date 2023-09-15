@@ -4838,10 +4838,10 @@ if authentication_status:
 
             # Jumlah Soal
             ws['F{}'.format(v)] = 'JUMLAH SOAL'
-            ws['G{}'.format(v)] = JML_SOAL_MAT
-            ws['H{}'.format(v)] = JML_SOAL_FIS
-            ws['I{}'.format(v)] = JML_SOAL_KIM
-            ws['J{}'.format(v)] = JML_SOAL_BIO
+            ws['G{}'.format(v)] = JML_SOAL_GEO
+            ws['H{}'.format(v)] = JML_SOAL_EKO
+            ws['I{}'.format(v)] = JML_SOAL_SEJ
+            ws['J{}'.format(v)] = JML_SOAL_SOS
 
             # Z Score
             ws['B1'] = 'NAMA SISWA_A'
