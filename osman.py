@@ -28,7 +28,7 @@ if authentication_status == False:
 if authentication_status == None:
     st.warning("Silahkan masukan username dan kode akses")
 
-url = "https://osmansiplok.streamlit.app/"
+url = "https://osmanlokpts.streamlit.app/"
 
 if authentication_status:
     authenticator.logout("Logout", "sidebar")
