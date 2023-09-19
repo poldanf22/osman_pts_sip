@@ -40,6 +40,7 @@ if authentication_status:
             menu_title="Pilih file:",
             options=["Pivot PTS",
                      "Nilai Std. SD (K13), SMP (K13-KM)",
+                     "Nilai Std. 8 SMP (KM-MTK SB)",
                      "Nilai Std. SD (KM)",
                      "Nilai Std. PPLS IPA",
                      "Nilai Std. PPLS IPS"],
@@ -167,17 +168,23 @@ if authentication_status:
         column_order_km_7smp = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_7SMP', 'IND_7SMP',
                                 'ENG_7SMP', 'IPA_7SMP', 'IPS_7SMP']
 
-        # 8smp km
+        # 8smp km sl
         km_8smp_mat = 'M2p1O'+toUmum_tahun+'KM'
         km_8smp_ind = 'I2p1O'+toUmum_tahun+'KM'
         km_8smp_eng = 'E2p1O'+toUmum_tahun+'KM'
         km_8smp_ipa = 'B2p1O'+toUmum_tahun+'KM'
         km_8smp_ips = '5281S1'+tahun
-        km_8smp_mat_new = 'M2p1O'+toUnik_tahun+'KM'
         km_8smp = [km_8smp_mat, km_8smp_ind,
                    km_8smp_eng, km_8smp_ipa, km_8smp_ips, km_8smp_mat_new]
         column_order_km_8smp = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_8SMP', 'IND_8SMP',
-                                'ENG_8SMP', 'IPA_8SMP', 'IPS_8SMP', 'MAT_NEW_8SMP']
+                                'ENG_8SMP', 'IPA_8SMP', 'IPS_8SMP']
+        
+        # 8smp km sb
+        km_8smp_mat_sb = 'M2p1O'+toUnik_tahun+'KM'
+        km_8smp_sb = [km_8smp_mat_sb, km_8smp_ind,
+                   km_8smp_eng, km_8smp_ipa, km_8smp_ips]
+        column_order_km_8smp_sb = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_SB_8SMP', 'IND_8SMP',
+                                'ENG_8SMP', 'IPA_8SMP', 'IPS_8SMP']
 
         image = Image.open('logo resmi nf resize.png')
         st.image(image)
@@ -194,7 +201,7 @@ if authentication_status:
         with col2:
             KELAS = st.selectbox(
                 "KELAS",
-                ("--Pilih Kelas--", "4 SD", "5 SD", "6 SD", "7 SMP", "8 SMP", "9 SMP", "PPLS IPA", "PPLS IPS"))
+                ("--Pilih Kelas--", "4 SD", "5 SD", "6 SD", "7 SMP", "8 SMP", "8 SMP SB", "9 SMP", "PPLS IPA", "PPLS IPS"))
 
         col3 = st.container()
         with col3:
@@ -268,6 +275,9 @@ if authentication_status:
             elif KELAS == "8 SMP" and KURIKULUM == "KM":
                 kode_kls_kur = km_8smp
                 column_order = column_order_km_8smp
+            elif KELAS == "8 SMP SB" and KURIKULUM == "KM":
+                kode_kls_kur = km_8smp_sb
+                column_order = column_order_km_8smp_sb
             # ppls
             elif KELAS == "PPLS IPA" and KURIKULUM == "PPLS":
                 kode_kls_kur = ppls_ipa
@@ -297,7 +307,7 @@ if authentication_status:
                          'M4d1O'+toUmum_tahun+'KM': 'MAT_4SD', 'I4d1O'+toUmum_tahun+'KM': 'IND_4SD', 'E4d1O'+toUmum_tahun+'KM': 'ENG_4SD', '1281D1'+tahun: 'IPAS_4SD',
                          'M5d1O'+toUmum_tahun+'KM': 'MAT_5SD', 'I5d1O'+toUmum_tahun+'KM': 'IND_5SD', 'E5d1O'+toUmum_tahun+'KM': 'ENG_5SD', '2281D1'+tahun: 'IPAS_5SD',
                          'M1p1O'+toUmum_tahun+'KM': 'MAT_7SMP', 'I1p1O'+toUmum_tahun+'KM': 'IND_7SMP', 'E1p1O'+toUmum_tahun+'KM': 'ENG_7SMP', '4281A1'+tahun: 'IPA_7SMP', '4281S1'+tahun: 'IPS_7SMP',
-                         'M2p1O'+toUmum_tahun+'KM': 'MAT_8SMP', 'I2p1O'+toUmum_tahun+'KM': 'IND_8SMP', 'E2p1O'+toUmum_tahun+'KM': 'ENG_8SMP', 'B2p1O'+toUmum_tahun+'KM': 'IPA_8SMP', '5281S1'+tahun: 'IPS_8SMP', 'M2p1O'+toUnik_tahun+'KM': 'MAT_NEW_8SMP',
+                         'M2p1O'+toUmum_tahun+'KM': 'MAT_8SMP', 'I2p1O'+toUmum_tahun+'KM': 'IND_8SMP', 'E2p1O'+toUmum_tahun+'KM': 'ENG_8SMP', 'B2p1O'+toUmum_tahun+'KM': 'IPA_8SMP', '5281S1'+tahun: 'IPS_8SMP', 'M2p1O'+toUnik_tahun+'KM': 'MAT_SB_8SMP',
                          'M9a1O'+toUmum_tahun+'PPLS': 'MAT_PPLS_IPA', 'F9a1O'+toUmum_tahun+'PPLS': 'FIS_PPLS_IPA', 'K9a1O'+toUmum_tahun+'PPLS': 'KIM_PPLS_IPA', 'B9a1O'+toUmum_tahun+'PPLS': 'BIO_PPLS_IPA',
                          'G9s1O'+toUmum_tahun+'PPLS': 'GEO_PPLS_IPS', 'O9s1O'+toUmum_tahun+'PPLS': 'EKO_PPLS_IPS', 'S9s1O'+toUmum_tahun+'PPLS': 'SEJ_PPLS_IPS', 'L9s1O'+toUmum_tahun+'PPLS': 'SOS_PPLS_IPS'})
 
