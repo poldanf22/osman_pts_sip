@@ -175,7 +175,7 @@ if authentication_status:
         km_8smp_ipa = 'B2p1O'+toUmum_tahun+'KM'
         km_8smp_ips = '5281S1'+tahun
         km_8smp = [km_8smp_mat, km_8smp_ind,
-                   km_8smp_eng, km_8smp_ipa, km_8smp_ips, km_8smp_mat_new]
+                   km_8smp_eng, km_8smp_ipa, km_8smp_ips]
         column_order_km_8smp = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_8SMP', 'IND_8SMP',
                                 'ENG_8SMP', 'IPA_8SMP', 'IPS_8SMP']
         
