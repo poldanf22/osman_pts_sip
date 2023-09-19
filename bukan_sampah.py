@@ -26,7 +26,7 @@
         with col6:
             KELAS = st.selectbox(
                 "KELAS",
-                ("--Pilih Kelas--", "8 SMP"))
+                ("--Pilih Kelas--", "8 SMP SB"))
 
         col7 = st.container()
 
@@ -56,7 +56,7 @@
 
         with col1:
             MTK = st.selectbox(
-                "JML. SOAL MAT.",
+                "JML. SOAL MAT. SB.",
                 ("--Pilih--", 25, 30, 35, 40, 45))
 
         with col2:
