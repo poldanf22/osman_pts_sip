@@ -218,8 +218,9 @@ if authentication_status:
         TAHUN = st.text_input("Masukkan Tahun Ajaran",
                               placeholder="contoh: 2022-2023")
 
+        url_contoh_detail ='https://docs.google.com/spreadsheets/d/1hq9P44M9P51GrJn07DyWsHA1xKFj--dG/edit?usp=sharing&ouid=100219691055398475739&rtpof=true&sd=true'
         uploaded_detail = st.file_uploader(
-            'Letakkan file excel Detail Siswa', type='xlsx')
+            'Letakkan file excel Detail Siswa',url_contoh_detail, type='xlsx')
         uploaded_to_pts = st.file_uploader(
             'Letakkan file excel TO PTS', type='xlsx')
 
