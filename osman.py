@@ -47,6 +47,7 @@ if authentication_status:
         )
     toUmum_tahun = "0123-24"
     toUnik_tahun = "0323-24"
+    toBersama ="1"
     tahun = "23-24"
     st.write(toUmum_tahun)
     if selected_file == "Pivot PTS":
@@ -88,7 +89,7 @@ if authentication_status:
         k13_7smp_mat = 'M1p1O'+toUmum_tahun+'K13'
         k13_7smp_ind = 'I1p1O'+toUmum_tahun+'K13'
         k13_7smp_eng = 'E1p1O'+toUmum_tahun+'K13'
-        k13_7smp_ipa = '4161A1'+tahun
+        k13_7smp_ipa = '416'+toBersama+'A1'+tahun
         k13_7smp_ips = 'G1p1O'+toUmum_tahun+'K13'
         k13_7smp = [k13_7smp_mat, k13_7smp_ind,
                     k13_7smp_eng, k13_7smp_ipa, k13_7smp_ips]
@@ -99,7 +100,7 @@ if authentication_status:
         k13_8smp_mat = 'M2p1O'+toUmum_tahun+'K13'
         k13_8smp_ind = 'I2p1O'+toUmum_tahun+'K13'
         k13_8smp_eng = 'E2p1O'+toUmum_tahun+'K13'
-        k13_8smp_ipa = '5161A1'+tahun
+        k13_8smp_ipa = '516'+toBersama+'A1'+tahun
         k13_8smp_ips = 'G2p1O'+toUmum_tahun+'K13'
         k13_8smp = [k13_8smp_mat, k13_8smp_ind,
                     k13_8smp_eng, k13_8smp_ipa, k13_8smp_ips]
@@ -110,7 +111,7 @@ if authentication_status:
         k13_9smp_mat = 'M3p1O'+toUmum_tahun+'K13'
         k13_9smp_ind = 'I3p1O'+toUmum_tahun+'K13'
         k13_9smp_eng = 'E3p1O'+toUmum_tahun+'K13'
-        k13_9smp_ipa = '6161A1'+tahun
+        k13_9smp_ipa = '616'+toBersama+'A1'+tahun
         k13_9smp_ips = 'G3p1O'+toUmum_tahun+'K13'
         k13_9smp = [k13_9smp_mat, k13_9smp_ind,
                     k13_9smp_eng, k13_9smp_ipa, k13_9smp_ips]
@@ -141,7 +142,7 @@ if authentication_status:
         km_4sd_mat = 'M4d1O'+toUmum_tahun+'KM'
         km_4sd_ind = 'I4d1O'+toUmum_tahun+'KM'
         km_4sd_eng = 'E4d1O'+toUmum_tahun+'KM'
-        km_4sd_ipas = '1281D1'+tahun
+        km_4sd_ipas = '128'+toBersama+'D1'+tahun
         km_4sd = [km_4sd_mat, km_4sd_ind,
                   km_4sd_eng, km_4sd_ipas]
         column_order_km_4sd = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_4SD', 'IND_4SD',
@@ -151,7 +152,7 @@ if authentication_status:
         km_5sd_mat = 'M5d1O'+toUmum_tahun+'KM'
         km_5sd_ind = 'I5d1O'+toUmum_tahun+'KM'
         km_5sd_eng = 'E5d1O'+toUmum_tahun+'KM'
-        km_5sd_ipas = '2281D123-24'
+        km_5sd_ipas = '228'+toBersama+'D1'+tahun
         km_5sd = [km_5sd_mat, km_5sd_ind,
                   km_5sd_eng, km_5sd_ipas]
         column_order_km_5sd = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_5SD', 'IND_5SD',
@@ -161,8 +162,8 @@ if authentication_status:
         km_7smp_mat = 'M1p1O'+toUmum_tahun+'KM'
         km_7smp_ind = 'I1p1O'+toUmum_tahun+'KM'
         km_7smp_eng = 'E1p1O'+toUmum_tahun+'KM'
-        km_7smp_ipa = '4281A1'+tahun
-        km_7smp_ips = '4281S1'+tahun
+        km_7smp_ipa = '428'+toBersama+'A1'+tahun
+        km_7smp_ips = '428'+toBersama+'S1'+tahun
         km_7smp = [km_7smp_mat, km_7smp_ind,
                    km_7smp_eng, km_7smp_ipa, km_7smp_ips]
         column_order_km_7smp = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_7SMP', 'IND_7SMP',
@@ -173,7 +174,7 @@ if authentication_status:
         km_8smp_ind = 'I2p1O'+toUmum_tahun+'KM'
         km_8smp_eng = 'E2p1O'+toUmum_tahun+'KM'
         km_8smp_ipa = 'B2p1O'+toUmum_tahun+'KM'
-        km_8smp_ips = '5281S1'+tahun
+        km_8smp_ips = '528'+toBersama+'S1'+tahun
         km_8smp = [km_8smp_mat, km_8smp_ind,
                    km_8smp_eng, km_8smp_ipa, km_8smp_ips]
         column_order_km_8smp = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_8SMP', 'IND_8SMP',
