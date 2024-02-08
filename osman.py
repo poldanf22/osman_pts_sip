@@ -48,6 +48,7 @@ if authentication_status:
     toUmum_tahun = "0123-24"
     toUnik_tahun = "0323-24"
     toBersama ="1"
+    semester ="2"
     tahun = "23-24"
     st.write(toUmum_tahun)
     if selected_file == "Pivot PTS":
@@ -108,11 +109,13 @@ if authentication_status:
                                  'ENG_8SMP', 'IPA_8SMP', 'IPS_8SMP']
 
         # 9smp k13
-        k13_9smp_mat = 'M3p1O'+toUmum_tahun+'K13'
-        k13_9smp_ind = 'I3p1O'+toUmum_tahun+'K13'
-        k13_9smp_eng = 'E3p1O'+toUmum_tahun+'K13'
-        k13_9smp_ipa = '616'+toBersama+'A1'+tahun
-        k13_9smp_ips = 'G3p1O'+toUmum_tahun+'K13'
+        k13_9smp_mat = 'M3p'+semester+'O'+toUmum_tahun+'K13'
+        k13_9smp_ind = 'I3p'+semester+'O'+toUmum_tahun+'K13'
+        k13_9smp_eng = 'E3p'+semester+'O'+toUmum_tahun+'K13'
+        # '616'+toBersama+'A'+semester+tahun -> semester 1
+        k13_9smp_ipa = '614'+toBersama+'A'+semester+tahun
+        # 'G3p'+semester+'O'+toUmum_tahun+'K13' -> semester 1
+        k13_9smp_ips = 'O3p'+semester+'O'+toUmum_tahun+'K13'
         k13_9smp = [k13_9smp_mat, k13_9smp_ind,
                     k13_9smp_eng, k13_9smp_ipa, k13_9smp_ips]
         column_order_k13_9smp = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_9SMP', 'IND_9SMP',
@@ -186,6 +189,17 @@ if authentication_status:
                    km_8smp_eng, km_8smp_ipa, km_8smp_ips]
         column_order_km_8smp_sb = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_SB_8SMP', 'IND_8SMP',
                                 'ENG_8SMP', 'IPA_8SMP', 'IPS_8SMP']
+
+        # 9smp km
+        km_9smp_mat = 'M3p'+semester+'O'+toUmum_tahun+'KM'
+        km_9smp_ind = 'I3p'+semester+'O'+toUmum_tahun+'KM'
+        km_9smp_eng = 'E3p'+semester+'O'+toUmum_tahun+'KM'
+        km_9smp_ipa = '628'+toBersama+'A'+semester+tahun
+        km_9smp_ips = '628'+toBersama+'S'+semester+tahun
+        km_9smp = [km_9smp_mat, km_9smp_ind,
+                    km_9smp_eng, km_9smp_ipa, km_9smp_ips]
+        column_order_km_9smp = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_9SMP', 'IND_9SMP',
+                                 'ENG_9SMP', 'IPA_9SMP', 'IPS_9SMP']
 
         image = Image.open('logo resmi nf resize.png')
         st.image(image)
@@ -281,6 +295,9 @@ if authentication_status:
             elif KELAS == "8 SMP SB" and KURIKULUM == "KM":
                 kode_kls_kur = km_8smp_sb
                 column_order = column_order_km_8smp_sb
+            elif KELAS == "9 SMP" and KURIKULUM == "KM":
+                kode_kls_kur = km_9smp
+                column_order = column_order_km_9smp
             # ppls
             elif KELAS == "PPLS IPA" and KURIKULUM == "PPLS":
                 kode_kls_kur = ppls_ipa
@@ -306,11 +323,12 @@ if authentication_status:
                          'M6d1O'+toUmum_tahun+'K13': 'MAT_6SD', 'I6d1O'+toUmum_tahun+'K13': 'IND_6SD', 'E6d1O'+toUmum_tahun+'K13': 'ENG_6SD', 'A6d1O'+toUmum_tahun+'K13': 'IPA_6SD', 'Z6d1O'+toUmum_tahun+'K13': 'IPS_6SD',
                          'M1p1O'+toUmum_tahun+'K13': 'MAT_7SMP', 'I1p1O'+toUmum_tahun+'K13': 'IND_7SMP', 'E1p1O'+toUmum_tahun+'K13': 'ENG_7SMP', '4161A1'+tahun: 'IPA_7SMP', 'G1p1O'+toUmum_tahun+'K13': 'IPS_7SMP',
                          'M2p1O'+toUmum_tahun+'K13': 'MAT_8SMP', 'I2p1O'+toUmum_tahun+'K13': 'IND_8SMP', 'E2p1O'+toUmum_tahun+'K13': 'ENG_8SMP', '5161A1'+tahun: 'IPA_8SMP', 'G2p1O'+toUmum_tahun+'K13': 'IPS_8SMP',
-                         'M3p1O'+toUmum_tahun+'K13': 'MAT_9SMP', 'I3p1O'+toUmum_tahun+'K13': 'IND_9SMP', 'E3p1O'+toUmum_tahun+'K13': 'ENG_9SMP', '6161A1'+tahun: 'IPA_9SMP', 'G3p1O'+toUmum_tahun+'K13': 'IPS_9SMP',
+                         'M3p'+semester+'O'+toUmum_tahun+'K13': 'MAT_9SMP', 'I3p'+semester+'O'+toUmum_tahun+'K13': 'IND_9SMP', 'E3p'+semester+'O'+toUmum_tahun+'K13': 'ENG_9SMP', '614'+toBersama+'A'+semester+tahun: 'IPA_9SMP', 'O3p'+semester+'O'+toUmum_tahun+'K13': 'IPS_9SMP',
                          'M4d1O'+toUmum_tahun+'KM': 'MAT_4SD', 'I4d1O'+toUmum_tahun+'KM': 'IND_4SD', 'E4d1O'+toUmum_tahun+'KM': 'ENG_4SD', '1281D1'+tahun: 'IPAS_4SD',
                          'M5d1O'+toUmum_tahun+'KM': 'MAT_5SD', 'I5d1O'+toUmum_tahun+'KM': 'IND_5SD', 'E5d1O'+toUmum_tahun+'KM': 'ENG_5SD', '2281D1'+tahun: 'IPAS_5SD',
                          'M1p1O'+toUmum_tahun+'KM': 'MAT_7SMP', 'I1p1O'+toUmum_tahun+'KM': 'IND_7SMP', 'E1p1O'+toUmum_tahun+'KM': 'ENG_7SMP', '4281A1'+tahun: 'IPA_7SMP', '4281S1'+tahun: 'IPS_7SMP',
                          'M2p1O'+toUmum_tahun+'KM': 'MAT_8SMP', 'I2p1O'+toUmum_tahun+'KM': 'IND_8SMP', 'E2p1O'+toUmum_tahun+'KM': 'ENG_8SMP', 'B2p1O'+toUmum_tahun+'KM': 'IPA_8SMP', '5281S1'+tahun: 'IPS_8SMP', 'M2p1O'+toUnik_tahun+'KM': 'MAT_SB_8SMP',
+                         'M3p'+semester+'O'+toUmum_tahun+'KM': 'MAT_9SMP', 'I3p'+semester+'O'+toUmum_tahun+'KM': 'IND_9SMP', 'E3p'+semester+'O'+toUmum_tahun+'KM': 'ENG_9SMP', '628'+toBersama+'A'+semester+tahun: 'IPA_9SMP', '628'+toBersama+'S'+semester+tahun: 'IPS_9SMP',
                          'M9a1O'+toUmum_tahun+'PPLS': 'MAT_PPLS_IPA', 'F9a1O'+toUmum_tahun+'PPLS': 'FIS_PPLS_IPA', 'K9a1O'+toUmum_tahun+'PPLS': 'KIM_PPLS_IPA', 'B9a1O'+toUmum_tahun+'PPLS': 'BIO_PPLS_IPA',
                          'G9s1O'+toUmum_tahun+'PPLS': 'GEO_PPLS_IPS', 'O9s1O'+toUmum_tahun+'PPLS': 'EKO_PPLS_IPS', 'S9s1O'+toUmum_tahun+'PPLS': 'SEJ_PPLS_IPS', 'L9s1O'+toUmum_tahun+'PPLS': 'SOS_PPLS_IPS'})
 
