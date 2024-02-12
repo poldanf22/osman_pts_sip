@@ -308,7 +308,7 @@ if authentication_status:
 
             result_filtered = result[result['kode_paket'].isin(kode_kls_kur)]
             result_filtered.drop_duplicates(
-                subset=['name', 'kode_paket'], keep='first', inplace=True)
+                subset=['no_nf', 'kode_paket'], keep='first', inplace=True)
 
             # Menggunakan pivot_table untuk menjadikan konten kolom 'kode_paket' sebagai header dan menghilangkan duplikat
             result_pivot = pd.pivot_table(result_filtered, index=[
