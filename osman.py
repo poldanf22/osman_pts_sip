@@ -253,7 +253,6 @@ if authentication_status:
                                     'ENG_9SMP', 'IPA_9SMP', 'IPS_9SMP']
 
 
-
         col8 = st.container()
         with col8:
             SEMESTER = st.selectbox(
