@@ -229,10 +229,10 @@ if authentication_status:
             with col7:
                 k13_9smp_ips = st.text_input("Kode Paket IPS",
                                 placeholder="O3p2O0123-24K13")
-        k13_9smp = [k13_9smp_mat, k13_9smp_ind,
-                    k13_9smp_eng, k13_9smp_ipa, k13_9smp_ips]
-        column_order_k13_9smp = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_9SMP', 'IND_9SMP',
-                                 'ENG_9SMP', 'IPA_9SMP', 'IPS_9SMP']
+            k13_9smp = [k13_9smp_mat, k13_9smp_ind,
+                        k13_9smp_eng, k13_9smp_ipa, k13_9smp_ips]
+            column_order_k13_9smp = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_9SMP', 'IND_9SMP',
+                                    'ENG_9SMP', 'IPA_9SMP', 'IPS_9SMP']
 
         # Kode Paket 9 SMP KM
         if KURIKULUM == 'KM' and KELAS == '9 SMP':
@@ -258,10 +258,10 @@ if authentication_status:
             with col7:
                 km_9smp_ips = st.text_input("Kode Paket IPS",
                                 placeholder="O3p2O0123-24KM")
-        km_9smp = [km_9smp_mat, km_9smp_ind,
-                    km_9smp_eng, km_9smp_ipa, km_9smp_ips]
-        column_order_km_9smp = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_9SMP', 'IND_9SMP',
-                                 'ENG_9SMP', 'IPA_9SMP', 'IPS_9SMP']
+            km_9smp = [km_9smp_mat, km_9smp_ind,
+                        km_9smp_eng, km_9smp_ipa, km_9smp_ips]
+            column_order_km_9smp = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_9SMP', 'IND_9SMP',
+                                    'ENG_9SMP', 'IPA_9SMP', 'IPS_9SMP']
 
 
 
