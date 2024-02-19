@@ -49,16 +49,6 @@ if authentication_status:
     st.write(toUmum_tahun)
     if selected_file == "Pivot PTS":
         # kurikulum - kelas - mapel
-        # 5sd k13
-        k13_5sd_mat = 'M5d1O'+toUmum_tahun+'K13'
-        k13_5sd_ind = 'I5d1O'+toUmum_tahun+'K13'
-        k13_5sd_eng = 'E5d1O'+toUmum_tahun+'K13'
-        k13_5sd_ipa = 'A5d1O'+toUmum_tahun+'K13'
-        k13_5sd_ips = 'Z5d1O'+toUmum_tahun+'K13'
-        k13_5sd = [k13_5sd_mat, k13_5sd_ind,
-                   k13_5sd_eng, k13_5sd_ipa, k13_5sd_ips]
-        column_order_k13_5sd = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_5SD', 'IND_5SD',
-                                'ENG_5SD', 'IPA_5SD', 'IPS_5SD']
 
         # 6sd k13
         k13_6sd_mat = 'M6d1O'+toUmum_tahun+'K13'
@@ -112,16 +102,6 @@ if authentication_status:
                     ppls_ips_sej, ppls_ips_sos]
         column_order_ppls_ips = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'GEO_PPLS_IPS',
                                  'EKO_PPLS_IPS', 'SEJ_PPLS_IPS', 'SOS_PPLS_IPS',]
-
-        # 5sd km
-        km_5sd_mat = 'M5d1O'+toUmum_tahun+'KM'
-        km_5sd_ind = 'I5d1O'+toUmum_tahun+'KM'
-        km_5sd_eng = 'E5d1O'+toUmum_tahun+'KM'
-        km_5sd_ipas = '228'+toBersama+'D1'+tahun
-        km_5sd = [km_5sd_mat, km_5sd_ind,
-                  km_5sd_eng, km_5sd_ipas]
-        column_order_km_5sd = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_5SD', 'IND_5SD',
-                               'ENG_5SD', 'IPAS_5SD']
 
         # 7smp km
         km_7smp_mat = 'M1p1O'+toUmum_tahun+'KM'
@@ -220,19 +200,19 @@ if authentication_status:
             col3, col4, col5, col6, col7 = st.columns(5)
             with col3:
                 k13_5sd_mat = st.text_input("Kode Paket MTK",
-                                placeholder="M4d2O0123-24K13")
+                                placeholder="M5d2O0123-24K13")
             with col4:
                 k13_5sd_ind = st.text_input("Kode Paket B.IND",
-                                placeholder="I4d2O0123-24K13")
+                                placeholder="I5d2O0123-24K13")
             with col5:
                 k13_5sd_eng = st.text_input("Kode Paket B.ING",
-                                placeholder="E4d2O0123-24K13")
+                                placeholder="E5d2O0123-24K13")
             with col6:
                 k13_5sd_ipa = st.text_input("Kode Paket IPA",
-                                placeholder="A4d2O0123-24K13")
+                                placeholder="A5d2O0123-24K13")
             with col7:
                 k13_5sd_ips = st.text_input("Kode Paket IPS",
-                                placeholder="Z4d2O0123-24K13")
+                                placeholder="Z5d2O0123-24K13")
             k13_5sd = [k13_5sd_mat, k13_5sd_ind,
                    k13_5sd_eng, k13_5sd_ipa, k13_5sd_ips]
             column_order_k13_5sd = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_5SD', 'IND_5SD',
@@ -244,20 +224,44 @@ if authentication_status:
             col3, col4, col5, col6 = st.columns(4)
             with col3:
                 km_5sd_mat = st.text_input("Kode Paket MTK",
-                                placeholder="M4d2O0123-24KM")
+                                placeholder="M5d2O0123-24KM")
             with col4:
                 km_5sd_ind = st.text_input("Kode Paket B.IND",
-                                placeholder="I4d2O0123-24KM")
+                                placeholder="I5d2O0123-24KM")
             with col5:
                 km_5sd_eng = st.text_input("Kode Paket B.ING",
-                                placeholder="E4d2O0123-24KM")
+                                placeholder="E5d2O0123-24KM")
             with col6:
                 km_5sd_ipas = st.text_input("Kode Paket IPAS",
-                                placeholder="Z4d2O0123-24KM")
+                                placeholder="2241D223-24")
             km_5sd = [km_5sd_mat, km_5sd_ind,
                   km_5sd_eng, km_5sd_ipas]
             column_order_km_5sd = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_5SD', 'IND_5SD',
                                 'ENG_5SD', 'IPAS_5SD']
+
+        # Kode Paket 6 SD K13
+        if KURIKULUM == 'K13' and KELAS == '6 SD':
+            st.subheader("Input Kode Paket Kelas 6 SD K13")
+            col3, col4, col5, col6, col7 = st.columns(5)
+            with col3:
+                k13_6sd_mat = st.text_input("Kode Paket MTK",
+                                placeholder="M6d2O0123-24K13")
+            with col4:
+                k13_6sd_ind = st.text_input("Kode Paket B.IND",
+                                placeholder="I6d2O0123-24K13")
+            with col5:
+                k13_6sd_eng = st.text_input("Kode Paket B.ING",
+                                placeholder="E6d2O0123-24K13")
+            with col6:
+                k13_6sd_ipa = st.text_input("Kode Paket IPA",
+                                placeholder="A6d2O0123-24K13")
+            with col7:
+                k13_6sd_ips = st.text_input("Kode Paket IPS",
+                                placeholder="Z6d2O0123-24K13")
+            k13_6sd = [k13_6sd_mat, k13_6sd_ind,
+                   k13_6sd_eng, k13_6sd_ipa, k13_6sd_ips]
+            column_order_k13_6sd = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_6SD', 'IND_6SD',
+                                    'ENG_6SD', 'IPA_6SD', 'IPS_6SD']
 
         # Kode Paket 9 SMP K13
         if KURIKULUM == 'K13' and KELAS == '9 SMP':
