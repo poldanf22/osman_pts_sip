@@ -487,22 +487,22 @@ if authentication_status:
                 'name', 'no_nf', 'lokasi_id', 'sekolah', 'kelas_id', 'tahun_ajaran'], columns='kode_paket', values='jumlah_benar', aggfunc='first')
             result_pivot.reset_index(inplace=True)  # Mengatur ulang indeks
 
-                # Ubah nama kolom
-                result_pivot = result_pivot.rename(
-                    columns={'name': 'NAMA', 'no_nf': 'NONF', 'lokasi_id': 'KD_LOK', 'sekolah': 'NAMA_SKLH', 'kelas_id': 'KELAS', 'tahun_ajaran': 'IDTAHUN',
-                            k13_4sd_mat: 'MAT_4SD', k13_4sd_ind: 'IND_4SD', k13_4sd_eng: 'ENG_4SD', k13_4sd_ipa: 'IPA_4SD', k13_4sd_ips: 'IPS_4SD',
-                            k13_5sd_mat: 'MAT_5SD', k13_5sd_ind: 'IND_5SD', k13_5sd_eng: 'ENG_5SD', k13_5sd_ipa: 'IPA_5SD', k13_5sd_ips: 'IPS_5SD',
-                            k13_6sd_mat: 'MAT_6SD', k13_6sd_ind: 'IND_6SD', k13_6sd_eng: 'ENG_6SD', k13_6sd_ipa: 'IPA_6SD', k13_6sd_ips: 'IPS_6SD',
-                            k13_7smp_mat: 'MAT_7SMP', k13_7smp_ind: 'IND_7SMP', k13_7smp_eng: 'ENG_7SMP', k13_7smp_ipa: 'IPA_7SMP', k13_7smp_ips: 'IPS_7SMP',
-                            k13_8smp_mat: 'MAT_8SMP', k13_8smp_ind: 'IND_8SMP', k13_8smp_eng: 'ENG_8SMP', k13_8smp_ipa: 'IPA_8SMP', k13_8smp_ips: 'IPS_8SMP',
-                            k13_9smp_mat: 'MAT_9SMP', k13_9smp_ind: 'IND_9SMP', k13_9smp_eng: 'ENG_9SMP', k13_9smp_ipa: 'IPA_9SMP', k13_9smp_ips: 'IPS_9SMP',
-                            km_4sd_mat: 'MAT_4SD', km_4sd_ind: 'IND_4SD', km_4sd_eng: 'ENG_4SD', km_4sd_ipas: 'IPAS_4SD',
-                            km_5sd_mat: 'MAT_5SD', km_5sd_ind: 'IND_5SD', km_5sd_eng: 'ENG_5SD', km_5sd_ipas: 'IPAS_5SD',
-                            km_7smp_mat: 'MAT_7SMP', km_7smp_ind: 'IND_7SMP', km_7smp_eng: 'ENG_7SMP', km_7smp_ipa: 'IPA_7SMP', km_7smp_ips: 'IPS_7SMP',
-                            km_8smp_mat: 'MAT_8SMP', km_8smp_ind: 'IND_8SMP', km_8smp_eng: 'ENG_8SMP', km_8smp_ipa: 'IPA_8SMP', km_8smp_ips: 'IPS_8SMP', km_8smp_mat_sb: 'MAT_SB_8SMP',
-                            km_9smp_mat: 'MAT_9SMP', km_9smp_ind: 'IND_9SMP', km_9smp_eng: 'ENG_9SMP', km_9smp_ipa: 'IPA_9SMP', km_9smp_ips: 'IPS_9SMP',
-                            ppls_ipa_mat: 'MAT_PPLS_IPA', ppls_ipa_fis: 'FIS_PPLS_IPA', ppls_ipa_kim: 'KIM_PPLS_IPA', ppls_ipa_bio: 'BIO_PPLS_IPA',
-                            ppls_ips_geo: 'GEO_PPLS_IPS', ppls_ips_eko: 'EKO_PPLS_IPS', ppls_ips_sej: 'SEJ_PPLS_IPS', ppls_ips_sos: 'SOS_PPLS_IPS'})
+            # Ubah nama kolom
+            result_pivot = result_pivot.rename(
+                columns={'name': 'NAMA', 'no_nf': 'NONF', 'lokasi_id': 'KD_LOK', 'sekolah': 'NAMA_SKLH', 'kelas_id': 'KELAS', 'tahun_ajaran': 'IDTAHUN',
+                         k13_4sd_mat: 'MAT_4SD', k13_4sd_ind: 'IND_4SD', k13_4sd_eng: 'ENG_4SD', k13_4sd_ipa: 'IPA_4SD', k13_4sd_ips: 'IPS_4SD',
+                         k13_5sd_mat: 'MAT_5SD', k13_5sd_ind: 'IND_5SD', k13_5sd_eng: 'ENG_5SD', k13_5sd_ipa: 'IPA_5SD', k13_5sd_ips: 'IPS_5SD',
+                         k13_6sd_mat: 'MAT_6SD', k13_6sd_ind: 'IND_6SD', k13_6sd_eng: 'ENG_6SD', k13_6sd_ipa: 'IPA_6SD', k13_6sd_ips: 'IPS_6SD',
+                         k13_7smp_mat: 'MAT_7SMP', k13_7smp_ind: 'IND_7SMP', k13_7smp_eng: 'ENG_7SMP', k13_7smp_ipa: 'IPA_7SMP', k13_7smp_ips: 'IPS_7SMP',
+                         k13_8smp_mat: 'MAT_8SMP', k13_8smp_ind: 'IND_8SMP', k13_8smp_eng: 'ENG_8SMP', k13_8smp_ipa: 'IPA_8SMP', k13_8smp_ips: 'IPS_8SMP',
+                         k13_9smp_mat: 'MAT_9SMP', k13_9smp_ind: 'IND_9SMP', k13_9smp_eng: 'ENG_9SMP', k13_9smp_ipa: 'IPA_9SMP', k13_9smp_ips: 'IPS_9SMP',
+                         km_4sd_mat: 'MAT_4SD', km_4sd_ind: 'IND_4SD', km_4sd_eng: 'ENG_4SD', km_4sd_ipas: 'IPAS_4SD',
+                         km_5sd_mat: 'MAT_5SD', km_5sd_ind: 'IND_5SD', km_5sd_eng: 'ENG_5SD', km_5sd_ipas: 'IPAS_5SD',
+                         km_7smp_mat: 'MAT_7SMP', km_7smp_ind: 'IND_7SMP', km_7smp_eng: 'ENG_7SMP', km_7smp_ipa: 'IPA_7SMP', km_7smp_ips: 'IPS_7SMP',
+                         km_8smp_mat: 'MAT_8SMP', km_8smp_ind: 'IND_8SMP', km_8smp_eng: 'ENG_8SMP', km_8smp_ipa: 'IPA_8SMP', km_8smp_ips: 'IPS_8SMP', km_8smp_mat_sb: 'MAT_SB_8SMP',
+                         km_9smp_mat: 'MAT_9SMP', km_9smp_ind: 'IND_9SMP', km_9smp_eng: 'ENG_9SMP', km_9smp_ipa: 'IPA_9SMP', km_9smp_ips: 'IPS_9SMP',
+                         ppls_ipa_mat: 'MAT_PPLS_IPA', ppls_ipa_fis: 'FIS_PPLS_IPA', ppls_ipa_kim: 'KIM_PPLS_IPA', ppls_ipa_bio: 'BIO_PPLS_IPA',
+                         ppls_ips_geo: 'GEO_PPLS_IPS', ppls_ips_eko: 'EKO_PPLS_IPS', ppls_ips_sej: 'SEJ_PPLS_IPS', ppls_ips_sos: 'SOS_PPLS_IPS'})
 
             result_pivot = result_pivot.reindex(columns=column_order)
 
