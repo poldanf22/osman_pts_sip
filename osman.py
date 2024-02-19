@@ -194,27 +194,67 @@ if authentication_status:
                 "KELAS",
                 ("--Pilih Kelas--", "4 SD", "5 SD", "6 SD", "7 SMP", "8 SMP", "8 SMP SB", "9 SMP", "PPLS IPA", "PPLS IPS"))
 
+        # Kode Paket 4 SD K13
+        if KURIKULUM == 'K13' and KELAS == '4 SD':
+            st.subheader("Input Kode Paket Kelas 4 SD K13")
+            col3, col4, col5, col6, col7 = st.columns(5)
+            with col3:
+                k13_4sd_mat = st.text_input("Kode Paket MTK",
+                                placeholder="M4d2O0123-24K13")
+            with col4:
+                k13_4sd_ind = st.text_input("Kode Paket B.IND",
+                                placeholder="I4d2O0123-24K13")
+            with col5:
+                k13_4sd_eng = st.text_input("Kode Paket B.ING",
+                                placeholder="E4d2O0123-24K13")
+            with col6:
+                k13_4sd_ipa = st.text_input("Kode Paket IPA",
+                                placeholder="A4d2O0123-24K13")
+            with col7:
+                k13_4sd_ips = st.text_input("Kode Paket IPS",
+                                placeholder="Z4d2O0123-24K13")
+            k13_4sd = [k13_4sd_mat, k13_4sd_ind,
+                   k13_4sd_eng, k13_4sd_ipa, k13_4sd_ips]
+            column_order_k13_4sd = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_4SD', 'IND_4SD',
+                                    'ENG_4SD', 'IPA_4SD', 'IPS_4SD']
+
+        # Kode Paket 4 SD KM
+        if KURIKULUM == 'KM' and KELAS == '4 SD':
+            st.subheader("Input Kode Paket Kelas 4 SD KM")
+            col3, col4, col5, col6 = st.columns(4)
+            with col3:
+                km_4sd_mat = st.text_input("Kode Paket MTK",
+                                placeholder="M4d2O0123-24KM")
+            with col4:
+                km_4sd_ind = st.text_input("Kode Paket B.IND",
+                                placeholder="I4d2O0123-24KM")
+            with col5:
+                km_4sd_eng = st.text_input("Kode Paket B.ING",
+                                placeholder="E4d2O0123-24KM")
+            with col6:
+                km_4sd_ipas = st.text_input("Kode Paket IPAS",
+                                placeholder="Z4d2O0123-24KM")
+            km_4sd = [km_4sd_mat, km_4sd_ind,
+                  km_4sd_eng, km_4sd_ipas]
+            column_order_km_4sd = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_4SD', 'IND_4SD',
+                                'ENG_4SD', 'IPAS_4SD']
+
         # Kode Paket 9 SMP K13
         if KURIKULUM == 'K13' and KELAS == '9 SMP':
-            st.subheader("Input Kode Paket Kelas 9 K13")
+            st.subheader("Input Kode Paket Kelas 9 SMP K13")
             col3, col4, col5, col6, col7 = st.columns(5)
-
             with col3:
                 k13_9smp_mat = st.text_input("Kode Paket MTK",
                                 placeholder="M3p2O0123-24K13")
-
             with col4:
                 k13_9smp_ind = st.text_input("Kode Paket B.IND",
                                 placeholder="I3p2O0123-24K13")
-
             with col5:
                 k13_9smp_eng = st.text_input("Kode Paket B.ING",
                                 placeholder="E3p2O0123-24K13")
-
             with col6:
                 k13_9smp_ipa = st.text_input("Kode Paket IPA",
                                 placeholder="6141A223-24")
-
             with col7:
                 k13_9smp_ips = st.text_input("Kode Paket IPS",
                                 placeholder="O3p2O0123-24K13")
@@ -225,25 +265,20 @@ if authentication_status:
 
         # Kode Paket 9 SMP KM
         if KURIKULUM == 'KM' and KELAS == '9 SMP':
-            st.subheader("Input Kode Paket Kelas 9 KM")
+            st.subheader("Input Kode Paket Kelas 9 SMP KM")
             col3, col4, col5, col6, col7 = st.columns(5)
-
             with col3:
                 km_9smp_mat = st.text_input("Kode Paket MTK",
                                 placeholder="M3p2O0123-24KM")
-
             with col4:
                 km_9smp_ind = st.text_input("Kode Paket B.IND",
                                 placeholder="I3p2O0123-24KM")
-
             with col5:
                 km_9smp_eng = st.text_input("Kode Paket B.ING",
                                 placeholder="E3p2O0123-24KM")
-
             with col6:
                 km_9smp_ipa = st.text_input("Kode Paket IPA",
                                 placeholder="6141A223-24")
-
             with col7:
                 km_9smp_ips = st.text_input("Kode Paket IPS",
                                 placeholder="O3p2O0123-24KM")
@@ -251,7 +286,6 @@ if authentication_status:
                         km_9smp_eng, km_9smp_ipa, km_9smp_ips]
             column_order_km_9smp = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_9SMP', 'IND_9SMP',
                                     'ENG_9SMP', 'IPA_9SMP', 'IPS_9SMP']
-
 
         col8 = st.container()
         with col8:
