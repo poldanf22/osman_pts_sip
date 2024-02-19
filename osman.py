@@ -46,7 +46,7 @@ if authentication_status:
                      "Nilai Std. PPLS IPS"],
         )
    
-    st.write(toUmum_tahun)
+    # st.write(toUmum_tahun)
     if selected_file == "Pivot PTS":
     
         image = Image.open('logo resmi nf resize.png')
