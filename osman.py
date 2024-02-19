@@ -219,8 +219,8 @@ if authentication_status:
                 ("--Pilih Kelas--", "4 SD", "5 SD", "6 SD", "7 SMP", "8 SMP", "8 SMP SB", "9 SMP", "PPLS IPA", "PPLS IPS"))
 
         # Periksa apakah KURIKULUM dan KELAS sesuai dengan kondisi
-        st.subtitle("Input Kode Paket Kelas 9 K13")
         if KURIKULUM == 'K13' and KELAS == '9 SMP':
+            st.subheader("Input Kode Paket Kelas 9 K13")
             col3, col4, col5, col6, col7 = st.columns(5)
 
             with col3:
