@@ -218,14 +218,37 @@ if authentication_status:
                 "KELAS",
                 ("--Pilih Kelas--", "4 SD", "5 SD", "6 SD", "7 SMP", "8 SMP", "8 SMP SB", "9 SMP", "PPLS IPA", "PPLS IPS"))
 
-        col3 = st.container()
+        # kelas 9 SMP
+        col3, col4, col5, col6, col7 = st.columns(5)
+
         with col3:
+            KP9_MTK_K13 = st.text_input("Masukkan Kode Paket MTK",
+                              placeholder="M3p2O0123-24K13")
+
+        with col4:
+            KP9_IND_K13 = st.text_input("Masukkan Kode Paket B.IND",
+                              placeholder="I3p2O0123-24K13")
+
+        with col5:
+            KP9_ENG_K13 = st.text_input("Masukkan Kode Paket B.ING",
+                              placeholder="E3p2O0123-24K13")
+
+        with col6:
+            KP9_IPA_K13 = st.text_input("Masukkan Kode Paket IPA",
+                              placeholder="6141A223-24")
+
+        with col7:
+            KP9_IPS_K13 = st.text_input("Masukkan Kode Paket IPS",
+                              placeholder="O3p2O0123-24K13")
+        
+        col8 = st.container()
+        with col8:
             SEMESTER = st.selectbox(
                 "SEMESTER",
                 ("--Pilih Semester--", "SEMESTER 1", "SEMESTER 2"))
 
-        col4 = st.container()
-        with col4:
+        col9 = st.container()
+        with col9:
             PENILAIAN = st.selectbox(
                 "PENILAIAN",
                 ("--Pilih Penilaian--", "PENILAIAN TENGAH SEMESTER", "SUMATIF TENGAH SEMESTER"))
