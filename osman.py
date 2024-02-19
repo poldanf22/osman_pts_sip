@@ -116,7 +116,7 @@ if authentication_status:
                     ppls_ips_sej, ppls_ips_sos]
         column_order_ppls_ips = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'GEO_PPLS_IPS',
                                  'EKO_PPLS_IPS', 'SEJ_PPLS_IPS', 'SOS_PPLS_IPS',]
-                                 
+
         # 5sd km
         km_5sd_mat = 'M5d1O'+toUmum_tahun+'KM'
         km_5sd_ind = 'I5d1O'+toUmum_tahun+'KM'
@@ -366,7 +366,7 @@ if authentication_status:
             # Ubah nama kolom
             result_pivot = result_pivot.rename(
                 columns={'name': 'NAMA', 'no_nf': 'NONF', 'lokasi_id': 'KD_LOK', 'sekolah': 'NAMA_SKLH', 'kelas_id': 'KELAS', 'tahun_ajaran': 'IDTAHUN',
-                         'M4d1O'+toUmum_tahun+'K13': 'MAT_4SD', 'I4d1O'+toUmum_tahun+'K13': 'IND_4SD', 'E4d1O'+toUmum_tahun+'K13': 'ENG_4SD', 'A4d1O'+toUmum_tahun+'K13': 'IPA_4SD', 'Z4d1O'+toUmum_tahun+'K13': 'IPS_4SD',
+                         k13_4sd_mat: 'MAT_4SD', k13_4sd_ind: 'IND_4SD', k13_4sd_eng: 'ENG_4SD', k13_4sd_ipa: 'IPA_4SD', k13_4sd_ips: 'IPS_4SD',
                          'M5d1O'+toUmum_tahun+'K13': 'MAT_5SD', 'I5d1O'+toUmum_tahun+'K13': 'IND_5SD', 'E5d1O'+toUmum_tahun+'K13': 'ENG_5SD', 'A5d1O'+toUmum_tahun+'K13': 'IPA_5SD', 'Z5d1O'+toUmum_tahun+'K13': 'IPS_5SD',
                          'M6d1O'+toUmum_tahun+'K13': 'MAT_6SD', 'I6d1O'+toUmum_tahun+'K13': 'IND_6SD', 'E6d1O'+toUmum_tahun+'K13': 'ENG_6SD', 'A6d1O'+toUmum_tahun+'K13': 'IPA_6SD', 'Z6d1O'+toUmum_tahun+'K13': 'IPS_6SD',
                          'M1p1O'+toUmum_tahun+'K13': 'MAT_7SMP', 'I1p1O'+toUmum_tahun+'K13': 'IND_7SMP', 'E1p1O'+toUmum_tahun+'K13': 'ENG_7SMP', '4161A1'+tahun: 'IPA_7SMP', 'G1p1O'+toUmum_tahun+'K13': 'IPS_7SMP',
