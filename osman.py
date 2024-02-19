@@ -91,7 +91,7 @@ if authentication_status:
                                     'ENG_4SD', 'IPA_4SD', 'IPS_4SD']
 
         # Kode Paket 4 SD KM
-        if KURIKULUM == 'KM' and KELAS == '4 SD':
+        elif KURIKULUM == 'KM' and KELAS == '4 SD':
             st.subheader("Input Kode Paket Kelas 4 SD KM")
             col3, col4, col5, col6 = st.columns(4)
             with col3:
@@ -112,7 +112,7 @@ if authentication_status:
                                 'ENG_4SD', 'IPAS_4SD']
         
         # Kode Paket 5 SD K13
-        if KURIKULUM == 'K13' and KELAS == '5 SD':
+        elif KURIKULUM == 'K13' and KELAS == '5 SD':
             st.subheader("Input Kode Paket Kelas 5 SD K13")
             col3, col4, col5, col6, col7 = st.columns(5)
             with col3:
@@ -136,7 +136,7 @@ if authentication_status:
                                     'ENG_5SD', 'IPA_5SD', 'IPS_5SD']
 
         # Kode Paket 5 SD KM
-        if KURIKULUM == 'KM' and KELAS == '5 SD':
+        elif KURIKULUM == 'KM' and KELAS == '5 SD':
             st.subheader("Input Kode Paket Kelas 5 SD KM")
             col3, col4, col5, col6 = st.columns(4)
             with col3:
@@ -157,7 +157,7 @@ if authentication_status:
                                 'ENG_5SD', 'IPAS_5SD']
 
         # Kode Paket 6 SD K13
-        if KURIKULUM == 'K13' and KELAS == '6 SD':
+        elif KURIKULUM == 'K13' and KELAS == '6 SD':
             st.subheader("Input Kode Paket Kelas 6 SD K13")
             col3, col4, col5, col6, col7 = st.columns(5)
             with col3:
@@ -181,7 +181,7 @@ if authentication_status:
                                     'ENG_6SD', 'IPA_6SD', 'IPS_6SD']
 
         # Kode Paket 7 SMP K13
-        if KURIKULUM == 'K13' and KELAS == '7 SMP':
+        elif KURIKULUM == 'K13' and KELAS == '7 SMP':
             st.subheader("Input Kode Paket Kelas 7 SMP K13")
             col3, col4, col5, col6, col7 = st.columns(5)
             with col3:
@@ -205,7 +205,7 @@ if authentication_status:
                                     'ENG_7SMP', 'IPA_7SMP', 'IPS_7SMP']
         
         # Kode Paket 7 SMP KM
-        if KURIKULUM == 'KM' and KELAS == '7 SMP':
+        elif KURIKULUM == 'KM' and KELAS == '7 SMP':
             st.subheader("Input Kode Paket Kelas 7 SMP KM")
             col3, col4, col5, col6, col7 = st.columns(5)
             with col3:
@@ -229,7 +229,7 @@ if authentication_status:
                                     'ENG_7SMP', 'IPA_7SMP', 'IPS_7SMP']
 
         # Kode Paket 8 SMP K13
-        if KURIKULUM == 'K13' and KELAS == '8 SMP':
+        elif KURIKULUM == 'K13' and KELAS == '8 SMP':
             st.subheader("Input Kode Paket Kelas 8 SMP K13")
             col3, col4, col5, col6, col7 = st.columns(5)
             with col3:
@@ -253,7 +253,7 @@ if authentication_status:
                                     'ENG_8SMP', 'IPA_8SMP', 'IPS_8SMP']
         
         # Kode Paket 8 SMP KM
-        if KURIKULUM == 'KM' and KELAS == '8 SMP':
+        elif KURIKULUM == 'KM' and KELAS == '8 SMP':
             st.subheader("Input Kode Paket Kelas 8 SMP KM")
             col3, col4, col5, col6, col7 = st.columns(5)
             with col3:
@@ -277,7 +277,7 @@ if authentication_status:
                                     'ENG_8SMP', 'IPA_8SMP', 'IPS_8SMP']
 
         # Kode Paket 8 SMP KM SB
-        if KURIKULUM == 'KM' and KELAS == '8 SMP SB':
+        elif KURIKULUM == 'KM' and KELAS == '8 SMP SB':
             st.subheader("Input Kode Paket Kelas 8 SMP KM SB")
             col3, col4, col5, col6, col7 = st.columns(5)
             with col3:
@@ -301,7 +301,7 @@ if authentication_status:
                                     'ENG_8SMP', 'IPA_8SMP', 'IPS_8SMP']
 
         # Kode Paket 9 SMP K13
-        if KURIKULUM == 'K13' and KELAS == '9 SMP':
+        elif KURIKULUM == 'K13' and KELAS == '9 SMP':
             st.subheader("Input Kode Paket Kelas 9 SMP K13")
             col3, col4, col5, col6, col7 = st.columns(5)
             with col3:
@@ -325,7 +325,7 @@ if authentication_status:
                                     'ENG_9SMP', 'IPA_9SMP', 'IPS_9SMP']
 
         # Kode Paket 9 SMP KM
-        if KURIKULUM == 'KM' and KELAS == '9 SMP':
+        elif KURIKULUM == 'KM' and KELAS == '9 SMP':
             st.subheader("Input Kode Paket Kelas 9 SMP KM")
             col3, col4, col5, col6, col7 = st.columns(5)
             with col3:
@@ -349,7 +349,7 @@ if authentication_status:
                                     'ENG_9SMP', 'IPA_9SMP', 'IPS_9SMP']
 
         # Kode Paket PPLS IPA
-        if KURIKULUM == 'PPLS' and KELAS == 'PPLS IPA':
+        elif KURIKULUM == 'PPLS' and KELAS == 'PPLS IPA':
             st.subheader("Input Kode Paket Kelas PPLS IPA")
             col3, col4, col5, col6 = st.columns(4)
             with col3:
@@ -370,7 +370,7 @@ if authentication_status:
                                     'FIS_PPLS_IPA', 'KIM_PPLS_IPA', 'BIO_PPLS_IPA',]
                             
         # Kode Paket PPLS IPS
-        if KURIKULUM == 'PPLS' and KELAS == 'PPLS IPS':
+        elif KURIKULUM == 'PPLS' and KELAS == 'PPLS IPS':
             st.subheader("Input Kode Paket Kelas PPLS IPS")
             col3, col4, col5, col6 = st.columns(4)
             with col3:
@@ -490,6 +490,7 @@ if authentication_status:
             # Ubah nama kolom
             result_pivot = result_pivot.rename(
                 columns={'name': 'NAMA', 'no_nf': 'NONF', 'lokasi_id': 'KD_LOK', 'sekolah': 'NAMA_SKLH', 'kelas_id': 'KELAS', 'tahun_ajaran': 'IDTAHUN',
+                         k13_4sd_mat: 'MAT_4SD', k13_4sd_ind: 'IND_4SD', k13_4sd_eng: 'ENG_4SD', k13_4sd_ipa: 'IPA_4SD', k13_4sd_ips: 'IPS_4SD',
                          k13_5sd_mat: 'MAT_5SD', k13_5sd_ind: 'IND_5SD', k13_5sd_eng: 'ENG_5SD', k13_5sd_ipa: 'IPA_5SD', k13_5sd_ips: 'IPS_5SD',
                          k13_6sd_mat: 'MAT_6SD', k13_6sd_ind: 'IND_6SD', k13_6sd_eng: 'ENG_6SD', k13_6sd_ipa: 'IPA_6SD', k13_6sd_ips: 'IPS_6SD',
                          k13_7smp_mat: 'MAT_7SMP', k13_7smp_ind: 'IND_7SMP', k13_7smp_eng: 'ENG_7SMP', k13_7smp_ipa: 'IPA_7SMP', k13_7smp_ips: 'IPS_7SMP',
