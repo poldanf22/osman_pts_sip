@@ -108,19 +108,6 @@ if authentication_status:
         column_order_k13_8smp = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_8SMP', 'IND_8SMP',
                                  'ENG_8SMP', 'IPA_8SMP', 'IPS_8SMP']
 
-        # 9smp k13
-        k13_9smp_mat = 'M3p'+semester+'O'+toUmum_tahun+'K13'
-        k13_9smp_ind = 'I3p'+semester+'O'+toUmum_tahun+'K13'
-        k13_9smp_eng = 'E3p'+semester+'O'+toUmum_tahun+'K13'
-        # '616'+toBersama+'A'+semester+tahun -> semester 1
-        k13_9smp_ipa = '614'+toBersama+'A'+semester+tahun
-        # 'G3p'+semester+'O'+toUmum_tahun+'K13' -> semester 1
-        k13_9smp_ips = 'O3p'+semester+'O'+toUmum_tahun+'K13'
-        k13_9smp = [k13_9smp_mat, k13_9smp_ind,
-                    k13_9smp_eng, k13_9smp_ipa, k13_9smp_ips]
-        column_order_k13_9smp = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_9SMP', 'IND_9SMP',
-                                 'ENG_9SMP', 'IPA_9SMP', 'IPS_9SMP']
-
         # PPLS IPA
         ppls_ipa_mat = 'M9a1O'+toUmum_tahun+'PPLS'
         ppls_ipa_fis = 'F9a1O'+toUmum_tahun+'PPLS'
@@ -218,31 +205,66 @@ if authentication_status:
                 "KELAS",
                 ("--Pilih Kelas--", "4 SD", "5 SD", "6 SD", "7 SMP", "8 SMP", "8 SMP SB", "9 SMP", "PPLS IPA", "PPLS IPS"))
 
-        # Periksa apakah KURIKULUM dan KELAS sesuai dengan kondisi
+        # Kode Paket 9 SMP K13
         if KURIKULUM == 'K13' and KELAS == '9 SMP':
             st.subheader("Input Kode Paket Kelas 9 K13")
             col3, col4, col5, col6, col7 = st.columns(5)
 
             with col3:
-                KP9_MTK_K13 = st.text_input("Kode Paket MTK",
+                k13_9smp_mat = st.text_input("Kode Paket MTK",
                                 placeholder="M3p2O0123-24K13")
 
             with col4:
-                KP9_IND_K13 = st.text_input("Kode Paket B.IND",
+                k13_9smp_ind = st.text_input("Kode Paket B.IND",
                                 placeholder="I3p2O0123-24K13")
 
             with col5:
-                KP9_ENG_K13 = st.text_input("Kode Paket B.ING",
+                k13_9smp_eng = st.text_input("Kode Paket B.ING",
                                 placeholder="E3p2O0123-24K13")
 
             with col6:
-                KP9_IPA_K13 = st.text_input("Kode Paket IPA",
+                k13_9smp_ipa = st.text_input("Kode Paket IPA",
                                 placeholder="6141A223-24")
 
             with col7:
-                KP9_IPS_K13 = st.text_input("Kode Paket IPS",
+                k13_9smp_ips = st.text_input("Kode Paket IPS",
                                 placeholder="O3p2O0123-24K13")
-        
+        k13_9smp = [k13_9smp_mat, k13_9smp_ind,
+                    k13_9smp_eng, k13_9smp_ipa, k13_9smp_ips]
+        column_order_k13_9smp = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_9SMP', 'IND_9SMP',
+                                 'ENG_9SMP', 'IPA_9SMP', 'IPS_9SMP']
+
+        # Kode Paket 9 SMP KM
+        if KURIKULUM == 'KM' and KELAS == '9 SMP':
+            st.subheader("Input Kode Paket Kelas 9 KM")
+            col3, col4, col5, col6, col7 = st.columns(5)
+
+            with col3:
+                km_9smp_mat = st.text_input("Kode Paket MTK",
+                                placeholder="M3p2O0123-24KM")
+
+            with col4:
+                km_9smp_ind = st.text_input("Kode Paket B.IND",
+                                placeholder="I3p2O0123-24KM")
+
+            with col5:
+                km_9smp_eng = st.text_input("Kode Paket B.ING",
+                                placeholder="E3p2O0123-24KM")
+
+            with col6:
+                km_9smp_ipa = st.text_input("Kode Paket IPA",
+                                placeholder="6141A223-24")
+
+            with col7:
+                km_9smp_ips = st.text_input("Kode Paket IPS",
+                                placeholder="O3p2O0123-24KM")
+        km_9smp = [km_9smp_mat, km_9smp_ind,
+                    km_9smp_eng, km_9smp_ipa, km_9smp_ips]
+        column_order_km_9smp = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_9SMP', 'IND_9SMP',
+                                 'ENG_9SMP', 'IPA_9SMP', 'IPS_9SMP']
+
+
+
         col8 = st.container()
         with col8:
             SEMESTER = st.selectbox(
