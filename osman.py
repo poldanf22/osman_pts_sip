@@ -48,90 +48,7 @@ if authentication_status:
    
     st.write(toUmum_tahun)
     if selected_file == "Pivot PTS":
-        # kurikulum - kelas - mapel
-
-        # 6sd k13
-        k13_6sd_mat = 'M6d1O'+toUmum_tahun+'K13'
-        k13_6sd_ind = 'I6d1O'+toUmum_tahun+'K13'
-        k13_6sd_eng = 'E6d1O'+toUmum_tahun+'K13'
-        k13_6sd_ipa = 'A6d1O'+toUmum_tahun+'K13'
-        k13_6sd_ips = 'Z6d1O'+toUmum_tahun+'K13'
-        k13_6sd = [k13_6sd_mat, k13_6sd_ind,
-                   k13_6sd_eng, k13_6sd_ipa, k13_6sd_ips]
-        column_order_k13_6sd = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_6SD', 'IND_6SD',
-                                'ENG_6SD', 'IPA_6SD', 'IPS_6SD']
-
-        # 7smp k13
-        k13_7smp_mat = 'M1p1O'+toUmum_tahun+'K13'
-        k13_7smp_ind = 'I1p1O'+toUmum_tahun+'K13'
-        k13_7smp_eng = 'E1p1O'+toUmum_tahun+'K13'
-        k13_7smp_ipa = '416'+toBersama+'A1'+tahun
-        k13_7smp_ips = 'G1p1O'+toUmum_tahun+'K13'
-        k13_7smp = [k13_7smp_mat, k13_7smp_ind,
-                    k13_7smp_eng, k13_7smp_ipa, k13_7smp_ips]
-        column_order_k13_7smp = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_7SMP', 'IND_7SMP',
-                                 'ENG_7SMP', 'IPA_7SMP', 'IPS_7SMP']
-
-        # 8smp k13
-        k13_8smp_mat = 'M2p1O'+toUmum_tahun+'K13'
-        k13_8smp_ind = 'I2p1O'+toUmum_tahun+'K13'
-        k13_8smp_eng = 'E2p1O'+toUmum_tahun+'K13'
-        k13_8smp_ipa = '516'+toBersama+'A1'+tahun
-        k13_8smp_ips = 'G2p1O'+toUmum_tahun+'K13'
-        k13_8smp = [k13_8smp_mat, k13_8smp_ind,
-                    k13_8smp_eng, k13_8smp_ipa, k13_8smp_ips]
-        column_order_k13_8smp = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_8SMP', 'IND_8SMP',
-                                 'ENG_8SMP', 'IPA_8SMP', 'IPS_8SMP']
-
-        # PPLS IPA
-        ppls_ipa_mat = 'M9a1O'+toUmum_tahun+'PPLS'
-        ppls_ipa_fis = 'F9a1O'+toUmum_tahun+'PPLS'
-        ppls_ipa_kim = 'K9a1O'+toUmum_tahun+'PPLS'
-        ppls_ipa_bio = 'B9a1O'+toUmum_tahun+'PPLS'
-        ppls_ipa = [ppls_ipa_mat, ppls_ipa_bio,
-                    ppls_ipa_fis, ppls_ipa_kim]
-        column_order_ppls_ipa = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_PPLS_IPA',
-                                 'FIS_PPLS_IPA', 'KIM_PPLS_IPA', 'BIO_PPLS_IPA',]
-
-        # PPLS IPS
-        ppls_ips_geo = 'G9s1O'+toUmum_tahun+'PPLS'
-        ppls_ips_eko = 'O9s1O'+toUmum_tahun+'PPLS'
-        ppls_ips_sej = 'S9s1O'+toUmum_tahun+'PPLS'
-        ppls_ips_sos = 'L9s1O'+toUmum_tahun+'PPLS'
-        ppls_ips = [ppls_ips_geo, ppls_ips_eko,
-                    ppls_ips_sej, ppls_ips_sos]
-        column_order_ppls_ips = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'GEO_PPLS_IPS',
-                                 'EKO_PPLS_IPS', 'SEJ_PPLS_IPS', 'SOS_PPLS_IPS',]
-
-        # 7smp km
-        km_7smp_mat = 'M1p1O'+toUmum_tahun+'KM'
-        km_7smp_ind = 'I1p1O'+toUmum_tahun+'KM'
-        km_7smp_eng = 'E1p1O'+toUmum_tahun+'KM'
-        km_7smp_ipa = '428'+toBersama+'A1'+tahun
-        km_7smp_ips = '428'+toBersama+'S1'+tahun
-        km_7smp = [km_7smp_mat, km_7smp_ind,
-                   km_7smp_eng, km_7smp_ipa, km_7smp_ips]
-        column_order_km_7smp = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_7SMP', 'IND_7SMP',
-                                'ENG_7SMP', 'IPA_7SMP', 'IPS_7SMP']
-
-        # 8smp km sl
-        km_8smp_mat = 'M2p1O'+toUmum_tahun+'KM'
-        km_8smp_ind = 'I2p1O'+toUmum_tahun+'KM'
-        km_8smp_eng = 'E2p1O'+toUmum_tahun+'KM'
-        km_8smp_ipa = 'B2p1O'+toUmum_tahun+'KM'
-        km_8smp_ips = '528'+toBersama+'S1'+tahun
-        km_8smp = [km_8smp_mat, km_8smp_ind,
-                   km_8smp_eng, km_8smp_ipa, km_8smp_ips]
-        column_order_km_8smp = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_8SMP', 'IND_8SMP',
-                                'ENG_8SMP', 'IPA_8SMP', 'IPS_8SMP']
-        
-        # 8smp km sb
-        km_8smp_mat_sb = 'M2p1O'+toUnik_tahun+'KM'
-        km_8smp_sb = [km_8smp_mat_sb, km_8smp_ind,
-                   km_8smp_eng, km_8smp_ipa, km_8smp_ips]
-        column_order_km_8smp_sb = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_SB_8SMP', 'IND_8SMP',
-                                'ENG_8SMP', 'IPA_8SMP', 'IPS_8SMP']
-
+    
         image = Image.open('logo resmi nf resize.png')
         st.image(image)
 
@@ -263,6 +180,126 @@ if authentication_status:
             column_order_k13_6sd = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_6SD', 'IND_6SD',
                                     'ENG_6SD', 'IPA_6SD', 'IPS_6SD']
 
+        # Kode Paket 7 SMP K13
+        if KURIKULUM == 'K13' and KELAS == '7 SMP':
+            st.subheader("Input Kode Paket Kelas 7 SMP K13")
+            col3, col4, col5, col6, col7 = st.columns(5)
+            with col3:
+                k13_7smp_mat = st.text_input("Kode Paket MTK",
+                                placeholder="M1p2O0123-24K13")
+            with col4:
+                k13_7smp_ind = st.text_input("Kode Paket B.IND",
+                                placeholder="I1p2O0123-24K13")
+            with col5:
+                k13_7smp_eng = st.text_input("Kode Paket B.ING",
+                                placeholder="E1p2O0123-24K13")
+            with col6:
+                k13_7smp_ipa = st.text_input("Kode Paket IPA",
+                                placeholder="A1p2O0123-24K13")
+            with col7:
+                k13_7smp_ips = st.text_input("Kode Paket IPS",
+                                placeholder="Z1p2O0123-24K13")
+            k13_7smp = [k13_7smp_mat, k13_7smp_ind,
+                   k13_7smp_eng, k13_7smp_ipa, k13_7smp_ips]
+            column_order_k13_7smp = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_7SMP', 'IND_7SMP',
+                                    'ENG_7SMP', 'IPA_7SMP', 'IPS_7SMP']
+        
+        # Kode Paket 7 SMP KM
+        if KURIKULUM == 'KM' and KELAS == '7 SMP':
+            st.subheader("Input Kode Paket Kelas 7 SMP KM")
+            col3, col4, col5, col6, col7 = st.columns(5)
+            with col3:
+                km_7smp_mat = st.text_input("Kode Paket MTK",
+                                placeholder="M1p2O0123-24K13")
+            with col4:
+                km_7smp_ind = st.text_input("Kode Paket B.IND",
+                                placeholder="I1p2O0123-24K13")
+            with col5:
+                km_7smp_eng = st.text_input("Kode Paket B.ING",
+                                placeholder="E1p2O0123-24K13")
+            with col6:
+                km_7smp_ipa = st.text_input("Kode Paket IPA",
+                                placeholder="A1p2O0123-24K13")
+            with col7:
+                km_7smp_ips = st.text_input("Kode Paket IPS",
+                                placeholder="Z1p2O0123-24K13")
+            km_7smp = [km_7smp_mat, km_7smp_ind,
+                   km_7smp_eng, km_7smp_ipa, km_7smp_ips]
+            column_order_km_7smp = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_7SMP', 'IND_7SMP',
+                                    'ENG_7SMP', 'IPA_7SMP', 'IPS_7SMP']
+
+        # Kode Paket 8 SMP K13
+        if KURIKULUM == 'K13' and KELAS == '8 SMP':
+            st.subheader("Input Kode Paket Kelas 8 SMP K13")
+            col3, col4, col5, col6, col7 = st.columns(5)
+            with col3:
+                k13_8smp_mat = st.text_input("Kode Paket MTK",
+                                placeholder="M2p2O0123-24K13")
+            with col4:
+                k13_8smp_ind = st.text_input("Kode Paket B.IND",
+                                placeholder="I2p2O0123-24K13")
+            with col5:
+                k13_8smp_eng = st.text_input("Kode Paket B.ING",
+                                placeholder="E2p2O0123-24K13")
+            with col6:
+                k13_8smp_ipa = st.text_input("Kode Paket IPA",
+                                placeholder="A2p2O0123-24K13")
+            with col7:
+                k13_8smp_ips = st.text_input("Kode Paket IPS",
+                                placeholder="Z2p2O0123-24K13")
+            k13_8smp = [k13_8smp_mat, k13_8smp_ind,
+                   k13_8smp_eng, k13_8smp_ipa, k13_8smp_ips]
+            column_order_k13_8smp = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_8SMP', 'IND_8SMP',
+                                    'ENG_8SMP', 'IPA_8SMP', 'IPS_8SMP']
+        
+        # Kode Paket 8 SMP KM
+        if KURIKULUM == 'KM' and KELAS == '8 SMP':
+            st.subheader("Input Kode Paket Kelas 8 SMP KM")
+            col3, col4, col5, col6, col7 = st.columns(5)
+            with col3:
+                km_8smp_mat = st.text_input("Kode Paket MTK",
+                                placeholder="M2p2O0123-24KM")
+            with col4:
+                km_8smp_ind = st.text_input("Kode Paket B.IND",
+                                placeholder="I2p2O0123-24KM")
+            with col5:
+                km_8smp_eng = st.text_input("Kode Paket B.ING",
+                                placeholder="E2p2O0123-24KM")
+            with col6:
+                km_8smp_ipa = st.text_input("Kode Paket IPA",
+                                placeholder="A2p2O0123-24KM")
+            with col7:
+                km_8smp_ips = st.text_input("Kode Paket IPS",
+                                placeholder="Z2p2O0123-24KM")
+            km_8smp = [km_8smp_mat, km_8smp_ind,
+                   km_8smp_eng, km_8smp_ipa, km_8smp_ips]
+            column_order_km_8smp = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_8SMP', 'IND_8SMP',
+                                    'ENG_8SMP', 'IPA_8SMP', 'IPS_8SMP']
+
+        # Kode Paket 8 SMP KM SB
+        if KURIKULUM == 'KM' and KELAS == '8 SMP SB':
+            st.subheader("Input Kode Paket Kelas 8 SMP KM SB")
+            col3, col4, col5, col6, col7 = st.columns(5)
+            with col3:
+                km_8smp_mat_sb = st.text_input("Kode Paket MTK",
+                                placeholder="M2p2O0123-24KM")
+            with col4:
+                km_8smp_ind = st.text_input("Kode Paket B.IND",
+                                placeholder="I2p2O0123-24KM")
+            with col5:
+                km_8smp_eng = st.text_input("Kode Paket B.ING",
+                                placeholder="E2p2O0123-24KM")
+            with col6:
+                km_8smp_ipa = st.text_input("Kode Paket IPA",
+                                placeholder="A2p2O0123-24KM")
+            with col7:
+                km_8smp_ips = st.text_input("Kode Paket IPS",
+                                placeholder="Z2p2O0123-24KM")
+            km_8smp_sb = [km_8smp_mat_sb, km_8smp_ind,
+                    km_8smp_eng, km_8smp_ipa, km_8smp_ips]
+            column_order_km_8smp_sb = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_SB_8SMP', 'IND_8SMP',
+                                    'ENG_8SMP', 'IPA_8SMP', 'IPS_8SMP']
+
         # Kode Paket 9 SMP K13
         if KURIKULUM == 'K13' and KELAS == '9 SMP':
             st.subheader("Input Kode Paket Kelas 9 SMP K13")
@@ -310,6 +347,48 @@ if authentication_status:
                         km_9smp_eng, km_9smp_ipa, km_9smp_ips]
             column_order_km_9smp = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_9SMP', 'IND_9SMP',
                                     'ENG_9SMP', 'IPA_9SMP', 'IPS_9SMP']
+
+        # Kode Paket PPLS IPA
+        if KURIKULUM == 'PPLS' and KELAS == 'PPLS IPA':
+            st.subheader("Input Kode Paket Kelas PPLS IPA")
+            col3, col4, col5, col6 = st.columns(4)
+            with col3:
+                ppls_ipa_mat = st.text_input("Kode Paket MTK",
+                                placeholder="M9a2O0123-24PPLS")
+            with col4:
+                ppls_ipa_bio = st.text_input("Kode Paket BIO",
+                                placeholder="B9a2O0123-24PPLS")
+            with col5:
+                ppls_ipa_fis = st.text_input("Kode Paket FIS",
+                                placeholder="F9a2O0123-24PPLS")
+            with col6:
+                ppls_ipa_kim = st.text_input("Kode Paket KIM",
+                                placeholder="K9a2O0123-24PPLS")
+            ppls_ipa = [ppls_ipa_mat, ppls_ipa_bio,
+                    ppls_ipa_fis, ppls_ipa_kim]
+            column_order_ppls_ipa = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_PPLS_IPA',
+                                    'FIS_PPLS_IPA', 'KIM_PPLS_IPA', 'BIO_PPLS_IPA',]
+                            
+        # Kode Paket PPLS IPS
+        if KURIKULUM == 'PPLS' and KELAS == 'PPLS IPS':
+            st.subheader("Input Kode Paket Kelas PPLS IPS")
+            col3, col4, col5, col6 = st.columns(4)
+            with col3:
+                ppls_ips_geo = st.text_input("Kode Paket GEO",
+                                placeholder="G9s2O0123-24PPLS")
+            with col4:
+                ppls_ips_eko = st.text_input("Kode Paket EKO",
+                                placeholder="O9s2O0123-24PPLS")
+            with col5:
+                ppls_ips_sej = st.text_input("Kode Paket SEJ",
+                                placeholder="S9s2O0123-24PPLS")
+            with col6:
+                ppls_ips_sos = st.text_input("Kode Paket SOS",
+                                placeholder="L9s2O0123-24PPLS")
+            ppls_ips = [ppls_ips_geo, ppls_ips_eko,
+                        ppls_ips_sej, ppls_ips_sos]
+            column_order_ppls_ips = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'GEO_PPLS_IPS',
+                                    'EKO_PPLS_IPS', 'SEJ_PPLS_IPS', 'SOS_PPLS_IPS',]
 
         col8 = st.container()
         with col8:
@@ -422,8 +501,8 @@ if authentication_status:
                          km_7smp_mat: 'MAT_7SMP', km_7smp_ind: 'IND_7SMP', km_7smp_eng: 'ENG_7SMP', km_7smp_ipa: 'IPA_7SMP', km_7smp_ips: 'IPS_7SMP',
                          km_8smp_mat: 'MAT_8SMP', km_8smp_ind: 'IND_8SMP', km_8smp_eng: 'ENG_8SMP', km_8smp_ipa: 'IPA_8SMP', km_8smp_ips: 'IPS_8SMP', km_8smp_mat_sb: 'MAT_SB_8SMP',
                          km_9smp_mat: 'MAT_9SMP', km_9smp_ind: 'IND_9SMP', km_9smp_eng: 'ENG_9SMP', km_9smp_ipa: 'IPA_9SMP', km_9smp_ips: 'IPS_9SMP',
-                         'M9a1O'+toUmum_tahun+'PPLS': 'MAT_PPLS_IPA', 'F9a1O'+toUmum_tahun+'PPLS': 'FIS_PPLS_IPA', 'K9a1O'+toUmum_tahun+'PPLS': 'KIM_PPLS_IPA', 'B9a1O'+toUmum_tahun+'PPLS': 'BIO_PPLS_IPA',
-                         'G9s1O'+toUmum_tahun+'PPLS': 'GEO_PPLS_IPS', 'O9s1O'+toUmum_tahun+'PPLS': 'EKO_PPLS_IPS', 'S9s1O'+toUmum_tahun+'PPLS': 'SEJ_PPLS_IPS', 'L9s1O'+toUmum_tahun+'PPLS': 'SOS_PPLS_IPS'})
+                         ppls_ipa_mat: 'MAT_PPLS_IPA', ppls_ipa_fis: 'FIS_PPLS_IPA', ppls_ipa_kim: 'KIM_PPLS_IPA', ppls_ipa_bio: 'BIO_PPLS_IPA',
+                         ppls_ips_geo: 'GEO_PPLS_IPS', ppls_ips_eko: 'EKO_PPLS_IPS', ppls_ips_sej: 'SEJ_PPLS_IPS', ppls_ips_sos: 'SOS_PPLS_IPS'})
 
             result_pivot = result_pivot.reindex(columns=column_order)
 
