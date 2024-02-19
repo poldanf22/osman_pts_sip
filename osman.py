@@ -53,17 +53,6 @@ if authentication_status:
     st.write(toUmum_tahun)
     if selected_file == "Pivot PTS":
         # kurikulum - kelas - mapel
-        # 4sd k13
-        k13_4sd_mat = 'M4d1O'+toUmum_tahun+'K13'
-        k13_4sd_ind = 'I4d1O'+toUmum_tahun+'K13'
-        k13_4sd_eng = 'E4d1O'+toUmum_tahun+'K13'
-        k13_4sd_ipa = 'A4d1O'+toUmum_tahun+'K13'
-        k13_4sd_ips = 'Z4d1O'+toUmum_tahun+'K13'
-        k13_4sd = [k13_4sd_mat, k13_4sd_ind,
-                   k13_4sd_eng, k13_4sd_ipa, k13_4sd_ips]
-        column_order_k13_4sd = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_4SD', 'IND_4SD',
-                                'ENG_4SD', 'IPA_4SD', 'IPS_4SD']
-
         # 5sd k13
         k13_5sd_mat = 'M5d1O'+toUmum_tahun+'K13'
         k13_5sd_ind = 'I5d1O'+toUmum_tahun+'K13'
@@ -127,17 +116,7 @@ if authentication_status:
                     ppls_ips_sej, ppls_ips_sos]
         column_order_ppls_ips = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'GEO_PPLS_IPS',
                                  'EKO_PPLS_IPS', 'SEJ_PPLS_IPS', 'SOS_PPLS_IPS',]
-
-        # 4sd km
-        km_4sd_mat = 'M4d1O'+toUmum_tahun+'KM'
-        km_4sd_ind = 'I4d1O'+toUmum_tahun+'KM'
-        km_4sd_eng = 'E4d1O'+toUmum_tahun+'KM'
-        km_4sd_ipas = '128'+toBersama+'D1'+tahun
-        km_4sd = [km_4sd_mat, km_4sd_ind,
-                  km_4sd_eng, km_4sd_ipas]
-        column_order_km_4sd = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_4SD', 'IND_4SD',
-                               'ENG_4SD', 'IPAS_4SD']
-
+                                 
         # 5sd km
         km_5sd_mat = 'M5d1O'+toUmum_tahun+'KM'
         km_5sd_ind = 'I5d1O'+toUmum_tahun+'KM'
