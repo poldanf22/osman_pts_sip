@@ -177,17 +177,6 @@ if authentication_status:
         column_order_km_8smp_sb = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_SB_8SMP', 'IND_8SMP',
                                 'ENG_8SMP', 'IPA_8SMP', 'IPS_8SMP']
 
-        # 9smp km
-        km_9smp_mat = 'M3p'+semester+'O'+toUmum_tahun+'KM'
-        km_9smp_ind = 'I3p'+semester+'O'+toUmum_tahun+'KM'
-        km_9smp_eng = 'E3p'+semester+'O'+toUmum_tahun+'KM'
-        km_9smp_ipa = '628'+toBersama+'A'+semester+tahun
-        km_9smp_ips = '628'+toBersama+'S'+semester+tahun
-        km_9smp = [km_9smp_mat, km_9smp_ind,
-                    km_9smp_eng, km_9smp_ipa, km_9smp_ips]
-        column_order_km_9smp = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_9SMP', 'IND_9SMP',
-                                 'ENG_9SMP', 'IPA_9SMP', 'IPS_9SMP']
-
         image = Image.open('logo resmi nf resize.png')
         st.image(image)
 
