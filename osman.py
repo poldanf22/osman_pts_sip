@@ -352,7 +352,7 @@ if authentication_status:
             st.subheader("Input Kode Paket Kelas 8 SMP KM SB")
             col3, col4, col5, col6, col7 = st.columns(5)
             with col3:
-                km_8smp_mat_sb = st.text_input("Kode Paket MTK",
+                km_8smp_mat_sb = st.text_input("Kode Paket MTK SB",
                                 placeholder="M2p2O0123-24KM")
             with col4:
                 km_8smp_ind = st.text_input("Kode Paket B.IND",
