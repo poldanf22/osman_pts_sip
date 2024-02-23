@@ -4,6 +4,7 @@ import streamlit_authenticator as stauth
 from pathlib import Path
 from PIL import Image
 import pandas as pd
+import numpy as np
 from streamlit_option_menu import option_menu
 import openpyxl
 from openpyxl.styles import Font, PatternFill
