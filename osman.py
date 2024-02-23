@@ -503,6 +503,8 @@ if authentication_status:
                 to_pts['kelas_id'] = to_pts['kelas_id']
             result = pd.merge(detail, to_pts[['no_nf', 'kode_paket', 'tahun_ajaran', 'kelas_id',
                                               'lokasi_id', 'jumlah_benar']], on='no_nf', how='left')
+            # Mengganti nilai 0 pada kolom 'jumlah_benar' menjadi NaN (kosong)
+            result['jumlah_benar'] = result['jumlah_benar'].replace(0, np.nan)
             # Menghapus nilai NaN dari kolom 'kode_paket'
             result = result.dropna(subset=['kode_paket'])
 
