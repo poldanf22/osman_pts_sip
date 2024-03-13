@@ -39,7 +39,7 @@ if authentication_status:
                 f'''<a href={url}><button style="background-color:GreenYellow;">Untuk Lok.</button></a>''', unsafe_allow_html=True)
         selected_file = option_menu(
             menu_title="Pilih file:",
-            options=["Pivot PTS",
+            options=["Pivot PTS/US",
                      "Nilai Std. SD (K13), SMP (K13-KM)",
                      "Nilai Std. 8 SMP (KM-MTK SB)",
                      "Nilai Std. SD (KM)",
@@ -119,12 +119,12 @@ if authentication_status:
     ppls_ips_sos = ''
 
 
-    if selected_file == "Pivot PTS":
+    if selected_file == "Pivot PTS/US":
     
         image = Image.open('logo resmi nf resize.png')
         st.image(image)
 
-        st.title("PIVOT - PTS")
+        st.title("PIVOT - PTS/US")
 
         col1 = st.container()
         with col1:
@@ -646,7 +646,7 @@ if authentication_status:
         with col8:
             PENILAIAN = st.selectbox(
                 "PENILAIAN",
-                ("--Pilih Penilaian--", "PENILAIAN TENGAH SEMESTER", "SUMATIF TENGAH SEMESTER"))
+                ("--Pilih Penilaian--", "PENILAIAN TENGAH SEMESTER", "SUMATIF TENGAH SEMESTER", "TRY OUT UJIAN SEKOLAH"))
 
         col9 = st.container()
 
