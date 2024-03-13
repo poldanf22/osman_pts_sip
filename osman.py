@@ -482,7 +482,7 @@ if authentication_status:
             'Letakkan file excel Detail Siswa', type='xlsx')
         url_contoh_to_pts = 'https://docs.google.com/spreadsheets/d/1K-bWwSvkd0fgJ-xVtn-CWQcZH_-MoM8F/edit?usp=sharing&ouid=100219691055398475739&rtpof=true&sd=true'
         uploaded_to_pts = st.file_uploader(
-            'Letakkan file excel TO PTS', type='xlsx')
+            'Letakkan file excel TO PTS/US', type='xlsx')
 
         detail = None
         to_pts = None
