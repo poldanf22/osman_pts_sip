@@ -42,7 +42,7 @@ if authentication_status:
 
         # Tombol untuk URL panduan dengan warna Tomato
         st.markdown(f'''
-<a href="{url_panduan}"><button style="background-color:Tomato; border:none; color:white; padding:10px 24px; text-align:center; display:inline-block; font-size:16px; margin:4px 2px; cursor:pointer;">Panduan</button></a>
+<a href="{url_panduan}"><button style="background-color:Tomato; border:none; color:white; padding:10px 24px; text-align:center; display:inline-block; font-size:16px; margin:4px 2px; cursor:pointer;">Panduan v. 1.0</button></a>
 ''', unsafe_allow_html=True)
 
         # Pilihan file
