@@ -37,7 +37,7 @@ if authentication_status:
     with st.sidebar:
         # Tombol untuk URL utama dengan warna GreenYellow
         st.markdown(f'''
-<a href="{url}"><button style="background-color:GreenYellow; border:none; color:white; padding:10px 24px; text-align:center; display:inline-block; font-size:16px; margin:4px 2px; cursor:pointer;">Nilai Std.</button></a>
+<a href="{url}"><button style="background-color:GreenYellow; border:none; color:white; padding:10px 24px; text-align:center; display:inline-block; font-size:16px; margin:4px 2px; cursor:pointer;">Report Lokasi</button></a>
 ''', unsafe_allow_html=True)
 
         # Tombol untuk URL panduan dengan warna Tomato
