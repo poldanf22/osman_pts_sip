@@ -30,13 +30,22 @@ if authentication_status == None:
     st.warning("Silahkan masukan username dan kode akses")
 
 url = "https://osmanlokpts.streamlit.app/"
+url_panduan = "https://docs.google.com/document/d/1zc9W_Tt51J9POZaybez1KBVbNWhpEiRsGsfo5VsRQJI/edit?usp=sharing"
 
 if authentication_status:
     authenticator.logout("Logout", "sidebar")
     with st.sidebar:
-        with st.sidebar:
-            st.markdown(
-                f'''<a href={url}><button style="background-color:GreenYellow;">Untuk Lok.</button></a>''', unsafe_allow_html=True)
+        # Tombol untuk URL utama dengan warna GreenYellow
+        st.markdown(f'''
+<a href="{url}"><button style="background-color:GreenYellow; border:none; color:white; padding:10px 24px; text-align:center; display:inline-block; font-size:16px; margin:4px 2px; cursor:pointer;">Nilai Std.</button></a>
+''', unsafe_allow_html=True)
+
+        # Tombol untuk URL panduan dengan warna Tomato
+        st.markdown(f'''
+<a href="{url_panduan}"><button style="background-color:Tomato; border:none; color:white; padding:10px 24px; text-align:center; display:inline-block; font-size:16px; margin:4px 2px; cursor:pointer;">Panduan</button></a>
+''', unsafe_allow_html=True)
+
+        # Pilihan file
         selected_file = option_menu(
             menu_title="Pilih file:",
             options=["Pivot PTS/US",
