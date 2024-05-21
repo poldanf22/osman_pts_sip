@@ -48,10 +48,10 @@ if authentication_status:
         # Pilihan file
         selected_file = option_menu(
             menu_title="Pilih file:",
-            options=["Pivot PTS/US/PAT",
+            options=["Pivot",
                      "Nilai Std. SD (K13), SMP (K13-KM)",
                      "Nilai Std. 8 SMP (KM-MTK SB)",
-                     "Nilai Std. SD (KM)",
+                     "Nilai Std. SD (KM), 10, 11 (IPA)",
                      "Nilai Std. PPLS IPA",
                      "Nilai Std. PPLS IPS"],
         )
@@ -87,6 +87,14 @@ if authentication_status:
     k13_9smp_eng = ''
     k13_9smp_ipa = ''
     k13_9smp_ips = ''
+    k13_10ipa_mat = ''
+    k13_10ipa_bio = ''
+    k13_10ipa_fis = ''
+    k13_10ipa_kim = ''
+    k13_11ipa_mat = ''
+    k13_11ipa_bio = ''
+    k13_11ipa_fis = ''
+    k13_11ipa_kim = ''
     # km
     km_4sd_mat = ''
     km_4sd_ind = ''
@@ -128,12 +136,12 @@ if authentication_status:
     ppls_ips_sos = ''
 
 
-    if selected_file == "Pivot PTS/US/PAT":
+    if selected_file == "Pivot":
     
         image = Image.open('logo resmi nf resize.png')
         st.image(image)
 
-        st.title("PIVOT - PTS/US")
+        st.title("PIVOT")
 
         col1 = st.container()
         with col1:
@@ -145,7 +153,7 @@ if authentication_status:
         with col2:
             KELAS = st.selectbox(
                 "KELAS",
-                ("--Pilih Kelas--", "4 SD", "5 SD", "6 SD", "7 SMP", "8 SMP", "8 SMP SB", "9 SMP", "PPLS IPA", "PPLS IPS"))
+                ("--Pilih Kelas--", "4 SD", "5 SD", "6 SD", "7 SMP", "8 SMP", "8 SMP SB", "9 SMP", "10 IPA", "11 IPA","PPLS IPA", "PPLS IPS"))
 
         # Kode Paket 4 SD K13
         if KURIKULUM == 'K13' and KELAS == '4 SD':
@@ -428,6 +436,48 @@ if authentication_status:
                         km_9smp_eng, km_9smp_ipa, km_9smp_ips]
             column_order_km_9smp = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_9SMP', 'IND_9SMP',
                                     'ENG_9SMP', 'IPA_9SMP', 'IPS_9SMP']
+        
+        # Kode Paket 10 IPA K13
+        elif KURIKULUM == 'K13' and KELAS == '10 IPA':
+            st.subheader("Input Kode Paket Kelas 10 IPA K13")
+            col3, col4, col5, col6 = st.columns(4)
+            with col3:
+                k13_10ipa_mat = st.text_input("Kode Paket MTK",
+                                placeholder="M4a2O0023-24K13")
+            with col4:
+                k13_10ipa_bio = st.text_input("Kode Paket BIO",
+                                placeholder="B4a2O0023-24K13")
+            with col5:
+                k13_10ipa_fis = st.text_input("Kode Paket FIS",
+                                placeholder="F4a2O0023-24K13")
+            with col6:
+                k13_10ipa_kim = st.text_input("Kode Paket KIM",
+                                placeholder="K4a2O0023-24K13")
+            k13_10ipa = [k13_10ipa_mat, k13_10ipa_bio,
+                  k13_10ipa_fis, k13_10ipa_kim]
+            column_order_k13_10ipa = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_10IPA', 'BIO_10IPA',
+                                'FIS_10IPA', 'KIM_10IPA']
+        
+        # Kode Paket 11 IPA K13
+        elif KURIKULUM == 'K13' and KELAS == '11 IPA':
+            st.subheader("Input Kode Paket Kelas 11 IPA K13")
+            col3, col4, col5, col6 = st.columns(4)
+            with col3:
+                k13_11ipa_mat = st.text_input("Kode Paket MTK",
+                                placeholder="M5a2O0023-24K13")
+            with col4:
+                k13_11ipa_bio = st.text_input("Kode Paket BIO",
+                                placeholder="B5a2O0023-24K13")
+            with col5:
+                k13_11ipa_fis = st.text_input("Kode Paket FIS",
+                                placeholder="F5a2O0023-24K13")
+            with col6:
+                k13_11ipa_kim = st.text_input("Kode Paket KIM",
+                                placeholder="K5a2O0023-24K13")
+            k13_11ipa = [k13_11ipa_mat, k13_11ipa_bio,
+                  k13_11ipa_fis, k13_11ipa_kim]
+            column_order_k13_11ipa = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_11IPA', 'BIO_11IPA',
+                                'FIS_11IPA', 'KIM_11IPA']
 
         # Kode Paket PPLS IPA
         elif KURIKULUM == 'PPLS' and KELAS == 'PPLS IPA':
@@ -491,7 +541,7 @@ if authentication_status:
             'Letakkan file excel Detail Siswa', type='xlsx')
         url_contoh_to_pts = 'https://docs.google.com/spreadsheets/d/1K-bWwSvkd0fgJ-xVtn-CWQcZH_-MoM8F/edit?usp=sharing&ouid=100219691055398475739&rtpof=true&sd=true'
         uploaded_to_pts = st.file_uploader(
-            'Letakkan file excel TO PTS/US', type='xlsx')
+            'Letakkan file excel TO', type='xlsx')
 
         detail = None
         to_pts = None
@@ -537,6 +587,12 @@ if authentication_status:
             elif KELAS == "9 SMP" and KURIKULUM == "K13":
                 kode_kls_kur = k13_9smp
                 column_order = column_order_k13_9smp
+            elif KELAS == "10 IPA" and KURIKULUM == "K13":
+                kode_kls_kur = k13_10ipa
+                column_order = column_order_k13_10ipa
+            elif KELAS == "11 IPA" and KURIKULUM == "K13":
+                kode_kls_kur = k13_11ipa
+                column_order = column_order_k13_11ipa
             # km
             elif KELAS == "4 SD" and KURIKULUM == "KM":
                 kode_kls_kur = km_4sd
@@ -582,6 +638,8 @@ if authentication_status:
                          k13_7smp_mat: 'MAT_7SMP', k13_7smp_ind: 'IND_7SMP', k13_7smp_eng: 'ENG_7SMP', k13_7smp_ipa: 'IPA_7SMP', k13_7smp_ips: 'IPS_7SMP',
                          k13_8smp_mat: 'MAT_8SMP', k13_8smp_ind: 'IND_8SMP', k13_8smp_eng: 'ENG_8SMP', k13_8smp_ipa: 'IPA_8SMP', k13_8smp_ips: 'IPS_8SMP',
                          k13_9smp_mat: 'MAT_9SMP', k13_9smp_ind: 'IND_9SMP', k13_9smp_eng: 'ENG_9SMP', k13_9smp_ipa: 'IPA_9SMP', k13_9smp_ips: 'IPS_9SMP',
+                         k13_10ipa_mat: 'MAT_10IPA', k13_10ipa_bio: 'BIO_10IPA', k13_10ipa_fis: 'FIS_10IPA', k13_10ipa_kim: 'KIM_10IPA',
+                         k13_11ipa_mat: 'MAT_11IPA', k13_11ipa_bio: 'BIO_11IPA', k13_11ipa_fis: 'FIS_11IPA', k13_11ipa_kim: 'KIM_11IPA',
                          km_4sd_mat: 'MAT_4SD', km_4sd_ind: 'IND_4SD', km_4sd_eng: 'ENG_4SD', km_4sd_ipas: 'IPAS_4SD',
                          km_5sd_mat: 'MAT_5SD', km_5sd_ind: 'IND_5SD', km_5sd_eng: 'ENG_5SD', km_5sd_ipas: 'IPAS_5SD',
                          km_7smp_mat: 'MAT_7SMP', km_7smp_ind: 'IND_7SMP', km_7smp_eng: 'ENG_7SMP', km_7smp_ipa: 'IPA_7SMP', km_7smp_ips: 'IPS_7SMP',
@@ -3488,7 +3546,7 @@ if authentication_status:
 
             st.warning(
                 "Buka file unduhan, klik 'Enable Editing' dan 'Save'")  
-    if selected_file == "Nilai Std. SD (KM)":
+    if selected_file == "Nilai Std. SD (KM), 10, 11 (IPA)":
         # menghilangkan hamburger
         st.markdown("""
         <style>
