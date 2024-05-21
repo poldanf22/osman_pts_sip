@@ -48,7 +48,7 @@ if authentication_status:
         # Pilihan file
         selected_file = option_menu(
             menu_title="Pilih file:",
-            options=["Pivot PTS/US",
+            options=["Pivot PTS/US/PAT",
                      "Nilai Std. SD (K13), SMP (K13-KM)",
                      "Nilai Std. 8 SMP (KM-MTK SB)",
                      "Nilai Std. SD (KM)",
