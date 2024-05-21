@@ -128,7 +128,7 @@ if authentication_status:
     ppls_ips_sos = ''
 
 
-    if selected_file == "Pivot PTS/US":
+    if selected_file == "Pivot PTS/US/PAT":
     
         image = Image.open('logo resmi nf resize.png')
         st.image(image)
