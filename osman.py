@@ -125,6 +125,11 @@ if authentication_status:
     km_9smp_eng = ''
     km_9smp_ipa = ''
     km_9smp_ips = ''
+    km_10sma_mat = ''
+    km_10sma_ind = ''
+    km_10sma_eng = ''
+    km_10sma_ipa = ''
+    km_10sma_ips = ''
     # ppls
     ppls_ipa_mat = ''
     ppls_ipa_bio = ''
@@ -153,7 +158,7 @@ if authentication_status:
         with col2:
             KELAS = st.selectbox(
                 "KELAS",
-                ("--Pilih Kelas--", "4 SD", "5 SD", "6 SD", "7 SMP", "8 SMP", "8 SMP SB", "9 SMP", "10 IPA", "11 IPA","PPLS IPA", "PPLS IPS"))
+                ("--Pilih Kelas--", "4 SD", "5 SD", "6 SD", "7 SMP", "8 SMP", "8 SMP SB", "9 SMP", "10 IPA", "11 IPA", "10 SMA", "PPLS IPA", "PPLS IPS"))
 
         # Kode Paket 4 SD K13
         if KURIKULUM == 'K13' and KELAS == '4 SD':
@@ -437,6 +442,30 @@ if authentication_status:
             column_order_km_9smp = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_9SMP', 'IND_9SMP',
                                     'ENG_9SMP', 'IPA_9SMP', 'IPS_9SMP']
         
+        # Kode Paket 10 SMAA KM
+        elif KURIKULUM == 'KM' and KELAS == '10 SMA':
+            st.subheader("Input Kode Paket Kelas 10 SMA KM")
+            col3, col4, col5, col6, col7 = st.columns(5)
+            with col3:
+                km_10sma_mat = st.text_input("Kode Paket MTK",
+                                placeholder="M4x2O0023-24KM")
+            with col4:
+                km_10sma_ind = st.text_input("Kode Paket B.IND",
+                                placeholder="I4x2O0023-24KM")
+            with col5:
+                km_10sma_eng = st.text_input("Kode Paket B.ING",
+                                placeholder="E4x2O0023-24KM")
+            with col6:
+                km_10sma_ipa = st.text_input("Kode Paket IPA",
+                                placeholder="9240A223-24")
+            with col7:
+                km_10sma_ips = st.text_input("Kode Paket IPS",
+                                placeholder="9240S223-24")
+            km_10sma = [km_10sma_mat, km_10sma_ind,
+                        km_10sma_eng, km_10sma_ipa, km_10sma_ips]
+            column_order_km_10sma = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_10SMA', 'IND_10SMA',
+                                    'ENG_10SMA', 'IPA_10SMA', 'IPS_10SMA']
+        
         # Kode Paket 10 IPA K13
         elif KURIKULUM == 'K13' and KELAS == '10 IPA':
             st.subheader("Input Kode Paket Kelas 10 IPA K13")
@@ -672,8 +701,12 @@ if authentication_status:
                 bytes_data = f.read()
             st.download_button(label="Unduh File", data=bytes_data,
                                file_name=path_file)
-    if selected_file == "Nilai Std. SD (K13), SMP (K13-KM)":
-        # menghilangkan hamburger
+
+            st.warning(
+                "Buka file unduhan, klik 'Enable Editing' dan 'Save'")
+            
+    if selected_file == "Nilai Std. SD (K13), SMP (K13-KM)" :  
+    # menghilangkan hamburger
         st.markdown("""
         <style>
         .css-1rs6os.edgvbvh3
@@ -690,7 +723,7 @@ if authentication_status:
         image = Image.open('logo resmi nf resize.png')
         st.image(image)
 
-        st.title("Olah Nilai Standar K13")
+        st.title("Olah Nilai Standar K13-KM")
 
         st.header("SD-SMP")
 
