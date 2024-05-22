@@ -91,6 +91,13 @@ if authentication_status:
     k13_10ipa_bio = ''
     k13_10ipa_fis = ''
     k13_10ipa_kim = ''
+    k13_10ips_mat = ''
+    k13_10ips_ind = ''
+    k13_10ips_eng = ''
+    k13_10ips_sej = ''
+    k13_10ips_eko = ''
+    k13_10ips_sos = ''
+    k13_10ips_geo = ''
     k13_11ipa_mat = ''
     k13_11ipa_bio = ''
     k13_11ipa_fis = ''
@@ -160,7 +167,7 @@ if authentication_status:
         with col2:
             KELAS = st.selectbox(
                 "KELAS",
-                ("--Pilih Kelas--", "4 SD", "5 SD", "6 SD", "7 SMP", "8 SMP", "8 SMP SB", "9 SMP", "10 IPA", "11 IPA", "10 SMA", "PPLS IPA", "PPLS IPS"))
+                ("--Pilih Kelas--", "4 SD", "5 SD", "6 SD", "7 SMP", "8 SMP", "8 SMP SB", "9 SMP", "10 IPA", "10 IPS", "11 IPA", "10 SMA", "PPLS IPA", "PPLS IPS"))
 
         # Kode Paket 4 SD K13
         if KURIKULUM == 'K13' and KELAS == '4 SD':
@@ -489,6 +496,36 @@ if authentication_status:
             column_order_k13_10ipa = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_10IPA', 'BIO_10IPA',
                                 'FIS_10IPA', 'KIM_10IPA']
         
+        # Kode Paket 10 IPS K13
+        elif KURIKULUM == 'K13' and KELAS == '10 IPS':
+            st.subheader("Input Kode Paket Kelas 10 IPS K13")
+            col3, col4, col5, col6, col7, col8, col9 = st.columns(7)
+            with col3:
+                k13_10ips_mat = st.text_input("Kode Paket MTK",
+                                placeholder="M4a2O0023-24K13")
+            with col4:
+                k13_10ips_ind = st.text_input("Kode Paket B.IND",
+                                placeholder="B4a2O0023-24K13")
+            with col5:
+                k13_10ips_eng = st.text_input("Kode Paket B.ING",
+                                placeholder="F4a2O0023-24K13")
+            with col6:
+                k13_10ips_sej = st.text_input("Kode Paket SEJ",
+                                placeholder="K4a2O0023-24K13")
+            with col7:
+                k13_10ips_eko = st.text_input("Kode Paket EKO",
+                                placeholder="K4a2O0023-24K13")
+            with col8:
+                k13_10ips_sos = st.text_input("Kode Paket SOS",
+                                placeholder="K4a2O0023-24K13")
+            with col9:
+                k13_10ips_geo = st.text_input("Kode Paket GEO",
+                                placeholder="K4a2O0023-24K13")
+            k13_10ips = [k13_10ips_mat, k13_10ips_ind,
+                  k13_10ips_eng, k13_10ips_sej, k13_10ips_eko, k13_10ips_sos, k13_10ips_geo]
+            column_order_k13_10ips = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_10IPS', 'IND_10IPS',
+                                'ENG_10IPS', 'SEJ_10IPS', 'EKO_10IPS', 'SOS_10IPS', 'GEO_10IPS']
+        
         # Kode Paket 11 IPA K13
         elif KURIKULUM == 'K13' and KELAS == '11 IPA':
             st.subheader("Input Kode Paket Kelas 11 IPA K13")
@@ -621,6 +658,9 @@ if authentication_status:
             elif KELAS == "10 IPA" and KURIKULUM == "K13":
                 kode_kls_kur = k13_10ipa
                 column_order = column_order_k13_10ipa
+            elif KELAS == "10 IPS" and KURIKULUM == "K13":
+                kode_kls_kur = k13_10ips
+                column_order = column_order_k13_10ips
             elif KELAS == "11 IPA" and KURIKULUM == "K13":
                 kode_kls_kur = k13_11ipa
                 column_order = column_order_k13_11ipa
@@ -673,6 +713,7 @@ if authentication_status:
                          k13_8smp_mat: 'MAT_8SMP', k13_8smp_ind: 'IND_8SMP', k13_8smp_eng: 'ENG_8SMP', k13_8smp_ipa: 'IPA_8SMP', k13_8smp_ips: 'IPS_8SMP',
                          k13_9smp_mat: 'MAT_9SMP', k13_9smp_ind: 'IND_9SMP', k13_9smp_eng: 'ENG_9SMP', k13_9smp_ipa: 'IPA_9SMP', k13_9smp_ips: 'IPS_9SMP',
                          k13_10ipa_mat: 'MAT_10IPA', k13_10ipa_bio: 'BIO_10IPA', k13_10ipa_fis: 'FIS_10IPA', k13_10ipa_kim: 'KIM_10IPA',
+                         k13_10ips_mat: 'MAT_10IPS', k13_10ips_ind: 'IND_10IPS', k13_10ips_eng: 'ENG_10IPS', k13_10ips_sej: 'SEJ_10IPS', k13_10ips_eko: 'EKO_10IPS',k13_10ips_sos: 'SOS_10IPS',k13_10ips_geo: 'GEO_10IPS',
                          k13_11ipa_mat: 'MAT_11IPA', k13_11ipa_bio: 'BIO_11IPA', k13_11ipa_fis: 'FIS_11IPA', k13_11ipa_kim: 'KIM_11IPA',
                          km_4sd_mat: 'MAT_4SD', km_4sd_ind: 'IND_4SD', km_4sd_eng: 'ENG_4SD', km_4sd_ipas: 'IPAS_4SD',
                          km_5sd_mat: 'MAT_5SD', km_5sd_ind: 'IND_5SD', km_5sd_eng: 'ENG_5SD', km_5sd_ipas: 'IPAS_5SD',
