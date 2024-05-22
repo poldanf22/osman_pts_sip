@@ -3546,7 +3546,7 @@ if authentication_status:
 
             st.warning(
                 "Buka file unduhan, klik 'Enable Editing' dan 'Save'")  
-    if selected_file == "Nilai Std. SD (KM), 10, 11 (IPA)":
+    if selected_file == "Nilai Std. SD (KM), 10, 11 (IPA K13)":
         # menghilangkan hamburger
         st.markdown("""
         <style>
@@ -3564,15 +3564,15 @@ if authentication_status:
         image = Image.open('logo resmi nf resize.png')
         st.image(image)
 
-        st.title("Olah Nilai Standar KM")
-        st.header("4 - 5 SD")
+        st.title("Olah Nilai Standar 4, 5 (KM), 10, 11 (IPA K13)")
+        st.header("SD KM, 10, 11 IPA")
 
         col6 = st.container()
 
         with col6:
             KELAS = st.selectbox(
                 "KELAS",
-                ("--Pilih Kelas--", "4 SD", "5 SD"))
+                ("--Pilih Kelas--", "4 SD", "5 SD", "10 IPA", "11 IPA"))
 
         col7 = st.container()
 
@@ -3586,18 +3586,19 @@ if authentication_status:
         with col8:
             PENILAIAN = st.selectbox(
                 "PENILAIAN",
-                ("--Pilih Penilaian--", "SUMATIF TENGAH SEMESTER", "SUMATIF AKHIR TAHUN",))
+                ("--Pilih Penilaian--", "PENILAIAN TENGAH SEMESTER", "PENILAIAN AKHIR TAHUN", "SUMATIF TENGAH SEMESTER", "SUMATIF AKHIR TAHUN"))
 
         col9 = st.container()
 
         with col9:
             KURIKULUM = st.selectbox(
                 "KURIKULUM",
-                ("--Pilih Kurikulum--", "KM"))
+                ("--Pilih Kurikulum--", "KM", "K13"))
 
         TAHUN = st.text_input("Masukkan Tahun Ajaran",
                               placeholder="contoh: 2022-2023")
 
+        
         col1, col2, col3, col4 = st.columns(4)
 
         with col1:
