@@ -679,7 +679,7 @@ if authentication_status:
                          km_7smp_mat: 'MAT_7SMP', km_7smp_ind: 'IND_7SMP', km_7smp_eng: 'ENG_7SMP', km_7smp_ipa: 'IPA_7SMP', km_7smp_ips: 'IPS_7SMP',
                          km_8smp_mat: 'MAT_8SMP', km_8smp_ind: 'IND_8SMP', km_8smp_eng: 'ENG_8SMP', km_8smp_ipa: 'IPA_8SMP', km_8smp_ips: 'IPS_8SMP', km_8smp_mat_sb: 'MAT_SB_8SMP',
                          km_9smp_mat: 'MAT_9SMP', km_9smp_ind: 'IND_9SMP', km_9smp_eng: 'ENG_9SMP', km_9smp_ipa: 'IPA_9SMP', km_9smp_ips: 'IPS_9SMP',
-                         km_10sma_mat: 'MAT_9SMA', km_10sma_ind: 'IND_9SMA', km_10sma_eng: 'ENG_9SMA', km_10sma_ipa: 'IPA_9SMA', km_10sma_ips: 'IPS_9SMA',
+                         km_10sma_mat: 'MAT_10SMA', km_10sma_ind: 'IND_10SMA', km_10sma_eng: 'ENG_10SMA', km_10sma_ipa: 'IPA_10SMA', km_10sma_ips: 'IPS_10SMA',
                          ppls_ipa_mat: 'MAT_PPLS_IPA', ppls_ipa_fis: 'FIS_PPLS_IPA', ppls_ipa_kim: 'KIM_PPLS_IPA', ppls_ipa_bio: 'BIO_PPLS_IPA',
                          ppls_ips_geo: 'GEO_PPLS_IPS', ppls_ips_eko: 'EKO_PPLS_IPS', ppls_ips_sej: 'SEJ_PPLS_IPS', ppls_ips_sos: 'SOS_PPLS_IPS'})
 
