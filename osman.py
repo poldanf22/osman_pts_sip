@@ -95,6 +95,7 @@ if authentication_status:
     k13_11ipa_bio = ''
     k13_11ipa_fis = ''
     k13_11ipa_kim = ''
+    
     # km
     km_4sd_mat = ''
     km_4sd_ind = ''
@@ -130,6 +131,7 @@ if authentication_status:
     km_10sma_eng = ''
     km_10sma_ipa = ''
     km_10sma_ips = ''
+    
     # ppls
     ppls_ipa_mat = ''
     ppls_ipa_bio = ''
@@ -442,7 +444,7 @@ if authentication_status:
             column_order_km_9smp = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_9SMP', 'IND_9SMP',
                                     'ENG_9SMP', 'IPA_9SMP', 'IPS_9SMP']
         
-        # Kode Paket 10 SMAA KM
+        # Kode Paket 10 SMA KM
         elif KURIKULUM == 'KM' and KELAS == '10 SMA':
             st.subheader("Input Kode Paket Kelas 10 SMA KM")
             col3, col4, col5, col6, col7 = st.columns(5)
