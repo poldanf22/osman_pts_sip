@@ -8722,16 +8722,16 @@ if authentication_status:
             ws['AZ{}'.format(r)] = "=SUM(AZ2:AZ{})".format(q)
             ws['BA{}'.format(r)] = "=SUM(BA2:BA{})".format(q)
             # SEJ 20, EKO 2 20, SOS 20, GEO 20, ANT 20
+            ws['BB{}'.format(r)] = "=SUM(BB2:BB{})".format(q)
             ws['BC{}'.format(r)] = "=SUM(BC2:BC{})".format(q)
             ws['BD{}'.format(r)] = "=SUM(BD2:BD{})".format(q)
             ws['BE{}'.format(r)] = "=SUM(BE2:BE{})".format(q)
             ws['BF{}'.format(r)] = "=SUM(BF2:BF{})".format(q)
-            ws['BG{}'.format(r)] = "=SUM(BG2:BG{})".format(q)
             # BIO 20, FIS 20, KIM 1 20, KIM 2 20
+            ws['BG{}'.format(r)] = "=SUM(BG2:BG{})".format(q)
             ws['BH{}'.format(r)] = "=SUM(BH2:BH{})".format(q)
             ws['BI{}'.format(r)] = "=SUM(BI2:BI{})".format(q)
             ws['BJ{}'.format(r)] = "=SUM(BJ2:BJ{})".format(q)
-            ws['BK{}'.format(r)] = "=SUM(BK2:BK{})".format(q)
 
             # Jumlah Soal
             ws['F{}'.format(v)] = 'JUMLAH SOAL'
@@ -9071,6 +9071,42 @@ if authentication_status:
             ws['AD1'].fill = PatternFill(
                 fill_type='solid', start_color='00FF6600', end_color='00FF6600')
             ws['AE1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['AF1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['AG1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['AH1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['AI1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['AJ1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['AK1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['AL1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['AM1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['AN1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['AO1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['AP1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['AQ1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['AR1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['AS1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['AT1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['AU1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['AV1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['AW1'].fill = PatternFill(
                 fill_type='solid', start_color='00FF6600', end_color='00FF6600')
 
             # tambahan
