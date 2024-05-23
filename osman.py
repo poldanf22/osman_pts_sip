@@ -5065,7 +5065,7 @@ if authentication_status:
             st.warning(
                 "Buka file unduhan, klik 'Enable Editing' dan 'Save'")
 
-    if selected_file == "Nilai Std. SD (KM)":
+    if selected_file == "Nilai Std. 10, 11 IPA (K13)":
         # menghilangkan hamburger
         st.markdown("""
         <style>
