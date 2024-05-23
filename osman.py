@@ -549,7 +549,7 @@ if authentication_status:
         # Kode Paket 11 SMA KM
         elif KURIKULUM == 'KM' and KELAS == '11 SMA':
             st.subheader("Input Kode Paket Kelas 11 SMA KM")
-            col3, col4, col5, col6, col7 = st.columns(5)
+            col3, col4, col5, col6 = st.columns(4)
             with col3:
                 km_11sma_mat_1 = st.text_input("Kode Paket MTK 1",
                                 placeholder="Q5x2O0023-24KM2")
@@ -562,10 +562,10 @@ if authentication_status:
             with col6:
                 km_11sma_eng = st.text_input("Kode Paket B.ING",
                                 placeholder="E5x2O0023-24KM2")
+            col7, col8, col9, col10, col11 = st.columns(5)
             with col7:
                 km_11sma_sej = st.text_input("Kode Paket SEJ",
                                 placeholder="S5x2O0023-24KM2")
-            col8, col9, col10, col11, col12 = st.columns(5)
             with col8:
                 km_11sma_eko = st.text_input("Kode Paket EKO",
                                 placeholder="O5x2O0023-24KM2")
@@ -578,10 +578,10 @@ if authentication_status:
             with col11:
                 km_11sma_ant = st.text_input("Kode Paket ANT",
                                 placeholder="N5x2O0023-24KM2")
+            col12, col13, col14, col15 = st.columns(4)
             with col12:
                 km_11sma_bio = st.text_input("Kode Paket BIO",
                                 placeholder="B5x2O0023-24KM2")
-            col13, col14, col15 = st.columns(3)
             with col13:
                 km_11sma_fis = st.text_input("Kode Paket FIS",
                                 placeholder="F5x2O0023-24KM2")
