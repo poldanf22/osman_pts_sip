@@ -53,7 +53,7 @@ if authentication_status:
                      "Nilai Std. 8 SMP (KM-MTK SB)",
                      "Nilai Std. SD (KM)",
                      "Nilai Std. 10, 11 IPA (K13)",
-                     "Nilai Std. 10, 11 IPS (K13)"
+                     "Nilai Std. 10, 11 IPS (K13)",
                      "Nilai Std. PPLS IPA",
                      "Nilai Std. PPLS IPS"],
         )
