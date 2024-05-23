@@ -49,7 +49,7 @@ if authentication_status:
         selected_file = option_menu(
             menu_title="Pilih file:",
             options=["Pivot",
-                     "Nilai Std. SD (K13), SMP (K13-KM)",
+                     "Nilai Std. SD (K13), SMP (K13-KM), 10 SMA (KM)",
                      "Nilai Std. 8 SMP (KM-MTK SB)",
                      "Nilai Std. SD (KM)",
                      "Nilai Std. 10, 11 IPA (K13)",
@@ -864,7 +864,7 @@ if authentication_status:
             st.warning(
                 "Buka file unduhan, klik 'Enable Editing' dan 'Save'")
             
-    if selected_file == "Nilai Std. SD (K13), SMP (K13-KM)" :  
+    if selected_file == "Nilai Std. SD (K13), SMP (K13-KM), 10 SMA (KM)" :  
     # menghilangkan hamburger
         st.markdown("""
         <style>
