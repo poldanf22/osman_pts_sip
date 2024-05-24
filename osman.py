@@ -9497,8 +9497,26 @@ if authentication_status:
 
             # DARI JML
             for row in range(2, q+1):
-                ws['CD{}'.format(
-                    row)] = '=SUM(BQ{}:CC{})'.format(row, row, row)
+                ws['BL{}'.format(row)] = '=B{}'.format(row)
+                ws['BM{}'.format(row)] = '=C{}'.format(row, row)
+                ws['BN{}'.format(row)] = '=D{}'.format(row, row)
+                ws['BO{}'.format(row)] = '=E{}'.format(row, row)
+                ws['BP{}'.format(row)] = '=F{}'.format(row, row)
+                ws['BQ{}'.format(row)] = '=IF(G{}="","",G{})'.format(row, row)
+                ws['BR{}'.format(row)] = '=IF(H{}="","",H{})'.format(row, row)
+                ws['BS{}'.format(row)] = '=IF(I{}="","",I{})'.format(row, row)
+                ws['BT{}'.format(row)] = '=IF(J{}="","",J{})'.format(row, row)
+                ws['BU{}'.format(row)] = '=IF(K{}="","",K{})'.format(row, row)
+                ws['BV{}'.format(row)] = '=IF(L{}="","",L{})'.format(row, row)
+                ws['BW{}'.format(row)] = '=IF(M{}="","",M{})'.format(row, row)
+                ws['BX{}'.format(row)] = '=IF(N{}="","",N{})'.format(row, row)
+                ws['BY{}'.format(row)] = '=IF(O{}="","",O{})'.format(row, row)
+                ws['BZ{}'.format(row)] = '=IF(P{}="","",P{})'.format(row, row)
+                ws['CA{}'.format(row)] = '=IF(Q{}="","",Q{})'.format(row, row)
+                ws['CB{}'.format(row)] = '=IF(R{}="","",R{})'.format(row, row)
+                ws['CC{}'.format(row)] = '=IF(S{}="","",S{})'.format(row, row)
+                ws['CD{}'.format(row)] = '=IF(T{}="","",T{})'.format(row, row)
+                
                 ws['CE{}'.format(
                     row)] = '=IFERROR(ROUND(IF(BQ{}="","",(BQ{}-BQ${})/BQ${}),2),"")'.format(row, row, r, s)
                 ws['CF{}'.format(
