@@ -8752,11 +8752,11 @@ if authentication_status:
             # new
             # iterasi 1 rata-rata - 1
             # rata" MTK 1 ke MTK 1 tambahan dan mapel MTK 1 awal
-            ws['BR{}'.format(
-                r)] = "=IF($BD${}=0,$G${},$G${}-1)".format(r, r, r)
-            ws['BR{}'.format(s)] = "=STDEV(BR2:BR{})".format(q)
-            ws['BR{}'.format(t)] = "=MAX(BR2:BR{})".format(q)
-            ws['BR{}'.format(u)] = "=MIN(BR2:BR{})".format(q)
+            ws['BQ{}'.format(
+                r)] = "=IF($AX${}=0,$G${},$G${}-1)".format(r, r, r)
+            ws['BQ{}'.format(s)] = "=STDEV(BQ2:BQ{})".format(q)
+            ws['BQ{}'.format(t)] = "=MAX(BQ2:BQ{})".format(q)
+            ws['BQ{}'.format(u)] = "=MIN(BQ2:BQ{})".format(q)
             # rata" MTK 2 ke MTK 2 tambahan dan mapel MTK 2 awal
             ws['BS{}'.format(
                 r)] = "=IF($BE${}=0,$H${},$H${}-1)".format(r, r, r)
