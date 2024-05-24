@@ -9578,7 +9578,7 @@ if authentication_status:
                 ws['DG{}'.format(
                     row)] = '=IF(DF{}="","",COUNTIFS($BP$2:$BP${},BP{},$DF$2:$DF${},"<"&DF{})+1)'.format(row, q, row, q, row)
             # TAMBAHAN
-                ws['DH{}'.format(row)] = '=IF($BQ${}=20,IF(AND(BQ{}>3,CE{}=20),1,""),IF($BQ${}=25,IF(AND(BQ{}>4,CE{}=20),1,""),IF($BQ${}=30,IF(AND(BQ{}>5,CE{}=20),1,""),IF($BQ${}=35,IF(AND(BQ{}>6,CE{}=20),1,""),IF($BQ${}=40,IF(AND(BQ{}>7,CE{}=20),1,""),IF($BQ${}=45,IF(AND(BQ{}>8,CE{}=20),1,"")))))))'.format(
+                ws['DH{}'.format(row)] = '=IF($G${}=20,IF(AND(G{}>3,CE{}=20),1,""),IF($G${}=25,IF(AND(G{}>4,CE{}=20),1,""),IF($G${}=30,IF(AND(G{}>5,CE{}=20),1,""),IF($G${}=35,IF(AND(G{}>6,CE{}=20),1,""),IF($G${}=40,IF(AND(G{}>7,CE{}=20),1,""),IF($G${}=45,IF(AND(G{}>8,CE{}=20),1,"")))))))'.format(
                     v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
                 ws['DI{}'.format(row)] = '=IF($BR${}=20,IF(AND(BR{}>3,CF{}=20),1,""),IF($BR${}=25,IF(AND(BR{}>4,CF{}=20),1,""),IF($BR${}=30,IF(AND(BR{}>5,CF{}=20),1,""),IF($BR${}=35,IF(AND(BR{}>6,CF{}=20),1,""),IF($BR${}=40,IF(AND(BR{}>7,CF{}=20),1,""),IF($BR${}=45,IF(AND(BR{}>8,CF{}=20),1,"")))))))'.format(
                     v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
