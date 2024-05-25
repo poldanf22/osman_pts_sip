@@ -10580,7 +10580,7 @@ if authentication_status:
                 ws['HX{}'.format(
                     row)] = '=IFERROR(ROUND(IF(GW{}="","",IF(70+30*HK{}/$HK${}<20,20,70+30*HK{}/$HK${})),2),"")'.format(row, row, r, row, r)
 
-                ws['HY{}'.format(row)] = '=IF(SUM(HS{}:IF{})=0,"",SUM(HS{}:IF{}))'.format(
+                ws['HY{}'.format(row)] = '=IF(SUM(HL{}:HX{})=0,"",SUM(HL{}:HX{}))'.format(
                     row, row, row, row)
                 ws['HZ{}'.format(row)] = '=IF(HY{}="","",RANK(HY{},$HY$2:$HY${}))'.format(
                     row, row, q)
