@@ -8870,9 +8870,9 @@ if authentication_status:
             ws['CY{}'.format(s)] = "=MIN(CY2:CY{})".format(q)
             ws['CY{}'.format(t)] = "=ROUND(AVERAGE(CY2:CY{}),2)".format(q)
             # NILAI STANDAR ANT
-            ws['CZ{}'.format(r)] = "=MAX(DZ2:DZ{})".format(q)
-            ws['CZ{}'.format(s)] = "=MIN(DZ2:DZ{})".format(q)
-            ws['CZ{}'.format(t)] = "=ROUND(AVERAGE(DZ2:DZ{}),2)".format(q)
+            ws['CZ{}'.format(r)] = "=MAX(CZ2:CZ{})".format(q)
+            ws['CZ{}'.format(s)] = "=MIN(CZ2:CZ{})".format(q)
+            ws['CZ{}'.format(t)] = "=ROUND(AVERAGE(CZ2:CZ{}),2)".format(q)
             # NILAI STANDAR BIO
             ws['DA{}'.format(r)] = "=MAX(DA2:DA{})".format(q)
             ws['DA{}'.format(s)] = "=MIN(DA2:DA{})".format(q)
