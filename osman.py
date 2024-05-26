@@ -546,7 +546,7 @@ if authentication_status:
             k13_10ips = [k13_10ips_mat, k13_10ips_ind,
                   k13_10ips_eng, k13_10ips_sej, k13_10ips_eko, k13_10ips_sos, k13_10ips_geo]
             column_order_k13_10ips = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_10IPS', 'IND_10IPS',
-                                'ENG_10IPS', 'SEJ_10IPS', 'EKO_10IPS', 'SOS_10IPS', 'GEO_10IPS']
+                                'ENG_10IPS', 'SEJ_10IPS', 'GEO_10IPS', 'EKO_10IPS', 'SOS_10IPS']
         
         # Kode Paket 11 SMA KM
         elif KURIKULUM == 'KM' and KELAS == '11 SMA':
@@ -649,7 +649,7 @@ if authentication_status:
             k13_11ips = [k13_11ips_mat, k13_11ips_ind,
                   k13_11ips_eng, k13_11ips_sej, k13_11ips_eko, k13_11ips_sos, k13_11ips_geo]
             column_order_k13_11ips = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_11IPS', 'IND_11IPS',
-                                'ENG_11IPS', 'SEJ_11IPS', 'EKO_11IPS', 'SOS_11IPS', 'GEO_11IPS']
+                                'ENG_11IPS', 'SEJ_11IPS', 'GEO_11IPS', 'EKO_11IPS', 'SOS_11IPS']
 
         # Kode Paket PPLS IPA
         elif KURIKULUM == 'PPLS' and KELAS == 'PPLS IPA':
