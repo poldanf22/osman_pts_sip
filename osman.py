@@ -5092,7 +5092,7 @@ if authentication_status:
         with col6:
             KELAS = st.selectbox(
                 "KELAS",
-                ("--Pilih Kelas--", "10 SMA IPS", "11 SMA IPS"))
+                ("--Pilih Kelas--", "10 IPS", "11 IPS"))
 
         col7 = st.container()
 
