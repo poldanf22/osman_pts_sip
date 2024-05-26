@@ -8555,7 +8555,7 @@ if authentication_status:
         JML_SOAL_KIM_2 = KIM_2
 
         uploaded_file = st.file_uploader(
-            'Letakkan file excel IPS', type='xlsx')
+            'Letakkan file excel Pivot', type='xlsx')
 
         if uploaded_file is not None:
             wb = openpyxl.load_workbook(uploaded_file)
