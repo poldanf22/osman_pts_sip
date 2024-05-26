@@ -515,8 +515,8 @@ if authentication_status:
                                 placeholder="K4a2O0023-24K13")
             k13_10ipa = [k13_10ipa_mat, k13_10ipa_bio,
                   k13_10ipa_fis, k13_10ipa_kim]
-            column_order_k13_10ipa = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_10IPA', 'BIO_10IPA',
-                                'FIS_10IPA', 'KIM_10IPA']
+            column_order_k13_10ipa = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_10IPA',
+                                'FIS_10IPA', 'KIM_10IPA', 'BIO_10IPA']
         
         # Kode Paket 10 IPS K13
         elif KURIKULUM == 'K13' and KELAS == '10 IPS':
@@ -618,8 +618,8 @@ if authentication_status:
                                 placeholder="K5a2O0023-24K13")
             k13_11ipa = [k13_11ipa_mat, k13_11ipa_bio,
                   k13_11ipa_fis, k13_11ipa_kim]
-            column_order_k13_11ipa = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_11IPA', 'BIO_11IPA',
-                                'FIS_11IPA', 'KIM_11IPA']
+            column_order_k13_11ipa = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_11IPA',
+                                'FIS_11IPA', 'KIM_11IPA', 'BIO_11IPA']
 
         # Kode Paket 11 IPS K13
         elif KURIKULUM == 'K13' and KELAS == '11 IPS':
