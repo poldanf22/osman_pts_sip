@@ -9549,16 +9549,16 @@ if authentication_status:
             ws['MX{}'.format(r)] = "=SUM(MX2:MX{})".format(q)
             ws['MY{}'.format(r)] = "=SUM(MY2:MY{})".format(q)
             # SEJ, EKO, SOS, GEO, ANT
-            ws['MZ{}'.format(r)] = "=SUM(MZ2:KP{})".format(q)
-            ws['NA{}'.format(r)] = "=SUM(NA2:KQ{})".format(q)
-            ws['NB{}'.format(r)] = "=SUM(NB2:KR{})".format(q)
-            ws['NC{}'.format(r)] = "=SUM(NC2:KS{})".format(q)
-            ws['ND{}'.format(r)] = "=SUM(ND2:KT{})".format(q)
+            ws['MZ{}'.format(r)] = "=SUM(MZ2:MZ{})".format(q)
+            ws['NA{}'.format(r)] = "=SUM(NA2:NA{})".format(q)
+            ws['NB{}'.format(r)] = "=SUM(NB2:NB{})".format(q)
+            ws['NC{}'.format(r)] = "=SUM(NC2:NC{})".format(q)
+            ws['ND{}'.format(r)] = "=SUM(ND2:ND{})".format(q)
             # BIO, FIS, KIM 1, KIM 2
-            ws['NE{}'.format(r)] = "=SUM(NE2:KU{})".format(q)
-            ws['NF{}'.format(r)] = "=SUM(NF2:KV{})".format(q)
-            ws['NG{}'.format(r)] = "=SUM(NG2:KW{})".format(q)
-            ws['NH{}'.format(r)] = "=SUM(NH2:KX{})".format(q)
+            ws['NE{}'.format(r)] = "=SUM(NE2:NE{})".format(q)
+            ws['NF{}'.format(r)] = "=SUM(NF2:NF{})".format(q)
+            ws['NG{}'.format(r)] = "=SUM(NG2:NG{})".format(q)
+            ws['NH{}'.format(r)] = "=SUM(NH2:NH{})".format(q)
 
             # -----------------------------------------------------------------------------
 
