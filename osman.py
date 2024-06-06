@@ -2867,7 +2867,7 @@ if authentication_status:
 
             for row in range(2, q+1):
                 ws['M{}'.format(
-                    row)] = '=SUM(G{}:K{})'.format(row, row, row)
+                    row)] = '=SUM(G{}:L{})'.format(row, row, row)
                 ws['N{}'.format(
                     row)] = '=IFERROR(ROUND(IF(G{}="","",(G{}-G${})/G${}),2),"")'.format(row, row, r, s)
                 ws['O{}'.format(
@@ -2881,36 +2881,36 @@ if authentication_status:
                 ws['S{}'.format(
                     row)] = '=IFERROR(ROUND(IF(L{}="","",(L{}-L${})/L${}),2),"")'.format(row, row, r, s)
                 ws['T{}'.format(
-                    row)] = '=IFERROR(ROUND(IF(G{}="","",IF(70+30*M{}/$M${}<20,20,70+30*M{}/$M${})),2),"")'.format(row, row, r, row, r)
+                    row)] = '=IFERROR(ROUND(IF(G{}="","",IF(70+30*N{}/$N${}<20,20,70+30*N{}/$N${})),2),"")'.format(row, row, r, row, r)
                 ws['U{}'.format(
-                    row)] = '=IFERROR(ROUND(IF(H{}="","",IF(70+30*N{}/$N${}<20,20,70+30*N{}/$N${})),2),"")'.format(row, row, r, row, r)
+                    row)] = '=IFERROR(ROUND(IF(H{}="","",IF(70+30*O{}/$O${}<20,20,70+30*O{}/$O${})),2),"")'.format(row, row, r, row, r)
                 ws['V{}'.format(
-                    row)] = '=IFERROR(ROUND(IF(I{}="","",IF(70+30*O{}/$O${}<20,20,70+30*O{}/$O${})),2),"")'.format(row, row, r, row, r)
+                    row)] = '=IFERROR(ROUND(IF(I{}="","",IF(70+30*P{}/$P${}<20,20,70+30*P{}/$P${})),2),"")'.format(row, row, r, row, r)
                 ws['W{}'.format(
-                    row)] = '=IFERROR(ROUND(IF(J{}="","",IF(70+30*P{}/$P${}<20,20,70+30*P{}/$P${})),2),"")'.format(row, row, r, row, r)
+                    row)] = '=IFERROR(ROUND(IF(J{}="","",IF(70+30*Q{}/$Q${}<20,20,70+30*Q{}/$Q${})),2),"")'.format(row, row, r, row, r)
                 ws['X{}'.format(
-                    row)] = '=IFERROR(ROUND(IF(K{}="","",IF(70+30*Q{}/$Q${}<20,20,70+30*Q{}/$Q${})),2),"")'.format(row, row, r, row, r)
+                    row)] = '=IFERROR(ROUND(IF(K{}="","",IF(70+30*R{}/$R${}<20,20,70+30*R{}/$R${})),2),"")'.format(row, row, r, row, r)
                 ws['Y{}'.format(
-                    row)] = '=IFERROR(ROUND(IF(L{}="","",IF(70+30*R{}/$R${}<20,20,70+30*R{}/$R${})),2),"")'.format(row, row, r, row, r)
+                    row)] = '=IFERROR(ROUND(IF(L{}="","",IF(70+30*S{}/$S${}<20,20,70+30*S{}/$S${})),2),"")'.format(row, row, r, row, r)
 
-                ws['Z{}'.format(row)] = '=IF(SUM(T{}:Y{})=0,"",SUM(R{}:V{}))'.format(
+                ws['Z{}'.format(row)] = '=IF(SUM(T{}:Y{})=0,"",SUM(T{}:Y{}))'.format(
                     row, row, row, row)
                 ws['AA{}'.format(row)] = '=IF(Z{}="","",RANK(Z{},$Z$2:$Z${}))'.format(
                     row, row, q)
                 ws['AB{}'.format(
                     row)] = '=IF(AA{}="","",COUNTIFS($F$2:$F${},F{},$AA$2:$AA${},"<"&AA{})+1)'.format(row, q, row, q, row)
                 # TAMBAHAN
-                ws['AC{}'.format(row)] = '=IF($G${}=25,IF(AND(G{}>4,R{}=20),1,""),IF($G${}=30,IF(AND(G{}>5,R{}=20),1,""),IF($G${}=35,IF(AND(G{}>6,R{}=20),1,""),IF($G${}=40,IF(AND(G{}>7,R{}=20),1,""),IF($G${}=45,IF(AND(G{}>8,R{}=20),1,""))))))'.format(
+                ws['AC{}'.format(row)] = '=IF($G${}=25,IF(AND(G{}>4,T{}=20),1,""),IF($G${}=30,IF(AND(G{}>5,T{}=20),1,""),IF($G${}=35,IF(AND(G{}>6,T{}=20),1,""),IF($G${}=40,IF(AND(G{}>7,T{}=20),1,""),IF($G${}=45,IF(AND(G{}>8,T{}=20),1,""))))))'.format(
                     v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['AD{}'.format(row)] = '=IF($H${}=25,IF(AND(H{}>4,S{}=20),1,""),IF($H${}=30,IF(AND(H{}>5,S{}=20),1,""),IF($H${}=35,IF(AND(H{}>6,S{}=20),1,""),IF($H${}=40,IF(AND(H{}>7,S{}=20),1,""),IF($H${}=45,IF(AND(H{}>8,S{}=20),1,""))))))'.format(
+                ws['AD{}'.format(row)] = '=IF($H${}=25,IF(AND(H{}>4,U{}=20),1,""),IF($H${}=30,IF(AND(H{}>5,U{}=20),1,""),IF($H${}=35,IF(AND(H{}>6,U{}=20),1,""),IF($H${}=40,IF(AND(H{}>7,U{}=20),1,""),IF($H${}=45,IF(AND(H{}>8,U{}=20),1,""))))))'.format(
                     v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['AE{}'.format(row)] = '=IF($I${}=25,IF(AND(I{}>4,T{}=20),1,""),IF($I${}=30,IF(AND(I{}>5,T{}=20),1,""),IF($I${}=35,IF(AND(I{}>6,T{}=20),1,""),IF($I${}=40,IF(AND(I{}>7,T{}=20),1,""),IF($I${}=45,IF(AND(I{}>8,T{}=20),1,""))))))'.format(
+                ws['AE{}'.format(row)] = '=IF($I${}=25,IF(AND(I{}>4,V{}=20),1,""),IF($I${}=30,IF(AND(I{}>5,V{}=20),1,""),IF($I${}=35,IF(AND(I{}>6,V{}=20),1,""),IF($I${}=40,IF(AND(I{}>7,V{}=20),1,""),IF($I${}=45,IF(AND(I{}>8,V{}=20),1,""))))))'.format(
                     v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['AF{}'.format(row)] = '=IF($J${}=25,IF(AND(J{}>4,U{}=20),1,""),IF($J${}=30,IF(AND(J{}>5,U{}=20),1,""),IF($J${}=35,IF(AND(J{}>6,U{}=20),1,""),IF($J${}=40,IF(AND(J{}>7,U{}=20),1,""),IF($J${}=45,IF(AND(J{}>8,U{}=20),1,""))))))'.format(
+                ws['AF{}'.format(row)] = '=IF($J${}=25,IF(AND(J{}>4,W{}=20),1,""),IF($J${}=30,IF(AND(J{}>5,W{}=20),1,""),IF($J${}=35,IF(AND(J{}>6,W{}=20),1,""),IF($J${}=40,IF(AND(J{}>7,W{}=20),1,""),IF($J${}=45,IF(AND(J{}>8,W{}=20),1,""))))))'.format(
                     v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['AG{}'.format(row)] = '=IF($K${}=25,IF(AND(K{}>4,V{}=20),1,""),IF($K${}=30,IF(AND(K{}>5,V{}=20),1,""),IF($K${}=35,IF(AND(K{}>6,V{}=20),1,""),IF($K${}=40,IF(AND(K{}>7,V{}=20),1,""),IF($K${}=45,IF(AND(K{}>8,V{}=20),1,""))))))'.format(
+                ws['AG{}'.format(row)] = '=IF($K${}=25,IF(AND(K{}>4,X{}=20),1,""),IF($K${}=30,IF(AND(K{}>5,X{}=20),1,""),IF($K${}=35,IF(AND(K{}>6,X{}=20),1,""),IF($K${}=40,IF(AND(K{}>7,X{}=20),1,""),IF($K${}=45,IF(AND(K{}>8,X{}=20),1,""))))))'.format(
                     v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['AH{}'.format(row)] = '=IF($L${}=25,IF(AND(L{}>4,W{}=20),1,""),IF($L${}=30,IF(AND(L{}>5,W{}=20),1,""),IF($L${}=35,IF(AND(L{}>6,W{}=20),1,""),IF($L${}=40,IF(AND(L{}>7,W{}=20),1,""),IF($L${}=45,IF(AND(L{}>8,W{}=20),1,""))))))'.format(
+                ws['AH{}'.format(row)] = '=IF($L${}=25,IF(AND(L{}>4,Y{}=20),1,""),IF($L${}=30,IF(AND(L{}>5,Y{}=20),1,""),IF($L${}=35,IF(AND(L{}>6,Y{}=20),1,""),IF($L${}=40,IF(AND(L{}>7,Y{}=20),1,""),IF($L${}=45,IF(AND(L{}>8,Y{}=20),1,""))))))'.format(
                     v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
 
         # new Z Score
