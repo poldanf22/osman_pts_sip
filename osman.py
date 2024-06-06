@@ -2391,19 +2391,22 @@ if authentication_status:
             ws['K{}'.format(r)] = "=ROUND(AVERAGE(K2:K{}),2)".format(q)  # ipa
             ws['L{}'.format(r)] = "=ROUND(AVERAGE(L2:L{}),2)".format(q)  # ips
             ws['M{}'.format(r)] = "=ROUND(AVERAGE(M2:M{}),2)".format(q)  # jml
+            
             ws['G{}'.format(s)] = "=STDEV(G2:G{})".format(q)
             ws['H{}'.format(s)] = "=STDEV(H2:H{})".format(q)
             ws['I{}'.format(s)] = "=STDEV(I2:I{})".format(q)
             ws['J{}'.format(s)] = "=STDEV(J2:J{})".format(q)
             ws['K{}'.format(s)] = "=STDEV(K2:K{})".format(q)
             ws['L{}'.format(s)] = "=STDEV(L2:L{})".format(q)
+            
             ws['G{}'.format(t)] = "=MAX(G2:G{})".format(q)
             ws['H{}'.format(t)] = "=MAX(H2:H{})".format(q)
             ws['I{}'.format(t)] = "=MAX(I2:I{})".format(q)
             ws['J{}'.format(t)] = "=MAX(J2:J{})".format(q)
             ws['K{}'.format(t)] = "=MAX(K2:K{})".format(q)
             ws['L{}'.format(t)] = "=MAX(L2:L{})".format(q)
-            ws['M{}'.format(r)] = "=MAX(M2:M{})".format(q)
+            ws['M{}'.format(t)] = "=MAX(M2:M{})".format(q)
+            
             ws['N{}'.format(r)] = "=MAX(N2:N{})".format(q)
             ws['O{}'.format(r)] = "=MAX(O2:O{})".format(q)
             ws['P{}'.format(r)] = "=MAX(P2:P{})".format(q)
@@ -2414,7 +2417,9 @@ if authentication_status:
             ws['U{}'.format(r)] = "=MAX(U2:U{})".format(q)
             ws['V{}'.format(r)] = "=MAX(V2:V{})".format(q)
             ws['W{}'.format(r)] = "=MAX(W2:W{})".format(q)
-            ws['X{}'.format(r)] = "=ROUND(MAX(X2:X{}),2)".format(q)
+            ws['X{}'.format(r)] = "=MAX(X2:X{})".format(q)
+            ws['Y{}'.format(r)] = "=MAX(Y2:Y{})".format(q)
+            
             ws['G{}'.format(u)] = "=MIN(G2:G{})".format(q)
             ws['H{}'.format(u)] = "=MIN(H2:H{})".format(q)
             ws['I{}'.format(u)] = "=MIN(I2:I{})".format(q)
@@ -2430,6 +2435,7 @@ if authentication_status:
             ws['V{}'.format(s)] = "=MIN(V2:V{})".format(q)
             ws['W{}'.format(s)] = "=MIN(W2:W{})".format(q)
             ws['X{}'.format(s)] = "=MIN(X2:X{})".format(q)
+            ws['Y{}'.format(s)] = "=MIN(Y2:Y{})".format(q)
             ws['R{}'.format(t)] = "=ROUND(AVERAGE(R2:R{}),2)".format(q)
             ws['S{}'.format(t)] = "=ROUND(AVERAGE(S2:S{}),2)".format(q)
             ws['T{}'.format(t)] = "=ROUND(AVERAGE(T2:T{}),2)".format(q)
@@ -2437,6 +2443,7 @@ if authentication_status:
             ws['V{}'.format(t)] = "=ROUND(AVERAGE(V2:V{}),2)".format(q)
             ws['W{}'.format(t)] = "=ROUND(AVERAGE(W2:W{}),2)".format(q)
             ws['X{}'.format(t)] = "=ROUND(AVERAGE(X2:X{}),2)".format(q)
+            ws['Y{}'.format(t)] = "=ROUND(AVERAGE(Y2:Y{}),2)".format(q)
             ws['Z{}'.format(r)] = "=MAX(Z2:Z{})".format(q)
             ws['AA{}'.format(r)] = "=SUM(AA2:AA{})".format(q)
             ws['AB{}'.format(r)] = "=SUM(AB2:AB{})".format(q)
