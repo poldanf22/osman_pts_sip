@@ -2455,8 +2455,7 @@ if authentication_status:
             ws['AF{}'.format(r)] = "=SUM(AF2:AF{})".format(q)
             ws['AG{}'.format(r)] = "=SUM(AG2:AG{})".format(q)
             ws['AH{}'.format(r)] = "=SUM(AH2:AH{})".format(q)
-            # new
-            # iterasi 1 rata-rata - 1
+            
             ws['F{}'.format(v)] = 'JUMLAH SOAL'
             ws['G{}'.format(v)] = JML_SOAL_MAT
             ws['H{}'.format(v)] = JML_SOAL_MAT_SB
@@ -2464,7 +2463,10 @@ if authentication_status:
             ws['J{}'.format(v)] = JML_SOAL_ENG
             ws['K{}'.format(v)] = JML_SOAL_IPA
             ws['L{}'.format(v)] = JML_SOAL_IPS
-            ws['AO{}'.format(r)] = "=IF($Z${}=0,$G${},$G${}-1)".format(r, r, r)#MTK
+            # new
+            # iterasi 1 rata-rata - 1
+            # MAT
+            ws['AO{}'.format(r)] = "=IF($Z${}=0,$G${},$G${}-1)".format(r, r, r)
             ws['AO{}'.format(s)] = "=STDEV(AO2:AO{})".format(q)
             ws['AO{}'.format(t)] = "=MAX(AO2:AO{})".format(q)
             ws['AO{}'.format(u)] = "=MIN(AO2:AO{})".format(q)
@@ -2488,17 +2490,18 @@ if authentication_status:
             ws['AT{}'.format(s)] = "=STDEV(AT2:AT{})".format(q)
             ws['AT{}'.format(t)] = "=MAX(AT2:AT{})".format(q)
             ws['AT{}'.format(u)] = "=MIN(AT2:AT{})".format(q)
+            # JML
             ws['AU{}'.format(r)] = "=ROUND(AVERAGE(AU2:AU{}),2)".format(q)
             ws['AU{}'.format(t)] = "=MAX(AU2:AU{})".format(q)
             ws['AU{}'.format(u)] = "=MIN(AU2:AU{})".format(q)
-            ws['AU{}'.format(r)] = "=MAX(AU2:AU{})".format(q)
+            # Z SCORE   
             ws['AV{}'.format(r)] = "=MAX(AV2:AV{})".format(q)
             ws['AW{}'.format(r)] = "=MAX(AW2:AW{})".format(q)
             ws['AX{}'.format(r)] = "=MAX(AX2:AX{})".format(q)
             ws['AY{}'.format(r)] = "=MAX(AY2:AY{})".format(q)
             ws['AZ{}'.format(r)] = "=MAX(AZ2:AZ{})".format(q)
-            ws['BA{}'.format(s)] = "=MIN(BA2:BA{})".format(q)
-            ws['BA{}'.format(t)] = "=ROUND(AVERAGE(BA2:BA{}),2)".format(q)
+            ws['BA{}'.format(r)] = "=MAX(BA2:BA{})".format(q)
+            # STD
             ws['BB{}'.format(r)] = "=MAX(BB2:BB{})".format(q)
             ws['BB{}'.format(s)] = "=MIN(BB2:BB{})".format(q)
             ws['BB{}'.format(t)] = "=ROUND(AVERAGE(BB2:BB{}),2)".format(q)
@@ -2514,35 +2517,35 @@ if authentication_status:
             ws['BF{}'.format(r)] = "=MAX(BF2:BF{})".format(q)
             ws['BF{}'.format(s)] = "=MIN(BF2:BF{})".format(q)
             ws['BF{}'.format(t)] = "=ROUND(AVERAGE(BF2:BF{}),2)".format(q)
-            ws['BG{}'.format(r)] = "=SUM(BG2:BG{})".format(q)
-            ws['BH{}'.format(r)] = "=SUM(BH2:BH{})".format(q)
-            ws['BI{}'.format(r)] = "=SUM(BI2:BI{})".format(q)
-            ws['BJ{}'.format(r)] = "=SUM(BJ2:BJ{})".format(q)
+            ws['BG{}'.format(r)] = "=MAX(BG2:BG{})".format(q)
+            ws['BG{}'.format(s)] = "=MIN(BG2:BG{})".format(q)
+            ws['BG{}'.format(t)] = "=ROUND(AVERAGE(BG2:BG{}),2)".format(q)
+            # TAMBAHAN
             ws['BK{}'.format(r)] = "=SUM(BK2:BK{})".format(q)
+            ws['BL{}'.format(r)] = "=SUM(BL2:BL{})".format(q)
+            ws['BM{}'.format(r)] = "=SUM(BM2:BM{})".format(q)
+            ws['BN{}'.format(r)] = "=SUM(BN2:BN{})".format(q)
+            ws['BO{}'.format(r)] = "=SUM(BO2:BO{})".format(q)
+            ws['BP{}'.format(r)] = "=SUM(BP2:BP{})".format(q)
 
             # iterasi 2 rata-rata - 1
-            ws['BO{}'.format(
-                r)] = "=IF($BD${}=0,$AK${},$AK${}-1)".format(r, r, r)
+            ws['BO{}'.format(r)] = "=IF($BD${}=0,$AK${},$AK${}-1)".format(r, r, r)
             ws['BO{}'.format(s)] = "=STDEV(BO2:BO{})".format(q)
             ws['BO{}'.format(t)] = "=MAX(BO2:BO{})".format(q)
             ws['BO{}'.format(u)] = "=MIN(BO2:BO{})".format(q)
-            ws['BP{}'.format(
-                r)] = "=IF($BE${}=0,$AL${},$AL${}-1)".format(r, r, r)
+            ws['BP{}'.format(r)] = "=IF($BE${}=0,$AL${},$AL${}-1)".format(r, r, r)
             ws['BP{}'.format(s)] = "=STDEV(BP2:BP{})".format(q)
             ws['BP{}'.format(t)] = "=MAX(BP2:BP{})".format(q)
             ws['BP{}'.format(u)] = "=MIN(BP2:BP{})".format(q)
-            ws['BQ{}'.format(
-                r)] = "=IF($BF${}=0,$AM${},$AM${}-1)".format(r, r, r)
+            ws['BQ{}'.format(r)] = "=IF($BF${}=0,$AM${},$AM${}-1)".format(r, r, r)
             ws['BQ{}'.format(s)] = "=STDEV(BQ2:BQ{})".format(q)
             ws['BQ{}'.format(t)] = "=MAX(BQ2:BQ{})".format(q)
             ws['BQ{}'.format(u)] = "=MIN(BQ2:BQ{})".format(q)
-            ws['BR{}'.format(
-                r)] = "=IF($BG${}=0,$AN${},$AN${}-1)".format(r, r, r)
+            ws['BR{}'.format(r)] = "=IF($BG${}=0,$AN${},$AN${}-1)".format(r, r, r)
             ws['BR{}'.format(s)] = "=STDEV(BR2:BR{})".format(q)
             ws['BR{}'.format(t)] = "=MAX(BR2:BR{})".format(q)
             ws['BR{}'.format(u)] = "=MIN(BR2:BR{})".format(q)
-            ws['BS{}'.format(
-                r)] = "=IF($BH${}=0,$AO${},$AO${}-1)".format(r, r, r)
+            ws['BS{}'.format(r)] = "=IF($BH${}=0,$AO${},$AO${}-1)".format(r, r, r)
             ws['BS{}'.format(s)] = "=STDEV(BS2:BS{})".format(q)
             ws['BS{}'.format(t)] = "=MAX(BS2:BS{})".format(q)
             ws['BS{}'.format(u)] = "=MIN(BS2:BS{})".format(q)
@@ -3109,7 +3112,7 @@ if authentication_status:
                     v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
 
                 # new Z Score [2]
-            ws['BJ1'] = 'NAMA_SISWA_3'
+            ws['BR1'] = 'NAMA_SISWA_3'
             ws['BK1'] = 'NOMOR_NF_3'
             ws['BL1'] = 'KELAS_3'
             ws['BM1'] = 'NAMA_SEKOLAH_3'
