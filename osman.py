@@ -50,7 +50,7 @@ if authentication_status:
             menu_title="Pilih file:",
             options=["Pivot",
                      "Nilai Std. SD (K13), SMP (K13-KM), 10 SMA (KM)",
-                     "Nilai Std. 8 SMP (KM-MTK SB)",
+                     "Nilai Std. 8 SMP (KM)",
                      "Nilai Std. SD (KM)",
                      "Nilai Std. 10, 11 IPS (K13)",
                      "Nilai Std. 11 SMA (KM)",
@@ -189,7 +189,7 @@ if authentication_status:
         with col2:
             KELAS = st.selectbox(
                 "KELAS",
-                ("--Pilih Kelas--", "4 SD", "5 SD", "6 SD", "7 SMP", "8 SMP", "8 SMP SB", "9 SMP", "10 IPA", "10 IPS", "10 SMA", "11 IPA", "11 IPS", "11 SMA", "PPLS IPA", "PPLS IPS"))
+                ("--Pilih Kelas--", "4 SD", "5 SD", "6 SD", "7 SMP", "8 SMP", "9 SMP", "10 IPA", "10 IPS", "10 SMA", "11 IPA", "11 IPS", "11 SMA", "PPLS IPA", "PPLS IPS"))
 
         # Kode Paket 4 SD K13
         if KURIKULUM == 'K13' and KELAS == '4 SD':
@@ -380,49 +380,28 @@ if authentication_status:
         # Kode Paket 8 SMP KM
         elif KURIKULUM == 'KM' and KELAS == '8 SMP':
             st.subheader("Input Kode Paket Kelas 8 SMP KM")
-            col3, col4, col5, col6, col7 = st.columns(5)
+            col3, col4, col5, col6, col7, col8 = st.columns(6)
             with col3:
                 km_8smp_mat = st.text_input("Kode Paket MTK",
                                 placeholder="M2p2O0123-24KM")
             with col4:
-                km_8smp_ind = st.text_input("Kode Paket B.IND",
-                                placeholder="I2p2O0123-24KM")
-            with col5:
-                km_8smp_eng = st.text_input("Kode Paket B.ING",
-                                placeholder="E2p2O0123-24KM")
-            with col6:
-                km_8smp_ipa = st.text_input("Kode Paket IPA",
-                                placeholder="A2p2O0123-24KM")
-            with col7:
-                km_8smp_ips = st.text_input("Kode Paket IPS",
-                                placeholder="Z2p2O0123-24KM")
-            km_8smp = [km_8smp_mat, km_8smp_ind,
-                   km_8smp_eng, km_8smp_ipa, km_8smp_ips]
-            column_order_km_8smp = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_8SMP', 'IND_8SMP',
-                                    'ENG_8SMP', 'IPA_8SMP', 'IPS_8SMP']
-
-        # Kode Paket 8 SMP KM SB
-        elif KURIKULUM == 'KM' and KELAS == '8 SMP SB':
-            st.subheader("Input Kode Paket Kelas 8 SMP KM SB")
-            col3, col4, col5, col6, col7 = st.columns(5)
-            with col3:
                 km_8smp_mat_sb = st.text_input("Kode Paket MTK SB",
                                 placeholder="M2p2O0123-24KM")
-            with col4:
+            with col5:
                 km_8smp_ind = st.text_input("Kode Paket B.IND",
                                 placeholder="I2p2O0123-24KM")
-            with col5:
+            with col6:
                 km_8smp_eng = st.text_input("Kode Paket B.ING",
                                 placeholder="E2p2O0123-24KM")
-            with col6:
+            with col7:
                 km_8smp_ipa = st.text_input("Kode Paket IPA",
                                 placeholder="A2p2O0123-24KM")
-            with col7:
+            with col8:
                 km_8smp_ips = st.text_input("Kode Paket IPS",
                                 placeholder="Z2p2O0123-24KM")
-            km_8smp_sb = [km_8smp_mat_sb, km_8smp_ind,
-                    km_8smp_eng, km_8smp_ipa, km_8smp_ips]
-            column_order_km_8smp_sb = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_SB_8SMP', 'IND_8SMP',
+            km_8smp = [km_8smp_mat, km_8smp_mat_sb, km_8smp_ind,
+                   km_8smp_eng, km_8smp_ipa, km_8smp_ips]
+            column_order_km_8smp = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_8SMP', 'MAT_SB_8SMP', 'IND_8SMP',
                                     'ENG_8SMP', 'IPA_8SMP', 'IPS_8SMP']
 
         # Kode Paket 9 SMP K13
@@ -784,9 +763,6 @@ if authentication_status:
             elif KELAS == "8 SMP" and KURIKULUM == "KM":
                 kode_kls_kur = km_8smp
                 column_order = column_order_km_8smp
-            elif KELAS == "8 SMP SB" and KURIKULUM == "KM":
-                kode_kls_kur = km_8smp_sb
-                column_order = column_order_km_8smp_sb
             elif KELAS == "9 SMP" and KURIKULUM == "KM":
                 kode_kls_kur = km_9smp
                 column_order = column_order_km_9smp
@@ -2301,7 +2277,7 @@ if authentication_status:
 
             st.warning(
                 "Buka file unduhan, klik 'Enable Editing' dan 'Save'")
-    if selected_file == "Nilai Std. 8 SMP (KM-MTK SB)":
+    if selected_file == "Nilai Std. 8 SMP (KM)":
         # menghilangkan hamburger
         st.markdown("""
         <style>
