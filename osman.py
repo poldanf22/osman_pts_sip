@@ -2782,6 +2782,8 @@ if authentication_status:
             ws['X1'].font = Font(bold=False, name='Calibri', size=11)
             ws['Y1'].font = Font(bold=False, name='Calibri', size=11)
             ws['Z1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['AA1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['AB1'].font = Font(bold=False, name='Calibri', size=11)
         # FILL
             ws['B1'].fill = PatternFill(
                 fill_type='solid', start_color='00FF6600', end_color='00FF6600')
@@ -2832,6 +2834,10 @@ if authentication_status:
             ws['Y1'].fill = PatternFill(
                 fill_type='solid', start_color='00FF6600', end_color='00FF6600')
             ws['Z1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['AA1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['AB1'].fill = PatternFill(
                 fill_type='solid', start_color='00FF6600', end_color='00FF6600')
             # tambahan
             ws['AC1'] = 'MAT_20_1'
