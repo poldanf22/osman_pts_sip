@@ -2834,22 +2834,18 @@ if authentication_status:
             ws['Z1'].fill = PatternFill(
                 fill_type='solid', start_color='00FF6600', end_color='00FF6600')
             # tambahan
-            ws['AA1'] = 'MAT_20_1'
-            ws['AB1'] = 'MAT_SB_20_1'
-            ws['AC1'] = 'IND_20_1'
-            ws['AD1'] = 'ENG_20_1'
-            ws['AE1'] = 'IPA_20_1'
-            ws['AF1'] = 'IPS_20_1'
-            ws['AA1'].font = Font(bold=False, name='Calibri', size=11)
-            ws['AB1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['AC1'] = 'MAT_20_1'
+            ws['AD1'] = 'MAT_SB_20_1'
+            ws['AE1'] = 'IND_20_1'
+            ws['AF1'] = 'ENG_20_1'
+            ws['AG1'] = 'IPA_20_1'
+            ws['AH1'] = 'IPS_20_1'
             ws['AC1'].font = Font(bold=False, name='Calibri', size=11)
             ws['AD1'].font = Font(bold=False, name='Calibri', size=11)
             ws['AE1'].font = Font(bold=False, name='Calibri', size=11)
             ws['AF1'].font = Font(bold=False, name='Calibri', size=11)
-            ws['AA1'].fill = PatternFill(
-                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
-            ws['AB1'].fill = PatternFill(
-                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['AG1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['AH1'].font = Font(bold=False, name='Calibri', size=11)
             ws['AC1'].fill = PatternFill(
                 fill_type='solid', start_color='00FF6600', end_color='00FF6600')
             ws['AD1'].fill = PatternFill(
@@ -2857,6 +2853,10 @@ if authentication_status:
             ws['AE1'].fill = PatternFill(
                 fill_type='solid', start_color='00FF6600', end_color='00FF6600')
             ws['AF1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['AG1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['AH1'].fill = PatternFill(
                 fill_type='solid', start_color='00FF6600', end_color='00FF6600')
 
             for row in range(2, q+1):
