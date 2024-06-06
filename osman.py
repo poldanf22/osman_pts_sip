@@ -2298,14 +2298,14 @@ if authentication_status:
 
         st.title("Olah Nilai Standar KM")
 
-        st.header("8 SMP-MTK SB")
+        st.header("8 SMP")
 
         col6 = st.container()
 
         with col6:
             KELAS = st.selectbox(
                 "KELAS",
-                ("--Pilih Kelas--", "8 SMP SB"))
+                ("--Pilih Kelas--", "8 SMP"))
 
         col7 = st.container()
 
@@ -2331,34 +2331,40 @@ if authentication_status:
         TAHUN = st.text_input("Masukkan Tahun Ajaran",
                               placeholder="contoh: 2022-2023")
 
-        col1, col2, col3, col4, col5 = st.columns(5)
+        col1, col2, col3, col4, col5, col6 = st.columns(6)
 
         with col1:
             MTK = st.selectbox(
+                "JML. SOAL MAT.",
+                ("--Pilih--", 25, 30, 35, 40, 45))
+        
+        with col2:
+            MTK_SB = st.selectbox(
                 "JML. SOAL MAT. SB.",
                 ("--Pilih--", 25, 30, 35, 40, 45))
 
-        with col2:
+        with col3:
             IND = st.selectbox(
                 "JML. SOAL IND.",
                 ("--Pilih--", 25, 30, 35, 40, 45))
 
-        with col3:
+        with col4:
             ENG = st.selectbox(
                 "JML. SOAL ENG.",
                 ("--Pilih--", 25, 30, 35, 40, 45))
 
-        with col4:
+        with col5:
             IPA = st.selectbox(
                 "JML. SOAL IPA.",
                 ("--Pilih--", 25, 30, 35, 40, 45))
 
-        with col5:
+        with col6:
             IPS = st.selectbox(
                 "JML. SOAL IPS.",
                 ("--Pilih--", 25, 30, 35, 40, 45))
 
         JML_SOAL_MAT = MTK
+        JML_SOAL_MAT_SB = MTK_SB
         JML_SOAL_IND = IND
         JML_SOAL_ENG = ENG
         JML_SOAL_IPA = IPA
@@ -2382,16 +2388,18 @@ if authentication_status:
             x = len(ws['K'])+8
 
             ws['G{}'.format(r)] = "=ROUND(AVERAGE(G2:G{}),2)".format(q)  # mat
-            ws['H{}'.format(r)] = "=ROUND(AVERAGE(H2:H{}),2)".format(q)  # ind
-            ws['I{}'.format(r)] = "=ROUND(AVERAGE(I2:I{}),2)".format(q)  # eng
-            ws['J{}'.format(r)] = "=ROUND(AVERAGE(J2:J{}),2)".format(q)  # ipa
-            ws['K{}'.format(r)] = "=ROUND(AVERAGE(K2:K{}),2)".format(q)  # ips
-            ws['L{}'.format(r)] = "=ROUND(AVERAGE(L2:L{}),2)".format(q)  # jml
+            ws['H{}'.format(r)] = "=ROUND(AVERAGE(H2:H{}),2)".format(q)  # mat sb
+            ws['I{}'.format(r)] = "=ROUND(AVERAGE(I2:I{}),2)".format(q)  # ind
+            ws['J{}'.format(r)] = "=ROUND(AVERAGE(J2:J{}),2)".format(q)  # eng
+            ws['K{}'.format(r)] = "=ROUND(AVERAGE(K2:K{}),2)".format(q)  # ipa
+            ws['L{}'.format(r)] = "=ROUND(AVERAGE(L2:L{}),2)".format(q)  # ips
+            ws['M{}'.format(r)] = "=ROUND(AVERAGE(M2:M{}),2)".format(q)  # jml
             ws['G{}'.format(s)] = "=STDEV(G2:G{})".format(q)
             ws['H{}'.format(s)] = "=STDEV(H2:H{})".format(q)
             ws['I{}'.format(s)] = "=STDEV(I2:I{})".format(q)
             ws['J{}'.format(s)] = "=STDEV(J2:J{})".format(q)
             ws['K{}'.format(s)] = "=STDEV(K2:K{})".format(q)
+            ws['L{}'.format(s)] = "=STDEV(L2:L{})".format(q)
             ws['G{}'.format(t)] = "=MAX(G2:G{})".format(q)
             ws['H{}'.format(t)] = "=MAX(H2:H{})".format(q)
             ws['I{}'.format(t)] = "=MAX(I2:I{})".format(q)
@@ -2408,31 +2416,37 @@ if authentication_status:
             ws['T{}'.format(r)] = "=MAX(T2:T{})".format(q)
             ws['U{}'.format(r)] = "=MAX(U2:U{})".format(q)
             ws['V{}'.format(r)] = "=MAX(V2:V{})".format(q)
-            ws['W{}'.format(r)] = "=ROUND(MAX(W2:W{}),2)".format(q)
+            ws['W{}'.format(r)] = "=MAX(W2:W{})".format(q)
+            ws['X{}'.format(r)] = "=ROUND(MAX(X2:X{}),2)".format(q)
             ws['G{}'.format(u)] = "=MIN(G2:G{})".format(q)
             ws['H{}'.format(u)] = "=MIN(H2:H{})".format(q)
             ws['I{}'.format(u)] = "=MIN(I2:I{})".format(q)
             ws['J{}'.format(u)] = "=MIN(J2:J{})".format(q)
             ws['K{}'.format(u)] = "=MIN(K2:K{})".format(q)
             ws['L{}'.format(u)] = "=MIN(L2:L{})".format(q)
+            ws['M{}'.format(u)] = "=MIN(M2:M{})".format(q)
+            
             ws['R{}'.format(s)] = "=MIN(R2:R{})".format(q)
             ws['S{}'.format(s)] = "=MIN(S2:S{})".format(q)
             ws['T{}'.format(s)] = "=MIN(T2:T{})".format(q)
             ws['U{}'.format(s)] = "=MIN(U2:U{})".format(q)
             ws['V{}'.format(s)] = "=MIN(V2:V{})".format(q)
             ws['W{}'.format(s)] = "=MIN(W2:W{})".format(q)
+            ws['X{}'.format(s)] = "=MIN(X2:X{})".format(q)
             ws['R{}'.format(t)] = "=ROUND(AVERAGE(R2:R{}),2)".format(q)
             ws['S{}'.format(t)] = "=ROUND(AVERAGE(S2:S{}),2)".format(q)
             ws['T{}'.format(t)] = "=ROUND(AVERAGE(T2:T{}),2)".format(q)
             ws['U{}'.format(t)] = "=ROUND(AVERAGE(U2:U{}),2)".format(q)
             ws['V{}'.format(t)] = "=ROUND(AVERAGE(V2:V{}),2)".format(q)
             ws['W{}'.format(t)] = "=ROUND(AVERAGE(W2:W{}),2)".format(q)
-            ws['X{}'.format(r)] = "=MAX(X2:X{})".format(q)
-            ws['Z{}'.format(r)] = "=SUM(Z2:Z{})".format(q)
+            ws['X{}'.format(t)] = "=ROUND(AVERAGE(X2:X{}),2)".format(q)
+            ws['Z{}'.format(r)] = "=MAX(Z2:Z{})".format(q)
             ws['AA{}'.format(r)] = "=SUM(AA2:AA{})".format(q)
             ws['AB{}'.format(r)] = "=SUM(AB2:AB{})".format(q)
             ws['AC{}'.format(r)] = "=SUM(AC2:AC{})".format(q)
             ws['AD{}'.format(r)] = "=SUM(AD2:AD{})".format(q)
+            ws['AE{}'.format(r)] = "=SUM(AE2:AE{})".format(q)
+            ws['AF{}'.format(r)] = "=SUM(AF2:AF{})".format(q)
             # new
             # iterasi 1 rata-rata - 1
             ws['F{}'.format(v)] = 'JUMLAH SOAL'
