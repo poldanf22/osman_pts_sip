@@ -2419,7 +2419,8 @@ if authentication_status:
             ws['W{}'.format(r)] = "=MAX(W2:W{})".format(q)
             ws['X{}'.format(r)] = "=MAX(X2:X{})".format(q)
             ws['Y{}'.format(r)] = "=MAX(Y2:Y{})".format(q)
-            
+            ws['Z{}'.format(r)] = "=MAX(Z2:Z{})".format(q)
+
             ws['G{}'.format(u)] = "=MIN(G2:G{})".format(q)
             ws['H{}'.format(u)] = "=MIN(H2:H{})".format(q)
             ws['I{}'.format(u)] = "=MIN(I2:I{})".format(q)
@@ -2436,6 +2437,8 @@ if authentication_status:
             ws['W{}'.format(s)] = "=MIN(W2:W{})".format(q)
             ws['X{}'.format(s)] = "=MIN(X2:X{})".format(q)
             ws['Y{}'.format(s)] = "=MIN(Y2:Y{})".format(q)
+            ws['Z{}'.format(s)] = "=MIN(Z2:Z{})".format(q)
+            
             ws['R{}'.format(t)] = "=ROUND(AVERAGE(R2:R{}),2)".format(q)
             ws['S{}'.format(t)] = "=ROUND(AVERAGE(S2:S{}),2)".format(q)
             ws['T{}'.format(t)] = "=ROUND(AVERAGE(T2:T{}),2)".format(q)
@@ -2444,13 +2447,14 @@ if authentication_status:
             ws['W{}'.format(t)] = "=ROUND(AVERAGE(W2:W{}),2)".format(q)
             ws['X{}'.format(t)] = "=ROUND(AVERAGE(X2:X{}),2)".format(q)
             ws['Y{}'.format(t)] = "=ROUND(AVERAGE(Y2:Y{}),2)".format(q)
-            ws['Z{}'.format(r)] = "=MAX(Z2:Z{})".format(q)
-            ws['AA{}'.format(r)] = "=SUM(AA2:AA{})".format(q)
-            ws['AB{}'.format(r)] = "=SUM(AB2:AB{})".format(q)
+            ws['Z{}'.format(t)] = "=ROUND(AVERAGE(Z2:Z{}),2)".format(q)
+            
             ws['AC{}'.format(r)] = "=SUM(AC2:AC{})".format(q)
             ws['AD{}'.format(r)] = "=SUM(AD2:AD{})".format(q)
             ws['AE{}'.format(r)] = "=SUM(AE2:AE{})".format(q)
             ws['AF{}'.format(r)] = "=SUM(AF2:AF{})".format(q)
+            ws['AG{}'.format(r)] = "=SUM(AG2:AG{})".format(q)
+            ws['AH{}'.format(r)] = "=SUM(AH2:AH{})".format(q)
             # new
             # iterasi 1 rata-rata - 1
             ws['F{}'.format(v)] = 'JUMLAH SOAL'
@@ -2460,61 +2464,61 @@ if authentication_status:
             ws['J{}'.format(v)] = JML_SOAL_ENG
             ws['K{}'.format(v)] = JML_SOAL_IPA
             ws['L{}'.format(v)] = JML_SOAL_IPS
-            ws['AK{}'.format(r)] = "=IF($Z${}=0,$G${},$G${}-1)".format(r, r, r)
-            ws['AK{}'.format(s)] = "=STDEV(AK2:AK{})".format(q)
-            ws['AK{}'.format(t)] = "=MAX(AK2:AK{})".format(q)
-            ws['AK{}'.format(u)] = "=MIN(AK2:AK{})".format(q)
-            ws['AL{}'.format(
-                r)] = "=IF($AA${}=0,$H${},$H${}-1)".format(r, r, r)
-            ws['AL{}'.format(s)] = "=STDEV(AL2:AL{})".format(q)
-            ws['AL{}'.format(t)] = "=MAX(AL2:AL{})".format(q)
-            ws['AL{}'.format(u)] = "=MIN(AL2:AL{})".format(q)
-            ws['AM{}'.format(
-                r)] = "=IF($AB${}=0,$I${},$I${}-1)".format(r, r, r)
-            ws['AM{}'.format(s)] = "=STDEV(AM2:AM{})".format(q)
-            ws['AM{}'.format(t)] = "=MAX(AM2:AM{})".format(q)
-            ws['AM{}'.format(u)] = "=MIN(AM2:AM{})".format(q)
-            ws['AN{}'.format(
-                r)] = "=IF($AC${}=0,$J${},$J${}-1)".format(r, r, r)
-            ws['AN{}'.format(s)] = "=STDEV(AN2:AN{})".format(q)
-            ws['AN{}'.format(t)] = "=MAX(AN2:AN{})".format(q)
-            ws['AN{}'.format(u)] = "=MIN(AN2:AN{})".format(q)
-            ws['AO{}'.format(
-                r)] = "=IF($AD${}=0,$K${},$K${}-1)".format(r, r, r)
+            ws['AO{}'.format(r)] = "=IF($Z${}=0,$G${},$G${}-1)".format(r, r, r)#MTK
             ws['AO{}'.format(s)] = "=STDEV(AO2:AO{})".format(q)
             ws['AO{}'.format(t)] = "=MAX(AO2:AO{})".format(q)
             ws['AO{}'.format(u)] = "=MIN(AO2:AO{})".format(q)
-            ws['AP{}'.format(r)] = "=ROUND(AVERAGE(AP2:AP{}),2)".format(q)
+            ws['AP{}'.format(r)] = "=IF($AA${}=0,$H${},$H${}-1)".format(r, r, r)
+            ws['AP{}'.format(s)] = "=STDEV(AP2:AP{})".format(q)
             ws['AP{}'.format(t)] = "=MAX(AP2:AP{})".format(q)
             ws['AP{}'.format(u)] = "=MIN(AP2:AP{})".format(q)
-            ws['AQ{}'.format(r)] = "=MAX(AQ2:AQ{})".format(q)
-            ws['AR{}'.format(r)] = "=MAX(AR2:AR{})".format(q)
-            ws['AS{}'.format(r)] = "=MAX(AS2:AS{})".format(q)
-            ws['AT{}'.format(r)] = "=MAX(AT2:AT{})".format(q)
+            ws['AQ{}'.format(r)] = "=IF($AB${}=0,$I${},$I${}-1)".format(r, r, r)
+            ws['AQ{}'.format(s)] = "=STDEV(AQ2:AQ{})".format(q)
+            ws['AQ{}'.format(t)] = "=MAX(AQ2:AQ{})".format(q)
+            ws['AQ{}'.format(u)] = "=MIN(AQ2:AQ{})".format(q)
+            ws['AR{}'.format(r)] = "=IF($AC${}=0,$J${},$J${}-1)".format(r, r, r)
+            ws['AR{}'.format(s)] = "=STDEV(AR2:AR{})".format(q)
+            ws['AR{}'.format(t)] = "=MAX(AR2:AR{})".format(q)
+            ws['AR{}'.format(u)] = "=MIN(AR2:AR{})".format(q)
+            ws['AS{}'.format(r)] = "=IF($AD${}=0,$K${},$K${}-1)".format(r, r, r)
+            ws['AS{}'.format(s)] = "=STDEV(AS2:AS{})".format(q)
+            ws['AS{}'.format(t)] = "=MAX(AS2:AS{})".format(q)
+            ws['AS{}'.format(u)] = "=MIN(AS2:AS{})".format(q)
+            ws['AT{}'.format(r)] = "=IF($AD${}=0,$K${},$K${}-1)".format(r, r, r)
+            ws['AT{}'.format(s)] = "=STDEV(AT2:AT{})".format(q)
+            ws['AT{}'.format(t)] = "=MAX(AT2:AT{})".format(q)
+            ws['AT{}'.format(u)] = "=MIN(AT2:AT{})".format(q)
+            ws['AU{}'.format(r)] = "=ROUND(AVERAGE(AU2:AU{}),2)".format(q)
+            ws['AU{}'.format(t)] = "=MAX(AU2:AU{})".format(q)
+            ws['AU{}'.format(u)] = "=MIN(AU2:AU{})".format(q)
             ws['AU{}'.format(r)] = "=MAX(AU2:AU{})".format(q)
             ws['AV{}'.format(r)] = "=MAX(AV2:AV{})".format(q)
-            ws['AV{}'.format(s)] = "=MIN(AV2:AV{})".format(q)
-            ws['AV{}'.format(t)] = "=ROUND(AVERAGE(AV2:AV{}),2)".format(q)
             ws['AW{}'.format(r)] = "=MAX(AW2:AW{})".format(q)
-            ws['AW{}'.format(s)] = "=MIN(AW2:AW{})".format(q)
-            ws['AW{}'.format(t)] = "=ROUND(AVERAGE(AW2:AW{}),2)".format(q)
             ws['AX{}'.format(r)] = "=MAX(AX2:AX{})".format(q)
-            ws['AX{}'.format(s)] = "=MIN(AX2:AX{})".format(q)
-            ws['AX{}'.format(t)] = "=ROUND(AVERAGE(AX2:AX{}),2)".format(q)
             ws['AY{}'.format(r)] = "=MAX(AY2:AY{})".format(q)
-            ws['AY{}'.format(s)] = "=MIN(AY2:AY{})".format(q)
-            ws['AY{}'.format(t)] = "=ROUND(AVERAGE(AY2:AY{}),2)".format(q)
             ws['AZ{}'.format(r)] = "=MAX(AZ2:AZ{})".format(q)
-            ws['AZ{}'.format(s)] = "=MIN(AZ2:AZ{})".format(q)
-            ws['AZ{}'.format(t)] = "=ROUND(AVERAGE(AZ2:AZ{}),2)".format(q)
-            ws['BA{}'.format(r)] = "=MAX(BA2:BA{})".format(q)
             ws['BA{}'.format(s)] = "=MIN(BA2:BA{})".format(q)
             ws['BA{}'.format(t)] = "=ROUND(AVERAGE(BA2:BA{}),2)".format(q)
-            ws['BD{}'.format(r)] = "=SUM(BD2:BD{})".format(q)
-            ws['BE{}'.format(r)] = "=SUM(BE2:BE{})".format(q)
-            ws['BF{}'.format(r)] = "=SUM(BF2:BF{})".format(q)
+            ws['BB{}'.format(r)] = "=MAX(BB2:BB{})".format(q)
+            ws['BB{}'.format(s)] = "=MIN(BB2:BB{})".format(q)
+            ws['BB{}'.format(t)] = "=ROUND(AVERAGE(BB2:BB{}),2)".format(q)
+            ws['BC{}'.format(r)] = "=MAX(BC2:BC{})".format(q)
+            ws['BC{}'.format(s)] = "=MIN(BC2:BC{})".format(q)
+            ws['BC{}'.format(t)] = "=ROUND(AVERAGE(BC2:BC{}),2)".format(q)
+            ws['BD{}'.format(r)] = "=MAX(BD2:BD{})".format(q)
+            ws['BD{}'.format(s)] = "=MIN(BD2:BD{})".format(q)
+            ws['BD{}'.format(t)] = "=ROUND(AVERAGE(BD2:BD{}),2)".format(q)
+            ws['BE{}'.format(r)] = "=MAX(BE2:BE{})".format(q)
+            ws['BE{}'.format(s)] = "=MIN(BE2:BE{})".format(q)
+            ws['BE{}'.format(t)] = "=ROUND(AVERAGE(BE2:BE{}),2)".format(q)
+            ws['BF{}'.format(r)] = "=MAX(BF2:BF{})".format(q)
+            ws['BF{}'.format(s)] = "=MIN(BF2:BF{})".format(q)
+            ws['BF{}'.format(t)] = "=ROUND(AVERAGE(BF2:BF{}),2)".format(q)
             ws['BG{}'.format(r)] = "=SUM(BG2:BG{})".format(q)
             ws['BH{}'.format(r)] = "=SUM(BH2:BH{})".format(q)
+            ws['BI{}'.format(r)] = "=SUM(BI2:BI{})".format(q)
+            ws['BJ{}'.format(r)] = "=SUM(BJ2:BJ{})".format(q)
+            ws['BK{}'.format(r)] = "=SUM(BK2:BK{})".format(q)
 
             # iterasi 2 rata-rata - 1
             ws['BO{}'.format(
@@ -2921,36 +2925,34 @@ if authentication_status:
                     v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
 
         # new Z Score
-            ws['AF1'] = 'NAMA_SISWA_2'
-            ws['AG1'] = 'NOMOR_NF_2'
-            ws['AH1'] = 'KELAS_2'
-            ws['AI1'] = 'NAMA_SEKOLAH_2'
-            ws['AJ1'] = 'LOKASI_2'
-            ws['AK1'] = 'MAT_2'
-            ws['AL1'] = 'IND_2'
-            ws['AM1'] = 'ENG_2'
-            ws['AN1'] = 'IPA_2'
-            ws['AO1'] = 'IPS_2'
-            ws['AP1'] = 'JML_2'
-            ws['AQ1'] = 'Z_MAT_2'
-            ws['AR1'] = 'Z_IND_2'
-            ws['AS1'] = 'Z_ENG_2'
-            ws['AT1'] = 'Z_IPA_2'
-            ws['AU1'] = 'Z_IPS_2'
-            ws['AV1'] = 'S_MAT_2'
-            ws['AW1'] = 'S_IND_2'
-            ws['AX1'] = 'S_ENG_2'
-            ws['AY1'] = 'S_IPA_2'
-            ws['AZ1'] = 'S_IPS_2'
-            ws['BA1'] = 'S_JML_2'
-            ws['BB1'] = 'RANK_NAS._2'
-            ws['BC1'] = 'RANK_LOK._2'
-            ws['AQ1'].font = Font(bold=False, name='Calibri', size=11)
-            ws['AR1'].font = Font(bold=False, name='Calibri', size=11)
-            ws['AS1'].font = Font(bold=False, name='Calibri', size=11)
-            ws['AT1'].font = Font(bold=False, name='Calibri', size=11)
-            ws['AU1'].font = Font(bold=False, name='Calibri', size=11)
-            ws['AV1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['AJ1'] = 'NAMA_SISWA_2'
+            ws['AK1'] = 'NOMOR_NF_2'
+            ws['AL1'] = 'KELAS_2'
+            ws['AM1'] = 'NAMA_SEKOLAH_2'
+            ws['AN1'] = 'LOKASI_2'
+            ws['AO1'] = 'MAT_2'
+            ws['AP1'] = 'MAT_SB_2'
+            ws['AQ1'] = 'IND_2'
+            ws['AR1'] = 'ENG_2'
+            ws['AS1'] = 'IPA_2'
+            ws['AT1'] = 'IPS_2'
+            ws['AU1'] = 'JML_2'
+            ws['AV1'] = 'Z_MAT_2'
+            ws['AW1'] = 'Z_MAT_SB_2'
+            ws['AX1'] = 'Z_IND_2'
+            ws['AY1'] = 'Z_ENG_2'
+            ws['AZ1'] = 'Z_IPA_2'
+            ws['BA1'] = 'Z_IPS_2'
+            ws['BB1'] = 'S_MAT_2'
+            ws['BC1'] = 'S_MAT_SB_2'
+            ws['BD1'] = 'S_IND_2'
+            ws['BE1'] = 'S_ENG_2'
+            ws['BF1'] = 'S_IPA_2'
+            ws['BG1'] = 'S_IPS_2'
+            ws['BH1'] = 'S_JML_2'
+            ws['BI1'] = 'RANK_NAS._2'
+            ws['BJ1'] = 'RANK_LOK._2'
+            ws['AV1'].font = Font(bold=False, name='Calibri', size=11) #Z MAT
             ws['AW1'].font = Font(bold=False, name='Calibri', size=11)
             ws['AX1'].font = Font(bold=False, name='Calibri', size=11)
             ws['AY1'].font = Font(bold=False, name='Calibri', size=11)
@@ -2958,18 +2960,17 @@ if authentication_status:
             ws['BA1'].font = Font(bold=False, name='Calibri', size=11)
             ws['BB1'].font = Font(bold=False, name='Calibri', size=11)
             ws['BC1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['BD1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['BE1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['BF1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['BG1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['BH1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['BI1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['BJ1'].font = Font(bold=False, name='Calibri', size=11)
 
             # FILL
-            ws['AF1'].fill = PatternFill(
-                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
-            ws['AG1'].fill = PatternFill(
-                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
-            ws['AH1'].fill = PatternFill(
-                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
-            ws['AI1'].fill = PatternFill(
-                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
             ws['AJ1'].fill = PatternFill(
-                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7') #NAMA
             ws['AK1'].fill = PatternFill(
                 fill_type='solid', start_color='31E1F7', end_color='31E1F7')
             ws['AL1'].fill = PatternFill(
@@ -3008,18 +3009,6 @@ if authentication_status:
                 fill_type='solid', start_color='31E1F7', end_color='31E1F7')
             ws['BC1'].fill = PatternFill(
                 fill_type='solid', start_color='31E1F7', end_color='31E1F7')
-
-            # tambahan
-            ws['BD1'] = 'MAT_20_2'
-            ws['BE1'] = 'IND_20_2'
-            ws['BF1'] = 'ENG_20_2'
-            ws['BG1'] = 'IPA_20_2'
-            ws['BH1'] = 'IPS_20_2'
-            ws['BD1'].font = Font(bold=False, name='Calibri', size=11)
-            ws['BE1'].font = Font(bold=False, name='Calibri', size=11)
-            ws['BF1'].font = Font(bold=False, name='Calibri', size=11)
-            ws['BG1'].font = Font(bold=False, name='Calibri', size=11)
-            ws['BH1'].font = Font(bold=False, name='Calibri', size=11)
             ws['BD1'].fill = PatternFill(
                 fill_type='solid', start_color='31E1F7', end_color='31E1F7')
             ws['BE1'].fill = PatternFill(
@@ -3030,56 +3019,93 @@ if authentication_status:
                 fill_type='solid', start_color='31E1F7', end_color='31E1F7')
             ws['BH1'].fill = PatternFill(
                 fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['BI1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['BJ1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+
+            # tambahan
+            ws['BK1'] = 'MAT_20_2'
+            ws['BL1'] = 'MAT_SB_20_2'
+            ws['BM1'] = 'IND_20_2'
+            ws['BN1'] = 'ENG_20_2'
+            ws['BO1'] = 'IPA_20_2'
+            ws['BP1'] = 'IPS_20_2'
+            ws['BK1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['BL1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['BM1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['BN1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['BO1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['BP1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['BK1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['BL1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['BM1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['BN1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['BO1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['BP1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
 
             for row in range(2, q+1):
-                ws['AF{}'.format(row)] = '=B{}'.format(row)
-                ws['AG{}'.format(row)] = '=C{}'.format(row, row)
-                ws['AH{}'.format(row)] = '=D{}'.format(row, row)
-                ws['AI{}'.format(row)] = '=E{}'.format(row, row)
-                ws['AJ{}'.format(row)] = '=F{}'.format(row, row)
-                ws['AK{}'.format(row)] = '=IF(G{}="","",G{})'.format(row, row)
-                ws['AL{}'.format(row)] = '=IF(H{}="","",H{})'.format(row, row)
-                ws['AM{}'.format(row)] = '=IF(I{}="","",I{})'.format(row, row)
-                ws['AN{}'.format(row)] = '=IF(J{}="","",J{})'.format(row, row)
-                ws['AO{}'.format(row)] = '=IF(K{}="","",K{})'.format(row, row)
-                ws['AP{}'.format(row)] = '=IF(L{}="","",L{})'.format(row, row)
-                ws['AQ{}'.format(
-                    row)] = '=IFERROR(ROUND(IF(AK{}="","",(AK{}-AK${})/AK${}),2),"")'.format(row, row, r, s)
-                ws['AR{}'.format(
-                    row)] = '=IFERROR(ROUND(IF(AL{}="","",(AL{}-AL${})/AL${}),2),"")'.format(row, row, r, s)
-                ws['AS{}'.format(
-                    row)] = '=IFERROR(ROUND(IF(AM{}="","",(AM{}-AM${})/AM${}),2),"")'.format(row, row, r, s)
-                ws['AT{}'.format(
-                    row)] = '=IFERROR(ROUND(IF(AN{}="","",(AN{}-AN${})/AN${}),2),"")'.format(row, row, r, s)
-                ws['AU{}'.format(
-                    row)] = '=IFERROR(ROUND(IF(AO{}="","",(AO{}-AO${})/AO${}),2),"")'.format(row, row, r, s)
+                ws['AJ{}'.format(row)] = '=B{}'.format(row)
+                ws['AK{}'.format(row)] = '=C{}'.format(row, row)
+                ws['AL{}'.format(row)] = '=D{}'.format(row, row)
+                ws['AM{}'.format(row)] = '=E{}'.format(row, row)
+                ws['AN{}'.format(row)] = '=F{}'.format(row, row)
+                ws['AO{}'.format(row)] = '=IF(G{}="","",G{})'.format(row, row)
+                ws['AP{}'.format(row)] = '=IF(H{}="","",H{})'.format(row, row)
+                ws['AQ{}'.format(row)] = '=IF(I{}="","",I{})'.format(row, row)
+                ws['AR{}'.format(row)] = '=IF(J{}="","",J{})'.format(row, row)
+                ws['AS{}'.format(row)] = '=IF(K{}="","",K{})'.format(row, row)
+                ws['AT{}'.format(row)] = '=IF(L{}="","",L{})'.format(row, row)
+                ws['AU{}'.format(row)] = '=IF(M{}="","",M{})'.format(row, row)
                 ws['AV{}'.format(
-                    row)] = '=IFERROR(ROUND(IF(AK{}="","",IF(70+30*AQ{}/$AQ${}<20,20,70+30*AQ{}/$AQ${})),2),"")'.format(row, row, r, row, r)
+                    row)] = '=IFERROR(ROUND(IF(AO{}="","",(AO{}-AO${})/AO${}),2),"")'.format(row, row, r, s)
                 ws['AW{}'.format(
-                    row)] = '=IFERROR(ROUND(IF(AL{}="","",IF(70+30*AR{}/$AR${}<20,20,70+30*AR{}/$AR${})),2),"")'.format(row, row, r, row, r)
+                    row)] = '=IFERROR(ROUND(IF(AP{}="","",(AP{}-AP${})/AP${}),2),"")'.format(row, row, r, s)
                 ws['AX{}'.format(
-                    row)] = '=IFERROR(ROUND(IF(AM{}="","",IF(70+30*AS{}/$AS${}<20,20,70+30*AS{}/$AS${})),2),"")'.format(row, row, r, row, r)
+                    row)] = '=IFERROR(ROUND(IF(AQ{}="","",(AQ{}-AQ${})/AQ${}),2),"")'.format(row, row, r, s)
                 ws['AY{}'.format(
-                    row)] = '=IFERROR(ROUND(IF(AN{}="","",IF(70+30*AT{}/$AT${}<20,20,70+30*AT{}/$AT${})),2),"")'.format(row, row, r, row, r)
+                    row)] = '=IFERROR(ROUND(IF(AR{}="","",(AR{}-AR${})/AR${}),2),"")'.format(row, row, r, s)
                 ws['AZ{}'.format(
-                    row)] = '=IFERROR(ROUND(IF(AO{}="","",IF(70+30*AU{}/$AU${}<20,20,70+30*AU{}/$AU${})),2),"")'.format(row, row, r, row, r)
-
-                ws['BA{}'.format(row)] = '=IF(SUM(AV{}:AZ{})=0,"",SUM(AV{}:AZ{}))'.format(
-                    row, row, row, row)
-                ws['BB{}'.format(row)] = '=IF(BA{}="","",RANK(BA{},$BA$2:$BA${}))'.format(
-                    row, row, q)
+                    row)] = '=IFERROR(ROUND(IF(AS{}="","",(AS{}-AS${})/AS${}),2),"")'.format(row, row, r, s)
+                ws['BA{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(AT{}="","",(AT{}-AT${})/AT${}),2),"")'.format(row, row, r, s)
+                ws['BB{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(AO{}="","",IF(70+30*AV{}/$AV${}<20,20,70+30*AV{}/$AV${})),2),"")'.format(row, row, r, row, r)
                 ws['BC{}'.format(
-                    row)] = '=IF(BB{}="","",COUNTIFS($AJ$2:$AJ${},F{},$BB$2:$BB${},"<"&BB{})+1)'.format(row, q, row, q, row)
+                    row)] = '=IFERROR(ROUND(IF(AP{}="","",IF(70+30*AW{}/$AW${}<20,20,70+30*AW{}/$AW${})),2),"")'.format(row, row, r, row, r)
+                ws['BD{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(AQ{}="","",IF(70+30*AX{}/$AX${}<20,20,70+30*AX{}/$AX${})),2),"")'.format(row, row, r, row, r)
+                ws['BE{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(AR{}="","",IF(70+30*AY{}/$AY${}<20,20,70+30*AY{}/$AY${})),2),"")'.format(row, row, r, row, r)
+                ws['BF{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(AS{}="","",IF(70+30*AZ{}/$AZ${}<20,20,70+30*AZ{}/$AZ${})),2),"")'.format(row, row, r, row, r)
+                ws['BG{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(AT{}="","",IF(70+30*BA{}/$BA${}<20,20,70+30*BA{}/$BA${})),2),"")'.format(row, row, r, row, r)
+
+                ws['BH{}'.format(row)] = '=IF(SUM(BB{}:BG{})=0,"",SUM(BB{}:BG{}))'.format(
+                    row, row, row, row)
+                ws['BI{}'.format(row)] = '=IF(BH{}="","",RANK(BH{},$BH$2:$BH${}))'.format(
+                    row, row, q)
+                ws['BJ{}'.format(
+                    row)] = '=IF(BI{}="","",COUNTIFS($AN$2:$AN${},AN{},$BI$2:$BI${},"<"&BI{})+1)'.format(row, q, row, q, row)
             #     TAMBAHAN
-                ws['BD{}'.format(row)] = '=IF($G${}=25,IF(AND(AK{}>4,AV{}=20),1,""),IF($G${}=30,IF(AND(AK{}>5,AV{}=20),1,""),IF($G${}=35,IF(AND(AK{}>6,AV{}=20),1,""),IF($G${}=40,IF(AND(AK{}>7,AV{}=20),1,""),IF($G${}=45,IF(AND(AK{}>8,AV{}=20),1,""))))))'.format(
+                ws['BK{}'.format(row)] = '=IF($G${}=25,IF(AND(AO{}>4,BB{}=20),1,""),IF($G${}=30,IF(AND(AO{}>5,BB{}=20),1,""),IF($G${}=35,IF(AND(AO{}>6,BB{}=20),1,""),IF($G${}=40,IF(AND(AO{}>7,BB{}=20),1,""),IF($G${}=45,IF(AND(AO{}>8,BB{}=20),1,""))))))'.format(
                     v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['BE{}'.format(row)] = '=IF($H${}=25,IF(AND(AL{}>4,AW{}=20),1,""),IF($H${}=30,IF(AND(AL{}>5,AW{}=20),1,""),IF($H${}=35,IF(AND(AL{}>6,AW{}=20),1,""),IF($H${}=40,IF(AND(AL{}>7,AW{}=20),1,""),IF($H${}=45,IF(AND(AL{}>8,AW{}=20),1,""))))))'.format(
+                ws['BL{}'.format(row)] = '=IF($H${}=25,IF(AND(AP{}>4,BC{}=20),1,""),IF($H${}=30,IF(AND(AP{}>5,BC{}=20),1,""),IF($H${}=35,IF(AND(AP{}>6,BC{}=20),1,""),IF($H${}=40,IF(AND(AP{}>7,BC{}=20),1,""),IF($H${}=45,IF(AND(AP{}>8,BC{}=20),1,""))))))'.format(
                     v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['BF{}'.format(row)] = '=IF($I${}=25,IF(AND(AM{}>4,AX{}=20),1,""),IF($I${}=30,IF(AND(AM{}>5,AX{}=20),1,""),IF($I${}=35,IF(AND(AM{}>6,AX{}=20),1,""),IF($I${}=40,IF(AND(AM{}>7,AX{}=20),1,""),IF($I${}=45,IF(AND(AM{}>8,AX{}=20),1,""))))))'.format(
+                ws['BM{}'.format(row)] = '=IF($I${}=25,IF(AND(AQ{}>4,BD{}=20),1,""),IF($I${}=30,IF(AND(AQ{}>5,BD{}=20),1,""),IF($I${}=35,IF(AND(AQ{}>6,BD{}=20),1,""),IF($I${}=40,IF(AND(AQ{}>7,BD{}=20),1,""),IF($I${}=45,IF(AND(AQ{}>8,BD{}=20),1,""))))))'.format(
                     v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['BG{}'.format(row)] = '=IF($J${}=25,IF(AND(AN{}>4,AY{}=20),1,""),IF($J${}=30,IF(AND(AN{}>5,AY{}=20),1,""),IF($J${}=35,IF(AND(AN{}>6,AY{}=20),1,""),IF($J${}=40,IF(AND(AN{}>7,AY{}=20),1,""),IF($J${}=45,IF(AND(AN{}>8,AY{}=20),1,""))))))'.format(
+                ws['BN{}'.format(row)] = '=IF($J${}=25,IF(AND(AR{}>4,BE{}=20),1,""),IF($J${}=30,IF(AND(AR{}>5,BE{}=20),1,""),IF($J${}=35,IF(AND(AR{}>6,BE{}=20),1,""),IF($J${}=40,IF(AND(AR{}>7,BE{}=20),1,""),IF($J${}=45,IF(AND(AR{}>8,BE{}=20),1,""))))))'.format(
                     v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['BH{}'.format(row)] = '=IF($K${}=25,IF(AND(AO{}>4,AZ{}=20),1,""),IF($K${}=30,IF(AND(AO{}>5,AZ{}=20),1,""),IF($K${}=35,IF(AND(AO{}>6,AZ{}=20),1,""),IF($K${}=40,IF(AND(AO{}>7,AZ{}=20),1,""),IF($K${}=45,IF(AND(AO{}>8,AZ{}=20),1,""))))))'.format(
+                ws['BO{}'.format(row)] = '=IF($K${}=25,IF(AND(AS{}>4,BF{}=20),1,""),IF($K${}=30,IF(AND(AS{}>5,BF{}=20),1,""),IF($K${}=35,IF(AND(AS{}>6,BF{}=20),1,""),IF($K${}=40,IF(AND(AS{}>7,BF{}=20),1,""),IF($K${}=45,IF(AND(AS{}>8,BF{}=20),1,""))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['BP{}'.format(row)] = '=IF($K${}=25,IF(AND(AT{}>4,BG{}=20),1,""),IF($K${}=30,IF(AND(AT{}>5,BG{}=20),1,""),IF($K${}=35,IF(AND(AT{}>6,BG{}=20),1,""),IF($K${}=40,IF(AND(AT{}>7,BG{}=20),1,""),IF($K${}=45,IF(AND(AT{}>8,BG{}=20),1,""))))))'.format(
                     v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
 
                 # new Z Score [2]
@@ -3089,17 +3115,20 @@ if authentication_status:
             ws['BM1'] = 'NAMA_SEKOLAH_3'
             ws['BN1'] = 'LOKASI_3'
             ws['BO1'] = 'MAT_3'
+            ws['BO1'] = 'MAT_SB_3'
             ws['BP1'] = 'IND_3'
             ws['BQ1'] = 'ENG_3'
             ws['BR1'] = 'IPA_3'
             ws['BS1'] = 'IPS_3'
             ws['BT1'] = 'JML_3'
             ws['BU1'] = 'Z_MAT_3'
+            ws['BU1'] = 'Z_MAT_SB_3'
             ws['BV1'] = 'Z_IND_3'
             ws['BW1'] = 'Z_ENG_3'
             ws['BX1'] = 'Z_IPA_3'
             ws['BY1'] = 'Z_IPS_3'
             ws['BZ1'] = 'S_MAT_3'
+            ws['BZ1'] = 'S_MAT_SB_3'
             ws['CA1'] = 'S_IND_3'
             ws['CB1'] = 'S_ENG_3'
             ws['CC1'] = 'S_IPA_3'
@@ -3173,6 +3202,7 @@ if authentication_status:
 
             # tambahan
             ws['CH1'] = 'MAT_20_3'
+            ws['CH1'] = 'MAT_SB_20_3'
             ws['CI1'] = 'IND_20_3'
             ws['CJ1'] = 'ENG_20_3'
             ws['CK1'] = 'IPA_20_3'
@@ -3251,17 +3281,20 @@ if authentication_status:
             ws['CQ1'] = 'NAMA_SEKOLAH_4'
             ws['CR1'] = 'LOKASI_4'
             ws['CS1'] = 'MAT_4'
+            ws['CS1'] = 'MAT_SB_4'
             ws['CT1'] = 'IND_4'
             ws['CU1'] = 'ENG_4'
             ws['CV1'] = 'IPA_4'
             ws['CW1'] = 'IPS_4'
             ws['CX1'] = 'JML_4'
             ws['CY1'] = 'Z_MAT_4'
+            ws['CY1'] = 'Z_MAT_SB_4'
             ws['CZ1'] = 'Z_IND_4'
             ws['DA1'] = 'Z_ENG_4'
             ws['DB1'] = 'Z_IPA_4'
             ws['DC1'] = 'Z_IPS_4'
             ws['DD1'] = 'S_MAT_4'
+            ws['DD1'] = 'S_MAT_SB_4'
             ws['DE1'] = 'S_IND_4'
             ws['DF1'] = 'S_ENG_4'
             ws['DG1'] = 'S_IPA_4'
@@ -3335,6 +3368,7 @@ if authentication_status:
 
             # tambahan
             ws['DL1'] = 'MAT_20_4'
+            ws['DL1'] = 'MAT_SB_20_4'
             ws['DM1'] = 'IND_20_4'
             ws['DN1'] = 'ENG_20_4'
             ws['DO1'] = 'IPA_20_4'
@@ -3413,17 +3447,20 @@ if authentication_status:
             ws['DU1'] = 'NAMA_SEKOLAH_5'
             ws['DV1'] = 'LOKASI_5'
             ws['DW1'] = 'MAT_5'
+            ws['DW1'] = 'MAT_SB_5'
             ws['DX1'] = 'IND_5'
             ws['DY1'] = 'ENG_5'
             ws['DZ1'] = 'IPA_5'
             ws['EA1'] = 'IPS_5'
             ws['EB1'] = 'JML_5'
             ws['EC1'] = 'Z_MAT_5'
+            ws['EC1'] = 'Z_MAT_SB_5'
             ws['ED1'] = 'Z_IND_5'
             ws['EE1'] = 'Z_ENG_5'
             ws['EF1'] = 'Z_IPA_5'
             ws['EG1'] = 'Z_IPS_5'
             ws['EH1'] = 'S_MAT_5'
+            ws['EH1'] = 'S_MAT_SB_5'
             ws['EI1'] = 'S_IND_5'
             ws['EJ1'] = 'S_ENG_5'
             ws['EK1'] = 'S_IPA_5'
@@ -3497,6 +3534,7 @@ if authentication_status:
 
             # tambahan
             ws['EP1'] = 'MAT_20_5'
+            ws['EP1'] = 'MAT_SB_20_5'
             ws['EQ1'] = 'IND_20_5'
             ws['ER1'] = 'ENG_20_5'
             ws['ES1'] = 'IPA_20_5'
@@ -3575,17 +3613,20 @@ if authentication_status:
             ws['EY1'] = 'NAMA SEKOLAH'
             ws['EZ1'] = 'LOKASI'
             ws['FA1'] = 'MAT'
+            ws['FA1'] = 'MAT_SB'
             ws['FB1'] = 'IND'
             ws['FC1'] = 'ENG'
             ws['FD1'] = 'IPA'
             ws['FE1'] = 'IPS'
             ws['FF1'] = 'JML'
             ws['FG1'] = 'Z_MAT'
+            ws['FG1'] = 'Z_MAT_SB'
             ws['FH1'] = 'Z_IND'
             ws['FI1'] = 'Z_ENG'
             ws['FJ1'] = 'Z_IPA'
             ws['FK1'] = 'Z_IPS'
             ws['FL1'] = 'S_MAT'
+            ws['FL1'] = 'S_MAT_SB'
             ws['FM1'] = 'S_IND'
             ws['FN1'] = 'S_ENG'
             ws['FO1'] = 'S_IPA'
@@ -3659,6 +3700,7 @@ if authentication_status:
 
             # tambahan
             ws['FT1'] = 'MAT_20'
+            ws['FT1'] = 'MAT_SB_20'
             ws['FU1'] = 'IND_20'
             ws['FV1'] = 'ENG_20'
             ws['FW1'] = 'IPA_20'
