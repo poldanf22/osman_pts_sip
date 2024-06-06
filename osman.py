@@ -2331,33 +2331,30 @@ if authentication_status:
         TAHUN = st.text_input("Masukkan Tahun Ajaran",
                               placeholder="contoh: 2022-2023")
 
-        col1, col2, col3, col4, col5, col6 = st.columns(6)
+        col1, col2, col3 = st.columns(3)
 
         with col1:
             MTK = st.selectbox(
                 "JML. SOAL MAT.",
-                ("--Pilih--", 25, 30, 35, 40, 45))
-        
+                ("--Pilih--", 25, 30, 35, 40, 45)) 
         with col2:
             MTK_SB = st.selectbox(
                 "JML. SOAL MAT. SB.",
                 ("--Pilih--", 25, 30, 35, 40, 45))
-
         with col3:
             IND = st.selectbox(
                 "JML. SOAL IND.",
                 ("--Pilih--", 25, 30, 35, 40, 45))
-
+        
+        col4, col5, col6 = st.columns(3)
         with col4:
             ENG = st.selectbox(
                 "JML. SOAL ENG.",
                 ("--Pilih--", 25, 30, 35, 40, 45))
-
         with col5:
             IPA = st.selectbox(
                 "JML. SOAL IPA.",
                 ("--Pilih--", 25, 30, 35, 40, 45))
-
         with col6:
             IPS = st.selectbox(
                 "JML. SOAL IPS.",
