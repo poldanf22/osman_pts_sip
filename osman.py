@@ -2451,10 +2451,11 @@ if authentication_status:
             # iterasi 1 rata-rata - 1
             ws['F{}'.format(v)] = 'JUMLAH SOAL'
             ws['G{}'.format(v)] = JML_SOAL_MAT
-            ws['H{}'.format(v)] = JML_SOAL_IND
-            ws['I{}'.format(v)] = JML_SOAL_ENG
-            ws['J{}'.format(v)] = JML_SOAL_IPA
-            ws['K{}'.format(v)] = JML_SOAL_IPS
+            ws['H{}'.format(v)] = JML_SOAL_MAT_SB
+            ws['I{}'.format(v)] = JML_SOAL_IND
+            ws['J{}'.format(v)] = JML_SOAL_ENG
+            ws['K{}'.format(v)] = JML_SOAL_IPA
+            ws['L{}'.format(v)] = JML_SOAL_IPS
             ws['AK{}'.format(r)] = "=IF($Z${}=0,$G${},$G${}-1)".format(r, r, r)
             ws['AK{}'.format(s)] = "=STDEV(AK2:AK{})".format(q)
             ws['AK{}'.format(t)] = "=MAX(AK2:AK{})".format(q)
