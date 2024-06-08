@@ -2517,6 +2517,10 @@ if authentication_status:
             ws['BG{}'.format(r)] = "=MAX(BG2:BG{})".format(q)
             ws['BG{}'.format(s)] = "=MIN(BG2:BG{})".format(q)
             ws['BG{}'.format(t)] = "=ROUND(AVERAGE(BG2:BG{}),2)".format(q)
+            ws['BH{}'.format(r)] = "=MAX(BH2:BH{})".format(q)
+            ws['BH{}'.format(s)] = "=MIN(BH2:BH{})".format(q)
+            ws['BH{}'.format(t)] = "=ROUND(AVERAGE(BH2:BH{}),2)".format(q)
+            ws['BI{}'.format(r)] = "=MAX(BI2:BI{})".format(q)
             # TAMBAHAN
             ws['BK{}'.format(r)] = "=SUM(BK2:BK{})".format(q)
             ws['BL{}'.format(r)] = "=SUM(BL2:BL{})".format(q)
@@ -3110,63 +3114,49 @@ if authentication_status:
 
                 # new Z Score [2]
             ws['BR1'] = 'NAMA_SISWA_3'
-            ws['BK1'] = 'NOMOR_NF_3'
-            ws['BL1'] = 'KELAS_3'
-            ws['BM1'] = 'NAMA_SEKOLAH_3'
-            ws['BN1'] = 'LOKASI_3'
-            ws['BO1'] = 'MAT_3'
-            ws['BO1'] = 'MAT_SB_3'
-            ws['BP1'] = 'IND_3'
-            ws['BQ1'] = 'ENG_3'
-            ws['BR1'] = 'IPA_3'
-            ws['BS1'] = 'IPS_3'
-            ws['BT1'] = 'JML_3'
-            ws['BU1'] = 'Z_MAT_3'
-            ws['BU1'] = 'Z_MAT_SB_3'
-            ws['BV1'] = 'Z_IND_3'
-            ws['BW1'] = 'Z_ENG_3'
-            ws['BX1'] = 'Z_IPA_3'
-            ws['BY1'] = 'Z_IPS_3'
-            ws['BZ1'] = 'S_MAT_3'
-            ws['BZ1'] = 'S_MAT_SB_3'
-            ws['CA1'] = 'S_IND_3'
-            ws['CB1'] = 'S_ENG_3'
-            ws['CC1'] = 'S_IPA_3'
-            ws['CD1'] = 'S_IPS_3'
-            ws['CE1'] = 'S_JML_3'
-            ws['CF1'] = 'RANK_NAS._3'
-            ws['CG1'] = 'RANK_LOK._3'
-            ws['BU1'].font = Font(bold=False, name='Calibri', size=11)
-            ws['BV1'].font = Font(bold=False, name='Calibri', size=11)
-            ws['BW1'].font = Font(bold=False, name='Calibri', size=11)
-            ws['BX1'].font = Font(bold=False, name='Calibri', size=11)
-            ws['BY1'].font = Font(bold=False, name='Calibri', size=11)
-            ws['BZ1'].font = Font(bold=False, name='Calibri', size=11)
-            ws['CA1'].font = Font(bold=False, name='Calibri', size=11)
-            ws['CB1'].font = Font(bold=False, name='Calibri', size=11)
-            ws['CC1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['BS1'] = 'NOMOR_NF_3'
+            ws['BT1'] = 'KELAS_3'
+            ws['BU1'] = 'NAMA_SEKOLAH_3'
+            ws['BV1'] = 'LOKASI_3'
+            ws['BW1'] = 'MAT_3'
+            ws['BX1'] = 'MAT_SB_3'
+            ws['BY1'] = 'IND_3'
+            ws['BZ1'] = 'ENG_3'
+            ws['CA1'] = 'IPA_3'
+            ws['CB1'] = 'IPS_3'
+            ws['CC1'] = 'JML_3'
+            ws['CD1'] = 'Z_MAT_3'
+            ws['CE1'] = 'Z_MAT_SB_3'
+            ws['CF1'] = 'Z_IND_3'
+            ws['CG1'] = 'Z_ENG_3'
+            ws['CH1'] = 'Z_IPA_3'
+            ws['CI1'] = 'Z_IPS_3'
+            ws['CJ1'] = 'S_MAT_3'
+            ws['CK1'] = 'S_MAT_SB_3'
+            ws['CL1'] = 'S_IND_3'
+            ws['CM1'] = 'S_ENG_3'
+            ws['CN1'] = 'S_IPA_3'
+            ws['CO1'] = 'S_IPS_3'
+            ws['CP1'] = 'S_JML_3'
+            ws['CQ1'] = 'RANK_NAS._3'
+            ws['CR1'] = 'RANK_LOK._3'
             ws['CD1'].font = Font(bold=False, name='Calibri', size=11)
             ws['CE1'].font = Font(bold=False, name='Calibri', size=11)
             ws['CF1'].font = Font(bold=False, name='Calibri', size=11)
             ws['CG1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['CH1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['CI1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['CJ1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['CK1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['CL1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['CM1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['CN1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['CO1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['CP1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['CQ1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['CR1'].font = Font(bold=False, name='Calibri', size=11)
 
             # FILL
-            ws['BJ1'].fill = PatternFill(
-                fill_type='solid', start_color='A1C298', end_color='A1C298')
-            ws['BK1'].fill = PatternFill(
-                fill_type='solid', start_color='A1C298', end_color='A1C298')
-            ws['BL1'].fill = PatternFill(
-                fill_type='solid', start_color='A1C298', end_color='A1C298')
-            ws['BM1'].fill = PatternFill(
-                fill_type='solid', start_color='A1C298', end_color='A1C298')
-            ws['BN1'].fill = PatternFill(
-                fill_type='solid', start_color='A1C298', end_color='A1C298')
-            ws['BO1'].fill = PatternFill(
-                fill_type='solid', start_color='A1C298', end_color='A1C298')
-            ws['BP1'].fill = PatternFill(
-                fill_type='solid', start_color='A1C298', end_color='A1C298')
-            ws['BQ1'].fill = PatternFill(
-                fill_type='solid', start_color='A1C298', end_color='A1C298')
             ws['BR1'].fill = PatternFill(
                 fill_type='solid', start_color='A1C298', end_color='A1C298')
             ws['BS1'].fill = PatternFill(
@@ -3199,19 +3189,6 @@ if authentication_status:
                 fill_type='solid', start_color='A1C298', end_color='A1C298')
             ws['CG1'].fill = PatternFill(
                 fill_type='solid', start_color='A1C298', end_color='A1C298')
-
-            # tambahan
-            ws['CH1'] = 'MAT_20_3'
-            ws['CH1'] = 'MAT_SB_20_3'
-            ws['CI1'] = 'IND_20_3'
-            ws['CJ1'] = 'ENG_20_3'
-            ws['CK1'] = 'IPA_20_3'
-            ws['CL1'] = 'IPS_20_3'
-            ws['CH1'].font = Font(bold=False, name='Calibri', size=11)
-            ws['CI1'].font = Font(bold=False, name='Calibri', size=11)
-            ws['CJ1'].font = Font(bold=False, name='Calibri', size=11)
-            ws['CK1'].font = Font(bold=False, name='Calibri', size=11)
-            ws['CL1'].font = Font(bold=False, name='Calibri', size=11)
             ws['CH1'].fill = PatternFill(
                 fill_type='solid', start_color='A1C298', end_color='A1C298')
             ws['CI1'].fill = PatternFill(
@@ -3222,125 +3199,147 @@ if authentication_status:
                 fill_type='solid', start_color='A1C298', end_color='A1C298')
             ws['CL1'].fill = PatternFill(
                 fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['CM1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['CN1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['CO1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['CP1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['CQ1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['CR1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+
+            # tambahan
+            ws['CS1'] = 'MAT_20_3'
+            ws['CT1'] = 'MAT_SB_20_3'
+            ws['CU1'] = 'IND_20_3'
+            ws['CV1'] = 'ENG_20_3'
+            ws['CW1'] = 'IPA_20_3'
+            ws['CX1'] = 'IPS_20_3'
+            ws['CS1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['CT1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['CU1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['CV1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['CW1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['CX1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['CS1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['CT1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['CU1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['CV1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['CW1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['CX1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
 
             for row in range(2, q+1):
-                ws['BJ{}'.format(row)] = '=B{}'.format(row)
-                ws['BK{}'.format(row)] = '=C{}'.format(row, row)
-                ws['BL{}'.format(row)] = '=D{}'.format(row, row)
-                ws['BM{}'.format(row)] = '=E{}'.format(row, row)
-                ws['BN{}'.format(row)] = '=F{}'.format(row, row)
-                ws['BO{}'.format(row)] = '=IF(G{}="","",G{})'.format(row, row)
-                ws['BP{}'.format(row)] = '=IF(H{}="","",H{})'.format(row, row)
-                ws['BQ{}'.format(row)] = '=IF(I{}="","",I{})'.format(row, row)
-                ws['BR{}'.format(row)] = '=IF(J{}="","",J{})'.format(row, row)
-                ws['BS{}'.format(row)] = '=IF(K{}="","",K{})'.format(row, row)
-                ws['BT{}'.format(row)] = '=IF(L{}="","",L{})'.format(row, row)
-                ws['BU{}'.format(
-                    row)] = '=IFERROR(ROUND(IF(BO{}="","",(BO{}-BO${})/BO${}),2),"")'.format(row, row, r, s)
-                ws['BV{}'.format(
-                    row)] = '=IFERROR(ROUND(IF(BP{}="","",(BP{}-BP${})/BP${}),2),"")'.format(row, row, r, s)
-                ws['BW{}'.format(
-                    row)] = '=IFERROR(ROUND(IF(BQ{}="","",(BQ{}-BQ${})/BQ${}),2),"")'.format(row, row, r, s)
-                ws['BX{}'.format(
-                    row)] = '=IFERROR(ROUND(IF(BR{}="","",(BR{}-BR${})/BR${}),2),"")'.format(row, row, r, s)
-                ws['BY{}'.format(
-                    row)] = '=IFERROR(ROUND(IF(BS{}="","",(BS{}-BS${})/BS${}),2),"")'.format(row, row, r, s)
-                ws['BZ{}'.format(
-                    row)] = '=IFERROR(ROUND(IF(BO{}="","",IF(70+30*BU{}/$BU${}<20,20,70+30*BU{}/$BU${})),2),"")'.format(row, row, r, row, r)
-                ws['CA{}'.format(
-                    row)] = '=IFERROR(ROUND(IF(BP{}="","",IF(70+30*BV{}/$BV${}<20,20,70+30*BV{}/$BV${})),2),"")'.format(row, row, r, row, r)
-                ws['CB{}'.format(
-                    row)] = '=IFERROR(ROUND(IF(BQ{}="","",IF(70+30*BW{}/$BW${}<20,20,70+30*BW{}/$BW${})),2),"")'.format(row, row, r, row, r)
-                ws['CC{}'.format(
-                    row)] = '=IFERROR(ROUND(IF(BR{}="","",IF(70+30*BX{}/$BX${}<20,20,70+30*BX{}/$BX${})),2),"")'.format(row, row, r, row, r)
+                ws['BR{}'.format(row)] = '=B{}'.format(row)
+                ws['BS{}'.format(row)] = '=C{}'.format(row, row)
+                ws['BT{}'.format(row)] = '=D{}'.format(row, row)
+                ws['BU{}'.format(row)] = '=E{}'.format(row, row)
+                ws['BV{}'.format(row)] = '=F{}'.format(row, row)
+                ws['BW{}'.format(row)] = '=IF(AO{}="","",AO{})'.format(row, row)
+                ws['BX{}'.format(row)] = '=IF(AP{}="","",AP{})'.format(row, row)
+                ws['BY{}'.format(row)] = '=IF(AQ{}="","",AQ{})'.format(row, row)
+                ws['BZ{}'.format(row)] = '=IF(AR{}="","",AR{})'.format(row, row)
+                ws['CA{}'.format(row)] = '=IF(AS{}="","",AS{})'.format(row, row)
+                ws['CB{}'.format(row)] = '=IF(AT{}="","",AT{})'.format(row, row)
                 ws['CD{}'.format(
-                    row)] = '=IFERROR(ROUND(IF(BS{}="","",IF(70+30*BY{}/$BY${}<20,20,70+30*BY{}/$BY${})),2),"")'.format(row, row, r, row, r)
-
-                ws['CE{}'.format(row)] = '=IF(SUM(BZ{}:CD{})=0,"",SUM(BZ{}:CD{}))'.format(
-                    row, row, row, row)
-                ws['CF{}'.format(row)] = '=IF(CE{}="","",RANK(CE{},$CE$2:$CE${}))'.format(
-                    row, row, q)
+                    row)] = '=IFERROR(ROUND(IF(BW{}="","",(BW{}-BW${})/BW${}),2),"")'.format(row, row, r, s)
+                ws['CE{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(BX{}="","",(BX{}-BX${})/BX${}),2),"")'.format(row, row, r, s)
+                ws['CF{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(BY{}="","",(BY{}-BY${})/BY${}),2),"")'.format(row, row, r, s)
                 ws['CG{}'.format(
-                    row)] = '=IF(CF{}="","",COUNTIFS($BN$2:$BN${},F{},$CF$2:$CF${},"<"&CF{})+1)'.format(row, q, row, q, row)
+                    row)] = '=IFERROR(ROUND(IF(BZ{}="","",(BZ{}-BZ${})/BZ${}),2),"")'.format(row, row, r, s)
+                ws['CH{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(CA{}="","",(CA{}-CA${})/CA${}),2),"")'.format(row, row, r, s)
+                ws['CI{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(CB{}="","",(CB{}-CB${})/CB${}),2),"")'.format(row, row, r, s)
+                ws['CJ{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(BW{}="","",IF(70+30*CD{}/$CD${}<20,20,70+30*CD{}/$CD${})),2),"")'.format(row, row, r, row, r)
+                ws['CK{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(BX{}="","",IF(70+30*CE{}/$CE${}<20,20,70+30*CE{}/$CE${})),2),"")'.format(row, row, r, row, r)
+                ws['CL{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(BY{}="","",IF(70+30*CF{}/$CF${}<20,20,70+30*CF{}/$CF${})),2),"")'.format(row, row, r, row, r)
+                ws['CM{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(BZ{}="","",IF(70+30*CG{}/$CG${}<20,20,70+30*CG{}/$CG${})),2),"")'.format(row, row, r, row, r)
+                ws['CN{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(CA{}="","",IF(70+30*CH{}/$CH${}<20,20,70+30*CH{}/$CH${})),2),"")'.format(row, row, r, row, r)
+                ws['CO{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(CB{}="","",IF(70+30*CI{}/$CI${}<20,20,70+30*CI{}/$CI${})),2),"")'.format(row, row, r, row, r)
+
+                ws['CP{}'.format(row)] = '=IF(SUM(CJ{}:CO{})=0,"",SUM(CJ{}:CO{}))'.format(
+                    row, row, row, row)
+                ws['CQ{}'.format(row)] = '=IF(CP{}="","",RANK(CP{},$CP$2:$CP${}))'.format(
+                    row, row, q)
+                ws['CR{}'.format(
+                    row)] = '=IF(CQ{}="","",COUNTIFS($BV$2:$BV${},BV{},$CQ$2:$CQ${},"<"&CQ{})+1)'.format(row, q, row, q, row)
                 #     TAMBAHAN
-                ws['CH{}'.format(row)] = '=IF($G${}=25,IF(AND(BO{}>4,BZ{}=20),1,""),IF($G${}=30,IF(AND(BO{}>5,BZ{}=20),1,""),IF($G${}=35,IF(AND(BO{}>6,BZ{}=20),1,""),IF($G${}=40,IF(AND(BO{}>7,BZ{}=20),1,""),IF($G${}=45,IF(AND(BO{}>8,BZ{}=20),1,""))))))'.format(
+                ws['CS{}'.format(row)] = '=IF($G${}=25,IF(AND(BW{}>4,CJ{}=20),1,""),IF($G${}=30,IF(AND(BW{}>5,CJ{}=20),1,""),IF($G${}=35,IF(AND(BW{}>6,CJ{}=20),1,""),IF($G${}=40,IF(AND(BW{}>7,CJ{}=20),1,""),IF($G${}=45,IF(AND(BW{}>8,CJ{}=20),1,""))))))'.format(
                     v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['CI{}'.format(row)] = '=IF($H${}=25,IF(AND(BP{}>4,CA{}=20),1,""),IF($H${}=30,IF(AND(BP{}>5,CA{}=20),1,""),IF($H${}=35,IF(AND(BP{}>6,CA{}=20),1,""),IF($H${}=40,IF(AND(BP{}>7,CA{}=20),1,""),IF($H${}=45,IF(AND(BP{}>8,CA{}=20),1,""))))))'.format(
+                ws['CT{}'.format(row)] = '=IF($H${}=25,IF(AND(BX{}>4,CK{}=20),1,""),IF($H${}=30,IF(AND(BX{}>5,CK{}=20),1,""),IF($H${}=35,IF(AND(BX{}>6,CK{}=20),1,""),IF($H${}=40,IF(AND(BX{}>7,CK{}=20),1,""),IF($H${}=45,IF(AND(BX{}>8,CK{}=20),1,""))))))'.format(
                     v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['CJ{}'.format(row)] = '=IF($I${}=25,IF(AND(BQ{}>4,CB{}=20),1,""),IF($I${}=30,IF(AND(BQ{}>5,CB{}=20),1,""),IF($I${}=35,IF(AND(BQ{}>6,CB{}=20),1,""),IF($I${}=40,IF(AND(BQ{}>7,CB{}=20),1,""),IF($I${}=45,IF(AND(BQ{}>8,CB{}=20),1,""))))))'.format(
+                ws['CU{}'.format(row)] = '=IF($I${}=25,IF(AND(BY{}>4,CL{}=20),1,""),IF($I${}=30,IF(AND(BY{}>5,CL{}=20),1,""),IF($I${}=35,IF(AND(BY{}>6,CL{}=20),1,""),IF($I${}=40,IF(AND(BY{}>7,CL{}=20),1,""),IF($I${}=45,IF(AND(BY{}>8,CL{}=20),1,""))))))'.format(
                     v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['CK{}'.format(row)] = '=IF($J${}=25,IF(AND(BR{}>4,CC{}=20),1,""),IF($J${}=30,IF(AND(BR{}>5,CC{}=20),1,""),IF($J${}=35,IF(AND(BR{}>6,CC{}=20),1,""),IF($J${}=40,IF(AND(BR{}>7,CC{}=20),1,""),IF($J${}=45,IF(AND(BR{}>8,CC{}=20),1,""))))))'.format(
+                ws['CV{}'.format(row)] = '=IF($J${}=25,IF(AND(BZ{}>4,CM{}=20),1,""),IF($J${}=30,IF(AND(BZ{}>5,CM{}=20),1,""),IF($J${}=35,IF(AND(BZ{}>6,CM{}=20),1,""),IF($J${}=40,IF(AND(BZ{}>7,CM{}=20),1,""),IF($J${}=45,IF(AND(BZ{}>8,CM{}=20),1,""))))))'.format(
                     v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['CL{}'.format(row)] = '=IF($K${}=25,IF(AND(BS{}>4,CD{}=20),1,""),IF($K${}=30,IF(AND(BS{}>5,CD{}=20),1,""),IF($K${}=35,IF(AND(BS{}>6,CD{}=20),1,""),IF($K${}=40,IF(AND(BS{}>7,CD{}=20),1,""),IF($K${}=45,IF(AND(BS{}>8,CD{}=20),1,""))))))'.format(
+                ws['CW{}'.format(row)] = '=IF($K${}=25,IF(AND(CA{}>4,CN{}=20),1,""),IF($K${}=30,IF(AND(CA{}>5,CN{}=20),1,""),IF($K${}=35,IF(AND(CA{}>6,CN{}=20),1,""),IF($K${}=40,IF(AND(CA{}>7,CN{}=20),1,""),IF($K${}=45,IF(AND(CA{}>8,CN{}=20),1,""))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['CX{}'.format(row)] = '=IF($L${}=25,IF(AND(CB{}>4,CO{}=20),1,""),IF($L${}=30,IF(AND(CB{}>5,CO{}=20),1,""),IF($L${}=35,IF(AND(CB{}>6,CO{}=20),1,""),IF($L${}=40,IF(AND(CB{}>7,CO{}=20),1,""),IF($L${}=45,IF(AND(CB{}>8,CO{}=20),1,""))))))'.format(
                     v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
 
                 # new Z Score [3]
-            ws['CN1'] = 'NAMA_SISWA_4'
-            ws['CO1'] = 'NOMOR_NF_4'
-            ws['CP1'] = 'KELAS_4'
-            ws['CQ1'] = 'NAMA_SEKOLAH_4'
-            ws['CR1'] = 'LOKASI_4'
-            ws['CS1'] = 'MAT_4'
-            ws['CS1'] = 'MAT_SB_4'
-            ws['CT1'] = 'IND_4'
-            ws['CU1'] = 'ENG_4'
-            ws['CV1'] = 'IPA_4'
-            ws['CW1'] = 'IPS_4'
-            ws['CX1'] = 'JML_4'
-            ws['CY1'] = 'Z_MAT_4'
-            ws['CY1'] = 'Z_MAT_SB_4'
-            ws['CZ1'] = 'Z_IND_4'
-            ws['DA1'] = 'Z_ENG_4'
-            ws['DB1'] = 'Z_IPA_4'
-            ws['DC1'] = 'Z_IPS_4'
-            ws['DD1'] = 'S_MAT_4'
-            ws['DD1'] = 'S_MAT_SB_4'
-            ws['DE1'] = 'S_IND_4'
-            ws['DF1'] = 'S_ENG_4'
-            ws['DG1'] = 'S_IPA_4'
-            ws['DH1'] = 'S_IPS_4'
-            ws['DI1'] = 'S_JML_4'
-            ws['DJ1'] = 'RANK_NAS._4'
-            ws['DK1'] = 'RANK_LOK._4'
-            ws['CY1'].font = Font(bold=False, name='Calibri', size=11)
-            ws['CZ1'].font = Font(bold=False, name='Calibri', size=11)
-            ws['DA1'].font = Font(bold=False, name='Calibri', size=11)
-            ws['DB1'].font = Font(bold=False, name='Calibri', size=11)
-            ws['DC1'].font = Font(bold=False, name='Calibri', size=11)
-            ws['DD1'].font = Font(bold=False, name='Calibri', size=11)
-            ws['DE1'].font = Font(bold=False, name='Calibri', size=11)
-            ws['DF1'].font = Font(bold=False, name='Calibri', size=11)
-            ws['DG1'].font = Font(bold=False, name='Calibri', size=11)
-            ws['DH1'].font = Font(bold=False, name='Calibri', size=11)
-            ws['DI1'].font = Font(bold=False, name='Calibri', size=11)
-            ws['DJ1'].font = Font(bold=False, name='Calibri', size=11)
-            ws['DK1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['CZ1'] = 'NAMA_SISWA_4'
+            ws['DA1'] = 'NOMOR_NF_4'
+            ws['DB1'] = 'KELAS_4'
+            ws['DC1'] = 'NAMA_SEKOLAH_4'
+            ws['DD1'] = 'LOKASI_4'
+            ws['DE1'] = 'MAT_4'
+            ws['DF1'] = 'MAT_SB_4'
+            ws['DG1'] = 'IND_4'
+            ws['DH1'] = 'ENG_4'
+            ws['DI1'] = 'IPA_4'
+            ws['DJ1'] = 'IPS_4'
+            ws['DK1'] = 'JML_4'
+            ws['DL1'] = 'Z_MAT_4'
+            ws['DM1'] = 'Z_MAT_SB_4'
+            ws['DN1'] = 'Z_IND_4'
+            ws['DO1'] = 'Z_ENG_4'
+            ws['DP1'] = 'Z_IPA_4'
+            ws['DQ1'] = 'Z_IPS_4'
+            ws['DR1'] = 'S_MAT_4'
+            ws['DS1'] = 'S_MAT_SB_4'
+            ws['DT1'] = 'S_IND_4'
+            ws['DU1'] = 'S_ENG_4'
+            ws['DV1'] = 'S_IPA_4'
+            ws['DW1'] = 'S_IPS_4'
+            ws['DX1'] = 'S_JML_4'
+            ws['DY1'] = 'RANK_NAS._4'
+            ws['DZ1'] = 'RANK_LOK._4'
+            ws['DL1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['DM1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['DN1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['DO1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['DP1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['DQ1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['DR1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['DS1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['DT1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['DU1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['DV1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['DW1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['DX1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['DY1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['DZ1'].font = Font(bold=False, name='Calibri', size=11)
 
             # FILL
-            ws['CN1'].fill = PatternFill(
-                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
-            ws['CO1'].fill = PatternFill(
-                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
-            ws['CP1'].fill = PatternFill(
-                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
-            ws['CQ1'].fill = PatternFill(
-                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
-            ws['CR1'].fill = PatternFill(
-                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
-            ws['CS1'].fill = PatternFill(
-                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
-            ws['CT1'].fill = PatternFill(
-                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
-            ws['CU1'].fill = PatternFill(
-                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
-            ws['CV1'].fill = PatternFill(
-                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
-            ws['CW1'].fill = PatternFill(
-                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
-            ws['CX1'].fill = PatternFill(
-                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
-            ws['CY1'].fill = PatternFill(
-                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
             ws['CZ1'].fill = PatternFill(
                 fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
             ws['DA1'].fill = PatternFill(
@@ -3365,14 +3364,44 @@ if authentication_status:
                 fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
             ws['DK1'].fill = PatternFill(
                 fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['DL1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['DM1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['DN1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['DO1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['DP1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['DQ1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['DR1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['DS1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['DT1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['DU1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['DV1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['DW1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['DX1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['DY1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['DZ1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
 
             # tambahan
-            ws['DL1'] = 'MAT_20_4'
-            ws['DL1'] = 'MAT_SB_20_4'
-            ws['DM1'] = 'IND_20_4'
-            ws['DN1'] = 'ENG_20_4'
-            ws['DO1'] = 'IPA_20_4'
-            ws['DP1'] = 'IPS_20_4'
+            ws['EA1'] = 'MAT_20_4'
+            ws['EB1'] = 'MAT_SB_20_4'
+            ws['EC1'] = 'IND_20_4'
+            ws['ED1'] = 'ENG_20_4'
+            ws['EE1'] = 'IPA_20_4'
+            ws['EF1'] = 'IPS_20_4'
             ws['DL1'].font = Font(bold=False, name='Calibri', size=11)
             ws['DM1'].font = Font(bold=False, name='Calibri', size=11)
             ws['DN1'].font = Font(bold=False, name='Calibri', size=11)
