@@ -2420,6 +2420,7 @@ if authentication_status:
             ws['X{}'.format(r)] = "=MAX(X2:X{})".format(q)
             ws['Y{}'.format(r)] = "=MAX(Y2:Y{})".format(q)
             ws['Z{}'.format(r)] = "=MAX(Z2:Z{})".format(q)
+            ws['AA{}'.format(r)] = "=MAX(AA2:AA{})".format(q)
 
             ws['G{}'.format(u)] = "=MIN(G2:G{})".format(q)
             ws['H{}'.format(u)] = "=MIN(H2:H{})".format(q)
@@ -2429,8 +2430,6 @@ if authentication_status:
             ws['L{}'.format(u)] = "=MIN(L2:L{})".format(q)
             ws['M{}'.format(u)] = "=MIN(M2:M{})".format(q)
             
-            ws['R{}'.format(s)] = "=MIN(R2:R{})".format(q)
-            ws['S{}'.format(s)] = "=MIN(S2:S{})".format(q)
             ws['T{}'.format(s)] = "=MIN(T2:T{})".format(q)
             ws['U{}'.format(s)] = "=MIN(U2:U{})".format(q)
             ws['V{}'.format(s)] = "=MIN(V2:V{})".format(q)
@@ -2439,8 +2438,6 @@ if authentication_status:
             ws['Y{}'.format(s)] = "=MIN(Y2:Y{})".format(q)
             ws['Z{}'.format(s)] = "=MIN(Z2:Z{})".format(q)
             
-            ws['R{}'.format(t)] = "=ROUND(AVERAGE(R2:R{}),2)".format(q)
-            ws['S{}'.format(t)] = "=ROUND(AVERAGE(S2:S{}),2)".format(q)
             ws['T{}'.format(t)] = "=ROUND(AVERAGE(T2:T{}),2)".format(q)
             ws['U{}'.format(t)] = "=ROUND(AVERAGE(U2:U{}),2)".format(q)
             ws['V{}'.format(t)] = "=ROUND(AVERAGE(V2:V{}),2)".format(q)
