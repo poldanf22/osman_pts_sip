@@ -410,31 +410,55 @@ if authentication_status:
                                     'ENG_8SMP', 'IPA_8SMP', 'IPS_8SMP']
         
         # Kode Paket 8 SMP KM
+        # elif KURIKULUM == 'KM' and KELAS == '8 SMP':
+        #     st.subheader("Input Kode Paket Kelas 8 SMP KM")
+        #     col3, col4, col5 = st.columns(3)
+        #     with col3:
+        #         km_8smp_mat = st.text_input("Kode Paket MTK",
+        #                         placeholder="M2p2O0123-24KM")
+        #     with col4:
+        #         km_8smp_mat_sb = st.text_input("Kode Paket MTK SB",
+        #                         placeholder="M2p2O0123-24KM")
+        #     with col5:
+        #         km_8smp_ind = st.text_input("Kode Paket B.IND",
+        #                         placeholder="I2p2O0123-24KM")
+        #     col6, col7, col8 = st.columns(3)
+        #     with col6:
+        #         km_8smp_eng = st.text_input("Kode Paket B.ING",
+        #                         placeholder="E2p2O0123-24KM")
+        #     with col7:
+        #         km_8smp_ipa = st.text_input("Kode Paket IPA",
+        #                         placeholder="A2p2O0123-24KM")
+        #     with col8:
+        #         km_8smp_ips = st.text_input("Kode Paket IPS",
+        #                         placeholder="Z2p2O0123-24KM")
+        #     km_8smp = [km_8smp_mat, km_8smp_mat_sb, km_8smp_ind,
+        #            km_8smp_eng, km_8smp_ipa, km_8smp_ips]
+        #     column_order_km_8smp = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_8SMP', 'MAT_SB_8SMP', 'IND_8SMP',
+        #                             'ENG_8SMP', 'IPA_8SMP', 'IPS_8SMP']
+        
+        # Kode Paket 8 SMP KM New
         elif KURIKULUM == 'KM' and KELAS == '8 SMP':
             st.subheader("Input Kode Paket Kelas 8 SMP KM")
-            col3, col4, col5 = st.columns(3)
+            col3, col4, col5, col6, col7 = st.columns(5)
             with col3:
                 km_8smp_mat = st.text_input("Kode Paket MTK",
                                 placeholder="M2p2O0123-24KM")
             with col4:
-                km_8smp_mat_sb = st.text_input("Kode Paket MTK SB",
-                                placeholder="M2p2O0123-24KM")
-            with col5:
                 km_8smp_ind = st.text_input("Kode Paket B.IND",
                                 placeholder="I2p2O0123-24KM")
-            col6, col7, col8 = st.columns(3)
-            with col6:
+            with col5:
                 km_8smp_eng = st.text_input("Kode Paket B.ING",
                                 placeholder="E2p2O0123-24KM")
-            with col7:
+            with col6:
                 km_8smp_ipa = st.text_input("Kode Paket IPA",
                                 placeholder="A2p2O0123-24KM")
-            with col8:
+            with col7:
                 km_8smp_ips = st.text_input("Kode Paket IPS",
                                 placeholder="Z2p2O0123-24KM")
-            km_8smp = [km_8smp_mat, km_8smp_mat_sb, km_8smp_ind,
+            km_8smp = [km_8smp_mat, km_8smp_ind,
                    km_8smp_eng, km_8smp_ipa, km_8smp_ips]
-            column_order_km_8smp = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_8SMP', 'MAT_SB_8SMP', 'IND_8SMP',
+            column_order_km_8smp = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_8SMP', 'IND_8SMP',
                                     'ENG_8SMP', 'IPA_8SMP', 'IPS_8SMP']
 
         # Kode Paket 9 SMP K13
@@ -844,7 +868,8 @@ if authentication_status:
                          km_5sd_mat: 'MAT_5SD', km_5sd_ind: 'IND_5SD', km_5sd_eng: 'ENG_5SD', km_5sd_ipas: 'IPAS_5SD', km_5sd_pkn: 'PKN_5SD',
                          km_6sd_mat: 'MAT_6SD', km_6sd_ind: 'IND_6SD', km_6sd_eng: 'ENG_6SD', km_6sd_ipas: 'IPAS_6SD', km_6sd_pkn: 'PKN_6SD',
                          km_7smp_mat: 'MAT_7SMP', km_7smp_ind: 'IND_7SMP', km_7smp_eng: 'ENG_7SMP', km_7smp_ipa: 'IPA_7SMP', km_7smp_ips: 'IPS_7SMP',
-                         km_8smp_mat: 'MAT_8SMP', km_8smp_ind: 'IND_8SMP', km_8smp_eng: 'ENG_8SMP', km_8smp_ipa: 'IPA_8SMP', km_8smp_ips: 'IPS_8SMP', km_8smp_mat_sb: 'MAT_SB_8SMP',
+                        #  km_8smp_mat: 'MAT_8SMP', km_8smp_ind: 'IND_8SMP', km_8smp_eng: 'ENG_8SMP', km_8smp_ipa: 'IPA_8SMP', km_8smp_ips: 'IPS_8SMP', km_8smp_mat_sb: 'MAT_SB_8SMP',
+                         km_8smp_mat: 'MAT_8SMP', km_8smp_ind: 'IND_8SMP', km_8smp_eng: 'ENG_8SMP', km_8smp_ipa: 'IPA_8SMP', km_8smp_ips: 'IPS_8SMP',
                          km_9smp_mat: 'MAT_9SMP', km_9smp_ind: 'IND_9SMP', km_9smp_eng: 'ENG_9SMP', km_9smp_ipa: 'IPA_9SMP', km_9smp_ips: 'IPS_9SMP',
                          km_10sma_mat: 'MAT_10SMA', km_10sma_ind: 'IND_10SMA', km_10sma_eng: 'ENG_10SMA', km_10sma_ipa: 'IPA_10SMA', km_10sma_ips: 'IPS_10SMA',
                          km_11sma_mat_1: 'MAT_1_11SMA', km_11sma_mat_2: 'MAT_2_11SMA', km_11sma_ind: 'IND_11SMA', km_11sma_eng: 'ENG_11SMA', km_11sma_sej: 'SEJ_11SMA', km_11sma_eko: 'EKO_11SMA', km_11sma_sos: 'SOS_11SMA', km_11sma_geo: 'GEO_11SMA', km_11sma_ant: 'ANT_11SMA', km_11sma_bio: 'BIO_11SMA', km_11sma_fis: 'FIS_11SMA', km_11sma_kim_1: 'KIM_1_11SMA', km_11sma_kim_2: 'KIM_2_11SMA',
