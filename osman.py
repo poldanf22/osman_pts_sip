@@ -7441,7 +7441,7 @@ if authentication_status:
                 "JML. SOAL ANT.",
                 (15, 20, 25, 30, 35, 40, 45, 50))
 
-        col10, col11, col12, col13 = st.columns(4)
+        col10, col11, col12 = st.columns(3)
         with col10:
             BIO = st.selectbox(
                 "JML. SOAL BIO.",
@@ -7457,10 +7457,10 @@ if authentication_status:
                 "JML. SOAL KIM_1.",
                 (15, 20, 25, 30, 35, 40, 45, 50))
         
-        with col13:
-            KIM_2 = st.selectbox(
-                "JML. SOAL KIM_2.",
-                (15, 20, 25, 30, 35, 40, 45, 50))
+        # with col13:
+        #     KIM_2 = st.selectbox(
+        #         "JML. SOAL KIM_2.",
+        #         (15, 20, 25, 30, 35, 40, 45, 50))
 
         JML_SOAL_MAT_1 = MTK_1
         JML_SOAL_MAT_2 = MTK_2
@@ -7474,7 +7474,7 @@ if authentication_status:
         JML_SOAL_BIO = BIO
         JML_SOAL_FIS = FIS
         JML_SOAL_KIM_1 = KIM_1
-        JML_SOAL_KIM_2 = KIM_2
+        # JML_SOAL_KIM_2 = KIM_2
 
         uploaded_file = st.file_uploader(
             'Letakkan file excel Pivot', type='xlsx')
@@ -7669,7 +7669,7 @@ if authentication_status:
             ws['P{}'.format(v)] = JML_SOAL_BIO
             ws['Q{}'.format(v)] = JML_SOAL_FIS
             ws['R{}'.format(v)] = JML_SOAL_KIM_1
-            ws['S{}'.format(v)] = JML_SOAL_KIM_2
+            # ws['S{}'.format(v)] = JML_SOAL_KIM_2
 
             # new
             # iterasi 1 rata-rata - 1
