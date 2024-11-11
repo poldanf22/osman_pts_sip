@@ -948,7 +948,8 @@ if authentication_status:
             st.warning(
                 "Buka file unduhan, klik 'Enable Editing' dan 'Save'")
             
-    if selected_file == "Nilai Std. SD (K13), SMP (K13-KM), 10 SMA (KM)" :  
+    # if selected_file == "Nilai Std. SD (K13), SMP (K13-KM), 10 SMA (KM)" :  
+    if selected_file == "Nilai Std. SD (KM), SMP (KM), 10 - 11 SMA (KM)" :  
     # menghilangkan hamburger
         st.markdown("""
         <style>
@@ -989,7 +990,7 @@ if authentication_status:
         with col8:
             PENILAIAN = st.selectbox(
                 "PENILAIAN",
-                ("--Pilih Penilaian--", "PENILAIAN TENGAH SEMESTER", "SUMATIF TENGAH SEMESTER", "PENILAIAN AKHIR TAHUN", "SUMATIF AKHIR TAHUN", "TO UJIAN SEKOLAH"))
+                ("--Pilih Penilaian--", "PENILAIAN TENGAH SEMESTER", "SUMATIF TENGAH SEMESTER", "PENILAIAN AKHIR SEMESTER", "SUMATIF AKHIR SEMESTER", "PENILAIAN AKHIR TAHUN", "SUMATIF AKHIR TAHUN", "TO UJIAN SEKOLAH"))
 
         col9 = st.container()
 
