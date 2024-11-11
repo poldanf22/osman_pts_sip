@@ -6155,7 +6155,7 @@ if authentication_status:
 
             for row in range(2, q+1):
                 ws['N{}'.format(
-                    row)] = '=SUM(G{}:M{})'.format(row, row, row)
+                    row)] = '=SUM(G{}:S{})'.format(row, row, row)
                 ws['O{}'.format(
                     row)] = '=IFERROR(ROUND(IF(G{}="","",(G{}-G${})/G${}),2),"")'.format(row, row, r, s)
                 ws['P{}'.format(
@@ -8724,7 +8724,7 @@ if authentication_status:
 
             for row in range(2, q+1):
                 ws['T{}'.format(
-                    row)] = '=SUM(G{}:M{})'.format(row, row, row)
+                    row)] = '=SUM(G{}:S{})'.format(row, row, row)
                 ws['U{}'.format(
                     row)] = '=IFERROR(ROUND(IF(G{}="","",(G{}-G${})/G${}),2),"")'.format(row, row, r, s)
                 ws['V{}'.format(
