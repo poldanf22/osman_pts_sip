@@ -585,6 +585,58 @@ if authentication_status:
                                 'ENG_10IPS', 'SEJ_10IPS', 'GEO_10IPS', 'EKO_10IPS', 'SOS_10IPS']
         
         # Kode Paket 11 SMA KM
+        # elif KURIKULUM == 'KM' and KELAS == '11 SMA':
+        #     st.subheader("Input Kode Paket Kelas 11 SMA KM")
+        #     col3, col4, col5, col6 = st.columns(4)
+        #     with col3:
+        #         km_11sma_mat_1 = st.text_input("Kode Paket MTK 1",
+        #                         placeholder="Q5x2O0023-24KM2")
+        #     with col4:
+        #         km_11sma_mat_2 = st.text_input("Kode Paket MTK 2",
+        #                         placeholder="R5x2O0023-24KM2")
+        #     with col5:
+        #         km_11sma_ind = st.text_input("Kode Paket B.IND",
+        #                         placeholder="I5x2O0023-24KM2")
+        #     with col6:
+        #         km_11sma_eng = st.text_input("Kode Paket B.ING",
+        #                         placeholder="E5x2O0023-24KM2")
+        #     col7, col8, col9, col10, col11 = st.columns(5)
+        #     with col7:
+        #         km_11sma_sej = st.text_input("Kode Paket SEJ",
+        #                         placeholder="S5x2O0023-24KM2")
+        #     with col8:
+        #         km_11sma_eko = st.text_input("Kode Paket EKO",
+        #                         placeholder="O5x2O0023-24KM2")
+        #     with col9:
+        #         km_11sma_sos = st.text_input("Kode Paket SOS",
+        #                         placeholder="L5x2O0023-24KM2")
+        #     with col10:
+        #         km_11sma_geo = st.text_input("Kode Paket GEO",
+        #                         placeholder="G5x2O0023-24KM2")
+        #     with col11:
+        #         km_11sma_ant = st.text_input("Kode Paket ANT",
+        #                         placeholder="N5x2O0023-24KM2")
+        #     col12, col13, col14, col15 = st.columns(4)
+        #     with col12:
+        #         km_11sma_bio = st.text_input("Kode Paket BIO",
+        #                         placeholder="B5x2O0023-24KM2")
+        #     with col13:
+        #         km_11sma_fis = st.text_input("Kode Paket FIS",
+        #                         placeholder="F5x2O0023-24KM2")
+        #     with col14:
+        #         km_11sma_kim_1 = st.text_input("Kode Paket KIM 1",
+        #                         placeholder="K5x2O0123-24KM")
+        #     with col15:
+        #         km_11sma_kim_2 = st.text_input("Kode Paket KIM 2",
+        #                         placeholder="K5x2O0023-24KM2")
+        #     km_11sma = [km_11sma_mat_1, km_11sma_mat_2, km_11sma_ind,
+        #                 km_11sma_eng, km_11sma_sej, km_11sma_eko, km_11sma_sos, km_11sma_geo, km_11sma_ant,
+        #                 km_11sma_bio, km_11sma_fis, km_11sma_kim_1, km_11sma_kim_2]
+        #     column_order_km_11sma = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_1_11SMA', 'MAT_2_11SMA', 'IND_11SMA',
+        #                             'ENG_11SMA', 'SEJ_11SMA', 'EKO_11SMA', 'SOS_11SMA', 'GEO_11SMA', 'ANT_11SMA',
+        #                             'BIO_11SMA', 'FIS_11SMA', 'KIM_1_11SMA', 'KIM_2_11SMA']
+        
+        # Kode Paket 11 SMA KM 2425
         elif KURIKULUM == 'KM' and KELAS == '11 SMA':
             st.subheader("Input Kode Paket Kelas 11 SMA KM")
             col3, col4, col5, col6 = st.columns(4)
@@ -616,7 +668,7 @@ if authentication_status:
             with col11:
                 km_11sma_ant = st.text_input("Kode Paket ANT",
                                 placeholder="N5x2O0023-24KM2")
-            col12, col13, col14, col15 = st.columns(4)
+            col12, col13, col14 = st.columns(3)
             with col12:
                 km_11sma_bio = st.text_input("Kode Paket BIO",
                                 placeholder="B5x2O0023-24KM2")
@@ -626,15 +678,12 @@ if authentication_status:
             with col14:
                 km_11sma_kim_1 = st.text_input("Kode Paket KIM 1",
                                 placeholder="K5x2O0123-24KM")
-            with col15:
-                km_11sma_kim_2 = st.text_input("Kode Paket KIM 2",
-                                placeholder="K5x2O0023-24KM2")
             km_11sma = [km_11sma_mat_1, km_11sma_mat_2, km_11sma_ind,
                         km_11sma_eng, km_11sma_sej, km_11sma_eko, km_11sma_sos, km_11sma_geo, km_11sma_ant,
-                        km_11sma_bio, km_11sma_fis, km_11sma_kim_1, km_11sma_kim_2]
+                        km_11sma_bio, km_11sma_fis, km_11sma_kim_1]
             column_order_km_11sma = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_1_11SMA', 'MAT_2_11SMA', 'IND_11SMA',
                                     'ENG_11SMA', 'SEJ_11SMA', 'EKO_11SMA', 'SOS_11SMA', 'GEO_11SMA', 'ANT_11SMA',
-                                    'BIO_11SMA', 'FIS_11SMA', 'KIM_1_11SMA', 'KIM_2_11SMA']
+                                    'BIO_11SMA', 'FIS_11SMA', 'KIM_1_11SMA']
         
         # Kode Paket 11 IPA K13
         elif KURIKULUM == 'K13' and KELAS == '11 IPA':
@@ -872,7 +921,8 @@ if authentication_status:
                          km_8smp_mat: 'MAT_8SMP', km_8smp_ind: 'IND_8SMP', km_8smp_eng: 'ENG_8SMP', km_8smp_ipa: 'IPA_8SMP', km_8smp_ips: 'IPS_8SMP',
                          km_9smp_mat: 'MAT_9SMP', km_9smp_ind: 'IND_9SMP', km_9smp_eng: 'ENG_9SMP', km_9smp_ipa: 'IPA_9SMP', km_9smp_ips: 'IPS_9SMP',
                          km_10sma_mat: 'MAT_10SMA', km_10sma_ind: 'IND_10SMA', km_10sma_eng: 'ENG_10SMA', km_10sma_ipa: 'IPA_10SMA', km_10sma_ips: 'IPS_10SMA',
-                         km_11sma_mat_1: 'MAT_1_11SMA', km_11sma_mat_2: 'MAT_2_11SMA', km_11sma_ind: 'IND_11SMA', km_11sma_eng: 'ENG_11SMA', km_11sma_sej: 'SEJ_11SMA', km_11sma_eko: 'EKO_11SMA', km_11sma_sos: 'SOS_11SMA', km_11sma_geo: 'GEO_11SMA', km_11sma_ant: 'ANT_11SMA', km_11sma_bio: 'BIO_11SMA', km_11sma_fis: 'FIS_11SMA', km_11sma_kim_1: 'KIM_1_11SMA', km_11sma_kim_2: 'KIM_2_11SMA',
+                        #  km_11sma_mat_1: 'MAT_1_11SMA', km_11sma_mat_2: 'MAT_2_11SMA', km_11sma_ind: 'IND_11SMA', km_11sma_eng: 'ENG_11SMA', km_11sma_sej: 'SEJ_11SMA', km_11sma_eko: 'EKO_11SMA', km_11sma_sos: 'SOS_11SMA', km_11sma_geo: 'GEO_11SMA', km_11sma_ant: 'ANT_11SMA', km_11sma_bio: 'BIO_11SMA', km_11sma_fis: 'FIS_11SMA', km_11sma_kim_1: 'KIM_1_11SMA', km_11sma_kim_2: 'KIM_2_11SMA',
+                         km_11sma_mat_1: 'MAT_1_11SMA', km_11sma_mat_2: 'MAT_2_11SMA', km_11sma_ind: 'IND_11SMA', km_11sma_eng: 'ENG_11SMA', km_11sma_sej: 'SEJ_11SMA', km_11sma_eko: 'EKO_11SMA', km_11sma_sos: 'SOS_11SMA', km_11sma_geo: 'GEO_11SMA', km_11sma_ant: 'ANT_11SMA', km_11sma_bio: 'BIO_11SMA', km_11sma_fis: 'FIS_11SMA', km_11sma_kim_1: 'KIM_1_11SMA',
                          ppls_ipa_mat: 'MAT_PPLS_IPA', ppls_ipa_fis: 'FIS_PPLS_IPA', ppls_ipa_kim: 'KIM_PPLS_IPA', ppls_ipa_bio: 'BIO_PPLS_IPA',
                          ppls_ips_geo: 'GEO_PPLS_IPS', ppls_ips_eko: 'EKO_PPLS_IPS', ppls_ips_sej: 'SEJ_PPLS_IPS', ppls_ips_sos: 'SOS_PPLS_IPS'})
 
