@@ -790,6 +790,9 @@ if authentication_status:
             elif KELAS == "5 SD" and KURIKULUM == "KM":
                 kode_kls_kur = km_5sd
                 column_order = column_order_km_5sd
+            elif KELAS == "6 SD" and KURIKULUM == "KM":
+                kode_kls_kur = km_6sd
+                column_order = column_order_km_6sd
             elif KELAS == "7 SMP" and KURIKULUM == "KM":
                 kode_kls_kur = km_7smp
                 column_order = column_order_km_7smp
