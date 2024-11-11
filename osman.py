@@ -231,10 +231,13 @@ if authentication_status:
             with col6:
                 km_4sd_ipas = st.text_input("Kode Paket IPAS",
                                 placeholder="Z4d2O0123-24KM")
+            with col7:
+                km_4sd_pkn = st.text_input("Kode Paket PKN",
+                                placeholder="C4d1O01002425KM")
             km_4sd = [km_4sd_mat, km_4sd_ind,
-                  km_4sd_eng, km_4sd_ipas]
+                  km_4sd_eng, km_4sd_ipas, km_4sd_pkn]
             column_order_km_4sd = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_4SD', 'IND_4SD',
-                                'ENG_4SD', 'IPAS_4SD']
+                                'ENG_4SD', 'IPAS_4SD', 'PKN_4SD']
         
         # Kode Paket 5 SD K13
         elif KURIKULUM == 'K13' and KELAS == '5 SD':
@@ -276,10 +279,13 @@ if authentication_status:
             with col6:
                 km_5sd_ipas = st.text_input("Kode Paket IPAS",
                                 placeholder="2241D223-24")
+            with col7:
+                km_5sd_pkn = st.text_input("Kode Paket PKN",
+                                placeholder="C5d1O01002425KM")
             km_5sd = [km_5sd_mat, km_5sd_ind,
-                  km_5sd_eng, km_5sd_ipas]
+                  km_5sd_eng, km_5sd_ipas, km_5sd_pkn]
             column_order_km_5sd = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_5SD', 'IND_5SD',
-                                'ENG_5SD', 'IPAS_5SD']
+                                'ENG_5SD', 'IPAS_5SD', 'PKN_5SD']
 
         # Kode Paket 6 SD K13
         elif KURIKULUM == 'K13' and KELAS == '6 SD':
@@ -305,6 +311,30 @@ if authentication_status:
             column_order_k13_6sd = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_6SD', 'IND_6SD',
                                     'ENG_6SD', 'IPA_6SD', 'IPS_6SD']
 
+        # Kode Paket 6 SD KM
+        elif KURIKULUM == 'KM' and KELAS == '6 SD':
+            st.subheader("Input Kode Paket Kelas 6 SD KM")
+            col3, col4, col5, col6 = st.columns(4)
+            with col3:
+                km_6sd_mat = st.text_input("Kode Paket MTK",
+                                placeholder="M6d2O0123-24KM")
+            with col4:
+                km_6sd_ind = st.text_input("Kode Paket B.IND",
+                                placeholder="I6d2O0123-24KM")
+            with col5:
+                km_6sd_eng = st.text_input("Kode Paket B.ING",
+                                placeholder="E6d2O0123-24KM")
+            with col6:
+                km_6sd_ipas = st.text_input("Kode Paket IPAS",
+                                placeholder="2241D223-24")
+            with col7:
+                km_6sd_pkn = st.text_input("Kode Paket PKN",
+                                placeholder="C6d1O01002425KM")
+            km_6sd = [km_6sd_mat, km_6sd_ind,
+                  km_6sd_eng, km_6sd_ipas, km_6sd_pkn]
+            column_order_km_6sd = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_6SD', 'IND_6SD',
+                                'ENG_6SD', 'IPAS_6SD', 'PKN_6SD']
+            
         # Kode Paket 7 SMP K13
         elif KURIKULUM == 'K13' and KELAS == '7 SMP':
             st.subheader("Input Kode Paket Kelas 7 SMP K13")
@@ -709,7 +739,7 @@ if authentication_status:
                                   'riwayat_jenjang', 'jenjang_dipilih_id', 'kode_level', 'kode_kelas',
                                   'tempat_lahir', 'tanggal_lahir', 'semester', 'tahun_ajar',
                                   'program', 'pin', 'join_skolla', 'created_at', 'updated_at'], axis=1)  # Menghilangkan kolom sebelum dilakukan merge
-            if KELAS == "6 SD" and KURIKULUM == "K13":
+            if KELAS == "6 SD" and KURIKULUM in ["K13", "KM"]:
                 to_pts['kelas_id'] = "'" + to_pts['kelas_id'].astype(str)
             else:
                 to_pts['kelas_id'] = to_pts['kelas_id']
@@ -803,8 +833,9 @@ if authentication_status:
                          k13_10ips_mat: 'MAT_10IPS', k13_10ips_ind: 'IND_10IPS', k13_10ips_eng: 'ENG_10IPS', k13_10ips_sej: 'SEJ_10IPS', k13_10ips_eko: 'EKO_10IPS',k13_10ips_sos: 'SOS_10IPS',k13_10ips_geo: 'GEO_10IPS',
                          k13_11ipa_mat: 'MAT_11IPA', k13_11ipa_bio: 'BIO_11IPA', k13_11ipa_fis: 'FIS_11IPA', k13_11ipa_kim: 'KIM_11IPA',
                          k13_11ips_mat: 'MAT_11IPS', k13_11ips_ind: 'IND_11IPS', k13_11ips_eng: 'ENG_11IPS', k13_11ips_sej: 'SEJ_11IPS', k13_11ips_eko: 'EKO_11IPS',k13_11ips_sos: 'SOS_11IPS',k13_11ips_geo: 'GEO_11IPS',
-                         km_4sd_mat: 'MAT_4SD', km_4sd_ind: 'IND_4SD', km_4sd_eng: 'ENG_4SD', km_4sd_ipas: 'IPAS_4SD',
-                         km_5sd_mat: 'MAT_5SD', km_5sd_ind: 'IND_5SD', km_5sd_eng: 'ENG_5SD', km_5sd_ipas: 'IPAS_5SD',
+                         km_4sd_mat: 'MAT_4SD', km_4sd_ind: 'IND_4SD', km_4sd_eng: 'ENG_4SD', km_4sd_ipas: 'IPAS_4SD', km_4sd_pkn: 'PKN_4SD',
+                         km_5sd_mat: 'MAT_5SD', km_5sd_ind: 'IND_5SD', km_5sd_eng: 'ENG_5SD', km_5sd_ipas: 'IPAS_5SD', km_5sd_pkn: 'PKN_5SD',
+                         km_6sd_mat: 'MAT_6SD', km_6sd_ind: 'IND_6SD', km_6sd_eng: 'ENG_6SD', km_6sd_ipas: 'IPAS_6SD', km_6sd_pkn: 'PKN_6SD',
                          km_7smp_mat: 'MAT_7SMP', km_7smp_ind: 'IND_7SMP', km_7smp_eng: 'ENG_7SMP', km_7smp_ipa: 'IPA_7SMP', km_7smp_ips: 'IPS_7SMP',
                          km_8smp_mat: 'MAT_8SMP', km_8smp_ind: 'IND_8SMP', km_8smp_eng: 'ENG_8SMP', km_8smp_ipa: 'IPA_8SMP', km_8smp_ips: 'IPS_8SMP', km_8smp_mat_sb: 'MAT_SB_8SMP',
                          km_9smp_mat: 'MAT_9SMP', km_9smp_ind: 'IND_9SMP', km_9smp_eng: 'ENG_9SMP', km_9smp_ipa: 'IPA_9SMP', km_9smp_ips: 'IPS_9SMP',
