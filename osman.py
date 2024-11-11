@@ -49,7 +49,8 @@ if authentication_status:
         selected_file = option_menu(
             menu_title="Pilih file:",
             options=["Pivot",
-                     "Nilai Std. SD (K13), SMP (K13-KM), 10 SMA (KM)",
+                    #  "Nilai Std. SD (K13), SMP (K13-KM), 10 SMA (KM)",
+                     "Nilai Std. SD (KM), SMP (KM), 10 - 11 SMA (KM)",
                      "Nilai Std. 8 SMP (KM)",
                      "Nilai Std. SD (KM)",
                      "Nilai Std. 10, 11 IPS (K13)",
