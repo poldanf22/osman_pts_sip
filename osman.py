@@ -814,12 +814,6 @@ if authentication_status:
                                   'riwayat_jenjang', 'jenjang_dipilih_id', 'kode_level', 'kode_kelas',
                                   'tempat_lahir', 'tanggal_lahir', 'semester', 'tahun_ajar',
                                   'program', 'pin', 'join_skolla', 'created_at', 'updated_at'], axis=1)  # Menghilangkan kolom sebelum dilakukan merge
-            if KELAS == "6 SD" and KURIKULUM == "KM":
-                to_pts['kelas_id'] = "'" + to_pts['kelas_id'].astype(str)
-            elif KELAS == "6 SD" and KURIKULUM == "K13":
-                to_pts['kelas_id'] = "'" + to_pts['kelas_id'].astype(str)
-            else:
-                to_pts['kelas_id'] = to_pts['kelas_id']
             result = pd.merge(detail, to_pts[['no_nf', 'kode_paket', 'tahun_ajaran', 'kelas_id',
                                               'lokasi_id', 'jumlah_benar']], on='no_nf', how='left')
             # Mengganti nilai 0 pada kolom 'jumlah_benar' menjadi NaN (kosong)
