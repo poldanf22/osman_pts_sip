@@ -220,7 +220,7 @@ if authentication_status:
         # Kode Paket 4 SD KM
         elif KURIKULUM == 'KM' and KELAS == '4 SD':
             st.subheader("Input Kode Paket Kelas 4 SD KM")
-            col3, col4, col5, col6 = st.columns(4)
+            col3, col4, col5, col6, col7 = st.columns(5)
             with col3:
                 km_4sd_mat = st.text_input("Kode Paket MTK",
                                 placeholder="M4d2O0123-24KM")
@@ -268,7 +268,7 @@ if authentication_status:
         # Kode Paket 5 SD KM
         elif KURIKULUM == 'KM' and KELAS == '5 SD':
             st.subheader("Input Kode Paket Kelas 5 SD KM")
-            col3, col4, col5, col6 = st.columns(4)
+            col3, col4, col5, col6, col7 = st.columns(5)
             with col3:
                 km_5sd_mat = st.text_input("Kode Paket MTK",
                                 placeholder="M5d2O0123-24KM")
@@ -316,7 +316,7 @@ if authentication_status:
         # Kode Paket 6 SD KM
         elif KURIKULUM == 'KM' and KELAS == '6 SD':
             st.subheader("Input Kode Paket Kelas 6 SD KM")
-            col3, col4, col5, col6 = st.columns(4)
+            col3, col4, col5, col6, col7 = st.columns(5)
             with col3:
                 km_6sd_mat = st.text_input("Kode Paket MTK",
                                 placeholder="M6d2O0123-24KM")
