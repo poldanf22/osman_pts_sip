@@ -173,6 +173,17 @@ if authentication_status:
     ppls_ips_eko = ''
     ppls_ips_sej = ''
     ppls_ips_sos = ''
+    
+    # ppls
+    ppls_mat = ''
+    ppls_bio = ''
+    ppls_fis = ''
+    ppls_kim = ''
+    ppls_geo = ''
+    ppls_eko = ''
+    ppls_sej = ''
+    ppls_sos = ''
+    ppls_ant = ''
 
 
     if selected_file == "Pivot":
@@ -192,7 +203,7 @@ if authentication_status:
         with col2:
             KELAS = st.selectbox(
                 "KELAS",
-                ("--Pilih Kelas--", "4 SD", "5 SD", "6 SD", "7 SMP", "8 SMP", "9 SMP", "10 IPA", "10 IPS", "10 SMA", "11 IPA", "11 IPS", "11 SMA", "PPLS IPA", "PPLS IPS"))
+                ("--Pilih Kelas--", "4 SD", "5 SD", "6 SD", "7 SMP", "8 SMP", "9 SMP", "10 IPA", "10 IPS", "10 SMA", "11 IPA", "11 IPS", "11 SMA", "PPLS IPA", "PPLS IPS", "PPLS"))
 
         # Kode Paket 4 SD K13
         if KURIKULUM == 'K13' and KELAS == '4 SD':
@@ -778,15 +789,54 @@ if authentication_status:
                         ppls_ips_sej, ppls_ips_sos]
             column_order_ppls_ips = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'GEO_PPLS_IPS',
                                     'EKO_PPLS_IPS', 'SEJ_PPLS_IPS', 'SOS_PPLS_IPS',]
+        
+        # Kode Paket PPLS
+        elif KURIKULUM == 'PPLS' and KELAS == 'PPLS':
+            st.subheader("Input Kode Paket Kelas PPLS")
+            col1, col2, col3, col4 = st.columns(4)
+            with col1:
+                ppls_mat = st.text_input("Kode Paket MAT",
+                                placeholder="M9x1X01002425PPLS")
+            with col2:
+                ppls_fis = st.text_input("Kode Paket FIS",
+                                placeholder="F9x1X01002425PPLS") 
+            with col3:
+                ppls_kim = st.text_input("Kode Paket KIM",
+                                placeholder="K9x1X01002425PPLS")
+            with col4:
+                ppls_bio = st.text_input("Kode Paket BIO",
+                                placeholder="B9x1X01002425PPLS")
+            
+            col5, col6, col7, col8, col9 = st.columns(5)
+            with col8:
+                ppls_sos = st.text_input("Kode Paket SOS",
+                                placeholder="L9x1X01002425PPLS")
+            with col6:
+                ppls_eko = st.text_input("Kode Paket EKO",
+                                placeholder="O9x1X01002425PPLS")
+            with col7:
+                ppls_sej = st.text_input("Kode Paket SEJ",
+                                placeholder="S9x1X01002425PPLS")
+            with col8:
+                ppls_geo = st.text_input("Kode Paket GEO",
+                                placeholder="G9x1X01002425PPLS")
+            with col9:
+                ppls_ant = st.text_input("Kode Paket ANT",
+                                placeholder="N9x1X01002425PPLS")
+            ppls = [ppls_mat, ppls_fis, ppls_kim, ppls_bio,
+                    ppls_sos, ppls_eko, ppls_sej, ppls_geo, ppls_ant]
+            column_order_ppls = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK',
+                                    'MAT_PPLS', 'FIS_PPLS', 'KIM_PPLS', 'BIO_PPLS', 
+                                    'SOS_PPLS', 'EKO_PPLS', 'SEJ_PPLS', 'GEO_PPLS', 'ANT_PPLS']
 
-        col8 = st.container()
-        with col8:
+        col10 = st.container()
+        with col10:
             SEMESTER = st.selectbox(
                 "SEMESTER",
                 ("--Pilih Semester--", "SEMESTER 1", "SEMESTER 2"))
 
-        col9 = st.container()
-        with col9:
+        col11 = st.container()
+        with col11:
             PENILAIAN = st.selectbox(
                 "PENILAIAN",
                 ("--Pilih Penilaian--", "PENILAIAN TENGAH SEMESTER", "SUMATIF TENGAH SEMESTER", "PENILAIAN AKHIR SEMESTER", "SUMATIF AKHIR SEMESTER", "PENILAIAN AKHIR TAHUN", "SUMATIF AKHIR TAHUN", "TO UJIAN SEKOLAH"))
@@ -885,6 +935,9 @@ if authentication_status:
             elif KELAS == "PPLS IPS" and KURIKULUM == "PPLS":
                 kode_kls_kur = ppls_ips
                 column_order = column_order_ppls_ips
+            elif KELAS == "PPLS" and KURIKULUM == "PPLS":
+                kode_kls_kur = ppls
+                column_order = column_order_ppls
 
             result_filtered = result[result['kode_paket'].isin(kode_kls_kur)]
             result_filtered.drop_duplicates(
@@ -919,8 +972,9 @@ if authentication_status:
                         #  km_11sma_mat_1: 'MAT_1_11SMA', km_11sma_mat_2: 'MAT_2_11SMA', km_11sma_ind: 'IND_11SMA', km_11sma_eng: 'ENG_11SMA', km_11sma_sej: 'SEJ_11SMA', km_11sma_eko: 'EKO_11SMA', km_11sma_sos: 'SOS_11SMA', km_11sma_geo: 'GEO_11SMA', km_11sma_ant: 'ANT_11SMA', km_11sma_bio: 'BIO_11SMA', km_11sma_fis: 'FIS_11SMA', km_11sma_kim_1: 'KIM_1_11SMA', km_11sma_kim_2: 'KIM_2_11SMA',
                          km_11sma_mat_1: 'MAT_1_11SMA', km_11sma_mat_2: 'MAT_2_11SMA', km_11sma_ind: 'IND_11SMA', km_11sma_eng: 'ENG_11SMA', km_11sma_sej: 'SEJ_11SMA', km_11sma_eko: 'EKO_11SMA', km_11sma_sos: 'SOS_11SMA', km_11sma_geo: 'GEO_11SMA', km_11sma_ant: 'ANT_11SMA', km_11sma_bio: 'BIO_11SMA', km_11sma_fis: 'FIS_11SMA', km_11sma_kim_1: 'KIM_1_11SMA',
                          ppls_ipa_mat: 'MAT_PPLS_IPA', ppls_ipa_fis: 'FIS_PPLS_IPA', ppls_ipa_kim: 'KIM_PPLS_IPA', ppls_ipa_bio: 'BIO_PPLS_IPA',
-                         ppls_ips_geo: 'GEO_PPLS_IPS', ppls_ips_eko: 'EKO_PPLS_IPS', ppls_ips_sej: 'SEJ_PPLS_IPS', ppls_ips_sos: 'SOS_PPLS_IPS'})
-
+                         ppls_ips_geo: 'GEO_PPLS_IPS', ppls_ips_eko: 'EKO_PPLS_IPS', ppls_ips_sej: 'SEJ_PPLS_IPS', ppls_ips_sos: 'SOS_PPLS_IPS',
+                         ppls_mat: 'MAT_PPLS', ppls_fis: 'FIS_PPLS', ppls_kim: 'KIM_PPLS', ppls_bio: 'BIO_PPLS', ppls_sos: 'SOS_PPLS', ppls_eko: 'EKO_PPLS', ppls_sej: 'SEJ_PPLS', ppls_geo: 'GEO_PPLS', ppls_ant: 'ANT_PPLS'})
+ 
             result_pivot = result_pivot.reindex(columns=column_order)
 
             kelas = KELAS.lower().replace(" ", "")
@@ -949,7 +1003,7 @@ if authentication_status:
             st.warning(
                 "Buka file unduhan, klik 'Enable Editing' dan 'Save'")
             
-    # if selected_file == "Nilai Std. SD (K13), SMP (K13-KM), 10 SMA (KM)" :  
+  
     if selected_file == "Nilai Std. SD (KM), SMP (KM), 10 - 11 SMA (KM)" :  
     # menghilangkan hamburger
         st.markdown("""
@@ -11910,6 +11964,7 @@ if authentication_status:
 
             st.warning(
                 "Buka file unduhan, klik 'Enable Editing' dan 'Save'")
+    
     if selected_file == "Nilai Std. PPLS IPS":
         # menghilangkan hamburger
         st.markdown("""
@@ -13236,3 +13291,3226 @@ if authentication_status:
 
             st.warning(
                 "Buka file unduhan, klik 'Enable Editing' dan 'Save'")
+
+    if selected_file == "Nilai Std. PPLS":
+        # menghilangkan hamburger
+        st.markdown("""
+        <style>
+        .css-1rs6os.edgvbvh3
+        {
+            visibility:hidden;
+        }
+        .css-1lsmgbg.egzxvld0
+        {
+            visibility:hidden;
+        }
+        </style>
+        """, unsafe_allow_html=True)
+
+        image = Image.open('logo resmi nf resize.png')
+        st.image(image)
+
+        st.title("Olah Nilai Standar PPLS")
+        st.header("PPLS")
+
+        col6 = st.container()
+
+        with col6:
+            KELAS = st.selectbox(
+                "KELAS",
+                ("--Pilih Kelas--", "PPLS"))
+
+        col7 = st.container()
+
+        with col7:
+            SEMESTER = st.selectbox(
+                "SEMESTER",
+                ("--Pilih Semester--", "SEMESTER 1", "SEMESTER 2"))
+
+        col8 = st.container()
+
+        with col8:
+            PENILAIAN = st.selectbox(
+                "PENILAIAN",
+                ("--Pilih Penilaian--", "SUMATIF TENGAH SEMESTER", "SUMATIF AKHIR SEMESTER", "SUMATIF AKHIR TAHUN"))
+
+        col9 = st.container()
+
+        with col9:
+            KURIKULUM = st.selectbox(
+                "KURIKULUM",
+                ("--Pilih Kurikulum--", "PPLS"))
+
+        TAHUN = st.text_input("Masukkan Tahun Ajaran",
+                              placeholder="contoh: 2022-2023")
+
+        col1, col2, col3, col4 = st.columns(4)
+
+        with col1:
+            MTK = st.selectbox(
+                "JML. SOAL MAT.",
+                (15, 20, 25, 30, 35, 40, 45, 50))
+        
+        with col2:
+            FIS = st.selectbox(
+                "JML. SOAL FIS.",
+                (15, 20, 25, 30, 35, 40, 45, 50))
+        
+        with col3:
+            KIM = st.selectbox(
+                "JML. SOAL KIM.",
+                (15, 20, 25, 30, 35, 40, 45, 50))
+        
+        with col4:
+            BIO = st.selectbox(
+                "JML. SOAL BIO.",
+                (15, 20, 25, 30, 35, 40, 45, 50))
+
+        col5, col6, col7, col8, col9 = st.columns(5)
+
+        with col5:
+            SOS = st.selectbox(
+                "JML. SOAL SOS.",
+                (15, 20, 25, 30, 35, 40, 45, 50))
+
+        with col6:
+            EKO = st.selectbox(
+                "JML. SOAL EKO.",
+                (15, 20, 25, 30, 35, 40, 45, 50))
+
+        with col7:
+            SEJ = st.selectbox(
+                "JML. SOAL SEJ.",
+                (15, 20, 25, 30, 35, 40, 45, 50))
+
+        with col8:
+            GEO = st.selectbox(
+                "JML. SOAL GEO.",
+                (15, 20, 25, 30, 35, 40, 45, 50))
+
+        with col9:
+            ANT = st.selectbox(
+                "JML. SOAL ANT.",
+                (15, 20, 25, 30, 35, 40, 45, 50))
+
+        
+        JML_SOAL_MAT = MTK
+        JML_SOAL_FIS = FIS
+        JML_SOAL_KIM = KIM
+        JML_SOAL_BIO = BIO
+        JML_SOAL_SOS = SOS
+        JML_SOAL_EKO = EKO
+        JML_SOAL_SEJ = SEJ
+        JML_SOAL_GEO = GEO
+        JML_SOAL_ANT = ANT
+
+        uploaded_file = st.file_uploader(
+            'Letakkan file excel Pivot', type='xlsx')
+
+        if uploaded_file is not None:
+            wb = openpyxl.load_workbook(uploaded_file)
+            ws = wb['Sheet1']
+
+            q = len(ws['K'])
+            r = len(ws['K'])+2
+            s = len(ws['K'])+3
+            t = len(ws['K'])+4
+            u = len(ws['K'])+5
+            v = len(ws['K'])+6
+            w = len(ws['K'])+7
+            x = len(ws['K'])+8
+
+            # JML BENAR MAT, MAT 2, IND, ENG
+            ws['G{}'.format(r)] = "=ROUND(AVERAGE(G2:G{}),2)".format(q)
+            ws['H{}'.format(r)] = "=ROUND(AVERAGE(H2:H{}),2)".format(q)
+            ws['I{}'.format(r)] = "=ROUND(AVERAGE(I2:I{}),2)".format(q)
+            ws['J{}'.format(r)] = "=ROUND(AVERAGE(J2:J{}),2)".format(q)
+            # JML BENAR SEJ, EKO, SOS, GEO, ANT
+            ws['K{}'.format(r)] = "=ROUND(AVERAGE(K2:K{}),2)".format(q)
+            ws['L{}'.format(r)] = "=ROUND(AVERAGE(L2:L{}),2)".format(q)
+            ws['M{}'.format(r)] = "=ROUND(AVERAGE(M2:M{}),2)".format(q)
+            ws['N{}'.format(r)] = "=ROUND(AVERAGE(N2:N{}),2)".format(q)
+            ws['O{}'.format(r)] = "=ROUND(AVERAGE(O2:O{}),2)".format(q)
+            # JML BENAR BIO, FIS, KIM 1, KIM 2
+            ws['P{}'.format(r)] = "=ROUND(AVERAGE(P2:P{}),2)".format(q)
+            ws['Q{}'.format(r)] = "=ROUND(AVERAGE(Q2:Q{}),2)".format(q)
+            ws['R{}'.format(r)] = "=ROUND(AVERAGE(R2:R{}),2)".format(q)
+            ws['S{}'.format(r)] = "=ROUND(AVERAGE(S2:S{}),2)".format(q)
+
+            # STDEV MAT 1, MAT 2, IND, ENG
+            ws['G{}'.format(s)] = "=STDEV(G2:G{})".format(q)
+            ws['H{}'.format(s)] = "=STDEV(H2:H{})".format(q)
+            ws['I{}'.format(s)] = "=STDEV(I2:I{})".format(q)
+            ws['J{}'.format(s)] = "=STDEV(J2:J{})".format(q)
+            # STDEV SEJ, EKO, SOS, GEO, ANT
+            ws['K{}'.format(s)] = "=STDEV(K2:K{})".format(q)
+            ws['L{}'.format(s)] = "=STDEV(L2:L{})".format(q)
+            ws['M{}'.format(s)] = "=STDEV(M2:M{})".format(q)
+            ws['N{}'.format(s)] = "=STDEV(N2:N{})".format(q)
+            ws['O{}'.format(s)] = "=STDEV(O2:O{})".format(q)
+            # STDEV BIO, FIS, KIM 1, KIM 2
+            ws['P{}'.format(s)] = "=STDEV(P2:P{})".format(q)
+            ws['Q{}'.format(s)] = "=STDEV(Q2:Q{})".format(q)
+            ws['R{}'.format(s)] = "=STDEV(R2:R{})".format(q)
+            ws['S{}'.format(s)] = "=STDEV(S2:S{})".format(q)
+
+            # MAX MAT 1, MAT 2, IND, ENG
+            ws['G{}'.format(t)] = "=MAX(G2:G{})".format(q)
+            ws['H{}'.format(t)] = "=MAX(H2:H{})".format(q)
+            ws['I{}'.format(t)] = "=MAX(I2:I{})".format(q)
+            ws['J{}'.format(t)] = "=MAX(J2:J{})".format(q)
+            # MAX SEJ, EKO, SOS, GEO, ANT
+            ws['K{}'.format(t)] = "=MAX(K2:K{})".format(q)
+            ws['L{}'.format(t)] = "=MAX(L2:L{})".format(q)
+            ws['M{}'.format(t)] = "=MAX(M2:M{})".format(q)
+            ws['N{}'.format(t)] = "=MAX(N2:N{})".format(q)
+            ws['O{}'.format(t)] = "=MAX(O2:O{})".format(q)
+            # MAX BIO, FIS, KIM 1, KIM 2
+            ws['P{}'.format(t)] = "=MAX(P2:P{})".format(q)
+            ws['Q{}'.format(t)] = "=MAX(Q2:Q{})".format(q)
+            ws['R{}'.format(t)] = "=MAX(R2:R{})".format(q)
+            ws['S{}'.format(t)] = "=MAX(S2:S{})".format(q)
+
+            # JML
+            ws['T{}'.format(r)] = "=MAX(T2:T{})".format(q)
+            # Z MAT 1, MAT 2, IND, ENG
+            ws['U{}'.format(r)] = "=MAX(U2:U{})".format(q)
+            ws['V{}'.format(r)] = "=MAX(V2:V{})".format(q)
+            ws['W{}'.format(r)] = "=MAX(W2:W{})".format(q)
+            ws['X{}'.format(r)] = "=MAX(X2:X{})".format(q)
+            # Z SEJ, EKO, SOS, GEO, ANT
+            ws['Y{}'.format(r)] = "=MAX(Y2:Y{})".format(q)
+            ws['Z{}'.format(r)] = "=MAX(Z2:Z{})".format(q)
+            ws['AA{}'.format(r)] = "=MAX(AA2:AA{})".format(q)
+            ws['AB{}'.format(r)] = "=MAX(AB2:AB{})".format(q)
+            ws['AC{}'.format(r)] = "=MAX(AC2:AC{})".format(q)
+            # Z BIO, FIS, KIM 1, KIM 2
+            ws['AD{}'.format(r)] = "=MAX(AD2:AD{})".format(q)
+            ws['AE{}'.format(r)] = "=MAX(AE2:AE{})".format(q)
+            ws['AF{}'.format(r)] = "=MAX(AF2:AF{})".format(q)
+            ws['AG{}'.format(r)] = "=MAX(AG2:AG{})".format(q)
+
+            # S MAT 1, MAT 2, IND, ENG
+            ws['AH{}'.format(r)] = "=MAX(AH2:AH{})".format(q)
+            ws['AI{}'.format(r)] = "=MAX(AI2:AI{})".format(q)
+            ws['AJ{}'.format(r)] = "=MAX(AJ2:AJ{})".format(q)
+            ws['AK{}'.format(r)] = "=MAX(AK2:AK{})".format(q)
+            # S SEJ, EKO, SOS, GEO, ANT
+            ws['AL{}'.format(r)] = "=MAX(AL2:AL{})".format(q)
+            ws['AM{}'.format(r)] = "=MAX(AM2:AM{})".format(q)
+            ws['AN{}'.format(r)] = "=MAX(AN2:AN{})".format(q)
+            ws['AO{}'.format(r)] = "=MAX(AO2:AO{})".format(q)
+            ws['AP{}'.format(r)] = "=MAX(AP2:AP{})".format(q)
+            # S BIO, FIS, KIM 1, KIM 2
+            ws['AQ{}'.format(r)] = "=MAX(AQ2:AQ{})".format(q)
+            ws['AR{}'.format(r)] = "=MAX(AR2:AR{})".format(q)
+            ws['AS{}'.format(r)] = "=MAX(AS2:AS{})".format(q)
+            ws['AT{}'.format(r)] = "=MAX(AT2:AT{})".format(q)
+            # S JML, RANK NAS, RANK LOK
+            ws['AU{}'.format(r)] = "=MAX(AU2:AU{})".format(q)
+            ws['AV{}'.format(r)] = "=MAX(AV2:AV{})".format(q)
+            ws['AW{}'.format(r)] = "=MAX(AW2:AW{})".format(q)
+
+            # MIN MAT 1, MAT 2, IND, ENG
+            ws['G{}'.format(u)] = "=MIN(G2:G{})".format(q)
+            ws['H{}'.format(u)] = "=MIN(H2:H{})".format(q)
+            ws['I{}'.format(u)] = "=MIN(I2:I{})".format(q)
+            ws['J{}'.format(u)] = "=MIN(J2:J{})".format(q)
+            # MIN SEJ, EKO, SOS, GEO, ANT
+            ws['K{}'.format(u)] = "=MIN(K2:K{})".format(q)
+            ws['L{}'.format(u)] = "=MIN(L2:L{})".format(q)
+            ws['M{}'.format(u)] = "=MIN(M2:M{})".format(q)
+            ws['N{}'.format(u)] = "=MIN(N2:N{})".format(q)
+            ws['O{}'.format(u)] = "=MIN(O2:O{})".format(q)
+            # MIN BIO, FIS, KIM 1, KIM 2
+            ws['P{}'.format(u)] = "=MIN(P2:P{})".format(q)
+            ws['Q{}'.format(u)] = "=MIN(Q2:Q{})".format(q)
+            ws['R{}'.format(u)] = "=MIN(R2:R{})".format(q)
+            ws['S{}'.format(u)] = "=MIN(S2:S{})".format(q)
+
+            # S MAT 1, MAT 2, IND, ENG
+            ws['AH{}'.format(s)] = "=MIN(AH2:AH{})".format(q)
+            ws['AI{}'.format(s)] = "=MIN(AI2:AI{})".format(q)
+            ws['AJ{}'.format(s)] = "=MIN(AJ2:AJ{})".format(q)
+            ws['AK{}'.format(s)] = "=MIN(AK2:AK{})".format(q)
+            # S SEJ, EKO, SOS, GEO, ANT
+            ws['AL{}'.format(s)] = "=MIN(AL2:AL{})".format(q)
+            ws['AM{}'.format(s)] = "=MIN(AM2:AM{})".format(q)
+            ws['AN{}'.format(s)] = "=MIN(AN2:AN{})".format(q)
+            ws['AO{}'.format(s)] = "=MIN(AO2:AO{})".format(q)
+            ws['AP{}'.format(s)] = "=MIN(AP2:AP{})".format(q)
+            # S BIO, FIS, KIM 1, KIM 2
+            ws['AQ{}'.format(s)] = "=MIN(AQ2:AQ{})".format(q)
+            ws['AR{}'.format(s)] = "=MIN(AR2:AR{})".format(q)
+            ws['AS{}'.format(s)] = "=MIN(AS2:AS{})".format(q)
+            ws['AT{}'.format(s)] = "=MIN(AT2:AT{})".format(q)
+            # S JML
+            ws['AU{}'.format(s)] = "=MIN(AU2:AU{})".format(q)
+            
+            # S MAT 1, MAT 2, IND, ENG
+            ws['AH{}'.format(t)] = "=ROUND(AVERAGE(AH2:AH{}),2)".format(q)
+            ws['AI{}'.format(t)] = "=ROUND(AVERAGE(AI2:AI{}),2)".format(q)
+            ws['AJ{}'.format(t)] = "=ROUND(AVERAGE(AJ2:AJ{}),2)".format(q)
+            ws['AK{}'.format(t)] = "=ROUND(AVERAGE(AK2:AK{}),2)".format(q)
+            # S SEJ, EKO, SOS, GEO, ANT
+            ws['AL{}'.format(t)] = "=ROUND(AVERAGE(AL2:AL{}),2)".format(q)
+            ws['AM{}'.format(t)] = "=ROUND(AVERAGE(AM2:AM{}),2)".format(q)
+            ws['AN{}'.format(t)] = "=ROUND(AVERAGE(AN2:AN{}),2)".format(q)
+            ws['AO{}'.format(t)] = "=ROUND(AVERAGE(AO2:AO{}),2)".format(q)
+            ws['AP{}'.format(t)] = "=ROUND(AVERAGE(AP2:AP{}),2)".format(q)
+            # S BIO, FIS, KIM 1, KIM 2
+            ws['AQ{}'.format(t)] = "=ROUND(AVERAGE(AQ2:AQ{}),2)".format(q)
+            ws['AR{}'.format(t)] = "=ROUND(AVERAGE(AR2:AR{}),2)".format(q)
+            ws['AS{}'.format(t)] = "=ROUND(AVERAGE(AS2:AS{}),2)".format(q)
+            ws['AT{}'.format(t)] = "=ROUND(AVERAGE(AT2:AT{}),2)".format(q)
+            # S JML
+            ws['AU{}'.format(t)] = "=ROUND(AVERAGE(AU2:AU{}),2)".format(q)
+
+            # MAT 1 20, MAT 2 20, IND 20, ENG 20 
+            ws['AX{}'.format(r)] = "=SUM(AX2:AX{})".format(q)
+            ws['AY{}'.format(r)] = "=SUM(AY2:AY{})".format(q)
+            ws['AZ{}'.format(r)] = "=SUM(AZ2:AZ{})".format(q)
+            ws['BA{}'.format(r)] = "=SUM(BA2:BA{})".format(q)
+            # SEJ 20, EKO 2 20, SOS 20, GEO 20, ANT 20
+            ws['BB{}'.format(r)] = "=SUM(BB2:BB{})".format(q)
+            ws['BC{}'.format(r)] = "=SUM(BC2:BC{})".format(q)
+            ws['BD{}'.format(r)] = "=SUM(BD2:BD{})".format(q)
+            ws['BE{}'.format(r)] = "=SUM(BE2:BE{})".format(q)
+            ws['BF{}'.format(r)] = "=SUM(BF2:BF{})".format(q)
+            # BIO 20, FIS 20, KIM 1 20, KIM 2 20
+            ws['BG{}'.format(r)] = "=SUM(BG2:BG{})".format(q)
+            ws['BH{}'.format(r)] = "=SUM(BH2:BH{})".format(q)
+            ws['BI{}'.format(r)] = "=SUM(BI2:BI{})".format(q)
+            ws['BJ{}'.format(r)] = "=SUM(BJ2:BJ{})".format(q)
+
+            # Jumlah Soal
+            ws['F{}'.format(v)] = 'JUMLAH SOAL'
+            ws['G{}'.format(v)] = JML_SOAL_MAT_1
+            ws['H{}'.format(v)] = JML_SOAL_MAT_2
+            ws['I{}'.format(v)] = JML_SOAL_IND
+            ws['J{}'.format(v)] = JML_SOAL_ENG
+            ws['K{}'.format(v)] = JML_SOAL_SEJ
+            ws['L{}'.format(v)] = JML_SOAL_GEO
+            ws['M{}'.format(v)] = JML_SOAL_EKO
+            ws['N{}'.format(v)] = JML_SOAL_SOS
+            ws['O{}'.format(v)] = JML_SOAL_ANT
+            ws['P{}'.format(v)] = JML_SOAL_BIO
+            ws['Q{}'.format(v)] = JML_SOAL_FIS
+            ws['R{}'.format(v)] = JML_SOAL_KIM_1
+            # ws['S{}'.format(v)] = JML_SOAL_KIM_2
+
+            # new
+            # iterasi 1 rata-rata - 1
+            # rata" MTK 1 ke MTK 1 tambahan dan mapel MTK 1 awal
+            ws['BQ{}'.format(r)] = "=IF($AX${}=0,$G${},$G${}-1)".format(r, r, r)
+            ws['BQ{}'.format(s)] = "=STDEV(BQ2:BQ{})".format(q)
+            ws['BQ{}'.format(t)] = "=MAX(BQ2:BQ{})".format(q)
+            ws['BQ{}'.format(u)] = "=MIN(BQ2:BQ{})".format(q)
+            # rata" MTK 2 ke MTK 2 tambahan dan mapel MTK 2 awal
+            ws['BR{}'.format(r)] = "=IF($AY${}=0,$H${},$H${}-1)".format(r, r, r)
+            ws['BR{}'.format(s)] = "=STDEV(BR2:BR{})".format(q)
+            ws['BR{}'.format(t)] = "=MAX(BR2:BR{})".format(q)
+            ws['BR{}'.format(u)] = "=MIN(BR2:BR{})".format(q)
+            # rata" IND ke IND tambahan dan mapel IND awal
+            ws['BS{}'.format(r)] = "=IF($AZ${}=0,$I${},$I${}-1)".format(r, r, r)
+            ws['BS{}'.format(s)] = "=STDEV(BS2:BS{})".format(q)
+            ws['BS{}'.format(t)] = "=MAX(BS2:BS{})".format(q)
+            ws['BS{}'.format(u)] = "=MIN(BS2:BS{})".format(q)
+            # rata" ENG ke ENG tambahan dan mapel ENG awal
+            ws['BT{}'.format(r)] = "=IF($BA${}=0,$J${},$J${}-1)".format(r, r, r)
+            ws['BT{}'.format(s)] = "=STDEV(BT2:BT{})".format(q)
+            ws['BT{}'.format(t)] = "=MAX(BT2:BT{})".format(q)
+            ws['BT{}'.format(u)] = "=MIN(BT2:BT{})".format(q)
+            # rata" SEJ ke SEJ tambahan dan mapel SEJ awal
+            ws['BU{}'.format(r)] = "=IF($BB${}=0,$K${},$K${}-1)".format(r, r, r)
+            ws['BU{}'.format(s)] = "=STDEV(BU2:BU{})".format(q)
+            ws['BU{}'.format(t)] = "=MAX(BU2:BU{})".format(q)
+            ws['BU{}'.format(u)] = "=MIN(BU2:BU{})".format(q)
+            # rata" EKO ke EKO tambahan dan mapel EKO awal
+            ws['BV{}'.format(r)] = "=IF($BC${}=0,$L${},$L${}-1)".format(r, r, r)
+            ws['BV{}'.format(s)] = "=STDEV(BV2:BV{})".format(q)
+            ws['BV{}'.format(t)] = "=MAX(BV2:BV{})".format(q)
+            ws['BV{}'.format(u)] = "=MIN(BV2:BV{})".format(q)
+            # rata" SOS ke SOS tambahan dan mapel SOS awal
+            ws['BW{}'.format(r)] = "=IF($BD${}=0,$M${},$M${}-1)".format(r, r, r)
+            ws['BW{}'.format(s)] = "=STDEV(BW2:BW{})".format(q)
+            ws['BW{}'.format(t)] = "=MAX(BW2:BW{})".format(q)
+            ws['BW{}'.format(u)] = "=MIN(BW2:BW{})".format(q)
+            # rata" GEO ke GEO tambahan dan mapel GEO awal
+            ws['BX{}'.format(r)] = "=IF($BE${}=0,$N${},$N${}-1)".format(r, r, r)
+            ws['BX{}'.format(s)] = "=STDEV(BX2:BX{})".format(q)
+            ws['BX{}'.format(t)] = "=MAX(BX2:BX{})".format(q)
+            ws['BX{}'.format(u)] = "=MIN(BX2:BX{})".format(q)
+            # rata" ANT ke ANT tambahan dan mapel ANT awal
+            ws['BY{}'.format(r)] = "=IF($BF${}=0,$O${},$O${}-1)".format(r, r, r)
+            ws['BY{}'.format(s)] = "=STDEV(BY2:BY{})".format(q)
+            ws['BY{}'.format(t)] = "=MAX(BY2:BY{})".format(q)
+            ws['BY{}'.format(u)] = "=MIN(BY2:BY{})".format(q)
+            # rata" BIO ke BIO tambahan dan mapel BIO awal
+            ws['BZ{}'.format(r)] = "=IF($BG${}=0,$P${},$P${}-1)".format(r, r, r)
+            ws['BZ{}'.format(s)] = "=STDEV(BZ2:BZ{})".format(q)
+            ws['BZ{}'.format(t)] = "=MAX(BZ2:BZ{})".format(q)
+            ws['BZ{}'.format(u)] = "=MIN(BZ2:BZ{})".format(q)
+            # rata" FIS ke FIS tambahan dan mapel FIS awal
+            ws['CA{}'.format(r)] = "=IF($BH${}=0,$Q${},$Q${}-1)".format(r, r, r)
+            ws['CA{}'.format(s)] = "=STDEV(CA2:CA{})".format(q)
+            ws['CA{}'.format(t)] = "=MAX(CA2:CA{})".format(q)
+            ws['CA{}'.format(u)] = "=MIN(CA2:CA{})".format(q)
+            # rata" KIM 1 ke KIM 1 tambahan dan mapel KIM 1 awal
+            ws['CB{}'.format(r)] = "=IF($BI${}=0,$R${},$R${}-1)".format(r, r, r)
+            ws['CB{}'.format(s)] = "=STDEV(CB2:CB{})".format(q)
+            ws['CB{}'.format(t)] = "=MAX(CB2:CB{})".format(q)
+            ws['CB{}'.format(u)] = "=MIN(CB2:CB{})".format(q)
+            # rata" KIM 2 ke KIM 2 tambahan dan mapel KIM 2 awal
+            ws['CC{}'.format(r)] = "=IF($BJ${}=0,$S${},$S${}-1)".format(r, r, r)
+            ws['CC{}'.format(s)] = "=STDEV(CC2:CC{})".format(q)
+            ws['CC{}'.format(t)] = "=MAX(CC2:CC{})".format(q)
+            ws['CC{}'.format(u)] = "=MIN(CC2:CC{})".format(q)
+            # JML BENAR
+            ws['CD{}'.format(r)] = "=ROUND(AVERAGE(CD2:CD{}),2)".format(q)
+            ws['CD{}'.format(t)] = "=MAX(CD2:CD{})".format(q)
+            ws['CD{}'.format(u)] = "=MIN(CD2:CD{})".format(q)
+            # MAX Z SCORE MAT 1, MAT 2, IND, ENG
+            ws['CE{}'.format(r)] = "=MAX(CE2:CE{})".format(q)
+            ws['CF{}'.format(r)] = "=MAX(CF2:CF{})".format(q)
+            ws['CG{}'.format(r)] = "=MAX(CG2:CG{})".format(q)
+            ws['CH{}'.format(r)] = "=MAX(CH2:CH{})".format(q)
+            # MAX Z SCORE SEJ, EKO, SOS, GEO, ANT
+            ws['CI{}'.format(r)] = "=MAX(CI2:CI{})".format(q)
+            ws['CJ{}'.format(r)] = "=MAX(CJ2:CJ{})".format(q)
+            ws['CK{}'.format(r)] = "=MAX(CK2:CK{})".format(q)
+            ws['CL{}'.format(r)] = "=MAX(CL2:CL{})".format(q)
+            ws['CM{}'.format(r)] = "=MAX(CM2:CM{})".format(q)
+            # MAX Z SCORE BIO, FIS, KIM 1, KIM 2
+            ws['CN{}'.format(r)] = "=MAX(CN2:CN{})".format(q)
+            ws['CO{}'.format(r)] = "=MAX(CO2:CO{})".format(q)
+            ws['CP{}'.format(r)] = "=MAX(CP2:CP{})".format(q)
+            ws['CQ{}'.format(r)] = "=MAX(CQ2:CQ{})".format(q)
+
+            # NILAI STANDAR MTK 1
+            ws['CR{}'.format(r)] = "=MAX(CR2:CR{})".format(q)
+            ws['CR{}'.format(s)] = "=MIN(CR2:CR{})".format(q)
+            ws['CR{}'.format(t)] = "=ROUND(AVERAGE(CR2:CR{}),2)".format(q)
+            # NILAI STANDAR MTK 1
+            ws['CS{}'.format(r)] = "=MAX(CS2:CS{})".format(q)
+            ws['CS{}'.format(s)] = "=MIN(CS2:CS{})".format(q)
+            ws['CS{}'.format(t)] = "=ROUND(AVERAGE(CS2:CS{}),2)".format(q)
+            # NILAI STANDAR IND
+            ws['CT{}'.format(r)] = "=MAX(CT2:CT{})".format(q)
+            ws['CT{}'.format(s)] = "=MIN(CT2:CT{})".format(q)
+            ws['CT{}'.format(t)] = "=ROUND(AVERAGE(CT2:CT{}),2)".format(q)
+            # NILAI STANDAR ENG
+            ws['CU{}'.format(r)] = "=MAX(CU2:CU{})".format(q)
+            ws['CU{}'.format(s)] = "=MIN(CU2:CU{})".format(q)
+            ws['CU{}'.format(t)] = "=ROUND(AVERAGE(CU2:CU{}),2)".format(q)
+            # NILAI STANDAR SEJ
+            ws['CV{}'.format(r)] = "=MAX(CV2:CV{})".format(q)
+            ws['CV{}'.format(s)] = "=MIN(CV2:CV{})".format(q)
+            ws['CV{}'.format(t)] = "=ROUND(AVERAGE(CV2:CV{}),2)".format(q)
+            # NILAI STANDAR EKO
+            ws['CW{}'.format(r)] = "=MAX(CW2:CW{})".format(q)
+            ws['CW{}'.format(s)] = "=MIN(CW2:CW{})".format(q)
+            ws['CW{}'.format(t)] = "=ROUND(AVERAGE(CW2:CW{}),2)".format(q)
+            # NILAI STANDAR SOS
+            ws['CX{}'.format(r)] = "=MAX(CX2:CX{})".format(q)
+            ws['CX{}'.format(s)] = "=MIN(CX2:CX{})".format(q)
+            ws['CX{}'.format(t)] = "=ROUND(AVERAGE(CX2:CX{}),2)".format(q)
+            # NILAI STANDAR GEO
+            ws['CY{}'.format(r)] = "=MAX(CY2:CY{})".format(q)
+            ws['CY{}'.format(s)] = "=MIN(CY2:CY{})".format(q)
+            ws['CY{}'.format(t)] = "=ROUND(AVERAGE(CY2:CY{}),2)".format(q)
+            # NILAI STANDAR ANT
+            ws['CZ{}'.format(r)] = "=MAX(CZ2:CZ{})".format(q)
+            ws['CZ{}'.format(s)] = "=MIN(CZ2:CZ{})".format(q)
+            ws['CZ{}'.format(t)] = "=ROUND(AVERAGE(CZ2:CZ{}),2)".format(q)
+            # NILAI STANDAR BIO
+            ws['DA{}'.format(r)] = "=MAX(DA2:DA{})".format(q)
+            ws['DA{}'.format(s)] = "=MIN(DA2:DA{})".format(q)
+            ws['DA{}'.format(t)] = "=ROUND(AVERAGE(DA2:DA{}),2)".format(q)
+            # NILAI STANDAR FIS
+            ws['DB{}'.format(r)] = "=MAX(DB2:DB{})".format(q)
+            ws['DB{}'.format(s)] = "=MIN(DB2:DB{})".format(q)
+            ws['DB{}'.format(t)] = "=ROUND(AVERAGE(DB2:DB{}),2)".format(q)
+            # NILAI STANDAR KIM 1
+            ws['DC{}'.format(r)] = "=MAX(DC2:DC{})".format(q)
+            ws['DC{}'.format(s)] = "=MIN(DC2:DC{})".format(q)
+            ws['DC{}'.format(t)] = "=ROUND(AVERAGE(DC2:DC{}),2)".format(q)
+            # NILAI STANDAR KIM 2
+            ws['DD{}'.format(r)] = "=MAX(DD2:DD{})".format(q)
+            ws['DD{}'.format(s)] = "=MIN(DD2:DD{})".format(q)
+            ws['DD{}'.format(t)] = "=ROUND(AVERAGE(DD2:DD{}),2)".format(q)
+            # NILAI STANDAR JML
+            ws['DE{}'.format(r)] = "=MAX(DE2:DE{})".format(q)
+            ws['DE{}'.format(s)] = "=MIN(DE2:DE{})".format(q)
+            ws['DE{}'.format(t)] = "=ROUND(AVERAGE(DE2:DE{}),2)".format(q)
+
+            # TAMBAHAN
+            # MTK 1, MTK 2, IND, ENG
+            ws['DH{}'.format(r)] = "=SUM(DH2:DH{})".format(q)
+            ws['DI{}'.format(r)] = "=SUM(DI2:DI{})".format(q)
+            ws['DJ{}'.format(r)] = "=SUM(DJ2:DJ{})".format(q)
+            ws['DK{}'.format(r)] = "=SUM(DK2:DK{})".format(q)
+            # SEJ, EKO, SOS, GEO, ANT
+            ws['DL{}'.format(r)] = "=SUM(DL2:DL{})".format(q)
+            ws['DM{}'.format(r)] = "=SUM(DM2:DM{})".format(q)
+            ws['DN{}'.format(r)] = "=SUM(DN2:DN{})".format(q)
+            ws['DO{}'.format(r)] = "=SUM(DO2:DO{})".format(q)
+            ws['DP{}'.format(r)] = "=SUM(DP2:DP{})".format(q)
+            # BIO, FIS, KIM 1, KIM 2
+            ws['DQ{}'.format(r)] = "=SUM(DQ2:DQ{})".format(q)
+            ws['DR{}'.format(r)] = "=SUM(DR2:DR{})".format(q)
+            ws['DS{}'.format(r)] = "=SUM(DS2:DS{})".format(q)
+            ws['DT{}'.format(r)] = "=SUM(DT2:DT{})".format(q)
+
+            # iterasi 2 rata-rata - 2
+            # rata" MTK 1 ke MTK 1 tambahan dan mapel MTK 1 awal
+            ws['EA{}'.format(r)] = "=IF($DH${}=0,$G${},$G${}-1)".format(r, r, r)
+            ws['EA{}'.format(s)] = "=STDEV(EA2:EA{})".format(q)
+            ws['EA{}'.format(t)] = "=MAX(EA2:EA{})".format(q)
+            ws['EA{}'.format(u)] = "=MIN(EA2:EA{})".format(q)
+            # rata" MTK 2 ke MTK 2 tambahan dan mapel MTK 2 awal
+            ws['EB{}'.format(r)] = "=IF($DI${}=0,$H${},$H${}-1)".format(r, r, r)
+            ws['EB{}'.format(s)] = "=STDEV(EB2:EB{})".format(q)
+            ws['EB{}'.format(t)] = "=MAX(EB2:EB{})".format(q)
+            ws['EB{}'.format(u)] = "=MIN(EB2:EB{})".format(q)
+            # rata" IND ke IND tambahan dan mapel IND awal
+            ws['EC{}'.format(r)] = "=IF($DJ${}=0,$I${},$I${}-1)".format(r, r, r)
+            ws['EC{}'.format(s)] = "=STDEV(EC2:EC{})".format(q)
+            ws['EC{}'.format(t)] = "=MAX(EC2:EC{})".format(q)
+            ws['EC{}'.format(u)] = "=MIN(EC2:EC{})".format(q)
+            # rata" ENG ke ENG tambahan dan mapel ENG awal
+            ws['ED{}'.format(r)] = "=IF($DK${}=0,$J${},$J${}-1)".format(r, r, r)
+            ws['ED{}'.format(s)] = "=STDEV(ED2:ED{})".format(q)
+            ws['ED{}'.format(t)] = "=MAX(ED2:ED{})".format(q)
+            ws['ED{}'.format(u)] = "=MIN(ED2:ED{})".format(q)
+            # rata" SEJ ke SEJ tambahan dan mapel SEJ awal
+            ws['EE{}'.format(r)] = "=IF($DL${}=0,$K${},$K${}-1)".format(r, r, r)
+            ws['EE{}'.format(s)] = "=STDEV(EE2:EE{})".format(q)
+            ws['EE{}'.format(t)] = "=MAX(EE2:EE{})".format(q)
+            ws['EE{}'.format(u)] = "=MIN(EE2:EE{})".format(q)
+            # rata" EKO ke EKO tambahan dan mapel EKO awal
+            ws['EF{}'.format(r)] = "=IF($DM${}=0,$L${},$L${}-1)".format(r, r, r)
+            ws['EF{}'.format(s)] = "=STDEV(EF2:EF{})".format(q)
+            ws['EF{}'.format(t)] = "=MAX(EF2:EF{})".format(q)
+            ws['EF{}'.format(u)] = "=MIN(EF2:EF{})".format(q)
+            # rata" SOS ke SOS tambahan dan mapel SOS awal
+            ws['EG{}'.format(r)] = "=IF($DN${}=0,$M${},$M${}-1)".format(r, r, r)
+            ws['EG{}'.format(s)] = "=STDEV(EG2:EG{})".format(q)
+            ws['EG{}'.format(t)] = "=MAX(EG2:EG{})".format(q)
+            ws['EG{}'.format(u)] = "=MIN(EG2:EG{})".format(q)
+            # rata" GEO ke GEO tambahan dan mapel GEO awal
+            ws['EH{}'.format(r)] = "=IF($DO${}=0,$N${},$N${}-1)".format(r, r, r)
+            ws['EH{}'.format(s)] = "=STDEV(EH2:EH{})".format(q)
+            ws['EH{}'.format(t)] = "=MAX(EH2:EH{})".format(q)
+            ws['EH{}'.format(u)] = "=MIN(EH2:EH{})".format(q)
+            # rata" ANT ke ANT tambahan dan mapel ANT awal
+            ws['EI{}'.format(r)] = "=IF($DP${}=0,$O${},$O${}-1)".format(r, r, r)
+            ws['EI{}'.format(s)] = "=STDEV(EI2:EI{})".format(q)
+            ws['EI{}'.format(t)] = "=MAX(EI2:EI{})".format(q)
+            ws['EI{}'.format(u)] = "=MIN(EI2:EI{})".format(q)
+            # rata" BIO ke BIO tambahan dan mapel BIO awal
+            ws['EJ{}'.format(r)] = "=IF($DQ${}=0,$P${},$P${}-1)".format(r, r, r)
+            ws['EJ{}'.format(s)] = "=STDEV(EJ2:EJ{})".format(q)
+            ws['EJ{}'.format(t)] = "=MAX(EJ2:EJ{})".format(q)
+            ws['EJ{}'.format(u)] = "=MIN(EJ2:EJ{})".format(q)
+            # rata" FIS ke FIS tambahan dan mapel FIS awal
+            ws['EK{}'.format(r)] = "=IF($DR${}=0,$Q${},$Q${}-1)".format(r, r, r)
+            ws['EK{}'.format(s)] = "=STDEV(EK2:EK{})".format(q)
+            ws['EK{}'.format(t)] = "=MAX(EK2:EK{})".format(q)
+            ws['EK{}'.format(u)] = "=MIN(EK2:EK{})".format(q)
+            # rata" KIM 1 ke KIM 1 tambahan dan mapel KIM 1 awal
+            ws['EL{}'.format(r)] = "=IF($DS${}=0,$R${},$R${}-1)".format(r, r, r)
+            ws['EL{}'.format(s)] = "=STDEV(EL2:EL{})".format(q)
+            ws['EL{}'.format(t)] = "=MAX(EL2:EL{})".format(q)
+            ws['EL{}'.format(u)] = "=MIN(EL2:EL{})".format(q)
+            # rata" KIM 2 ke KIM 2 tambahan dan mapel KIM 2 awal
+            ws['EM{}'.format(r)] = "=IF($DT${}=0,$S${},$S${}-1)".format(r, r, r)
+            ws['EM{}'.format(s)] = "=STDEV(EM2:EM{})".format(q)
+            ws['EM{}'.format(t)] = "=MAX(EM2:EM{})".format(q)
+            ws['EM{}'.format(u)] = "=MIN(EM2:EM{})".format(q)
+            # JML BENAR
+            ws['EN{}'.format(r)] = "=ROUND(AVERAGE(EN2:EN{}),2)".format(q)
+            ws['EN{}'.format(t)] = "=MAX(EN2:EN{})".format(q)
+            ws['EN{}'.format(u)] = "=MIN(EN2:EN{})".format(q)
+            # MAX Z SCORE MAT 1, MAT 2, IND, ENG
+            ws['EO{}'.format(r)] = "=MAX(EO2:EO{})".format(q)
+            ws['EP{}'.format(r)] = "=MAX(EP2:EP{})".format(q)
+            ws['EQ{}'.format(r)] = "=MAX(EQ2:EQ{})".format(q)
+            ws['ER{}'.format(r)] = "=MAX(ER2:ER{})".format(q)
+            # MAX Z SCORE SEJ, EKO, SOS, GEO, ANT
+            ws['ES{}'.format(r)] = "=MAX(ES2:ES{})".format(q)
+            ws['ET{}'.format(r)] = "=MAX(ET2:ET{})".format(q)
+            ws['EU{}'.format(r)] = "=MAX(EU2:EU{})".format(q)
+            ws['EV{}'.format(r)] = "=MAX(EV2:EV{})".format(q)
+            ws['EW{}'.format(r)] = "=MAX(EW2:EW{})".format(q)
+            # MAX Z SCORE BIO, FIS, KIM 1, KIM 2
+            ws['EX{}'.format(r)] = "=MAX(EX2:EX{})".format(q)
+            ws['EY{}'.format(r)] = "=MAX(EY2:EY{})".format(q)
+            ws['EZ{}'.format(r)] = "=MAX(EZ2:EZ{})".format(q)
+            ws['FA{}'.format(r)] = "=MAX(FA2:FA{})".format(q)
+
+            # NILAI STANDAR MTK 1
+            ws['FB{}'.format(r)] = "=MAX(FB2:FB{})".format(q)
+            ws['FB{}'.format(s)] = "=MIN(FB2:FB{})".format(q)
+            ws['FB{}'.format(t)] = "=ROUND(AVERAGE(FB2:FB{}),2)".format(q)
+            # NILAI STANDAR MTK 1
+            ws['FC{}'.format(r)] = "=MAX(FC2:FC{})".format(q)
+            ws['FC{}'.format(s)] = "=MIN(FC2:FC{})".format(q)
+            ws['FC{}'.format(t)] = "=ROUND(AVERAGE(FC2:FC{}),2)".format(q)
+            # NILAI STANDAR IND
+            ws['FD{}'.format(r)] = "=MAX(FD2:FD{})".format(q)
+            ws['FD{}'.format(s)] = "=MIN(FD2:FD{})".format(q)
+            ws['FD{}'.format(t)] = "=ROUND(AVERAGE(FD2:FD{}),2)".format(q)
+            # NILAI STANDAR ENG
+            ws['FE{}'.format(r)] = "=MAX(FE2:FE{})".format(q)
+            ws['FE{}'.format(s)] = "=MIN(FE2:FE{})".format(q)
+            ws['FE{}'.format(t)] = "=ROUND(AVERAGE(FE2:FE{}),2)".format(q)
+            # NILAI STANDAR SEJ
+            ws['FF{}'.format(r)] = "=MAX(FF2:FF{})".format(q)
+            ws['FF{}'.format(s)] = "=MIN(FF2:FF{})".format(q)
+            ws['FF{}'.format(t)] = "=ROUND(AVERAGE(FF2:FF{}),2)".format(q)
+            # NILAI STANDAR EKO
+            ws['FG{}'.format(r)] = "=MAX(FG2:FG{})".format(q)
+            ws['FG{}'.format(s)] = "=MIN(FG2:FG{})".format(q)
+            ws['FG{}'.format(t)] = "=ROUND(AVERAGE(FG2:FG{}),2)".format(q)
+            # NILAI STANDAR SOS
+            ws['FH{}'.format(r)] = "=MAX(FH2:FH{})".format(q)
+            ws['FH{}'.format(s)] = "=MIN(FH2:FH{})".format(q)
+            ws['FH{}'.format(t)] = "=ROUND(AVERAGE(FH2:FH{}),2)".format(q)
+            # NILAI STANDAR GEO
+            ws['FI{}'.format(r)] = "=MAX(FI2:FI{})".format(q)
+            ws['FI{}'.format(s)] = "=MIN(FI2:FI{})".format(q)
+            ws['FI{}'.format(t)] = "=ROUND(AVERAGE(FI2:FI{}),2)".format(q)
+            # NILAI STANDAR ANT
+            ws['FJ{}'.format(r)] = "=MAX(FJ2:FJ{})".format(q)
+            ws['FJ{}'.format(s)] = "=MIN(FJ2:FJ{})".format(q)
+            ws['FJ{}'.format(t)] = "=ROUND(AVERAGE(FJ2:FJ{}),2)".format(q)
+            # NILAI STANDAR BIO
+            ws['FK{}'.format(r)] = "=MAX(FK2:FK{})".format(q)
+            ws['FK{}'.format(s)] = "=MIN(FK2:FK{})".format(q)
+            ws['FK{}'.format(t)] = "=ROUND(AVERAGE(FK2:FK{}),2)".format(q)
+            # NILAI STANDAR FIS
+            ws['FL{}'.format(r)] = "=MAX(FL2:FL{})".format(q)
+            ws['FL{}'.format(s)] = "=MIN(FL2:FL{})".format(q)
+            ws['FL{}'.format(t)] = "=ROUND(AVERAGE(FL2:FL{}),2)".format(q)
+            # NILAI STANDAR KIM 1
+            ws['FM{}'.format(r)] = "=MAX(FM2:FM{})".format(q)
+            ws['FM{}'.format(s)] = "=MIN(FM2:FM{})".format(q)
+            ws['FM{}'.format(t)] = "=ROUND(AVERAGE(FM2:FM{}),2)".format(q)
+            # NILAI STANDAR KIM 2
+            ws['FN{}'.format(r)] = "=MAX(FN2:FN{})".format(q)
+            ws['FN{}'.format(s)] = "=MIN(FN2:FN{})".format(q)
+            ws['FN{}'.format(t)] = "=ROUND(AVERAGE(FN2:FN{}),2)".format(q)
+            # NILAI STANDAR JML
+            ws['FO{}'.format(r)] = "=MAX(FO2:FO{})".format(q)
+            ws['FO{}'.format(s)] = "=MIN(FO2:FO{})".format(q)
+            ws['FO{}'.format(t)] = "=ROUND(AVERAGE(FO2:FO{}),2)".format(q)
+
+            # TAMBAHAN
+            # MTK 1, MTK 2, IND, ENG
+            ws['FR{}'.format(r)] = "=SUM(FR2:FR{})".format(q)
+            ws['FS{}'.format(r)] = "=SUM(FS2:FS{})".format(q)
+            ws['FT{}'.format(r)] = "=SUM(FT2:FT{})".format(q)
+            ws['FU{}'.format(r)] = "=SUM(FU2:FU{})".format(q)
+            # SEJ, EKO, SOS, GEO, ANT
+            ws['FV{}'.format(r)] = "=SUM(FV2:FV{})".format(q)
+            ws['FW{}'.format(r)] = "=SUM(FW2:FW{})".format(q)
+            ws['FX{}'.format(r)] = "=SUM(FX2:FX{})".format(q)
+            ws['FY{}'.format(r)] = "=SUM(FY2:FY{})".format(q)
+            ws['FZ{}'.format(r)] = "=SUM(FZ2:FZ{})".format(q)
+            # BIO, FIS, KIM 1, KIM 2
+            ws['GA{}'.format(r)] = "=SUM(GA2:GA{})".format(q)
+            ws['GB{}'.format(r)] = "=SUM(GB2:GB{})".format(q)
+            ws['GC{}'.format(r)] = "=SUM(GC2:GC{})".format(q)
+            ws['GD{}'.format(r)] = "=SUM(GD2:GD{})".format(q)
+
+            # iterasi 3 rata-rata - 3
+            # rata" MTK 1 ke MTK 1 tambahan dan mapel MTK 1 awal
+            ws['GK{}'.format(r)] = "=IF($FR${}=0,$G${},$G${}-1)".format(r, r, r)
+            ws['GK{}'.format(s)] = "=STDEV(GK2:GK{})".format(q)
+            ws['GK{}'.format(t)] = "=MAX(GK2:GK{})".format(q)
+            ws['GK{}'.format(u)] = "=MIN(GK2:GK{})".format(q)
+            # rata" MTK 2 ke MTK 2 tambahan dan mapel MTK 2 awal
+            ws['GL{}'.format(r)] = "=IF($FS${}=0,$H${},$H${}-1)".format(r, r, r)
+            ws['GL{}'.format(s)] = "=STDEV(GL2:GL{})".format(q)
+            ws['GL{}'.format(t)] = "=MAX(GL2:GL{})".format(q)
+            ws['GL{}'.format(u)] = "=MIN(GL2:GL{})".format(q)
+            # rata" IND ke IND tambahan dan mapel IND awal
+            ws['GM{}'.format(r)] = "=IF($FT${}=0,$I${},$I${}-1)".format(r, r, r)
+            ws['GM{}'.format(s)] = "=STDEV(GM2:GM{})".format(q)
+            ws['GM{}'.format(t)] = "=MAX(GM2:GM{})".format(q)
+            ws['GM{}'.format(u)] = "=MIN(GM2:GM{})".format(q)
+            # rata" ENG ke ENG tambahan dan mapel ENG awal
+            ws['GN{}'.format(r)] = "=IF($FU${}=0,$J${},$J${}-1)".format(r, r, r)
+            ws['GN{}'.format(s)] = "=STDEV(GN2:GN{})".format(q)
+            ws['GN{}'.format(t)] = "=MAX(GN2:GN{})".format(q)
+            ws['GN{}'.format(u)] = "=MIN(GN2:GN{})".format(q)
+            # rata" SEJ ke SEJ tambahan dan mapel SEJ awal
+            ws['GO{}'.format(r)] = "=IF($FV${}=0,$K${},$K${}-1)".format(r, r, r)
+            ws['GO{}'.format(s)] = "=STDEV(GO2:GO{})".format(q)
+            ws['GO{}'.format(t)] = "=MAX(GO2:GO{})".format(q)
+            ws['GO{}'.format(u)] = "=MIN(GO2:GO{})".format(q)
+            # rata" EKO ke EKO tambahan dan mapel EKO awal
+            ws['GP{}'.format(r)] = "=IF($FW${}=0,$L${},$L${}-1)".format(r, r, r)
+            ws['GP{}'.format(s)] = "=STDEV(GP2:GP{})".format(q)
+            ws['GP{}'.format(t)] = "=MAX(GP2:GP{})".format(q)
+            ws['GP{}'.format(u)] = "=MIN(GP2:GP{})".format(q)
+            # rata" SOS ke SOS tambahan dan mapel SOS awal
+            ws['GQ{}'.format(r)] = "=IF($FX${}=0,$M${},$M${}-1)".format(r, r, r)
+            ws['GQ{}'.format(s)] = "=STDEV(GQ2:GQ{})".format(q)
+            ws['GQ{}'.format(t)] = "=MAX(GQ2:GQ{})".format(q)
+            ws['GQ{}'.format(u)] = "=MIN(GQ2:GQ{})".format(q)
+            # rata" GEO ke GEO tambahan dan mapel GEO awal
+            ws['GR{}'.format(r)] = "=IF($FY${}=0,$N${},$N${}-1)".format(r, r, r)
+            ws['GR{}'.format(s)] = "=STDEV(GR2:GR{})".format(q)
+            ws['GR{}'.format(t)] = "=MAX(GR2:GR{})".format(q)
+            ws['GR{}'.format(u)] = "=MIN(GR2:GR{})".format(q)
+            # rata" ANT ke ANT tambahan dan mapel ANT awal
+            ws['GS{}'.format(r)] = "=IF($FZ${}=0,$O${},$O${}-1)".format(r, r, r)
+            ws['GS{}'.format(s)] = "=STDEV(GS2:GS{})".format(q)
+            ws['GS{}'.format(t)] = "=MAX(GS2:GS{})".format(q)
+            ws['GS{}'.format(u)] = "=MIN(GS2:GS{})".format(q)
+            # rata" BIO ke BIO tambahan dan mapel BIO awal
+            ws['GT{}'.format(r)] = "=IF($GA${}=0,$P${},$P${}-1)".format(r, r, r)
+            ws['GT{}'.format(s)] = "=STDEV(GT2:GT{})".format(q)
+            ws['GT{}'.format(t)] = "=MAX(GT2:GT{})".format(q)
+            ws['GT{}'.format(u)] = "=MIN(GT2:GT{})".format(q)
+            # rata" FIS ke FIS tambahan dan mapel FIS awal
+            ws['GU{}'.format(r)] = "=IF($GB${}=0,$Q${},$Q${}-1)".format(r, r, r)
+            ws['GU{}'.format(s)] = "=STDEV(GU2:GU{})".format(q)
+            ws['GU{}'.format(t)] = "=MAX(GU2:GU{})".format(q)
+            ws['GU{}'.format(u)] = "=MIN(GU2:GU{})".format(q)
+            # rata" KIM 1 ke KIM 1 tambahan dan mapel KIM 1 awal
+            ws['GV{}'.format(r)] = "=IF($GC${}=0,$R${},$R${}-1)".format(r, r, r)
+            ws['GV{}'.format(s)] = "=STDEV(GV2:GV{})".format(q)
+            ws['GV{}'.format(t)] = "=MAX(GV2:GV{})".format(q)
+            ws['GV{}'.format(u)] = "=MIN(GV2:GV{})".format(q)
+            # rata" KIM 2 ke KIM 2 tambahan dan mapel KIM 2 awal
+            ws['GW{}'.format(r)] = "=IF($GD${}=0,$S${},$S${}-1)".format(r, r, r)
+            ws['GW{}'.format(s)] = "=STDEV(GW2:GW{})".format(q)
+            ws['GW{}'.format(t)] = "=MAX(GW2:GW{})".format(q)
+            ws['GW{}'.format(u)] = "=MIN(GW2:GW{})".format(q)
+            # JML BENAR
+            ws['GX{}'.format(r)] = "=ROUND(AVERAGE(GX2:GX{}),2)".format(q)
+            ws['GX{}'.format(t)] = "=MAX(GX2:GX{})".format(q)
+            ws['GX{}'.format(u)] = "=MIN(GX2:GX{})".format(q)
+            # MAX Z SCORE MAT 1, MAT 2, IND, ENG
+            ws['GY{}'.format(r)] = "=MAX(GY2:GY{})".format(q)
+            ws['GZ{}'.format(r)] = "=MAX(GZ2:GZ{})".format(q)
+            ws['HA{}'.format(r)] = "=MAX(HA2:HA{})".format(q)
+            ws['HB{}'.format(r)] = "=MAX(HB2:HB{})".format(q)
+            # MAX Z SCORE SEJ, EKO, SOS, GEO, ANT
+            ws['HC{}'.format(r)] = "=MAX(HC2:HC{})".format(q)
+            ws['HD{}'.format(r)] = "=MAX(HD2:HD{})".format(q)
+            ws['HE{}'.format(r)] = "=MAX(HE2:HE{})".format(q)
+            ws['HF{}'.format(r)] = "=MAX(HF2:HF{})".format(q)
+            ws['HG{}'.format(r)] = "=MAX(HG2:HG{})".format(q)
+            # MAX Z SCORE BIO, FIS, KIM 1, KIM 2
+            ws['HH{}'.format(r)] = "=MAX(HH2:HH{})".format(q)
+            ws['HI{}'.format(r)] = "=MAX(HI2:HI{})".format(q)
+            ws['HJ{}'.format(r)] = "=MAX(HJ2:HJ{})".format(q)
+            ws['HK{}'.format(r)] = "=MAX(HK2:HK{})".format(q)
+
+            # NILAI STANDAR MTK 1
+            ws['HL{}'.format(r)] = "=MAX(HL2:HL{})".format(q)
+            ws['HL{}'.format(s)] = "=MIN(HL2:HL{})".format(q)
+            ws['HL{}'.format(t)] = "=ROUND(AVERAGE(HL2:HL{}),2)".format(q)
+            # NILAI STANDAR MTK 1
+            ws['HM{}'.format(r)] = "=MAX(HM2:HM{})".format(q)
+            ws['HM{}'.format(s)] = "=MIN(HM2:HM{})".format(q)
+            ws['HM{}'.format(t)] = "=ROUND(AVERAGE(HM2:HM{}),2)".format(q)
+            # NILAI STANDAR IND
+            ws['HN{}'.format(r)] = "=MAX(HN2:HN{})".format(q)
+            ws['HN{}'.format(s)] = "=MIN(HN2:HN{})".format(q)
+            ws['HN{}'.format(t)] = "=ROUND(AVERAGE(HN2:HN{}),2)".format(q)
+            # NILAI STANDAR ENG
+            ws['HO{}'.format(r)] = "=MAX(HO2:HO{})".format(q)
+            ws['HO{}'.format(s)] = "=MIN(HO2:HO{})".format(q)
+            ws['HO{}'.format(t)] = "=ROUND(AVERAGE(HO2:HO{}),2)".format(q)
+            # NILAI STANDAR SEJ
+            ws['HP{}'.format(r)] = "=MAX(HP2:HP{})".format(q)
+            ws['HP{}'.format(s)] = "=MIN(HP2:HP{})".format(q)
+            ws['HP{}'.format(t)] = "=ROUND(AVERAGE(HP2:HP{}),2)".format(q)
+            # NILAI STANDAR EKO
+            ws['HQ{}'.format(r)] = "=MAX(HQ2:HQ{})".format(q)
+            ws['HQ{}'.format(s)] = "=MIN(HQ2:HQ{})".format(q)
+            ws['HQ{}'.format(t)] = "=ROUND(AVERAGE(HQ2:HQ{}),2)".format(q)
+            # NILAI STANDAR SOS
+            ws['HR{}'.format(r)] = "=MAX(HR2:HR{})".format(q)
+            ws['HR{}'.format(s)] = "=MIN(HR2:HR{})".format(q)
+            ws['HR{}'.format(t)] = "=ROUND(AVERAGE(HR2:HR{}),2)".format(q)
+            # NILAI STANDAR GEO
+            ws['HS{}'.format(r)] = "=MAX(HS2:HS{})".format(q)
+            ws['HS{}'.format(s)] = "=MIN(HS2:HS{})".format(q)
+            ws['HS{}'.format(t)] = "=ROUND(AVERAGE(HS2:HS{}),2)".format(q)
+            # NILAI STANDAR ANT
+            ws['HT{}'.format(r)] = "=MAX(HT2:HT{})".format(q)
+            ws['HT{}'.format(s)] = "=MIN(HT2:HT{})".format(q)
+            ws['HT{}'.format(t)] = "=ROUND(AVERAGE(HT2:HT{}),2)".format(q)
+            # NILAI STANDAR BIO
+            ws['HU{}'.format(r)] = "=MAX(HU2:HU{})".format(q)
+            ws['HU{}'.format(s)] = "=MIN(HU2:HU{})".format(q)
+            ws['HU{}'.format(t)] = "=ROUND(AVERAGE(HU2:HU{}),2)".format(q)
+            # NILAI STANDAR FIS
+            ws['HV{}'.format(r)] = "=MAX(HV2:HV{})".format(q)
+            ws['HV{}'.format(s)] = "=MIN(HV2:HV{})".format(q)
+            ws['HV{}'.format(t)] = "=ROUND(AVERAGE(HV2:HV{}),2)".format(q)
+            # NILAI STANDAR KIM 1
+            ws['HW{}'.format(r)] = "=MAX(HW2:HW{})".format(q)
+            ws['HW{}'.format(s)] = "=MIN(HW2:HW{})".format(q)
+            ws['HW{}'.format(t)] = "=ROUND(AVERAGE(HW2:HW{}),2)".format(q)
+            # NILAI STANDAR KIM 2
+            ws['HX{}'.format(r)] = "=MAX(HX2:HX{})".format(q)
+            ws['HX{}'.format(s)] = "=MIN(HX2:HX{})".format(q)
+            ws['HX{}'.format(t)] = "=ROUND(AVERAGE(HX2:HX{}),2)".format(q)
+            # NILAI STANDAR JML
+            ws['HY{}'.format(r)] = "=MAX(HY2:HY{})".format(q)
+            ws['HY{}'.format(s)] = "=MIN(HY2:HY{})".format(q)
+            ws['HY{}'.format(t)] = "=ROUND(AVERAGE(HY2:HY{}),2)".format(q)
+
+            # TAMBAHAN
+            # MTK 1, MTK 2, IND, ENG
+            ws['IB{}'.format(r)] = "=SUM(IB2:IB{})".format(q)
+            ws['IC{}'.format(r)] = "=SUM(IC2:IC{})".format(q)
+            ws['ID{}'.format(r)] = "=SUM(ID2:ID{})".format(q)
+            ws['IE{}'.format(r)] = "=SUM(IE2:IE{})".format(q)
+            # SEJ, EKO, SOS, GEO, ANT
+            ws['IF{}'.format(r)] = "=SUM(IF2:IF{})".format(q)
+            ws['IG{}'.format(r)] = "=SUM(IG2:IG{})".format(q)
+            ws['IH{}'.format(r)] = "=SUM(IH2:IH{})".format(q)
+            ws['II{}'.format(r)] = "=SUM(II2:II{})".format(q)
+            ws['IJ{}'.format(r)] = "=SUM(IJ2:IJ{})".format(q)
+            # BIO, FIS, KIM 1, KIM 2
+            ws['IK{}'.format(r)] = "=SUM(IK2:IK{})".format(q)
+            ws['IL{}'.format(r)] = "=SUM(IL2:IL{})".format(q)
+            ws['IM{}'.format(r)] = "=SUM(IM2:IM{})".format(q)
+            ws['IN{}'.format(r)] = "=SUM(IN2:IN{})".format(q)
+
+            # iterasi 4 rata-rata - 4
+            # rata" MTK 1 ke MTK 1 tambahan dan mapel MTK 1 awal
+            ws['IU{}'.format(r)] = "=IF($IB${}=0,$G${},$G${}-1)".format(r, r, r)
+            ws['IU{}'.format(s)] = "=STDEV(IU2:IU{})".format(q)
+            ws['IU{}'.format(t)] = "=MAX(IU2:IU{})".format(q)
+            ws['IU{}'.format(u)] = "=MIN(IU2:IU{})".format(q)
+            # rata" MTK 2 ke MTK 2 tambahan dan mapel MTK 2 awal
+            ws['IV{}'.format(r)] = "=IF($IC${}=0,$H${},$H${}-1)".format(r, r, r)
+            ws['IV{}'.format(s)] = "=STDEV(IV2:IV{})".format(q)
+            ws['IV{}'.format(t)] = "=MAX(IV2:IV{})".format(q)
+            ws['IV{}'.format(u)] = "=MIN(IV2:IV{})".format(q)
+            # rata" IND ke IND tambahan dan mapel IND awal
+            ws['IW{}'.format(r)] = "=IF($ID${}=0,$I${},$I${}-1)".format(r, r, r)
+            ws['IW{}'.format(s)] = "=STDEV(IW2:IW{})".format(q)
+            ws['IW{}'.format(t)] = "=MAX(IW2:IW{})".format(q)
+            ws['IW{}'.format(u)] = "=MIN(IW2:IW{})".format(q)
+            # rata" ENG ke ENG tambahan dan mapel ENG awal
+            ws['IX{}'.format(r)] = "=IF($IE${}=0,$J${},$J${}-1)".format(r, r, r)
+            ws['IX{}'.format(s)] = "=STDEV(IX2:IX{})".format(q)
+            ws['IX{}'.format(t)] = "=MAX(IX2:IX{})".format(q)
+            ws['IX{}'.format(u)] = "=MIN(IX2:IX{})".format(q)
+            # rata" SEJ ke SEJ tambahan dan mapel SEJ awal
+            ws['IY{}'.format(r)] = "=IF($IF${}=0,$K${},$K${}-1)".format(r, r, r)
+            ws['IY{}'.format(s)] = "=STDEV(IY2:IY{})".format(q)
+            ws['IY{}'.format(t)] = "=MAX(IY2:IY{})".format(q)
+            ws['IY{}'.format(u)] = "=MIN(IY2:IY{})".format(q)
+            # rata" EKO ke EKO tambahan dan mapel EKO awal
+            ws['IZ{}'.format(r)] = "=IF($IG${}=0,$L${},$L${}-1)".format(r, r, r)
+            ws['IZ{}'.format(s)] = "=STDEV(IZ2:IZ{})".format(q)
+            ws['IZ{}'.format(t)] = "=MAX(IZ2:IZ{})".format(q)
+            ws['IZ{}'.format(u)] = "=MIN(IZ2:IZ{})".format(q)
+            # rata" SOS ke SOS tambahan dan mapel SOS awal
+            ws['JA{}'.format(r)] = "=IF($IH${}=0,$M${},$M${}-1)".format(r, r, r)
+            ws['JA{}'.format(s)] = "=STDEV(JA2:JA{})".format(q)
+            ws['JA{}'.format(t)] = "=MAX(JA2:JA{})".format(q)
+            ws['JA{}'.format(u)] = "=MIN(JA2:JA{})".format(q)
+            # rata" GEO ke GEO tambahan dan mapel GEO awal
+            ws['JB{}'.format(r)] = "=IF($II${}=0,$N${},$N${}-1)".format(r, r, r)
+            ws['JB{}'.format(s)] = "=STDEV(JB2:JB{})".format(q)
+            ws['JB{}'.format(t)] = "=MAX(JB2:JB{})".format(q)
+            ws['JB{}'.format(u)] = "=MIN(JB2:JB{})".format(q)
+            # rata" ANT ke ANT tambahan dan mapel ANT awal
+            ws['JC{}'.format(r)] = "=IF($IJ${}=0,$O${},$O${}-1)".format(r, r, r)
+            ws['JC{}'.format(s)] = "=STDEV(JC2:JC{})".format(q)
+            ws['JC{}'.format(t)] = "=MAX(JC2:JC{})".format(q)
+            ws['JC{}'.format(u)] = "=MIN(JC2:JC{})".format(q)
+            # rata" BIO ke BIO tambahan dan mapel BIO awal
+            ws['JD{}'.format(r)] = "=IF($IK${}=0,$P${},$P${}-1)".format(r, r, r)
+            ws['JD{}'.format(s)] = "=STDEV(JD2:JD{})".format(q)
+            ws['JD{}'.format(t)] = "=MAX(JD2:JD{})".format(q)
+            ws['JD{}'.format(u)] = "=MIN(JD2:JD{})".format(q)
+            # rata" FIS ke FIS tambahan dan mapel FIS awal
+            ws['JE{}'.format(r)] = "=IF($IL${}=0,$Q${},$Q${}-1)".format(r, r, r)
+            ws['JE{}'.format(s)] = "=STDEV(JE2:JE{})".format(q)
+            ws['JE{}'.format(t)] = "=MAX(JE2:JE{})".format(q)
+            ws['JE{}'.format(u)] = "=MIN(JE2:JE{})".format(q)
+            # rata" KIM 1 ke KIM 1 tambahan dan mapel KIM 1 awal
+            ws['JF{}'.format(r)] = "=IF($IM${}=0,$R${},$R${}-1)".format(r, r, r)
+            ws['JF{}'.format(s)] = "=STDEV(JF2:JF{})".format(q)
+            ws['JF{}'.format(t)] = "=MAX(JF2:JF{})".format(q)
+            ws['JF{}'.format(u)] = "=MIN(JF2:JF{})".format(q)
+            # rata" KIM 2 ke KIM 2 tambahan dan mapel KIM 2 awal
+            ws['JG{}'.format(r)] = "=IF($IN${}=0,$S${},$S${}-1)".format(r, r, r)
+            ws['JG{}'.format(s)] = "=STDEV(JG2:JG{})".format(q)
+            ws['JG{}'.format(t)] = "=MAX(JG2:JG{})".format(q)
+            ws['JG{}'.format(u)] = "=MIN(JG2:JG{})".format(q)
+            # JML BENAR
+            ws['JH{}'.format(r)] = "=ROUND(AVERAGE(JH2:JH{}),2)".format(q)
+            ws['JH{}'.format(t)] = "=MAX(JH2:JH{})".format(q)
+            ws['JH{}'.format(u)] = "=MIN(JH2:JH{})".format(q)
+            # MAX Z SCORE MAT 1, MAT 2, IND, ENG
+            ws['JI{}'.format(r)] = "=MAX(JI2:JI{})".format(q)
+            ws['JJ{}'.format(r)] = "=MAX(JJ2:JJ{})".format(q)
+            ws['JK{}'.format(r)] = "=MAX(JK2:JK{})".format(q)
+            ws['JL{}'.format(r)] = "=MAX(JL2:JL{})".format(q)
+            # MAX Z SCORE SEJ, EKO, SOS, GEO, ANT
+            ws['JM{}'.format(r)] = "=MAX(JM2:JM{})".format(q)
+            ws['JN{}'.format(r)] = "=MAX(JN2:JN{})".format(q)
+            ws['JO{}'.format(r)] = "=MAX(JO2:JO{})".format(q)
+            ws['JP{}'.format(r)] = "=MAX(JP2:JP{})".format(q)
+            ws['JQ{}'.format(r)] = "=MAX(JQ2:JQ{})".format(q)
+            # MAX Z SCORE BIO, FIS, KIM 1, KIM 2
+            ws['JR{}'.format(r)] = "=MAX(JR2:JR{})".format(q)
+            ws['JS{}'.format(r)] = "=MAX(JS2:JS{})".format(q)
+            ws['JT{}'.format(r)] = "=MAX(JT2:JT{})".format(q)
+            ws['JU{}'.format(r)] = "=MAX(JU2:JU{})".format(q)
+
+            # NILAI STANDAR MTK 1
+            ws['JV{}'.format(r)] = "=MAX(JV2:JV{})".format(q)
+            ws['JV{}'.format(s)] = "=MIN(JV2:JV{})".format(q)
+            ws['JV{}'.format(t)] = "=ROUND(AVERAGE(JV2:JV{}),2)".format(q)
+            # NILAI STANDAR MTK 1
+            ws['JW{}'.format(r)] = "=MAX(JW2:JW{})".format(q)
+            ws['JW{}'.format(s)] = "=MIN(JW2:JW{})".format(q)
+            ws['JW{}'.format(t)] = "=ROUND(AVERAGE(JW2:JW{}),2)".format(q)
+            # NILAI STANDAR IND
+            ws['JX{}'.format(r)] = "=MAX(JX2:JX{})".format(q)
+            ws['JX{}'.format(s)] = "=MIN(JX2:JX{})".format(q)
+            ws['JX{}'.format(t)] = "=ROUND(AVERAGE(JX2:JX{}),2)".format(q)
+            # NILAI STANDAR ENG
+            ws['JY{}'.format(r)] = "=MAX(JY2:JY{})".format(q)
+            ws['JY{}'.format(s)] = "=MIN(JY2:JY{})".format(q)
+            ws['JY{}'.format(t)] = "=ROUND(AVERAGE(JY2:JY{}),2)".format(q)
+            # NILAI STANDAR SEJ
+            ws['JZ{}'.format(r)] = "=MAX(JZ2:JZ{})".format(q)
+            ws['JZ{}'.format(s)] = "=MIN(JZ2:JZ{})".format(q)
+            ws['JZ{}'.format(t)] = "=ROUND(AVERAGE(JZ2:JZ{}),2)".format(q)
+            # NILAI STANDAR EKO
+            ws['KA{}'.format(r)] = "=MAX(KA2:KA{})".format(q)
+            ws['KA{}'.format(s)] = "=MIN(KA2:KA{})".format(q)
+            ws['KA{}'.format(t)] = "=ROUND(AVERAGE(KA2:KA{}),2)".format(q)
+            # NILAI STANDAR SOS
+            ws['KB{}'.format(r)] = "=MAX(KB2:KB{})".format(q)
+            ws['KB{}'.format(s)] = "=MIN(KB2:KB{})".format(q)
+            ws['KB{}'.format(t)] = "=ROUND(AVERAGE(KB2:KB{}),2)".format(q)
+            # NILAI STANDAR GEO
+            ws['KC{}'.format(r)] = "=MAX(KC2:KC{})".format(q)
+            ws['KC{}'.format(s)] = "=MIN(KC2:KC{})".format(q)
+            ws['KC{}'.format(t)] = "=ROUND(AVERAGE(KC2:KC{}),2)".format(q)
+            # NILAI STANDAR ANT
+            ws['KD{}'.format(r)] = "=MAX(KD2:KD{})".format(q)
+            ws['KD{}'.format(s)] = "=MIN(KD2:KD{})".format(q)
+            ws['KD{}'.format(t)] = "=ROUND(AVERAGE(KD2:KD{}),2)".format(q)
+            # NILAI STANDAR BIO
+            ws['KE{}'.format(r)] = "=MAX(KE2:KE{})".format(q)
+            ws['KE{}'.format(s)] = "=MIN(KE2:KE{})".format(q)
+            ws['KE{}'.format(t)] = "=ROUND(AVERAGE(KE2:KE{}),2)".format(q)
+            # NILAI STANDAR FIS
+            ws['KF{}'.format(r)] = "=MAX(KF2:KF{})".format(q)
+            ws['KF{}'.format(s)] = "=MIN(KF2:KF{})".format(q)
+            ws['KF{}'.format(t)] = "=ROUND(AVERAGE(KF2:KF{}),2)".format(q)
+            # NILAI STANDAR KIM 1
+            ws['KG{}'.format(r)] = "=MAX(KG2:KG{})".format(q)
+            ws['KG{}'.format(s)] = "=MIN(KG2:KG{})".format(q)
+            ws['KG{}'.format(t)] = "=ROUND(AVERAGE(KG2:KG{}),2)".format(q)
+            # NILAI STANDAR KIM 2
+            ws['KH{}'.format(r)] = "=MAX(KH2:KH{})".format(q)
+            ws['KH{}'.format(s)] = "=MIN(KH2:KH{})".format(q)
+            ws['KH{}'.format(t)] = "=ROUND(AVERAGE(KH2:KH{}),2)".format(q)
+            # NILAI STANDAR JML
+            ws['KI{}'.format(r)] = "=MAX(KI2:KI{})".format(q)
+            ws['KI{}'.format(s)] = "=MIN(KI2:KI{})".format(q)
+            ws['KI{}'.format(t)] = "=ROUND(AVERAGE(KI2:KI{}),2)".format(q)
+
+            # TAMBAHAN
+            # MTK 1, MTK 2, IND, ENG
+            ws['KL{}'.format(r)] = "=SUM(KL2:KL{})".format(q)
+            ws['KM{}'.format(r)] = "=SUM(KM2:KM{})".format(q)
+            ws['KN{}'.format(r)] = "=SUM(KN2:KN{})".format(q)
+            ws['KO{}'.format(r)] = "=SUM(KO2:KO{})".format(q)
+            # SEJ, EKO, SOS, GEO, ANT
+            ws['KP{}'.format(r)] = "=SUM(KP2:KP{})".format(q)
+            ws['KQ{}'.format(r)] = "=SUM(KQ2:KQ{})".format(q)
+            ws['KR{}'.format(r)] = "=SUM(KR2:KR{})".format(q)
+            ws['KS{}'.format(r)] = "=SUM(KS2:KS{})".format(q)
+            ws['KT{}'.format(r)] = "=SUM(KT2:KT{})".format(q)
+            # BIO, FIS, KIM 1, KIM 2
+            ws['KU{}'.format(r)] = "=SUM(KU2:KU{})".format(q)
+            ws['KV{}'.format(r)] = "=SUM(KV2:KV{})".format(q)
+            ws['KW{}'.format(r)] = "=SUM(KW2:KW{})".format(q)
+            ws['KX{}'.format(r)] = "=SUM(KX2:KX{})".format(q)
+
+            # iterasi 5 rata-rata - 5
+            # rata" MTK 1 ke MTK 1 tambahan dan mapel MTK 1 awal
+            ws['LE{}'.format(r)] = "=IF($KL${}=0,$G${},$G${}-1)".format(r, r, r)
+            ws['LE{}'.format(s)] = "=STDEV(LE2:LE{})".format(q)
+            ws['LE{}'.format(t)] = "=MAX(LE2:LE{})".format(q)
+            ws['LE{}'.format(u)] = "=MIN(LE2:LE{})".format(q)
+            # rata" MTK 2 ke MTK 2 tambahan dan mapel MTK 2 awal
+            ws['LF{}'.format(r)] = "=IF($KM${}=0,$H${},$H${}-1)".format(r, r, r)
+            ws['LF{}'.format(s)] = "=STDEV(LF2:LF{})".format(q)
+            ws['LF{}'.format(t)] = "=MAX(LF2:LF{})".format(q)
+            ws['LF{}'.format(u)] = "=MIN(LF2:LF{})".format(q)
+            # rata" IND ke IND tambahan dan mapel IND awal
+            ws['LG{}'.format(r)] = "=IF($KN${}=0,$I${},$I${}-1)".format(r, r, r)
+            ws['LG{}'.format(s)] = "=STDEV(LG2:LG{})".format(q)
+            ws['LG{}'.format(t)] = "=MAX(LG2:LG{})".format(q)
+            ws['LG{}'.format(u)] = "=MIN(LG2:LG{})".format(q)
+            # rata" ENG ke ENG tambahan dan mapel ENG awal
+            ws['LH{}'.format(r)] = "=IF($KO${}=0,$J${},$J${}-1)".format(r, r, r)
+            ws['LH{}'.format(s)] = "=STDEV(LH2:LH{})".format(q)
+            ws['LH{}'.format(t)] = "=MAX(LH2:LH{})".format(q)
+            ws['LH{}'.format(u)] = "=MIN(LH2:LH{})".format(q)
+            # rata" SEJ ke SEJ tambahan dan mapel SEJ awal
+            ws['LI{}'.format(r)] = "=IF($KP${}=0,$K${},$K${}-1)".format(r, r, r)
+            ws['LI{}'.format(s)] = "=STDEV(LI2:LI{})".format(q)
+            ws['LI{}'.format(t)] = "=MAX(LI2:LI{})".format(q)
+            ws['LI{}'.format(u)] = "=MIN(LI2:LI{})".format(q)
+            # rata" EKO ke EKO tambahan dan mapel EKO awal
+            ws['LJ{}'.format(r)] = "=IF($KQ${}=0,$L${},$L${}-1)".format(r, r, r)
+            ws['LJ{}'.format(s)] = "=STDEV(LJ2:LJ{})".format(q)
+            ws['LJ{}'.format(t)] = "=MAX(LJ2:LJ{})".format(q)
+            ws['LJ{}'.format(u)] = "=MIN(LJ2:LJ{})".format(q)
+            # rata" SOS ke SOS tambahan dan mapel SOS awal
+            ws['LK{}'.format(r)] = "=IF($KR${}=0,$M${},$M${}-1)".format(r, r, r)
+            ws['LK{}'.format(s)] = "=STDEV(LK2:LK{})".format(q)
+            ws['LK{}'.format(t)] = "=MAX(LK2:LK{})".format(q)
+            ws['LK{}'.format(u)] = "=MIN(LK2:LK{})".format(q)
+            # rata" GEO ke GEO tambahan dan mapel GEO awal
+            ws['LL{}'.format(r)] = "=IF($KS${}=0,$N${},$N${}-1)".format(r, r, r)
+            ws['LL{}'.format(s)] = "=STDEV(LL2:LL{})".format(q)
+            ws['LL{}'.format(t)] = "=MAX(LL2:LL{})".format(q)
+            ws['LL{}'.format(u)] = "=MIN(LL2:LL{})".format(q)
+            # rata" ANT ke ANT tambahan dan mapel ANT awal
+            ws['LM{}'.format(r)] = "=IF($KT${}=0,$O${},$O${}-1)".format(r, r, r)
+            ws['LM{}'.format(s)] = "=STDEV(LM2:LM{})".format(q)
+            ws['LM{}'.format(t)] = "=MAX(LM2:LM{})".format(q)
+            ws['LM{}'.format(u)] = "=MIN(LM2:LM{})".format(q)
+            # rata" BIO ke BIO tambahan dan mapel BIO awal
+            ws['LN{}'.format(r)] = "=IF($KU${}=0,$P${},$P${}-1)".format(r, r, r)
+            ws['LN{}'.format(s)] = "=STDEV(LN2:LN{})".format(q)
+            ws['LN{}'.format(t)] = "=MAX(LN2:LN{})".format(q)
+            ws['LN{}'.format(u)] = "=MIN(LN2:LN{})".format(q)
+            # rata" FIS ke FIS tambahan dan mapel FIS awal
+            ws['LO{}'.format(r)] = "=IF($KV${}=0,$Q${},$Q${}-1)".format(r, r, r)
+            ws['LO{}'.format(s)] = "=STDEV(LO2:LO{})".format(q)
+            ws['LO{}'.format(t)] = "=MAX(LO2:LO{})".format(q)
+            ws['LO{}'.format(u)] = "=MIN(LO2:LO{})".format(q)
+            # rata" KIM 1 ke KIM 1 tambahan dan mapel KIM 1 awal
+            ws['LP{}'.format(r)] = "=IF($KW${}=0,$R${},$R${}-1)".format(r, r, r)
+            ws['LP{}'.format(s)] = "=STDEV(LP2:LP{})".format(q)
+            ws['LP{}'.format(t)] = "=MAX(LP2:LP{})".format(q)
+            ws['LP{}'.format(u)] = "=MIN(LP2:LP{})".format(q)
+            # rata" KIM 2 ke KIM 2 tambahan dan mapel KIM 2 awal
+            ws['LQ{}'.format(r)] = "=IF($KX${}=0,$S${},$S${}-1)".format(r, r, r)
+            ws['LQ{}'.format(s)] = "=STDEV(LQ2:LQ{})".format(q)
+            ws['LQ{}'.format(t)] = "=MAX(LQ2:LQ{})".format(q)
+            ws['LQ{}'.format(u)] = "=MIN(LQ2:LQ{})".format(q)
+            # JML BENAR
+            ws['LR{}'.format(r)] = "=ROUND(AVERAGE(LR2:LR{}),2)".format(q)
+            ws['LR{}'.format(t)] = "=MAX(LR2:LR{})".format(q)
+            ws['LR{}'.format(u)] = "=MIN(LR2:LR{})".format(q)
+            # MAX Z SCORE MAT 1, MAT 2, IND, ENG
+            ws['LS{}'.format(r)] = "=MAX(LS2:LS{})".format(q)
+            ws['LT{}'.format(r)] = "=MAX(LT2:LT{})".format(q)
+            ws['LU{}'.format(r)] = "=MAX(LU2:LU{})".format(q)
+            ws['LV{}'.format(r)] = "=MAX(LV2:LV{})".format(q)
+            # MAX Z SCORE SEJ, EKO, SOS, GEO, ANT
+            ws['LW{}'.format(r)] = "=MAX(LW2:LW{})".format(q)
+            ws['LX{}'.format(r)] = "=MAX(LX2:LX{})".format(q)
+            ws['LY{}'.format(r)] = "=MAX(LY2:LY{})".format(q)
+            ws['LZ{}'.format(r)] = "=MAX(LZ2:LZ{})".format(q)
+            ws['MA{}'.format(r)] = "=MAX(MA2:MA{})".format(q)
+            # MAX Z SCORE BIO, FIS, KIM 1, KIM 2
+            ws['MB{}'.format(r)] = "=MAX(MB2:MB{})".format(q)
+            ws['MC{}'.format(r)] = "=MAX(MC2:MC{})".format(q)
+            ws['MD{}'.format(r)] = "=MAX(MD2:MD{})".format(q)
+            ws['ME{}'.format(r)] = "=MAX(ME2:ME{})".format(q)
+
+            # NILAI STANDAR MTK 1
+            ws['MF{}'.format(r)] = "=MAX(MF2:MF{})".format(q)
+            ws['MF{}'.format(s)] = "=MIN(MF2:MF{})".format(q)
+            ws['MF{}'.format(t)] = "=ROUND(AVERAGE(MF2:MF{}),2)".format(q)
+            # NILAI STANDAR MTK 1
+            ws['MG{}'.format(r)] = "=MAX(MG2:MG{})".format(q)
+            ws['MG{}'.format(s)] = "=MIN(MG2:MG{})".format(q)
+            ws['MG{}'.format(t)] = "=ROUND(AVERAGE(MG2:MG{}),2)".format(q)
+            # NILAI STANDAR IND
+            ws['MH{}'.format(r)] = "=MAX(MH2:MH{})".format(q)
+            ws['MH{}'.format(s)] = "=MIN(MH2:MH{})".format(q)
+            ws['MH{}'.format(t)] = "=ROUND(AVERAGE(MH2:MH{}),2)".format(q)
+            # NILAI STANDAR ENG
+            ws['MI{}'.format(r)] = "=MAX(MI2:MI{})".format(q)
+            ws['MI{}'.format(s)] = "=MIN(MI2:MI{})".format(q)
+            ws['MI{}'.format(t)] = "=ROUND(AVERAGE(MI2:MI{}),2)".format(q)
+            # NILAI STANDAR SEJ
+            ws['MJ{}'.format(r)] = "=MAX(MJ2:MJ{})".format(q)
+            ws['MJ{}'.format(s)] = "=MIN(MJ2:MJ{})".format(q)
+            ws['MJ{}'.format(t)] = "=ROUND(AVERAGE(MJ2:MJ{}),2)".format(q)
+            # NILAI STANDAR EKO
+            ws['MK{}'.format(r)] = "=MAX(MK2:MK{})".format(q)
+            ws['MK{}'.format(s)] = "=MIN(MK2:MK{})".format(q)
+            ws['MK{}'.format(t)] = "=ROUND(AVERAGE(MK2:MK{}),2)".format(q)
+            # NILAI STANDAR SOS
+            ws['ML{}'.format(r)] = "=MAX(ML2:ML{})".format(q)
+            ws['ML{}'.format(s)] = "=MIN(ML2:ML{})".format(q)
+            ws['ML{}'.format(t)] = "=ROUND(AVERAGE(ML2:ML{}),2)".format(q)
+            # NILAI STANDAR GEO
+            ws['MM{}'.format(r)] = "=MAX(MM2:MM{})".format(q)
+            ws['MM{}'.format(s)] = "=MIN(MM2:MM{})".format(q)
+            ws['MM{}'.format(t)] = "=ROUND(AVERAGE(MM2:MM{}),2)".format(q)
+            # NILAI STANDAR ANT
+            ws['MN{}'.format(r)] = "=MAX(MN2:MN{})".format(q)
+            ws['MN{}'.format(s)] = "=MIN(MN2:MN{})".format(q)
+            ws['MN{}'.format(t)] = "=ROUND(AVERAGE(MN2:MN{}),2)".format(q)
+            # NILAI STANDAR BIO
+            ws['MO{}'.format(r)] = "=MAX(MO2:MO{})".format(q)
+            ws['MO{}'.format(s)] = "=MIN(MO2:MO{})".format(q)
+            ws['MO{}'.format(t)] = "=ROUND(AVERAGE(MO2:MO{}),2)".format(q)
+            # NILAI STANDAR FIS
+            ws['MP{}'.format(r)] = "=MAX(MP2:MP{})".format(q)
+            ws['MP{}'.format(s)] = "=MIN(MP2:MP{})".format(q)
+            ws['MP{}'.format(t)] = "=ROUND(AVERAGE(MP2:MP{}),2)".format(q)
+            # NILAI STANDAR KIM 1
+            ws['MQ{}'.format(r)] = "=MAX(MQ2:MQ{})".format(q)
+            ws['MQ{}'.format(s)] = "=MIN(MQ2:MQ{})".format(q)
+            ws['MQ{}'.format(t)] = "=ROUND(AVERAGE(MQ2:MQ{}),2)".format(q)
+            # NILAI STANDAR KIM 2
+            ws['MR{}'.format(r)] = "=MAX(MR2:MR{})".format(q)
+            ws['MR{}'.format(s)] = "=MIN(MR2:MR{})".format(q)
+            ws['MR{}'.format(t)] = "=ROUND(AVERAGE(MR2:MR{}),2)".format(q)
+            # NILAI STANDAR JML
+            ws['MS{}'.format(r)] = "=MAX(MS2:MS{})".format(q)
+            ws['MS{}'.format(s)] = "=MIN(MS2:MS{})".format(q)
+            ws['MS{}'.format(t)] = "=ROUND(AVERAGE(MS2:MS{}),2)".format(q)
+
+            # TAMBAHAN
+            # MTK 1, MTK 2, IND, ENG
+            ws['MV{}'.format(r)] = "=SUM(MV2:MV{})".format(q)
+            ws['MW{}'.format(r)] = "=SUM(MW2:MW{})".format(q)
+            ws['MX{}'.format(r)] = "=SUM(MX2:MX{})".format(q)
+            ws['MY{}'.format(r)] = "=SUM(MY2:MY{})".format(q)
+            # SEJ, EKO, SOS, GEO, ANT
+            ws['MZ{}'.format(r)] = "=SUM(MZ2:MZ{})".format(q)
+            ws['NA{}'.format(r)] = "=SUM(NA2:NA{})".format(q)
+            ws['NB{}'.format(r)] = "=SUM(NB2:NB{})".format(q)
+            ws['NC{}'.format(r)] = "=SUM(NC2:NC{})".format(q)
+            ws['ND{}'.format(r)] = "=SUM(ND2:ND{})".format(q)
+            # BIO, FIS, KIM 1, KIM 2
+            ws['NE{}'.format(r)] = "=SUM(NE2:NE{})".format(q)
+            ws['NF{}'.format(r)] = "=SUM(NF2:NF{})".format(q)
+            ws['NG{}'.format(r)] = "=SUM(NG2:NG{})".format(q)
+            ws['NH{}'.format(r)] = "=SUM(NH2:NH{})".format(q)
+
+            # -----------------------------------------------------------------------------
+
+            # Z Score [1]
+            ws['B1'] = 'NAMA SISWA_A'
+            ws['C1'] = 'NOMOR NF_A'
+            ws['D1'] = 'KELAS_A'
+            ws['E1'] = 'NAMA SEKOLAH_A'
+            ws['F1'] = 'LOKASI_A'
+
+            ws['G1'] = 'MAT_1_A'
+            ws['H1'] = 'MAT_2_A'
+            ws['I1'] = 'IND_A'
+            ws['J1'] = 'ENG_A'
+            ws['K1'] = 'SEJ_A'
+            ws['L1'] = 'EKO_A'
+            ws['M1'] = 'SOS_A'
+            ws['N1'] = 'GEO_A'
+            ws['O1'] = 'ANT_A'
+            ws['P1'] = 'BIO_A'
+            ws['Q1'] = 'FIS_A'
+            ws['R1'] = 'KIM_1_A'
+            ws['S1'] = 'KIM_2_A'
+            ws['T1'] = 'JML_A'
+
+            ws['U1'] = 'Z_MAT_1_A'
+            ws['V1'] = 'Z_MAT_2_A'
+            ws['W1'] = 'Z_IND_A'
+            ws['X1'] = 'Z_ENG_A'
+            ws['Y1'] = 'Z_SEJ_A'
+            ws['Z1'] = 'Z_EKO_A'
+            ws['AA1'] = 'Z_SOS_A'
+            ws['AB1'] = 'Z_GEO_A'
+            ws['AC1'] = 'Z_ANT_A'
+            ws['AD1'] = 'Z_BIO_A'
+            ws['AE1'] = 'Z_FIS_A'
+            ws['AF1'] = 'Z_KIM_1_A'
+            ws['AG1'] = 'Z_KIM_2_A'
+
+            ws['AH1'] = 'S_MAT_1_A'
+            ws['AI1'] = 'S_MAT_2_A'
+            ws['AJ1'] = 'S_IND_A'
+            ws['AK1'] = 'S_ENG_A'
+            ws['AL1'] = 'S_SEJ_A'
+            ws['AM1'] = 'S_EKO_A'
+            ws['AN1'] = 'S_SOS_A'
+            ws['AO1'] = 'S_GEO_A'
+            ws['AP1'] = 'S_ANT_A'
+            ws['AQ1'] = 'S_BIO_A'
+            ws['AR1'] = 'S_FIS_A'
+            ws['AS1'] = 'S_KIM_1_A'
+            ws['AT1'] = 'S_KIM_2_A'
+            ws['AU1'] = 'S_JML_A'
+
+            ws['AV1'] = 'RANK NAS._A'
+            ws['AW1'] = 'RANK LOK._A'
+
+            ws['U1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['V1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['W1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['X1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['Y1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['Z1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['AA1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['AB1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['AC1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['AD1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['AE1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['AF1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['AG1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['AH1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['AI1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['AJ1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['AK1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['AL1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['AM1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['AN1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['AO1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['AP1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['AQ1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['AR1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['AS1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['AT1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['AU1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['AV1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['AW1'].font = Font(bold=False, name='Calibri', size=11)
+
+            # FILL
+            ws['B1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['C1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['D1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['E1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['F1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['G1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['H1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['I1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['J1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['K1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['L1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['M1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['N1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['O1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['P1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['Q1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['R1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['S1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['T1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['U1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['V1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['W1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['X1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['Y1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['Z1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['AA1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['AB1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['AC1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['AD1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['AE1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['AF1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['AG1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['AH1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['AI1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['AJ1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['AK1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['AL1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['AM1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['AN1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['AO1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['AP1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['AQ1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['AR1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['AS1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['AT1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['AU1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['AV1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['AW1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+
+            # tambahan
+            ws['AX1'] = 'MAT_1_20_A'
+            ws['AY1'] = 'MAT_2_20_A'
+            ws['AZ1'] = 'IND_20_A'
+            ws['BA1'] = 'ENG_20_A'
+            ws['BB1'] = 'SEJ_20_A'
+            ws['BC1'] = 'EKO_20_A'
+            ws['BD1'] = 'SOS_20_A'
+            ws['BE1'] = 'GEO_20_A'
+            ws['BF1'] = 'ANT_20_A'
+            ws['BG1'] = 'BIO_20_A'
+            ws['BH1'] = 'FIS_20_A'
+            ws['BI1'] = 'KIM_1_20_A'
+            ws['BJ1'] = 'KIM_2_20_A'
+
+            ws['AX1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['AY1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['AZ1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['BA1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['BB1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['BC1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['BD1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['BE1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['BF1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['BG1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['BH1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['BI1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['BJ1'].font = Font(bold=False, name='Calibri', size=11)
+
+            ws['AX1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['AY1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['AZ1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['BA1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['BB1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['BC1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['BD1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['BE1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['BF1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['BG1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['BH1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['BI1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+            ws['BJ1'].fill = PatternFill(
+                fill_type='solid', start_color='00FF6600', end_color='00FF6600')
+
+            for row in range(2, q+1):
+                ws['T{}'.format(
+                    row)] = '=SUM(G{}:S{})'.format(row, row, row)
+                ws['U{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(G{}="","",(G{}-G${})/G${}),2),"")'.format(row, row, r, s)
+                ws['V{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(H{}="","",(H{}-H${})/H${}),2),"")'.format(row, row, r, s)
+                ws['W{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(I{}="","",(I{}-I${})/I${}),2),"")'.format(row, row, r, s)
+                ws['X{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(J{}="","",(J{}-J${})/J${}),2),"")'.format(row, row, r, s)
+                ws['Y{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(K{}="","",(K{}-K${})/K${}),2),"")'.format(row, row, r, s)
+                ws['Z{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(L{}="","",(L{}-L${})/L${}),2),"")'.format(row, row, r, s)
+                ws['AA{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(M{}="","",(M{}-M${})/M${}),2),"")'.format(row, row, r, s)
+                ws['AB{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(N{}="","",(N{}-N${})/N${}),2),"")'.format(row, row, r, s)
+                ws['AC{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(O{}="","",(O{}-O${})/O${}),2),"")'.format(row, row, r, s)
+                ws['AD{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(P{}="","",(P{}-P${})/P${}),2),"")'.format(row, row, r, s)
+                ws['AE{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(Q{}="","",(Q{}-Q${})/Q${}),2),"")'.format(row, row, r, s)
+                ws['AF{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(R{}="","",(R{}-R${})/R${}),2),"")'.format(row, row, r, s)
+                ws['AG{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(S{}="","",(S{}-S${})/S${}),2),"")'.format(row, row, r, s)
+
+                ws['AH{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(G{}="","",IF(70+30*U{}/$U${}<20,20,70+30*U{}/$U${})),2),"")'.format(row, row, r, row, r)
+                ws['AI{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(H{}="","",IF(70+30*V{}/$V${}<20,20,70+30*V{}/$V${})),2),"")'.format(row, row, r, row, r)
+                ws['AJ{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(I{}="","",IF(70+30*W{}/$W${}<20,20,70+30*W{}/$W${})),2),"")'.format(row, row, r, row, r)
+                ws['AK{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(J{}="","",IF(70+30*X{}/$X${}<20,20,70+30*X{}/$X${})),2),"")'.format(row, row, r, row, r)
+                ws['AL{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(K{}="","",IF(70+30*Y{}/$Y${}<20,20,70+30*Y{}/$Y${})),2),"")'.format(row, row, r, row, r)
+                ws['AM{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(L{}="","",IF(70+30*Z{}/$Z${}<20,20,70+30*Z{}/$Z${})),2),"")'.format(row, row, r, row, r)
+                ws['AN{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(M{}="","",IF(70+30*AA{}/$AA${}<20,20,70+30*AA{}/$AA${})),2),"")'.format(row, row, r, row, r)
+                ws['AO{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(N{}="","",IF(70+30*AB{}/$AB${}<20,20,70+30*AB{}/$AB${})),2),"")'.format(row, row, r, row, r)
+                ws['AP{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(O{}="","",IF(70+30*AC{}/$AC${}<20,20,70+30*AC{}/$AC${})),2),"")'.format(row, row, r, row, r)
+                ws['AQ{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(P{}="","",IF(70+30*AD{}/$AD${}<20,20,70+30*AD{}/$AD${})),2),"")'.format(row, row, r, row, r)
+                ws['AR{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(Q{}="","",IF(70+30*AE{}/$AE${}<20,20,70+30*AE{}/$AE${})),2),"")'.format(row, row, r, row, r)
+                ws['AS{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(R{}="","",IF(70+30*AF{}/$AF${}<20,20,70+30*AF{}/$AF${})),2),"")'.format(row, row, r, row, r)
+                ws['AT{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(S{}="","",IF(70+30*AG{}/$AG${}<20,20,70+30*AG{}/$AG${})),2),"")'.format(row, row, r, row, r)
+
+                ws['AU{}'.format(row)] = '=IF(SUM(AH{}:AT{})=0,"",SUM(AH{}:AT{}))'.format(
+                    row, row, row, row)
+                ws['AV{}'.format(row)] = '=IF(AU{}="","",RANK(AU{},$AU$2:$AU${}))'.format(
+                    row, row, q)
+                ws['AW{}'.format(
+                    row)] = '=IF(AV{}="","",COUNTIFS($F$2:$F${},F{},$AV$2:$AV${},"<"&AV{})+1)'.format(row, q, row, q, row)
+            # TAMBAHAN
+                ws['AX{}'.format(row)] = '=IF($G${}=20,IF(AND(G{}>3,V{}=20),1,""),IF($G${}=25,IF(AND(G{}>4,V{}=20),1,""),IF($G${}=30,IF(AND(G{}>5,V{}=20),1,""),IF($G${}=35,IF(AND(G{}>6,V{}=20),1,""),IF($G${}=40,IF(AND(G{}>7,V{}=20),1,""),IF($G${}=45,IF(AND(G{}>8,V{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['AY{}'.format(row)] = '=IF($H${}=20,IF(AND(H{}>3,W{}=20),1,""),IF($H${}=25,IF(AND(H{}>4,W{}=20),1,""),IF($H${}=30,IF(AND(H{}>5,W{}=20),1,""),IF($H${}=35,IF(AND(H{}>6,W{}=20),1,""),IF($H${}=40,IF(AND(H{}>7,W{}=20),1,""),IF($H${}=45,IF(AND(H{}>8,W{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['AZ{}'.format(row)] = '=IF($I${}=20,IF(AND(I{}>3,X{}=20),1,""),IF($I${}=25,IF(AND(I{}>4,X{}=20),1,""),IF($I${}=30,IF(AND(I{}>5,X{}=20),1,""),IF($I${}=35,IF(AND(I{}>6,X{}=20),1,""),IF($I${}=40,IF(AND(I{}>7,X{}=20),1,""),IF($I${}=45,IF(AND(I{}>8,X{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['BA{}'.format(row)] = '=IF($J${}=20,IF(AND(J{}>3,Y{}=20),1,""),IF($J${}=25,IF(AND(J{}>4,Y{}=20),1,""),IF($J${}=30,IF(AND(J{}>5,Y{}=20),1,""),IF($J${}=35,IF(AND(J{}>6,Y{}=20),1,""),IF($J${}=40,IF(AND(J{}>7,Y{}=20),1,""),IF($J${}=45,IF(AND(J{}>8,Y{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['BB{}'.format(row)] = '=IF($K${}=20,IF(AND(K{}>3,Z{}=20),1,""),IF($K${}=25,IF(AND(K{}>4,Z{}=20),1,""),IF($K${}=30,IF(AND(K{}>5,Z{}=20),1,""),IF($K${}=35,IF(AND(K{}>6,Z{}=20),1,""),IF($K${}=40,IF(AND(K{}>7,Z{}=20),1,""),IF($K${}=45,IF(AND(K{}>8,Z{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['BC{}'.format(row)] = '=IF($L${}=20,IF(AND(L{}>3,AA{}=20),1,""),IF($L${}=25,IF(AND(L{}>4,AA{}=20),1,""),IF($L${}=30,IF(AND(L{}>5,AA{}=20),1,""),IF($L${}=35,IF(AND(L{}>6,AA{}=20),1,""),IF($L${}=40,IF(AND(L{}>7,AA{}=20),1,""),IF($L${}=45,IF(AND(L{}>8,AA{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['BD{}'.format(row)] = '=IF($M${}=20,IF(AND(M{}>3,AB{}=20),1,""),IF($M${}=25,IF(AND(M{}>4,AB{}=20),1,""),IF($M${}=30,IF(AND(M{}>5,AB{}=20),1,""),IF($M${}=35,IF(AND(M{}>6,AB{}=20),1,""),IF($M${}=40,IF(AND(M{}>7,AB{}=20),1,""),IF($M${}=45,IF(AND(M{}>8,AB{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['BE{}'.format(row)] = '=IF($N${}=20,IF(AND(N{}>3,AC{}=20),1,""),IF($N${}=25,IF(AND(N{}>4,AC{}=20),1,""),IF($N${}=30,IF(AND(N{}>5,AC{}=20),1,""),IF($N${}=35,IF(AND(N{}>6,AC{}=20),1,""),IF($N${}=40,IF(AND(N{}>7,AC{}=20),1,""),IF($N${}=45,IF(AND(N{}>8,AC{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['BF{}'.format(row)] = '=IF($O${}=20,IF(AND(O{}>3,AD{}=20),1,""),IF($O${}=25,IF(AND(O{}>4,AD{}=20),1,""),IF($O${}=30,IF(AND(O{}>5,AD{}=20),1,""),IF($O${}=35,IF(AND(O{}>6,AD{}=20),1,""),IF($O${}=40,IF(AND(O{}>7,AD{}=20),1,""),IF($O${}=45,IF(AND(O{}>8,AD{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['BG{}'.format(row)] = '=IF($P${}=20,IF(AND(P{}>3,AE{}=20),1,""),IF($P${}=25,IF(AND(P{}>4,AE{}=20),1,""),IF($P${}=30,IF(AND(P{}>5,AE{}=20),1,""),IF($P${}=35,IF(AND(P{}>6,AE{}=20),1,""),IF($P${}=40,IF(AND(P{}>7,AE{}=20),1,""),IF($P${}=45,IF(AND(P{}>8,AE{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['BH{}'.format(row)] = '=IF($Q${}=20,IF(AND(Q{}>3,AF{}=20),1,""),IF($Q${}=25,IF(AND(Q{}>4,AF{}=20),1,""),IF($Q${}=30,IF(AND(Q{}>5,AF{}=20),1,""),IF($Q${}=35,IF(AND(Q{}>6,AF{}=20),1,""),IF($Q${}=40,IF(AND(Q{}>7,AF{}=20),1,""),IF($Q${}=45,IF(AND(Q{}>8,AF{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['BI{}'.format(row)] = '=IF($R${}=20,IF(AND(R{}>3,AG{}=20),1,""),IF($R${}=25,IF(AND(R{}>4,AG{}=20),1,""),IF($R${}=30,IF(AND(R{}>5,AG{}=20),1,""),IF($R${}=35,IF(AND(R{}>6,AG{}=20),1,""),IF($R${}=40,IF(AND(R{}>7,AG{}=20),1,""),IF($R${}=45,IF(AND(R{}>8,AG{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['BJ{}'.format(row)] = '=IF($S${}=20,IF(AND(S{}>3,AH{}=20),1,""),IF($S${}=25,IF(AND(S{}>4,AH{}=20),1,""),IF($S${}=30,IF(AND(S{}>5,AH{}=20),1,""),IF($S${}=35,IF(AND(S{}>6,AH{}=20),1,""),IF($S${}=40,IF(AND(S{}>7,AH{}=20),1,""),IF($S${}=45,IF(AND(S{}>8,AH{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+
+            # Z Score [2]
+            ws['BL1'] = 'NAMA SISWA_B'
+            ws['BM1'] = 'NOMOR NF_B'
+            ws['BN1'] = 'KELAS_B'
+            ws['BO1'] = 'NAMA SEKOLAH_B'
+            ws['BP1'] = 'LOKASI_B'
+
+            ws['BQ1'] = 'MAT_1_B'
+            ws['BR1'] = 'MAT_2_B'
+            ws['BS1'] = 'IND_B'
+            ws['BT1'] = 'ENG_B'
+            ws['BU1'] = 'SEJ_B'
+            ws['BV1'] = 'EKO_B'
+            ws['BW1'] = 'SOS_B'
+            ws['BX1'] = 'GEO_B'
+            ws['BY1'] = 'ANT_B'
+            ws['BZ1'] = 'BIO_B'
+            ws['CA1'] = 'FIS_B'
+            ws['CB1'] = 'KIM_1_B'
+            ws['CC1'] = 'KIM_2_B'
+            ws['CD1'] = 'JML_B'
+
+            ws['CE1'] = 'Z_MAT_1_B'
+            ws['CF1'] = 'Z_MAT_2_B'
+            ws['CG1'] = 'Z_IND_B'
+            ws['CH1'] = 'Z_ENG_B'
+            ws['CI1'] = 'Z_SEJ_B'
+            ws['CJ1'] = 'Z_EKO_B'
+            ws['CK1'] = 'Z_SOS_B'
+            ws['CL1'] = 'Z_GEO_B'
+            ws['CM1'] = 'Z_ANT_B'
+            ws['CN1'] = 'Z_BIO_B'
+            ws['CO1'] = 'Z_FIS_B'
+            ws['CP1'] = 'Z_KIM_1_B'
+            ws['CQ1'] = 'Z_KIM_2_B'
+
+            ws['CR1'] = 'S_MAT_1_B'
+            ws['CS1'] = 'S_MAT_2_B'
+            ws['CT1'] = 'S_IND_B'
+            ws['CU1'] = 'S_ENG_B'
+            ws['CV1'] = 'S_SEJ_B'
+            ws['CW1'] = 'S_EKO_B'
+            ws['CX1'] = 'S_SOS_B'
+            ws['CY1'] = 'S_GEO_B'
+            ws['CZ1'] = 'S_ANT_B'
+            ws['DA1'] = 'S_BIO_B'
+            ws['DB1'] = 'S_FIS_B'
+            ws['DC1'] = 'S_KIM_1_B'
+            ws['DD1'] = 'S_KIM_2_B'
+            ws['DE1'] = 'S_JML_B'
+
+            ws['DF1'] = 'RANK NAS._B'
+            ws['DG1'] = 'RANK LOK._B'
+
+            # Z MAT 1
+            ws['CE1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['CF1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['CG1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['CH1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['CI1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['CJ1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['CK1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['CL1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['CM1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['CN1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['CO1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['CP1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['CQ1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['CR1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['CS1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['CT1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['CU1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['CV1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['CW1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['CX1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['CY1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['CZ1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['DA1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['DB1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['DC1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['DD1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['DE1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['DF1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['DG1'].font = Font(bold=False, name='Calibri', size=11)
+
+            # FILL DARI NAMA
+            ws['BL1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['BM1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['BN1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['BO1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['BP1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['BQ1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['BR1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['BS1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['BT1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['BU1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['BV1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['BW1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['BX1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['BY1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['BZ1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['CA1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['CB1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['CC1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['CD1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['CE1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['CF1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['CG1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['CH1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['CI1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['CJ1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['CK1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['CL1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['CM1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['CN1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['CO1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['CP1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['CQ1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['CR1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['CS1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['CT1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['CU1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['CV1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['CW1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['CX1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['CY1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['CZ1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['DA1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['DB1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['DC1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['DD1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['DE1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['DF1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['DG1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+
+            # tambahan
+            ws['DH1'] = 'MAT_1_20_B'
+            ws['DI1'] = 'MAT_2_20_B'
+            ws['DJ1'] = 'IND_20_B'
+            ws['DK1'] = 'ENG_20_B'
+            ws['DL1'] = 'SEJ_20_B'
+            ws['DM1'] = 'EKO_20_B'
+            ws['DN1'] = 'SOS_20_B'
+            ws['DO1'] = 'GEO_20_B'
+            ws['DP1'] = 'ANT_20_B'
+            ws['DQ1'] = 'BIO_20_B'
+            ws['DR1'] = 'FIS_20_B'
+            ws['DS1'] = 'KIM_1_20_B'
+            ws['DT1'] = 'KIM_2_20_B'
+
+            ws['DH1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['DI1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['DJ1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['DK1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['DL1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['DM1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['DN1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['DO1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['DP1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['DQ1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['DR1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['DS1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['DT1'].font = Font(bold=False, name='Calibri', size=11)
+
+            ws['DH1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['DI1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['DJ1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['DK1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['DL1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['DM1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['DN1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['DO1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['DP1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['DQ1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['DR1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['DS1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+            ws['DT1'].fill = PatternFill(
+                fill_type='solid', start_color='31E1F7', end_color='31E1F7')
+
+            # DARI JML
+            for row in range(2, q+1):
+                ws['BL{}'.format(row)] = '=B{}'.format(row)
+                ws['BM{}'.format(row)] = '=C{}'.format(row, row)
+                ws['BN{}'.format(row)] = '=D{}'.format(row, row)
+                ws['BO{}'.format(row)] = '=E{}'.format(row, row)
+                ws['BP{}'.format(row)] = '=F{}'.format(row, row)
+                ws['BQ{}'.format(row)] = '=IF(G{}="","",G{})'.format(row, row)
+                ws['BR{}'.format(row)] = '=IF(H{}="","",H{})'.format(row, row)
+                ws['BS{}'.format(row)] = '=IF(I{}="","",I{})'.format(row, row)
+                ws['BT{}'.format(row)] = '=IF(J{}="","",J{})'.format(row, row)
+                ws['BU{}'.format(row)] = '=IF(K{}="","",K{})'.format(row, row)
+                ws['BV{}'.format(row)] = '=IF(L{}="","",L{})'.format(row, row)
+                ws['BW{}'.format(row)] = '=IF(M{}="","",M{})'.format(row, row)
+                ws['BX{}'.format(row)] = '=IF(N{}="","",N{})'.format(row, row)
+                ws['BY{}'.format(row)] = '=IF(O{}="","",O{})'.format(row, row)
+                ws['BZ{}'.format(row)] = '=IF(P{}="","",P{})'.format(row, row)
+                ws['CA{}'.format(row)] = '=IF(Q{}="","",Q{})'.format(row, row)
+                ws['CB{}'.format(row)] = '=IF(R{}="","",R{})'.format(row, row)
+                ws['CC{}'.format(row)] = '=IF(S{}="","",S{})'.format(row, row)
+                ws['CD{}'.format(row)] = '=IF(T{}="","",T{})'.format(row, row)
+                
+                ws['CE{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(BQ{}="","",(BQ{}-BQ${})/BQ${}),2),"")'.format(row, row, r, s)
+                ws['CF{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(BR{}="","",(BR{}-BR${})/BR${}),2),"")'.format(row, row, r, s)
+                ws['CG{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(BS{}="","",(BS{}-BS${})/BS${}),2),"")'.format(row, row, r, s)
+                ws['CH{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(BT{}="","",(BT{}-BT${})/BT${}),2),"")'.format(row, row, r, s)
+                ws['CI{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(BU{}="","",(BU{}-BU${})/BU${}),2),"")'.format(row, row, r, s)
+                ws['CJ{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(BV{}="","",(BV{}-BV${})/BV${}),2),"")'.format(row, row, r, s)
+                ws['CK{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(BW{}="","",(BW{}-BW${})/BW${}),2),"")'.format(row, row, r, s)
+                ws['CL{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(BX{}="","",(BX{}-BX${})/BX${}),2),"")'.format(row, row, r, s)
+                ws['CM{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(BY{}="","",(BY{}-BY${})/BY${}),2),"")'.format(row, row, r, s)
+                ws['CN{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(BZ{}="","",(BZ{}-BZ${})/BZ${}),2),"")'.format(row, row, r, s)
+                ws['CO{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(CA{}="","",(CA{}-CA${})/CA${}),2),"")'.format(row, row, r, s)
+                ws['CP{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(CB{}="","",(CB{}-CB${})/CB${}),2),"")'.format(row, row, r, s)
+                ws['CQ{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(CC{}="","",(CC{}-CC${})/CC${}),2),"")'.format(row, row, r, s)
+
+                ws['CR{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(BQ{}="","",IF(70+30*CE{}/$CE${}<20,20,70+30*CE{}/$CE${})),2),"")'.format(row, row, r, row, r)
+                ws['CS{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(BR{}="","",IF(70+30*CF{}/$CF${}<20,20,70+30*CF{}/$CF${})),2),"")'.format(row, row, r, row, r)
+                ws['CT{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(BS{}="","",IF(70+30*CG{}/$CG${}<20,20,70+30*CG{}/$CG${})),2),"")'.format(row, row, r, row, r)
+                ws['CU{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(BT{}="","",IF(70+30*CH{}/$CH${}<20,20,70+30*CH{}/$CH${})),2),"")'.format(row, row, r, row, r)
+                ws['CV{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(BU{}="","",IF(70+30*CI{}/$CI${}<20,20,70+30*CI{}/$CI${})),2),"")'.format(row, row, r, row, r)
+                ws['CW{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(BV{}="","",IF(70+30*CJ{}/$CJ${}<20,20,70+30*CJ{}/$CJ${})),2),"")'.format(row, row, r, row, r)
+                ws['CX{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(BW{}="","",IF(70+30*CK{}/$CK${}<20,20,70+30*CK{}/$CK${})),2),"")'.format(row, row, r, row, r)
+                ws['CY{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(BX{}="","",IF(70+30*CL{}/$CL${}<20,20,70+30*CL{}/$CL${})),2),"")'.format(row, row, r, row, r)
+                ws['CZ{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(BY{}="","",IF(70+30*CM{}/$CM${}<20,20,70+30*CM{}/$CM${})),2),"")'.format(row, row, r, row, r)
+                ws['DA{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(BZ{}="","",IF(70+30*CN{}/$CN${}<20,20,70+30*CN{}/$CN${})),2),"")'.format(row, row, r, row, r)
+                ws['DB{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(CA{}="","",IF(70+30*CO{}/$CO${}<20,20,70+30*CO{}/$CO${})),2),"")'.format(row, row, r, row, r)
+                ws['DC{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(CB{}="","",IF(70+30*CP{}/$CP${}<20,20,70+30*CP{}/$CP${})),2),"")'.format(row, row, r, row, r)
+                ws['DD{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(CC{}="","",IF(70+30*CQ{}/$CQ${}<20,20,70+30*CQ{}/$CQ${})),2),"")'.format(row, row, r, row, r)
+
+                ws['DE{}'.format(row)] = '=IF(SUM(CR{}:DD{})=0,"",SUM(CR{}:DD{}))'.format(
+                    row, row, row, row)
+                ws['DF{}'.format(row)] = '=IF(DE{}="","",RANK(DE{},$DE$2:$DE${}))'.format(
+                    row, row, q)
+                ws['DG{}'.format(
+                    row)] = '=IF(DF{}="","",COUNTIFS($BP$2:$BP${},BP{},$DF$2:$DF${},"<"&DF{})+1)'.format(row, q, row, q, row)
+            # TAMBAHAN
+                ws['DH{}'.format(row)] = '=IF($G${}=20,IF(AND(G{}>3,CE{}=20),1,""),IF($G${}=25,IF(AND(G{}>4,CE{}=20),1,""),IF($G${}=30,IF(AND(G{}>5,CE{}=20),1,""),IF($G${}=35,IF(AND(G{}>6,CE{}=20),1,""),IF($G${}=40,IF(AND(G{}>7,CE{}=20),1,""),IF($G${}=45,IF(AND(G{}>8,CE{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['DI{}'.format(row)] = '=IF($H${}=20,IF(AND(H{}>3,CF{}=20),1,""),IF($H${}=25,IF(AND(H{}>4,CF{}=20),1,""),IF($H${}=30,IF(AND(H{}>5,CF{}=20),1,""),IF($H${}=35,IF(AND(H{}>6,CF{}=20),1,""),IF($H${}=40,IF(AND(H{}>7,CF{}=20),1,""),IF($H${}=45,IF(AND(H{}>8,CF{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['DJ{}'.format(row)] = '=IF($I${}=20,IF(AND(I{}>3,CG{}=20),1,""),IF($I${}=25,IF(AND(I{}>4,CG{}=20),1,""),IF($I${}=30,IF(AND(I{}>5,CG{}=20),1,""),IF($I${}=35,IF(AND(I{}>6,CG{}=20),1,""),IF($I${}=40,IF(AND(I{}>7,CG{}=20),1,""),IF($I${}=45,IF(AND(I{}>8,CG{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['DK{}'.format(row)] = '=IF($J${}=20,IF(AND(J{}>3,CH{}=20),1,""),IF($J${}=25,IF(AND(J{}>4,CH{}=20),1,""),IF($J${}=30,IF(AND(J{}>5,CH{}=20),1,""),IF($J${}=35,IF(AND(J{}>6,CH{}=20),1,""),IF($J${}=40,IF(AND(J{}>7,CH{}=20),1,""),IF($J${}=45,IF(AND(J{}>8,CH{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['DL{}'.format(row)] = '=IF($K${}=20,IF(AND(K{}>3,CI{}=20),1,""),IF($K${}=25,IF(AND(K{}>4,CI{}=20),1,""),IF($K${}=30,IF(AND(K{}>5,CI{}=20),1,""),IF($K${}=35,IF(AND(K{}>6,CI{}=20),1,""),IF($K${}=40,IF(AND(K{}>7,CI{}=20),1,""),IF($K${}=45,IF(AND(K{}>8,CI{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['DM{}'.format(row)] = '=IF($L${}=20,IF(AND(L{}>3,CJ{}=20),1,""),IF($L${}=25,IF(AND(L{}>4,CJ{}=20),1,""),IF($L${}=30,IF(AND(L{}>5,CJ{}=20),1,""),IF($L${}=35,IF(AND(L{}>6,CJ{}=20),1,""),IF($L${}=40,IF(AND(L{}>7,CJ{}=20),1,""),IF($L${}=45,IF(AND(L{}>8,CJ{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['DN{}'.format(row)] = '=IF($M${}=20,IF(AND(M{}>3,CK{}=20),1,""),IF($M${}=25,IF(AND(M{}>4,CK{}=20),1,""),IF($M${}=30,IF(AND(M{}>5,CK{}=20),1,""),IF($M${}=35,IF(AND(M{}>6,CK{}=20),1,""),IF($M${}=40,IF(AND(M{}>7,CK{}=20),1,""),IF($M${}=45,IF(AND(M{}>8,CK{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['DO{}'.format(row)] = '=IF($N${}=20,IF(AND(N{}>3,CL{}=20),1,""),IF($N${}=25,IF(AND(N{}>4,CL{}=20),1,""),IF($N${}=30,IF(AND(N{}>5,CL{}=20),1,""),IF($N${}=35,IF(AND(N{}>6,CL{}=20),1,""),IF($N${}=40,IF(AND(N{}>7,CL{}=20),1,""),IF($N${}=45,IF(AND(N{}>8,CL{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['DP{}'.format(row)] = '=IF($O${}=20,IF(AND(O{}>3,CM{}=20),1,""),IF($O${}=25,IF(AND(O{}>4,CM{}=20),1,""),IF($O${}=30,IF(AND(O{}>5,CM{}=20),1,""),IF($O${}=35,IF(AND(O{}>6,CM{}=20),1,""),IF($O${}=40,IF(AND(O{}>7,CM{}=20),1,""),IF($O${}=45,IF(AND(O{}>8,CM{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['DQ{}'.format(row)] = '=IF($P${}=20,IF(AND(P{}>3,CN{}=20),1,""),IF($P${}=25,IF(AND(P{}>4,CN{}=20),1,""),IF($P${}=30,IF(AND(P{}>5,CN{}=20),1,""),IF($P${}=35,IF(AND(P{}>6,CN{}=20),1,""),IF($P${}=40,IF(AND(P{}>7,CN{}=20),1,""),IF($P${}=45,IF(AND(P{}>8,CN{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['DR{}'.format(row)] = '=IF($Q${}=20,IF(AND(Q{}>3,CO{}=20),1,""),IF($Q${}=25,IF(AND(Q{}>4,CO{}=20),1,""),IF($Q${}=30,IF(AND(Q{}>5,CO{}=20),1,""),IF($Q${}=35,IF(AND(Q{}>6,CO{}=20),1,""),IF($Q${}=40,IF(AND(Q{}>7,CO{}=20),1,""),IF($Q${}=45,IF(AND(Q{}>8,CO{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['DS{}'.format(row)] = '=IF($R${}=20,IF(AND(R{}>3,CP{}=20),1,""),IF($R${}=25,IF(AND(R{}>4,CP{}=20),1,""),IF($R${}=30,IF(AND(R{}>5,CP{}=20),1,""),IF($R${}=35,IF(AND(R{}>6,CP{}=20),1,""),IF($R${}=40,IF(AND(R{}>7,CP{}=20),1,""),IF($R${}=45,IF(AND(R{}>8,CP{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['DT{}'.format(row)] = '=IF($S${}=20,IF(AND(S{}>3,CQ{}=20),1,""),IF($S${}=25,IF(AND(S{}>4,CQ{}=20),1,""),IF($S${}=30,IF(AND(S{}>5,CQ{}=20),1,""),IF($S${}=35,IF(AND(S{}>6,CQ{}=20),1,""),IF($S${}=40,IF(AND(S{}>7,CQ{}=20),1,""),IF($S${}=45,IF(AND(S{}>8,CQ{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+
+            # Z Score [3]
+            ws['DV1'] = 'NAMA SISWA_C'
+            ws['DW1'] = 'NOMOR NF_C'
+            ws['DX1'] = 'KELAS_C'
+            ws['DY1'] = 'NAMA SEKOLAH_C'
+            ws['DZ1'] = 'LOKASI_C'
+
+            ws['EA1'] = 'MAT_1_C'
+            ws['EB1'] = 'MAT_2_C'
+            ws['EC1'] = 'IND_C'
+            ws['ED1'] = 'ENG_C'
+            ws['EE1'] = 'SEJ_C'
+            ws['EF1'] = 'EKO_C'
+            ws['EG1'] = 'SOS_C'
+            ws['EH1'] = 'GEO_C'
+            ws['EI1'] = 'ANT_C'
+            ws['EJ1'] = 'BIO_C'
+            ws['EK1'] = 'FIS_C'
+            ws['EL1'] = 'KIM_1_C'
+            ws['EM1'] = 'KIM_2_C'
+            ws['EN1'] = 'JML_C'
+
+            ws['EO1'] = 'Z_MAT_1_C'
+            ws['EP1'] = 'Z_MAT_2_C'
+            ws['EQ1'] = 'Z_IND_C'
+            ws['ER1'] = 'Z_ENG_C'
+            ws['ES1'] = 'Z_SEJ_C'
+            ws['ET1'] = 'Z_EKO_C'
+            ws['EU1'] = 'Z_SOS_C'
+            ws['EV1'] = 'Z_GEO_C'
+            ws['EW1'] = 'Z_ANT_C'
+            ws['EX1'] = 'Z_BIO_C'
+            ws['EY1'] = 'Z_FIS_C'
+            ws['EZ1'] = 'Z_KIM_1_C'
+            ws['FA1'] = 'Z_KIM_2_C'
+
+            ws['FB1'] = 'S_MAT_1_C'
+            ws['FC1'] = 'S_MAT_2_C'
+            ws['FD1'] = 'S_IND_C'
+            ws['FE1'] = 'S_ENG_C'
+            ws['FF1'] = 'S_SEJ_C'
+            ws['FG1'] = 'S_EKO_C'
+            ws['FH1'] = 'S_SOS_C'
+            ws['FI1'] = 'S_GEO_C'
+            ws['FJ1'] = 'S_ANT_C'
+            ws['FK1'] = 'S_BIO_C'
+            ws['FL1'] = 'S_FIS_C'
+            ws['FM1'] = 'S_KIM_1_C'
+            ws['FN1'] = 'S_KIM_2_C'
+            ws['FO1'] = 'S_JML_C'
+
+            ws['FP1'] = 'RANK NAS._C'
+            ws['FQ1'] = 'RANK LOK._C'
+
+            # Z MAT 1
+            ws['EO1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['EP1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['EQ1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['ER1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['ES1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['ET1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['EU1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['EV1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['EW1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['EX1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['EY1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['EZ1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['FA1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['FB1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['FC1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['FD1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['FE1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['FF1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['FG1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['FH1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['FI1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['FJ1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['FK1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['FL1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['FM1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['FN1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['FO1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['FP1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['FQ1'].font = Font(bold=False, name='Calibri', size=11)
+
+            # FILL DARI NAMA
+            ws['DV1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['DW1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['DX1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['DY1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['DZ1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['EA1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['EB1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['EC1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['ED1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['EE1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['EF1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['EG1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['EH1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['EI1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['EJ1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['EK1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['EL1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['EM1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['EN1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['EO1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['EP1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['EQ1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['ER1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['ES1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['ET1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['EU1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['EV1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['EW1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['EX1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['EY1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['EZ1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['FA1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['FB1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['FC1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['FD1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['FE1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['FF1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['FG1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['FH1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['FI1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['FJ1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['FK1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['FL1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['FM1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['FN1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['FO1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['FP1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['FQ1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            
+            # tambahan
+            ws['FR1'] = 'MAT_1_20_C'
+            ws['FS1'] = 'MAT_2_20_C'
+            ws['FT1'] = 'IND_20_C'
+            ws['FU1'] = 'ENG_20_C'
+            ws['FV1'] = 'SEJ_20_C'
+            ws['FW1'] = 'EKO_20_C'
+            ws['FX1'] = 'SOS_20_C'
+            ws['FY1'] = 'GEO_20_C'
+            ws['FZ1'] = 'ANT_20_C'
+            ws['GA1'] = 'BIO_20_C'
+            ws['GB1'] = 'FIS_20_C'
+            ws['GC1'] = 'KIM_1_20_C'
+            ws['GD1'] = 'KIM_2_20_C'
+
+            ws['FR1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['FS1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['FT1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['FU1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['FV1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['FW1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['FX1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['FY1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['FZ1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['GA1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['GB1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['GC1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['GD1'].font = Font(bold=False, name='Calibri', size=11)
+
+            ws['FR1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['FS1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['FT1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['FU1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['FV1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['FW1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['FX1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['FY1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['FZ1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['GA1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['GB1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['GC1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+            ws['GD1'].fill = PatternFill(
+                fill_type='solid', start_color='A1C298', end_color='A1C298')
+
+            # DARI JML
+            for row in range(2, q+1):
+                ws['DV{}'.format(row)] = '=B{}'.format(row)
+                ws['DW{}'.format(row)] = '=C{}'.format(row, row)
+                ws['DX{}'.format(row)] = '=D{}'.format(row, row)
+                ws['DY{}'.format(row)] = '=E{}'.format(row, row)
+                ws['DZ{}'.format(row)] = '=F{}'.format(row, row)
+                ws['EA{}'.format(row)] = '=IF(G{}="","",G{})'.format(row, row)
+                ws['EB{}'.format(row)] = '=IF(H{}="","",H{})'.format(row, row)
+                ws['EC{}'.format(row)] = '=IF(I{}="","",I{})'.format(row, row)
+                ws['ED{}'.format(row)] = '=IF(J{}="","",J{})'.format(row, row)
+                ws['EE{}'.format(row)] = '=IF(K{}="","",K{})'.format(row, row)
+                ws['EF{}'.format(row)] = '=IF(L{}="","",L{})'.format(row, row)
+                ws['EG{}'.format(row)] = '=IF(M{}="","",M{})'.format(row, row)
+                ws['EH{}'.format(row)] = '=IF(N{}="","",N{})'.format(row, row)
+                ws['EI{}'.format(row)] = '=IF(O{}="","",O{})'.format(row, row)
+                ws['EJ{}'.format(row)] = '=IF(P{}="","",P{})'.format(row, row)
+                ws['EK{}'.format(row)] = '=IF(Q{}="","",Q{})'.format(row, row)
+                ws['EL{}'.format(row)] = '=IF(R{}="","",R{})'.format(row, row)
+                ws['EM{}'.format(row)] = '=IF(S{}="","",S{})'.format(row, row)
+                ws['EN{}'.format(row)] = '=IF(T{}="","",T{})'.format(row, row)
+                
+                ws['EO{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(EA{}="","",(EA{}-EA${})/EA${}),2),"")'.format(row, row, r, s)
+                ws['EP{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(EB{}="","",(EB{}-EB${})/EB${}),2),"")'.format(row, row, r, s)
+                ws['EQ{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(EC{}="","",(EC{}-EC${})/EC${}),2),"")'.format(row, row, r, s)
+                ws['ER{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(ED{}="","",(ED{}-ED${})/ED${}),2),"")'.format(row, row, r, s)
+                ws['ES{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(EE{}="","",(EE{}-EE${})/EE${}),2),"")'.format(row, row, r, s)
+                ws['ET{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(EF{}="","",(EF{}-EF${})/EF${}),2),"")'.format(row, row, r, s)
+                ws['EU{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(EG{}="","",(EG{}-EG${})/EG${}),2),"")'.format(row, row, r, s)
+                ws['EV{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(EH{}="","",(EH{}-EH${})/EH${}),2),"")'.format(row, row, r, s)
+                ws['EW{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(EI{}="","",(EI{}-EI${})/EI${}),2),"")'.format(row, row, r, s)
+                ws['EX{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(EJ{}="","",(EJ{}-EJ${})/EJ${}),2),"")'.format(row, row, r, s)
+                ws['EY{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(EK{}="","",(EK{}-EK${})/EK${}),2),"")'.format(row, row, r, s)
+                ws['EZ{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(EL{}="","",(EL{}-EL${})/EL${}),2),"")'.format(row, row, r, s)
+                ws['FA{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(EM{}="","",(EM{}-EM${})/EM${}),2),"")'.format(row, row, r, s)
+
+                ws['FB{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(EA{}="","",IF(70+30*EO{}/$EO${}<20,20,70+30*EO{}/$EO${})),2),"")'.format(row, row, r, row, r)
+                ws['FC{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(EB{}="","",IF(70+30*EP{}/$EP${}<20,20,70+30*EP{}/$EP${})),2),"")'.format(row, row, r, row, r)
+                ws['FD{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(EC{}="","",IF(70+30*EQ{}/$EQ${}<20,20,70+30*EQ{}/$EQ${})),2),"")'.format(row, row, r, row, r)
+                ws['FE{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(ED{}="","",IF(70+30*ER{}/$ER${}<20,20,70+30*ER{}/$ER${})),2),"")'.format(row, row, r, row, r)
+                ws['FF{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(EE{}="","",IF(70+30*ES{}/$ES${}<20,20,70+30*ES{}/$ES${})),2),"")'.format(row, row, r, row, r)
+                ws['FG{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(EF{}="","",IF(70+30*ET{}/$ET${}<20,20,70+30*ET{}/$ET${})),2),"")'.format(row, row, r, row, r)
+                ws['FH{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(EG{}="","",IF(70+30*EU{}/$EU${}<20,20,70+30*EU{}/$EU${})),2),"")'.format(row, row, r, row, r)
+                ws['FI{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(EH{}="","",IF(70+30*EV{}/$EV${}<20,20,70+30*EV{}/$EV${})),2),"")'.format(row, row, r, row, r)
+                ws['FJ{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(EI{}="","",IF(70+30*EW{}/$EW${}<20,20,70+30*EW{}/$EW${})),2),"")'.format(row, row, r, row, r)
+                ws['FK{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(EJ{}="","",IF(70+30*EX{}/$EX${}<20,20,70+30*EX{}/$EX${})),2),"")'.format(row, row, r, row, r)
+                ws['FL{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(EK{}="","",IF(70+30*EY{}/$EY${}<20,20,70+30*EY{}/$EY${})),2),"")'.format(row, row, r, row, r)
+                ws['FM{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(EL{}="","",IF(70+30*EZ{}/$EZ${}<20,20,70+30*EZ{}/$EZ${})),2),"")'.format(row, row, r, row, r)
+                ws['FN{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(EM{}="","",IF(70+30*FA{}/$FA${}<20,20,70+30*FA{}/$FA${})),2),"")'.format(row, row, r, row, r)
+
+                ws['FO{}'.format(row)] = '=IF(SUM(FB{}:FN{})=0,"",SUM(FB{}:FN{}))'.format(
+                    row, row, row, row)
+                ws['FP{}'.format(row)] = '=IF(FO{}="","",RANK(FO{},$FO$2:$FO${}))'.format(
+                    row, row, q)
+                ws['FQ{}'.format(
+                    row)] = '=IF(FP{}="","",COUNTIFS($DZ$2:$DZ${},DZ{},$FP$2:$FP${},"<"&FP{})+1)'.format(row, q, row, q, row)
+            # TAMBAHAN
+                ws['FR{}'.format(row)] = '=IF($G${}=20,IF(AND(G{}>3,EO{}=20),1,""),IF($G${}=25,IF(AND(G{}>4,EO{}=20),1,""),IF($G${}=30,IF(AND(G{}>5,EO{}=20),1,""),IF($G${}=35,IF(AND(G{}>6,EO{}=20),1,""),IF($G${}=40,IF(AND(G{}>7,EO{}=20),1,""),IF($G${}=45,IF(AND(G{}>8,EO{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['FS{}'.format(row)] = '=IF($H${}=20,IF(AND(H{}>3,EP{}=20),1,""),IF($H${}=25,IF(AND(H{}>4,EP{}=20),1,""),IF($H${}=30,IF(AND(H{}>5,EP{}=20),1,""),IF($H${}=35,IF(AND(H{}>6,EP{}=20),1,""),IF($H${}=40,IF(AND(H{}>7,EP{}=20),1,""),IF($H${}=45,IF(AND(H{}>8,EP{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['FT{}'.format(row)] = '=IF($I${}=20,IF(AND(I{}>3,EQ{}=20),1,""),IF($I${}=25,IF(AND(I{}>4,EQ{}=20),1,""),IF($I${}=30,IF(AND(I{}>5,EQ{}=20),1,""),IF($I${}=35,IF(AND(I{}>6,EQ{}=20),1,""),IF($I${}=40,IF(AND(I{}>7,EQ{}=20),1,""),IF($I${}=45,IF(AND(I{}>8,EQ{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['FU{}'.format(row)] = '=IF($J${}=20,IF(AND(J{}>3,ER{}=20),1,""),IF($J${}=25,IF(AND(J{}>4,ER{}=20),1,""),IF($J${}=30,IF(AND(J{}>5,ER{}=20),1,""),IF($J${}=35,IF(AND(J{}>6,ER{}=20),1,""),IF($J${}=40,IF(AND(J{}>7,ER{}=20),1,""),IF($J${}=45,IF(AND(J{}>8,ER{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['FV{}'.format(row)] = '=IF($K${}=20,IF(AND(K{}>3,ES{}=20),1,""),IF($K${}=25,IF(AND(K{}>4,ES{}=20),1,""),IF($K${}=30,IF(AND(K{}>5,ES{}=20),1,""),IF($K${}=35,IF(AND(K{}>6,ES{}=20),1,""),IF($K${}=40,IF(AND(K{}>7,ES{}=20),1,""),IF($K${}=45,IF(AND(K{}>8,ES{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['FW{}'.format(row)] = '=IF($L${}=20,IF(AND(L{}>3,ET{}=20),1,""),IF($L${}=25,IF(AND(L{}>4,ET{}=20),1,""),IF($L${}=30,IF(AND(L{}>5,ET{}=20),1,""),IF($L${}=35,IF(AND(L{}>6,ET{}=20),1,""),IF($L${}=40,IF(AND(L{}>7,ET{}=20),1,""),IF($L${}=45,IF(AND(L{}>8,ET{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['FX{}'.format(row)] = '=IF($M${}=20,IF(AND(M{}>3,EU{}=20),1,""),IF($M${}=25,IF(AND(M{}>4,EU{}=20),1,""),IF($M${}=30,IF(AND(M{}>5,EU{}=20),1,""),IF($M${}=35,IF(AND(M{}>6,EU{}=20),1,""),IF($M${}=40,IF(AND(M{}>7,EU{}=20),1,""),IF($M${}=45,IF(AND(M{}>8,EU{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['FY{}'.format(row)] = '=IF($N${}=20,IF(AND(N{}>3,EV{}=20),1,""),IF($N${}=25,IF(AND(N{}>4,EV{}=20),1,""),IF($N${}=30,IF(AND(N{}>5,EV{}=20),1,""),IF($N${}=35,IF(AND(N{}>6,EV{}=20),1,""),IF($N${}=40,IF(AND(N{}>7,EV{}=20),1,""),IF($N${}=45,IF(AND(N{}>8,EV{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['FZ{}'.format(row)] = '=IF($O${}=20,IF(AND(O{}>3,EW{}=20),1,""),IF($O${}=25,IF(AND(O{}>4,EW{}=20),1,""),IF($O${}=30,IF(AND(O{}>5,EW{}=20),1,""),IF($O${}=35,IF(AND(O{}>6,EW{}=20),1,""),IF($O${}=40,IF(AND(O{}>7,EW{}=20),1,""),IF($O${}=45,IF(AND(O{}>8,EW{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['GA{}'.format(row)] = '=IF($P${}=20,IF(AND(P{}>3,EX{}=20),1,""),IF($P${}=25,IF(AND(P{}>4,EX{}=20),1,""),IF($P${}=30,IF(AND(P{}>5,EX{}=20),1,""),IF($P${}=35,IF(AND(P{}>6,EX{}=20),1,""),IF($P${}=40,IF(AND(P{}>7,EX{}=20),1,""),IF($P${}=45,IF(AND(P{}>8,EX{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['GB{}'.format(row)] = '=IF($Q${}=20,IF(AND(Q{}>3,EY{}=20),1,""),IF($Q${}=25,IF(AND(Q{}>4,EY{}=20),1,""),IF($Q${}=30,IF(AND(Q{}>5,EY{}=20),1,""),IF($Q${}=35,IF(AND(Q{}>6,EY{}=20),1,""),IF($Q${}=40,IF(AND(Q{}>7,EY{}=20),1,""),IF($Q${}=45,IF(AND(Q{}>8,EY{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['GC{}'.format(row)] = '=IF($R${}=20,IF(AND(R{}>3,EZ{}=20),1,""),IF($R${}=25,IF(AND(R{}>4,EZ{}=20),1,""),IF($R${}=30,IF(AND(R{}>5,EZ{}=20),1,""),IF($R${}=35,IF(AND(R{}>6,EZ{}=20),1,""),IF($R${}=40,IF(AND(R{}>7,EZ{}=20),1,""),IF($R${}=45,IF(AND(R{}>8,EZ{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['GD{}'.format(row)] = '=IF($S${}=20,IF(AND(S{}>3,FA{}=20),1,""),IF($S${}=25,IF(AND(S{}>4,FA{}=20),1,""),IF($S${}=30,IF(AND(S{}>5,FA{}=20),1,""),IF($S${}=35,IF(AND(S{}>6,FA{}=20),1,""),IF($S${}=40,IF(AND(S{}>7,FA{}=20),1,""),IF($S${}=45,IF(AND(S{}>8,FA{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+
+            # Z Score [4]
+            ws['GF1'] = 'NAMA SISWA_D'
+            ws['GG1'] = 'NOMOR NF_D'
+            ws['GH1'] = 'KELAS_D'
+            ws['GI1'] = 'NAMA SEKOLAH_D'
+            ws['GJ1'] = 'LOKASI_D'
+
+            ws['GK1'] = 'MAT_1_D'
+            ws['GL1'] = 'MAT_2_D'
+            ws['GM1'] = 'IND_D'
+            ws['GN1'] = 'ENG_D'
+            ws['GO1'] = 'SEJ_D'
+            ws['GP1'] = 'EKO_D'
+            ws['GQ1'] = 'SOS_D'
+            ws['GR1'] = 'GEO_D'
+            ws['GS1'] = 'ANT_D'
+            ws['GT1'] = 'BIO_D'
+            ws['GU1'] = 'FIS_D'
+            ws['GV1'] = 'KIM_1_D'
+            ws['GW1'] = 'KIM_2_D'
+            ws['GX1'] = 'JML_D'
+
+            ws['GY1'] = 'Z_MAT_1_D'
+            ws['GZ1'] = 'Z_MAT_2_D'
+            ws['HA1'] = 'Z_IND_D'
+            ws['HB1'] = 'Z_ENG_D'
+            ws['HC1'] = 'Z_SEJ_D'
+            ws['HD1'] = 'Z_EKO_D'
+            ws['HE1'] = 'Z_SOS_D'
+            ws['HF1'] = 'Z_GEO_D'
+            ws['HG1'] = 'Z_ANT_D'
+            ws['HH1'] = 'Z_BIO_D'
+            ws['HI1'] = 'Z_FIS_D'
+            ws['HJ1'] = 'Z_KIM_1_D'
+            ws['HK1'] = 'Z_KIM_2_D'
+
+            ws['HL1'] = 'S_MAT_1_D'
+            ws['HM1'] = 'S_MAT_2_D'
+            ws['HN1'] = 'S_IND_D'
+            ws['HO1'] = 'S_ENG_D'
+            ws['HP1'] = 'S_SEJ_D'
+            ws['HQ1'] = 'S_EKO_D'
+            ws['HR1'] = 'S_SOS_D'
+            ws['HS1'] = 'S_GEO_D'
+            ws['HT1'] = 'S_ANT_D'
+            ws['HU1'] = 'S_BIO_D'
+            ws['HV1'] = 'S_FIS_D'
+            ws['HW1'] = 'S_KIM_1_D'
+            ws['HX1'] = 'S_KIM_2_D'
+            ws['HY1'] = 'S_JML_D'
+
+            ws['HZ1'] = 'RANK NAS._D'
+            ws['IA1'] = 'RANK LOK._D'
+
+            # Z MAT 1
+            ws['GY1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['GZ1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['HA1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['HB1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['HC1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['HD1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['HE1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['HF1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['HG1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['HH1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['HI1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['HJ1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['HK1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['HL1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['HM1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['HN1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['HO1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['HP1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['HQ1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['HR1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['HS1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['HT1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['HU1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['HV1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['HW1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['HX1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['HY1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['HZ1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['IA1'].font = Font(bold=False, name='Calibri', size=11)
+
+            # FILL DARI NAMA
+            ws['GF1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['GG1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['GH1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['GI1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['GJ1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['GK1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['GL1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['GM1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['GN1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['GO1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['GP1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['GQ1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['GR1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['GS1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['GT1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['GU1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['GV1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['GW1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['GX1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['GY1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['GZ1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['HA1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['HB1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['HC1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['HD1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['HE1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['HF1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['HG1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['HH1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['HI1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['HJ1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['HK1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['HL1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['HM1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['HN1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['HO1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['HP1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['HQ1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['HR1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['HS1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['HT1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['HU1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['HV1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['HW1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['HX1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['HY1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['HZ1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['IA1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            
+            # tambahan
+            ws['IB1'] = 'MAT_1_20_D'
+            ws['IC1'] = 'MAT_2_20_D'
+            ws['ID1'] = 'IND_20_D'
+            ws['IE1'] = 'ENG_20_D'
+            ws['IF1'] = 'SEJ_20_D'
+            ws['IG1'] = 'EKO_20_D'
+            ws['IH1'] = 'SOS_20_D'
+            ws['II1'] = 'GEO_20_D'
+            ws['IJ1'] = 'ANT_20_D'
+            ws['IK1'] = 'BIO_20_D'
+            ws['IL1'] = 'FIS_20_D'
+            ws['IM1'] = 'KIM_1_20_D'
+            ws['IN1'] = 'KIM_2_20_D'
+
+            ws['IB1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['IC1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['ID1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['IE1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['IF1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['IG1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['IH1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['II1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['IJ1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['IK1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['IL1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['IM1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['IN1'].font = Font(bold=False, name='Calibri', size=11)
+
+            ws['IB1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['IC1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['ID1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['IE1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['IF1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['IG1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['IH1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['II1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['IJ1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['IK1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['IL1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['IM1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+            ws['IN1'].fill = PatternFill(
+                fill_type='solid', start_color='FFE9A0', end_color='FFE9A0')
+
+            # DARI NAMA
+            for row in range(2, q+1):
+                ws['GF{}'.format(row)] = '=B{}'.format(row)
+                ws['GG{}'.format(row)] = '=C{}'.format(row, row)
+                ws['GH{}'.format(row)] = '=D{}'.format(row, row)
+                ws['GI{}'.format(row)] = '=E{}'.format(row, row)
+                ws['GJ{}'.format(row)] = '=F{}'.format(row, row)
+                ws['GK{}'.format(row)] = '=IF(G{}="","",G{})'.format(row, row)
+                ws['GL{}'.format(row)] = '=IF(H{}="","",H{})'.format(row, row)
+                ws['GM{}'.format(row)] = '=IF(I{}="","",I{})'.format(row, row)
+                ws['GN{}'.format(row)] = '=IF(J{}="","",J{})'.format(row, row)
+                ws['GO{}'.format(row)] = '=IF(K{}="","",K{})'.format(row, row)
+                ws['GP{}'.format(row)] = '=IF(L{}="","",L{})'.format(row, row)
+                ws['GQ{}'.format(row)] = '=IF(M{}="","",M{})'.format(row, row)
+                ws['GR{}'.format(row)] = '=IF(N{}="","",N{})'.format(row, row)
+                ws['GS{}'.format(row)] = '=IF(O{}="","",O{})'.format(row, row)
+                ws['GT{}'.format(row)] = '=IF(P{}="","",P{})'.format(row, row)
+                ws['GU{}'.format(row)] = '=IF(Q{}="","",Q{})'.format(row, row)
+                ws['GV{}'.format(row)] = '=IF(R{}="","",R{})'.format(row, row)
+                ws['GW{}'.format(row)] = '=IF(S{}="","",S{})'.format(row, row)
+                ws['GX{}'.format(row)] = '=IF(T{}="","",T{})'.format(row, row)
+                
+                ws['GY{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(GK{}="","",(GK{}-GK${})/GK${}),2),"")'.format(row, row, r, s)
+                ws['GZ{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(GL{}="","",(GL{}-GL${})/GL${}),2),"")'.format(row, row, r, s)
+                ws['HA{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(GM{}="","",(GM{}-GM${})/GM${}),2),"")'.format(row, row, r, s)
+                ws['HB{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(GN{}="","",(GN{}-GN${})/GN${}),2),"")'.format(row, row, r, s)
+                ws['HC{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(GO{}="","",(GO{}-GO${})/GO${}),2),"")'.format(row, row, r, s)
+                ws['HD{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(GP{}="","",(GP{}-GP${})/GP${}),2),"")'.format(row, row, r, s)
+                ws['HE{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(GQ{}="","",(GQ{}-GQ${})/GQ${}),2),"")'.format(row, row, r, s)
+                ws['HF{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(GR{}="","",(GR{}-GR${})/GR${}),2),"")'.format(row, row, r, s)
+                ws['HG{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(GS{}="","",(GS{}-GS${})/GS${}),2),"")'.format(row, row, r, s)
+                ws['HH{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(GT{}="","",(GT{}-GT${})/GT${}),2),"")'.format(row, row, r, s)
+                ws['HI{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(GU{}="","",(GU{}-GU${})/GU${}),2),"")'.format(row, row, r, s)
+                ws['HJ{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(GV{}="","",(GV{}-GV${})/GV${}),2),"")'.format(row, row, r, s)
+                ws['HK{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(GW{}="","",(GW{}-GW${})/GW${}),2),"")'.format(row, row, r, s)
+
+                ws['HL{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(GK{}="","",IF(70+30*GY{}/$GY${}<20,20,70+30*GY{}/$GY${})),2),"")'.format(row, row, r, row, r)
+                ws['HM{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(GL{}="","",IF(70+30*GZ{}/$GZ${}<20,20,70+30*GZ{}/$GZ${})),2),"")'.format(row, row, r, row, r)
+                ws['HN{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(GM{}="","",IF(70+30*HA{}/$HA${}<20,20,70+30*HA{}/$HA${})),2),"")'.format(row, row, r, row, r)
+                ws['HO{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(GN{}="","",IF(70+30*HB{}/$HB${}<20,20,70+30*HB{}/$HB${})),2),"")'.format(row, row, r, row, r)
+                ws['HP{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(GO{}="","",IF(70+30*HC{}/$HC${}<20,20,70+30*HC{}/$HC${})),2),"")'.format(row, row, r, row, r)
+                ws['HQ{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(GP{}="","",IF(70+30*HD{}/$HD${}<20,20,70+30*HD{}/$HD${})),2),"")'.format(row, row, r, row, r)
+                ws['HR{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(GQ{}="","",IF(70+30*HE{}/$HE${}<20,20,70+30*HE{}/$HE${})),2),"")'.format(row, row, r, row, r)
+                ws['HS{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(GR{}="","",IF(70+30*HF{}/$HF${}<20,20,70+30*HF{}/$HF${})),2),"")'.format(row, row, r, row, r)
+                ws['HT{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(GS{}="","",IF(70+30*HG{}/$HG${}<20,20,70+30*HG{}/$HG${})),2),"")'.format(row, row, r, row, r)
+                ws['HU{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(GT{}="","",IF(70+30*HH{}/$HH${}<20,20,70+30*HH{}/$HH${})),2),"")'.format(row, row, r, row, r)
+                ws['HV{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(GU{}="","",IF(70+30*HI{}/$HI${}<20,20,70+30*HI{}/$HI${})),2),"")'.format(row, row, r, row, r)
+                ws['HW{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(GV{}="","",IF(70+30*HJ{}/$HJ${}<20,20,70+30*HJ{}/$HJ${})),2),"")'.format(row, row, r, row, r)
+                ws['HX{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(GW{}="","",IF(70+30*HK{}/$HK${}<20,20,70+30*HK{}/$HK${})),2),"")'.format(row, row, r, row, r)
+
+                ws['HY{}'.format(row)] = '=IF(SUM(HL{}:HX{})=0,"",SUM(HL{}:HX{}))'.format(
+                    row, row, row, row)
+                ws['HZ{}'.format(row)] = '=IF(HY{}="","",RANK(HY{},$HY$2:$HY${}))'.format(
+                    row, row, q)
+                ws['IA{}'.format(
+                    row)] = '=IF(HZ{}="","",COUNTIFS($GJ$2:$GJ${},GJ{},$HZ$2:$HZ${},"<"&HZ{})+1)'.format(row, q, row, q, row)
+            # TAMBAHAN
+                ws['IB{}'.format(row)] = '=IF($G${}=20,IF(AND(G{}>3,GY{}=20),1,""),IF($G${}=25,IF(AND(G{}>4,GY{}=20),1,""),IF($G${}=30,IF(AND(G{}>5,GY{}=20),1,""),IF($G${}=35,IF(AND(G{}>6,GY{}=20),1,""),IF($G${}=40,IF(AND(G{}>7,GY{}=20),1,""),IF($G${}=45,IF(AND(G{}>8,GY{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['IC{}'.format(row)] = '=IF($H${}=20,IF(AND(H{}>3,GZ{}=20),1,""),IF($H${}=25,IF(AND(H{}>4,GZ{}=20),1,""),IF($H${}=30,IF(AND(H{}>5,GZ{}=20),1,""),IF($H${}=35,IF(AND(H{}>6,GZ{}=20),1,""),IF($H${}=40,IF(AND(H{}>7,GZ{}=20),1,""),IF($H${}=45,IF(AND(H{}>8,GZ{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['ID{}'.format(row)] = '=IF($I${}=20,IF(AND(I{}>3,HA{}=20),1,""),IF($I${}=25,IF(AND(I{}>4,HA{}=20),1,""),IF($I${}=30,IF(AND(I{}>5,HA{}=20),1,""),IF($I${}=35,IF(AND(I{}>6,HA{}=20),1,""),IF($I${}=40,IF(AND(I{}>7,HA{}=20),1,""),IF($I${}=45,IF(AND(I{}>8,HA{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['IE{}'.format(row)] = '=IF($J${}=20,IF(AND(J{}>3,HB{}=20),1,""),IF($J${}=25,IF(AND(J{}>4,HB{}=20),1,""),IF($J${}=30,IF(AND(J{}>5,HB{}=20),1,""),IF($J${}=35,IF(AND(J{}>6,HB{}=20),1,""),IF($J${}=40,IF(AND(J{}>7,HB{}=20),1,""),IF($J${}=45,IF(AND(J{}>8,HB{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['IF{}'.format(row)] = '=IF($K${}=20,IF(AND(K{}>3,HC{}=20),1,""),IF($K${}=25,IF(AND(K{}>4,HC{}=20),1,""),IF($K${}=30,IF(AND(K{}>5,HC{}=20),1,""),IF($K${}=35,IF(AND(K{}>6,HC{}=20),1,""),IF($K${}=40,IF(AND(K{}>7,HC{}=20),1,""),IF($K${}=45,IF(AND(K{}>8,HC{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['IG{}'.format(row)] = '=IF($L${}=20,IF(AND(L{}>3,HD{}=20),1,""),IF($L${}=25,IF(AND(L{}>4,HD{}=20),1,""),IF($L${}=30,IF(AND(L{}>5,HD{}=20),1,""),IF($L${}=35,IF(AND(L{}>6,HD{}=20),1,""),IF($L${}=40,IF(AND(L{}>7,HD{}=20),1,""),IF($L${}=45,IF(AND(L{}>8,HD{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['IH{}'.format(row)] = '=IF($M${}=20,IF(AND(M{}>3,HE{}=20),1,""),IF($M${}=25,IF(AND(M{}>4,HE{}=20),1,""),IF($M${}=30,IF(AND(M{}>5,HE{}=20),1,""),IF($M${}=35,IF(AND(M{}>6,HE{}=20),1,""),IF($M${}=40,IF(AND(M{}>7,HE{}=20),1,""),IF($M${}=45,IF(AND(M{}>8,HE{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['II{}'.format(row)] = '=IF($N${}=20,IF(AND(N{}>3,HF{}=20),1,""),IF($N${}=25,IF(AND(N{}>4,HF{}=20),1,""),IF($N${}=30,IF(AND(N{}>5,HF{}=20),1,""),IF($N${}=35,IF(AND(N{}>6,HF{}=20),1,""),IF($N${}=40,IF(AND(N{}>7,HF{}=20),1,""),IF($N${}=45,IF(AND(N{}>8,HF{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['IJ{}'.format(row)] = '=IF($O${}=20,IF(AND(O{}>3,HG{}=20),1,""),IF($O${}=25,IF(AND(O{}>4,HG{}=20),1,""),IF($O${}=30,IF(AND(O{}>5,HG{}=20),1,""),IF($O${}=35,IF(AND(O{}>6,HG{}=20),1,""),IF($O${}=40,IF(AND(O{}>7,HG{}=20),1,""),IF($O${}=45,IF(AND(O{}>8,HG{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['IK{}'.format(row)] = '=IF($P${}=20,IF(AND(P{}>3,HH{}=20),1,""),IF($P${}=25,IF(AND(P{}>4,HH{}=20),1,""),IF($P${}=30,IF(AND(P{}>5,HH{}=20),1,""),IF($P${}=35,IF(AND(P{}>6,HH{}=20),1,""),IF($P${}=40,IF(AND(P{}>7,HH{}=20),1,""),IF($P${}=45,IF(AND(P{}>8,HH{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['IL{}'.format(row)] = '=IF($Q${}=20,IF(AND(Q{}>3,HI{}=20),1,""),IF($Q${}=25,IF(AND(Q{}>4,HI{}=20),1,""),IF($Q${}=30,IF(AND(Q{}>5,HI{}=20),1,""),IF($Q${}=35,IF(AND(Q{}>6,HI{}=20),1,""),IF($Q${}=40,IF(AND(Q{}>7,HI{}=20),1,""),IF($Q${}=45,IF(AND(Q{}>8,HI{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['IM{}'.format(row)] = '=IF($R${}=20,IF(AND(R{}>3,HJ{}=20),1,""),IF($R${}=25,IF(AND(R{}>4,HJ{}=20),1,""),IF($R${}=30,IF(AND(R{}>5,HJ{}=20),1,""),IF($R${}=35,IF(AND(R{}>6,HJ{}=20),1,""),IF($R${}=40,IF(AND(R{}>7,HJ{}=20),1,""),IF($R${}=45,IF(AND(R{}>8,HJ{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['IN{}'.format(row)] = '=IF($S${}=20,IF(AND(S{}>3,HK{}=20),1,""),IF($S${}=25,IF(AND(S{}>4,HK{}=20),1,""),IF($S${}=30,IF(AND(S{}>5,HK{}=20),1,""),IF($S${}=35,IF(AND(S{}>6,HK{}=20),1,""),IF($S${}=40,IF(AND(S{}>7,HK{}=20),1,""),IF($S${}=45,IF(AND(S{}>8,HK{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+            
+            # Z Score [5]
+            ws['IP1'] = 'NAMA SISWA_E'
+            ws['IQ1'] = 'NOMOR NF_E'
+            ws['IR1'] = 'KELAS_E'
+            ws['IS1'] = 'NAMA SEKOLAH_E'
+            ws['IT1'] = 'LOKASI_E'
+
+            ws['IU1'] = 'MAT_1_E'
+            ws['IV1'] = 'MAT_2_E'
+            ws['IW1'] = 'IND_E'
+            ws['IX1'] = 'ENG_E'
+            ws['IY1'] = 'SEJ_E'
+            ws['IZ1'] = 'EKO_E'
+            ws['JA1'] = 'SOS_E'
+            ws['JB1'] = 'GEO_E'
+            ws['JC1'] = 'ANT_E'
+            ws['JD1'] = 'BIO_E'
+            ws['JE1'] = 'FIS_E'
+            ws['JF1'] = 'KIM_1_E'
+            ws['JG1'] = 'KIM_2_E'
+            ws['JH1'] = 'JML_E'
+
+            ws['JI1'] = 'Z_MAT_1_E'
+            ws['JJ1'] = 'Z_MAT_2_E'
+            ws['JK1'] = 'Z_IND_E'
+            ws['JL1'] = 'Z_ENG_E'
+            ws['JM1'] = 'Z_SEJ_E'
+            ws['JN1'] = 'Z_EKO_E'
+            ws['JO1'] = 'Z_SOS_E'
+            ws['JP1'] = 'Z_GEO_E'
+            ws['JQ1'] = 'Z_ANT_E'
+            ws['JR1'] = 'Z_BIO_E'
+            ws['JS1'] = 'Z_FIS_E'
+            ws['JT1'] = 'Z_KIM_1_E'
+            ws['JU1'] = 'Z_KIM_2_E'
+
+            ws['JV1'] = 'S_MAT_1_E'
+            ws['JW1'] = 'S_MAT_2_E'
+            ws['JX1'] = 'S_IND_E'
+            ws['JY1'] = 'S_ENG_E'
+            ws['JZ1'] = 'S_SEJ_E'
+            ws['KA1'] = 'S_EKO_E'
+            ws['KB1'] = 'S_SOS_E'
+            ws['KC1'] = 'S_GEO_E'
+            ws['KD1'] = 'S_ANT_E'
+            ws['KE1'] = 'S_BIO_E'
+            ws['KF1'] = 'S_FIS_E'
+            ws['KG1'] = 'S_KIM_1_E'
+            ws['KH1'] = 'S_KIM_2_E'
+            ws['KI1'] = 'S_JML_E'
+
+            ws['KJ1'] = 'RANK NAS._E'
+            ws['KK1'] = 'RANK LOK._E'
+
+            # Z MAT 1
+            ws['JI1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['JJ1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['JK1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['JL1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['JM1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['JN1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['JO1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['JP1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['JQ1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['JR1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['JS1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['JT1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['JU1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['JV1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['JW1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['JX1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['JY1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['JZ1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['KA1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['KB1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['KC1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['KD1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['KE1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['KF1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['KG1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['KH1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['KI1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['KJ1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['KK1'].font = Font(bold=False, name='Calibri', size=11)
+
+            # FILL DARI NAMA
+            ws['IP1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['IQ1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['IR1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['IS1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['IT1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['IU1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['IV1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['IW1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['IX1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['IY1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['IZ1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['JA1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['JB1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['JC1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['JD1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['JE1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['JF1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['JG1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['JH1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['JI1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['JJ1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['JK1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['JL1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['JM1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['JN1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['JO1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['JP1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['JQ1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['JR1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['JS1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['JT1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['JU1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['JV1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['JW1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['JX1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['JY1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['JZ1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['KA1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['KB1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['KC1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['KD1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['KE1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['KF1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['KG1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['KH1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['KI1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['KJ1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['KK1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            
+            # tambahan
+            ws['KL1'] = 'MAT_1_20_E'
+            ws['KM1'] = 'MAT_2_20_E'
+            ws['KN1'] = 'IND_20_E'
+            ws['KO1'] = 'ENG_20_E'
+            ws['KP1'] = 'SEJ_20_E'
+            ws['KQ1'] = 'EKO_20_E'
+            ws['KR1'] = 'SOS_20_E'
+            ws['KS1'] = 'GEO_20_E'
+            ws['KT1'] = 'ANT_20_E'
+            ws['KU1'] = 'BIO_20_E'
+            ws['KV1'] = 'FIS_20_E'
+            ws['KW1'] = 'KIM_1_20_E'
+            ws['KX1'] = 'KIM_2_20_E'
+
+            ws['KL1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['KM1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['KN1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['KO1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['KP1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['KQ1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['KR1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['KS1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['KT1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['KU1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['KV1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['KW1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['KX1'].font = Font(bold=False, name='Calibri', size=11)
+
+            ws['KL1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['KM1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['KN1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['KO1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['KP1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['KQ1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['KR1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['KS1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['KT1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['KU1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['KV1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['KW1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+            ws['KX1'].fill = PatternFill(
+                fill_type='solid', start_color='ECC5FB', end_color='ECC5FB')
+
+            # DARI NAMA
+            for row in range(2, q+1):
+                ws['IP{}'.format(row)] = '=B{}'.format(row)
+                ws['IQ{}'.format(row)] = '=C{}'.format(row, row)
+                ws['IR{}'.format(row)] = '=D{}'.format(row, row)
+                ws['IS{}'.format(row)] = '=E{}'.format(row, row)
+                ws['IT{}'.format(row)] = '=F{}'.format(row, row)
+                ws['IU{}'.format(row)] = '=IF(G{}="","",G{})'.format(row, row)
+                ws['IV{}'.format(row)] = '=IF(H{}="","",H{})'.format(row, row)
+                ws['IW{}'.format(row)] = '=IF(I{}="","",I{})'.format(row, row)
+                ws['IX{}'.format(row)] = '=IF(J{}="","",J{})'.format(row, row)
+                ws['IY{}'.format(row)] = '=IF(K{}="","",K{})'.format(row, row)
+                ws['IZ{}'.format(row)] = '=IF(L{}="","",L{})'.format(row, row)
+                ws['JA{}'.format(row)] = '=IF(M{}="","",M{})'.format(row, row)
+                ws['JB{}'.format(row)] = '=IF(N{}="","",N{})'.format(row, row)
+                ws['JC{}'.format(row)] = '=IF(O{}="","",O{})'.format(row, row)
+                ws['JD{}'.format(row)] = '=IF(P{}="","",P{})'.format(row, row)
+                ws['JE{}'.format(row)] = '=IF(Q{}="","",Q{})'.format(row, row)
+                ws['JF{}'.format(row)] = '=IF(R{}="","",R{})'.format(row, row)
+                ws['JG{}'.format(row)] = '=IF(S{}="","",S{})'.format(row, row)
+                ws['JH{}'.format(row)] = '=IF(T{}="","",T{})'.format(row, row)
+                
+                ws['JI{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(IU{}="","",(IU{}-IU${})/IU${}),2),"")'.format(row, row, r, s)
+                ws['JJ{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(IV{}="","",(IV{}-IV${})/IV${}),2),"")'.format(row, row, r, s)
+                ws['JK{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(IW{}="","",(IW{}-IW${})/IW${}),2),"")'.format(row, row, r, s)
+                ws['JL{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(IX{}="","",(IX{}-IX${})/IX${}),2),"")'.format(row, row, r, s)
+                ws['JM{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(IY{}="","",(IY{}-IY${})/IY${}),2),"")'.format(row, row, r, s)
+                ws['JN{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(IZ{}="","",(IZ{}-IZ${})/IZ${}),2),"")'.format(row, row, r, s)
+                ws['JO{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(JA{}="","",(JA{}-JA${})/JA${}),2),"")'.format(row, row, r, s)
+                ws['JP{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(JB{}="","",(JB{}-JB${})/JB${}),2),"")'.format(row, row, r, s)
+                ws['JQ{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(JC{}="","",(JC{}-JC${})/JC${}),2),"")'.format(row, row, r, s)
+                ws['JR{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(JD{}="","",(JD{}-JD${})/JD${}),2),"")'.format(row, row, r, s)
+                ws['JS{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(JE{}="","",(JE{}-JE${})/JE${}),2),"")'.format(row, row, r, s)
+                ws['JT{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(JF{}="","",(JF{}-JF${})/JF${}),2),"")'.format(row, row, r, s)
+                ws['JU{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(JG{}="","",(JG{}-JG${})/JG${}),2),"")'.format(row, row, r, s)
+
+                ws['JV{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(IU{}="","",IF(70+30*JI{}/$JI${}<20,20,70+30*JI{}/$JI${})),2),"")'.format(row, row, r, row, r)
+                ws['JW{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(IV{}="","",IF(70+30*JJ{}/$JJ${}<20,20,70+30*JJ{}/$JJ${})),2),"")'.format(row, row, r, row, r)
+                ws['JX{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(IW{}="","",IF(70+30*JK{}/$JK${}<20,20,70+30*JK{}/$JK${})),2),"")'.format(row, row, r, row, r)
+                ws['JY{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(IX{}="","",IF(70+30*JL{}/$JL${}<20,20,70+30*JL{}/$JL${})),2),"")'.format(row, row, r, row, r)
+                ws['JZ{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(IY{}="","",IF(70+30*JM{}/$JM${}<20,20,70+30*JM{}/$JM${})),2),"")'.format(row, row, r, row, r)
+                ws['KA{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(IZ{}="","",IF(70+30*JN{}/$JN${}<20,20,70+30*JN{}/$JN${})),2),"")'.format(row, row, r, row, r)
+                ws['KB{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(JA{}="","",IF(70+30*JO{}/$JO${}<20,20,70+30*JO{}/$JO${})),2),"")'.format(row, row, r, row, r)
+                ws['KC{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(JB{}="","",IF(70+30*JP{}/$JP${}<20,20,70+30*JP{}/$JP${})),2),"")'.format(row, row, r, row, r)
+                ws['KD{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(JC{}="","",IF(70+30*JQ{}/$JQ${}<20,20,70+30*JQ{}/$JQ${})),2),"")'.format(row, row, r, row, r)
+                ws['KE{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(JD{}="","",IF(70+30*JR{}/$JR${}<20,20,70+30*JR{}/$JR${})),2),"")'.format(row, row, r, row, r)
+                ws['KF{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(JE{}="","",IF(70+30*JS{}/$JS${}<20,20,70+30*JS{}/$JS${})),2),"")'.format(row, row, r, row, r)
+                ws['KG{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(JF{}="","",IF(70+30*JT{}/$JT${}<20,20,70+30*JT{}/$JT${})),2),"")'.format(row, row, r, row, r)
+                ws['KH{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(JG{}="","",IF(70+30*JU{}/$JU${}<20,20,70+30*JU{}/$JU${})),2),"")'.format(row, row, r, row, r)
+
+                ws['KI{}'.format(row)] = '=IF(SUM(JV{}:KH{})=0,"",SUM(JV{}:KH{}))'.format(
+                    row, row, row, row)
+                ws['KJ{}'.format(row)] = '=IF(KI{}="","",RANK(KI{},$KI$2:$KI${}))'.format(
+                    row, row, q)
+                ws['KK{}'.format(
+                    row)] = '=IF(KJ{}="","",COUNTIFS($IT$2:$IT${},IT{},$KJ$2:$KJ${},"<"&KJ{})+1)'.format(row, q, row, q, row)
+            # TAMBAHAN
+                ws['KL{}'.format(row)] = '=IF($G${}=20,IF(AND(G{}>3,JI{}=20),1,""),IF($G${}=25,IF(AND(G{}>4,JI{}=20),1,""),IF($G${}=30,IF(AND(G{}>5,JI{}=20),1,""),IF($G${}=35,IF(AND(G{}>6,JI{}=20),1,""),IF($G${}=40,IF(AND(G{}>7,JI{}=20),1,""),IF($G${}=45,IF(AND(G{}>8,JI{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['KM{}'.format(row)] = '=IF($H${}=20,IF(AND(H{}>3,JJ{}=20),1,""),IF($H${}=25,IF(AND(H{}>4,JJ{}=20),1,""),IF($H${}=30,IF(AND(H{}>5,JJ{}=20),1,""),IF($H${}=35,IF(AND(H{}>6,JJ{}=20),1,""),IF($H${}=40,IF(AND(H{}>7,JJ{}=20),1,""),IF($H${}=45,IF(AND(H{}>8,JJ{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['KN{}'.format(row)] = '=IF($I${}=20,IF(AND(I{}>3,JK{}=20),1,""),IF($I${}=25,IF(AND(I{}>4,JK{}=20),1,""),IF($I${}=30,IF(AND(I{}>5,JK{}=20),1,""),IF($I${}=35,IF(AND(I{}>6,JK{}=20),1,""),IF($I${}=40,IF(AND(I{}>7,JK{}=20),1,""),IF($I${}=45,IF(AND(I{}>8,JK{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['KO{}'.format(row)] = '=IF($J${}=20,IF(AND(J{}>3,JL{}=20),1,""),IF($J${}=25,IF(AND(J{}>4,JL{}=20),1,""),IF($J${}=30,IF(AND(J{}>5,JL{}=20),1,""),IF($J${}=35,IF(AND(J{}>6,JL{}=20),1,""),IF($J${}=40,IF(AND(J{}>7,JL{}=20),1,""),IF($J${}=45,IF(AND(J{}>8,JL{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['KP{}'.format(row)] = '=IF($K${}=20,IF(AND(K{}>3,JM{}=20),1,""),IF($K${}=25,IF(AND(K{}>4,JM{}=20),1,""),IF($K${}=30,IF(AND(K{}>5,JM{}=20),1,""),IF($K${}=35,IF(AND(K{}>6,JM{}=20),1,""),IF($K${}=40,IF(AND(K{}>7,JM{}=20),1,""),IF($K${}=45,IF(AND(K{}>8,JM{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['KQ{}'.format(row)] = '=IF($L${}=20,IF(AND(L{}>3,JN{}=20),1,""),IF($L${}=25,IF(AND(L{}>4,JN{}=20),1,""),IF($L${}=30,IF(AND(L{}>5,JN{}=20),1,""),IF($L${}=35,IF(AND(L{}>6,JN{}=20),1,""),IF($L${}=40,IF(AND(L{}>7,JN{}=20),1,""),IF($L${}=45,IF(AND(L{}>8,JN{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['KR{}'.format(row)] = '=IF($M${}=20,IF(AND(M{}>3,JO{}=20),1,""),IF($M${}=25,IF(AND(M{}>4,JO{}=20),1,""),IF($M${}=30,IF(AND(M{}>5,JO{}=20),1,""),IF($M${}=35,IF(AND(M{}>6,JO{}=20),1,""),IF($M${}=40,IF(AND(M{}>7,JO{}=20),1,""),IF($M${}=45,IF(AND(M{}>8,JO{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['KS{}'.format(row)] = '=IF($N${}=20,IF(AND(N{}>3,JP{}=20),1,""),IF($N${}=25,IF(AND(N{}>4,JP{}=20),1,""),IF($N${}=30,IF(AND(N{}>5,JP{}=20),1,""),IF($N${}=35,IF(AND(N{}>6,JP{}=20),1,""),IF($N${}=40,IF(AND(N{}>7,JP{}=20),1,""),IF($N${}=45,IF(AND(N{}>8,JP{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['KT{}'.format(row)] = '=IF($O${}=20,IF(AND(O{}>3,JQ{}=20),1,""),IF($O${}=25,IF(AND(O{}>4,JQ{}=20),1,""),IF($O${}=30,IF(AND(O{}>5,JQ{}=20),1,""),IF($O${}=35,IF(AND(O{}>6,JQ{}=20),1,""),IF($O${}=40,IF(AND(O{}>7,JQ{}=20),1,""),IF($O${}=45,IF(AND(O{}>8,JQ{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['KU{}'.format(row)] = '=IF($P${}=20,IF(AND(P{}>3,JR{}=20),1,""),IF($P${}=25,IF(AND(P{}>4,JR{}=20),1,""),IF($P${}=30,IF(AND(P{}>5,JR{}=20),1,""),IF($P${}=35,IF(AND(P{}>6,JR{}=20),1,""),IF($P${}=40,IF(AND(P{}>7,JR{}=20),1,""),IF($P${}=45,IF(AND(P{}>8,JR{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['KV{}'.format(row)] = '=IF($Q${}=20,IF(AND(Q{}>3,JS{}=20),1,""),IF($Q${}=25,IF(AND(Q{}>4,JS{}=20),1,""),IF($Q${}=30,IF(AND(Q{}>5,JS{}=20),1,""),IF($Q${}=35,IF(AND(Q{}>6,JS{}=20),1,""),IF($Q${}=40,IF(AND(Q{}>7,JS{}=20),1,""),IF($Q${}=45,IF(AND(Q{}>8,JS{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['KW{}'.format(row)] = '=IF($R${}=20,IF(AND(R{}>3,JT{}=20),1,""),IF($R${}=25,IF(AND(R{}>4,JT{}=20),1,""),IF($R${}=30,IF(AND(R{}>5,JT{}=20),1,""),IF($R${}=35,IF(AND(R{}>6,JT{}=20),1,""),IF($R${}=40,IF(AND(R{}>7,JT{}=20),1,""),IF($R${}=45,IF(AND(R{}>8,JT{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['KX{}'.format(row)] = '=IF($S${}=20,IF(AND(S{}>3,JU{}=20),1,""),IF($S${}=25,IF(AND(S{}>4,JU{}=20),1,""),IF($S${}=30,IF(AND(S{}>5,JU{}=20),1,""),IF($S${}=35,IF(AND(S{}>6,JU{}=20),1,""),IF($S${}=40,IF(AND(S{}>7,JU{}=20),1,""),IF($S${}=45,IF(AND(S{}>8,JU{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+
+            # Z Score
+            ws['KZ1'] = 'NAMA SISWA'
+            ws['LA1'] = 'NOMOR NF'
+            ws['LB1'] = 'KELAS'
+            ws['LC1'] = 'NAMA SEKOLAH'
+            ws['LD1'] = 'LOKASI'
+
+            ws['LE1'] = 'MAT_1'
+            ws['LF1'] = 'MAT_2'
+            ws['LG1'] = 'IND'
+            ws['LH1'] = 'ENG'
+            ws['LI1'] = 'SEJ'
+            ws['LJ1'] = 'EKO'
+            ws['LK1'] = 'SOS'
+            ws['LL1'] = 'GEO'
+            ws['LM1'] = 'ANT'
+            ws['LN1'] = 'BIO'
+            ws['LO1'] = 'FIS'
+            ws['LP1'] = 'KIM_1'
+            ws['LQ1'] = 'KIM_2'
+            ws['LR1'] = 'JML'
+
+            ws['LS1'] = 'Z_MAT_1'
+            ws['LT1'] = 'Z_MAT_2'
+            ws['LU1'] = 'Z_IND'
+            ws['LV1'] = 'Z_ENG'
+            ws['LW1'] = 'Z_SEJ'
+            ws['LX1'] = 'Z_EKO'
+            ws['LY1'] = 'Z_SOS'
+            ws['LZ1'] = 'Z_GEO'
+            ws['MA1'] = 'Z_ANT'
+            ws['MB1'] = 'Z_BIO'
+            ws['MC1'] = 'Z_FIS'
+            ws['MD1'] = 'Z_KIM_1'
+            ws['ME1'] = 'Z_KIM_2'
+
+            ws['MF1'] = 'S_MAT_1'
+            ws['MG1'] = 'S_MAT_2'
+            ws['MH1'] = 'S_IND'
+            ws['MI1'] = 'S_ENG'
+            ws['MJ1'] = 'S_SEJ'
+            ws['MK1'] = 'S_EKO'
+            ws['ML1'] = 'S_SOS'
+            ws['MM1'] = 'S_GEO'
+            ws['MN1'] = 'S_ANT'
+            ws['MO1'] = 'S_BIO'
+            ws['MP1'] = 'S_FIS'
+            ws['MQ1'] = 'S_KIM_1'
+            ws['MR1'] = 'S_KIM_2'
+            ws['MS1'] = 'S_JML'
+
+            ws['MT1'] = 'RANK NAS.'
+            ws['MU1'] = 'RANK LOK.'
+
+            # Z MAT 1
+            ws['LS1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['LT1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['LU1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['LV1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['LW1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['LX1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['LY1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['LZ1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['MA1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['MB1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['MC1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['MD1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['ME1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['MF1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['MG1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['MH1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['MI1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['MJ1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['MK1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['ML1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['MM1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['MN1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['MO1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['MP1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['MQ1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['MR1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['MS1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['MT1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['KK1'].font = Font(bold=False, name='Calibri', size=11)
+
+            # FILL DARI NAMA
+            ws['KZ1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['LA1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['LB1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['LC1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['LD1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['LE1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['LF1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['LG1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['LH1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['LI1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['LJ1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['LK1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['LL1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['LM1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['LN1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['LO1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['LP1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['LQ1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['LR1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['LS1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['LT1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['LU1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['LV1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['LW1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['LX1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['LY1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['LZ1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['MA1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['MB1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['MC1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['MD1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['ME1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['MF1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['MG1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['MH1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['MI1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['MJ1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['MK1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['ML1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['MM1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['MN1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['MO1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['MP1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['MQ1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['MR1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['MS1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['MT1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['MU1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            
+            # tambahan
+            ws['MV1'] = 'MAT_1_20'
+            ws['MW1'] = 'MAT_2_20'
+            ws['MX1'] = 'IND_20'
+            ws['MY1'] = 'ENG_20'
+            ws['MZ1'] = 'SEJ_20'
+            ws['NA1'] = 'EKO_20'
+            ws['NB1'] = 'SOS_20'
+            ws['NC1'] = 'GEO_20'
+            ws['ND1'] = 'ANT_20'
+            ws['NE1'] = 'BIO_20'
+            ws['NF1'] = 'FIS_20'
+            ws['NG1'] = 'KIM_1_20'
+            ws['NH1'] = 'KIM_2_20'
+
+            ws['MV1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['MW1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['MX1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['MY1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['MZ1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['NA1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['NB1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['NC1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['ND1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['NE1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['NF1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['NG1'].font = Font(bold=False, name='Calibri', size=11)
+            ws['NH1'].font = Font(bold=False, name='Calibri', size=11)
+
+            ws['MV1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['MW1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['MX1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['MY1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['MZ1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['NA1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['NB1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['NC1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['ND1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['NE1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['NF1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['NG1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+            ws['NH1'].fill = PatternFill(
+                fill_type='solid', start_color='E1FFEE', end_color='E1FFEE')
+
+            # DARI NAMA
+            for row in range(2, q+1):
+                ws['KZ{}'.format(row)] = '=B{}'.format(row)
+                ws['LA{}'.format(row)] = '=C{}'.format(row, row)
+                ws['LB{}'.format(row)] = '=D{}'.format(row, row)
+                ws['LC{}'.format(row)] = '=E{}'.format(row, row)
+                ws['LD{}'.format(row)] = '=F{}'.format(row, row)
+                ws['LE{}'.format(row)] = '=IF(G{}="","",G{})'.format(row, row)
+                ws['LF{}'.format(row)] = '=IF(H{}="","",H{})'.format(row, row)
+                ws['LG{}'.format(row)] = '=IF(I{}="","",I{})'.format(row, row)
+                ws['LH{}'.format(row)] = '=IF(J{}="","",J{})'.format(row, row)
+                ws['LI{}'.format(row)] = '=IF(K{}="","",K{})'.format(row, row)
+                ws['LJ{}'.format(row)] = '=IF(L{}="","",L{})'.format(row, row)
+                ws['LK{}'.format(row)] = '=IF(M{}="","",M{})'.format(row, row)
+                ws['LL{}'.format(row)] = '=IF(N{}="","",N{})'.format(row, row)
+                ws['LM{}'.format(row)] = '=IF(O{}="","",O{})'.format(row, row)
+                ws['LN{}'.format(row)] = '=IF(P{}="","",P{})'.format(row, row)
+                ws['LO{}'.format(row)] = '=IF(Q{}="","",Q{})'.format(row, row)
+                ws['LP{}'.format(row)] = '=IF(R{}="","",R{})'.format(row, row)
+                ws['LQ{}'.format(row)] = '=IF(S{}="","",S{})'.format(row, row)
+                ws['LR{}'.format(row)] = '=IF(T{}="","",T{})'.format(row, row)
+                
+                ws['LS{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(IU{}="","",(IU{}-IU${})/IU${}),2),"")'.format(row, row, r, s)
+                ws['LT{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(IV{}="","",(IV{}-IV${})/IV${}),2),"")'.format(row, row, r, s)
+                ws['LU{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(IW{}="","",(IW{}-IW${})/IW${}),2),"")'.format(row, row, r, s)
+                ws['LV{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(IX{}="","",(IX{}-IX${})/IX${}),2),"")'.format(row, row, r, s)
+                ws['LW{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(IY{}="","",(IY{}-IY${})/IY${}),2),"")'.format(row, row, r, s)
+                ws['LX{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(IZ{}="","",(IZ{}-IZ${})/IZ${}),2),"")'.format(row, row, r, s)
+                ws['LY{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(JA{}="","",(JA{}-JA${})/JA${}),2),"")'.format(row, row, r, s)
+                ws['LZ{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(JB{}="","",(JB{}-JB${})/JB${}),2),"")'.format(row, row, r, s)
+                ws['MA{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(JC{}="","",(JC{}-JC${})/JC${}),2),"")'.format(row, row, r, s)
+                ws['MB{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(JD{}="","",(JD{}-JD${})/JD${}),2),"")'.format(row, row, r, s)
+                ws['MC{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(JE{}="","",(JE{}-JE${})/JE${}),2),"")'.format(row, row, r, s)
+                ws['MD{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(JF{}="","",(JF{}-JF${})/JF${}),2),"")'.format(row, row, r, s)
+                ws['ME{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(JG{}="","",(JG{}-JG${})/JG${}),2),"")'.format(row, row, r, s)
+
+                ws['MF{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(IU{}="","",IF(70+30*LS{}/$LS${}<20,20,70+30*LS{}/$LS${})),2),"")'.format(row, row, r, row, r)
+                ws['MG{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(IV{}="","",IF(70+30*LT{}/$LT${}<20,20,70+30*LT{}/$LT${})),2),"")'.format(row, row, r, row, r)
+                ws['MH{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(IW{}="","",IF(70+30*LU{}/$LU${}<20,20,70+30*LU{}/$LU${})),2),"")'.format(row, row, r, row, r)
+                ws['MI{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(IX{}="","",IF(70+30*LV{}/$LV${}<20,20,70+30*LV{}/$LV${})),2),"")'.format(row, row, r, row, r)
+                ws['MJ{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(IY{}="","",IF(70+30*LW{}/$LW${}<20,20,70+30*LW{}/$LW${})),2),"")'.format(row, row, r, row, r)
+                ws['MK{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(IZ{}="","",IF(70+30*LX{}/$LX${}<20,20,70+30*LX{}/$LX${})),2),"")'.format(row, row, r, row, r)
+                ws['ML{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(JA{}="","",IF(70+30*LY{}/$LY${}<20,20,70+30*LY{}/$LY${})),2),"")'.format(row, row, r, row, r)
+                ws['MM{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(JB{}="","",IF(70+30*LZ{}/$LZ${}<20,20,70+30*LZ{}/$LZ${})),2),"")'.format(row, row, r, row, r)
+                ws['MN{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(JC{}="","",IF(70+30*MA{}/$MA${}<20,20,70+30*MA{}/$MA${})),2),"")'.format(row, row, r, row, r)
+                ws['MO{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(JD{}="","",IF(70+30*MB{}/$MB${}<20,20,70+30*MB{}/$MB${})),2),"")'.format(row, row, r, row, r)
+                ws['MP{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(JE{}="","",IF(70+30*MC{}/$MC${}<20,20,70+30*MC{}/$MC${})),2),"")'.format(row, row, r, row, r)
+                ws['MQ{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(JF{}="","",IF(70+30*MD{}/$MD${}<20,20,70+30*MD{}/$MD${})),2),"")'.format(row, row, r, row, r)
+                ws['MR{}'.format(
+                    row)] = '=IFERROR(ROUND(IF(JG{}="","",IF(70+30*ME{}/$ME${}<20,20,70+30*ME{}/$ME${})),2),"")'.format(row, row, r, row, r)
+
+                ws['MS{}'.format(row)] = '=IF(SUM(MF{}:MR{})=0,"",SUM(MF{}:MR{}))'.format(
+                    row, row, row, row)
+                ws['MT{}'.format(row)] = '=IF(MS{}="","",RANK(MS{},$MS$2:$MS${}))'.format(
+                    row, row, q)
+                ws['MU{}'.format(
+                    row)] = '=IF(KJ{}="","",COUNTIFS($IT$2:$IT${},IT{},$KJ$2:$KJ${},"<"&KJ{})+1)'.format(row, q, row, q, row)
+            # TAMBAHAN
+                ws['MV{}'.format(row)] = '=IF($G${}=20,IF(AND(G{}>3,LS{}=20),1,""),IF($G${}=25,IF(AND(G{}>4,LS{}=20),1,""),IF($G${}=30,IF(AND(G{}>5,LS{}=20),1,""),IF($G${}=35,IF(AND(G{}>6,LS{}=20),1,""),IF($G${}=40,IF(AND(G{}>7,LS{}=20),1,""),IF($G${}=45,IF(AND(G{}>8,LS{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['MW{}'.format(row)] = '=IF($H${}=20,IF(AND(H{}>3,LT{}=20),1,""),IF($H${}=25,IF(AND(H{}>4,LT{}=20),1,""),IF($H${}=30,IF(AND(H{}>5,LT{}=20),1,""),IF($H${}=35,IF(AND(H{}>6,LT{}=20),1,""),IF($H${}=40,IF(AND(H{}>7,LT{}=20),1,""),IF($H${}=45,IF(AND(H{}>8,LT{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['MX{}'.format(row)] = '=IF($I${}=20,IF(AND(I{}>3,LU{}=20),1,""),IF($I${}=25,IF(AND(I{}>4,LU{}=20),1,""),IF($I${}=30,IF(AND(I{}>5,LU{}=20),1,""),IF($I${}=35,IF(AND(I{}>6,LU{}=20),1,""),IF($I${}=40,IF(AND(I{}>7,LU{}=20),1,""),IF($I${}=45,IF(AND(I{}>8,LU{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['MY{}'.format(row)] = '=IF($J${}=20,IF(AND(J{}>3,LV{}=20),1,""),IF($J${}=25,IF(AND(J{}>4,LV{}=20),1,""),IF($J${}=30,IF(AND(J{}>5,LV{}=20),1,""),IF($J${}=35,IF(AND(J{}>6,LV{}=20),1,""),IF($J${}=40,IF(AND(J{}>7,LV{}=20),1,""),IF($J${}=45,IF(AND(J{}>8,LV{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['MZ{}'.format(row)] = '=IF($K${}=20,IF(AND(K{}>3,LW{}=20),1,""),IF($K${}=25,IF(AND(K{}>4,LW{}=20),1,""),IF($K${}=30,IF(AND(K{}>5,LW{}=20),1,""),IF($K${}=35,IF(AND(K{}>6,LW{}=20),1,""),IF($K${}=40,IF(AND(K{}>7,LW{}=20),1,""),IF($K${}=45,IF(AND(K{}>8,LW{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['NA{}'.format(row)] = '=IF($L${}=20,IF(AND(L{}>3,LX{}=20),1,""),IF($L${}=25,IF(AND(L{}>4,LX{}=20),1,""),IF($L${}=30,IF(AND(L{}>5,LX{}=20),1,""),IF($L${}=35,IF(AND(L{}>6,LX{}=20),1,""),IF($L${}=40,IF(AND(L{}>7,LX{}=20),1,""),IF($L${}=45,IF(AND(L{}>8,LX{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['NB{}'.format(row)] = '=IF($M${}=20,IF(AND(M{}>3,LY{}=20),1,""),IF($M${}=25,IF(AND(M{}>4,LY{}=20),1,""),IF($M${}=30,IF(AND(M{}>5,LY{}=20),1,""),IF($M${}=35,IF(AND(M{}>6,LY{}=20),1,""),IF($M${}=40,IF(AND(M{}>7,LY{}=20),1,""),IF($M${}=45,IF(AND(M{}>8,LY{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['NC{}'.format(row)] = '=IF($N${}=20,IF(AND(N{}>3,LZ{}=20),1,""),IF($N${}=25,IF(AND(N{}>4,LZ{}=20),1,""),IF($N${}=30,IF(AND(N{}>5,LZ{}=20),1,""),IF($N${}=35,IF(AND(N{}>6,LZ{}=20),1,""),IF($N${}=40,IF(AND(N{}>7,LZ{}=20),1,""),IF($N${}=45,IF(AND(N{}>8,LZ{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['ND{}'.format(row)] = '=IF($O${}=20,IF(AND(O{}>3,MA{}=20),1,""),IF($O${}=25,IF(AND(O{}>4,MA{}=20),1,""),IF($O${}=30,IF(AND(O{}>5,MA{}=20),1,""),IF($O${}=35,IF(AND(O{}>6,MA{}=20),1,""),IF($O${}=40,IF(AND(O{}>7,MA{}=20),1,""),IF($O${}=45,IF(AND(O{}>8,MA{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['NE{}'.format(row)] = '=IF($P${}=20,IF(AND(P{}>3,MB{}=20),1,""),IF($P${}=25,IF(AND(P{}>4,MB{}=20),1,""),IF($P${}=30,IF(AND(P{}>5,MB{}=20),1,""),IF($P${}=35,IF(AND(P{}>6,MB{}=20),1,""),IF($P${}=40,IF(AND(P{}>7,MB{}=20),1,""),IF($P${}=45,IF(AND(P{}>8,MB{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['NF{}'.format(row)] = '=IF($Q${}=20,IF(AND(Q{}>3,MC{}=20),1,""),IF($Q${}=25,IF(AND(Q{}>4,MC{}=20),1,""),IF($Q${}=30,IF(AND(Q{}>5,MC{}=20),1,""),IF($Q${}=35,IF(AND(Q{}>6,MC{}=20),1,""),IF($Q${}=40,IF(AND(Q{}>7,MC{}=20),1,""),IF($Q${}=45,IF(AND(Q{}>8,MC{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['NG{}'.format(row)] = '=IF($R${}=20,IF(AND(R{}>3,MD{}=20),1,""),IF($R${}=25,IF(AND(R{}>4,MD{}=20),1,""),IF($R${}=30,IF(AND(R{}>5,MD{}=20),1,""),IF($R${}=35,IF(AND(R{}>6,MD{}=20),1,""),IF($R${}=40,IF(AND(R{}>7,MD{}=20),1,""),IF($R${}=45,IF(AND(R{}>8,MD{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['NH{}'.format(row)] = '=IF($S${}=20,IF(AND(S{}>3,ME{}=20),1,""),IF($S${}=25,IF(AND(S{}>4,ME{}=20),1,""),IF($S${}=30,IF(AND(S{}>5,ME{}=20),1,""),IF($S${}=35,IF(AND(S{}>6,ME{}=20),1,""),IF($S${}=40,IF(AND(S{}>7,ME{}=20),1,""),IF($S${}=45,IF(AND(S{}>8,ME{}=20),1,"")))))))'.format(
+                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+
+            # Mengubah 'KELAS' sesuai dengan nilai yang dipilih dari selectbox 'KELAS'
+            kelas = KELAS.lower().replace(" ", "")
+            semester = SEMESTER.lower()
+            tahun = TAHUN.replace("-", "")
+            penilaian = PENILAIAN.lower()
+            kurikulum = KURIKULUM.lower()
+
+            path_file = f"{kelas}_{penilaian}_{semester}_{kurikulum}_{tahun}_nilai_std.xlsx"
+
+            # Simpan file ke direktori temporer
+            temp_dir = tempfile.gettempdir()
+            file_path = temp_dir + '/' + path_file
+            wb.save(file_path)
+
+            st.success(
+                "File siap diunduh!")
+
+            # Tombol unduh file
+            with open(file_path, "rb") as f:
+                bytes_data = f.read()
+            st.download_button(label="Unduh File", data=bytes_data,
+                               file_name=path_file)
+
+            st.warning(
+                "Buka file unduhan, klik 'Enable Editing' dan 'Save'")
+
+
+    
