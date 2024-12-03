@@ -13394,7 +13394,6 @@ if authentication_status:
                 "JML. SOAL ANT.",
                 (15, 20, 25, 30, 35, 40, 45, 50))
 
-        
         JML_SOAL_MAT = MTK
         JML_SOAL_FIS = FIS
         JML_SOAL_KIM = KIM
@@ -13421,208 +13420,208 @@ if authentication_status:
             w = len(ws['K'])+7
             x = len(ws['K'])+8
 
-            # JML BENAR MAT, MAT 2, IND, ENG
+            # JML BENAR MAT, FIS, KIM, BIO
             ws['G{}'.format(r)] = "=ROUND(AVERAGE(G2:G{}),2)".format(q)
             ws['H{}'.format(r)] = "=ROUND(AVERAGE(H2:H{}),2)".format(q)
             ws['I{}'.format(r)] = "=ROUND(AVERAGE(I2:I{}),2)".format(q)
             ws['J{}'.format(r)] = "=ROUND(AVERAGE(J2:J{}),2)".format(q)
-            # JML BENAR SEJ, EKO, SOS, GEO, ANT
+            # JML BENAR SOS, EKO, SEJ, GEO, ANT
             ws['K{}'.format(r)] = "=ROUND(AVERAGE(K2:K{}),2)".format(q)
             ws['L{}'.format(r)] = "=ROUND(AVERAGE(L2:L{}),2)".format(q)
             ws['M{}'.format(r)] = "=ROUND(AVERAGE(M2:M{}),2)".format(q)
             ws['N{}'.format(r)] = "=ROUND(AVERAGE(N2:N{}),2)".format(q)
             ws['O{}'.format(r)] = "=ROUND(AVERAGE(O2:O{}),2)".format(q)
             # JML BENAR BIO, FIS, KIM 1, KIM 2
-            ws['P{}'.format(r)] = "=ROUND(AVERAGE(P2:P{}),2)".format(q)
-            ws['Q{}'.format(r)] = "=ROUND(AVERAGE(Q2:Q{}),2)".format(q)
-            ws['R{}'.format(r)] = "=ROUND(AVERAGE(R2:R{}),2)".format(q)
-            ws['S{}'.format(r)] = "=ROUND(AVERAGE(S2:S{}),2)".format(q)
+            # ws['P{}'.format(r)] = "=ROUND(AVERAGE(P2:P{}),2)".format(q)
+            # ws['Q{}'.format(r)] = "=ROUND(AVERAGE(Q2:Q{}),2)".format(q)
+            # ws['R{}'.format(r)] = "=ROUND(AVERAGE(R2:R{}),2)".format(q)
+            # ws['S{}'.format(r)] = "=ROUND(AVERAGE(S2:S{}),2)".format(q)
 
-            # STDEV MAT 1, MAT 2, IND, ENG
+            # STDEV MAT, FIS, KIM, BIO
             ws['G{}'.format(s)] = "=STDEV(G2:G{})".format(q)
             ws['H{}'.format(s)] = "=STDEV(H2:H{})".format(q)
             ws['I{}'.format(s)] = "=STDEV(I2:I{})".format(q)
             ws['J{}'.format(s)] = "=STDEV(J2:J{})".format(q)
-            # STDEV SEJ, EKO, SOS, GEO, ANT
+            # STDEV SOS, EKO, SEJ, GEO, ANT
             ws['K{}'.format(s)] = "=STDEV(K2:K{})".format(q)
             ws['L{}'.format(s)] = "=STDEV(L2:L{})".format(q)
             ws['M{}'.format(s)] = "=STDEV(M2:M{})".format(q)
             ws['N{}'.format(s)] = "=STDEV(N2:N{})".format(q)
             ws['O{}'.format(s)] = "=STDEV(O2:O{})".format(q)
             # STDEV BIO, FIS, KIM 1, KIM 2
-            ws['P{}'.format(s)] = "=STDEV(P2:P{})".format(q)
-            ws['Q{}'.format(s)] = "=STDEV(Q2:Q{})".format(q)
-            ws['R{}'.format(s)] = "=STDEV(R2:R{})".format(q)
-            ws['S{}'.format(s)] = "=STDEV(S2:S{})".format(q)
+            # ws['P{}'.format(s)] = "=STDEV(P2:P{})".format(q)
+            # ws['Q{}'.format(s)] = "=STDEV(Q2:Q{})".format(q)
+            # ws['R{}'.format(s)] = "=STDEV(R2:R{})".format(q)
+            # ws['S{}'.format(s)] = "=STDEV(S2:S{})".format(q)
 
-            # MAX MAT 1, MAT 2, IND, ENG
+            # MAX MAT, FIS, KIM, BIO
             ws['G{}'.format(t)] = "=MAX(G2:G{})".format(q)
             ws['H{}'.format(t)] = "=MAX(H2:H{})".format(q)
             ws['I{}'.format(t)] = "=MAX(I2:I{})".format(q)
             ws['J{}'.format(t)] = "=MAX(J2:J{})".format(q)
-            # MAX SEJ, EKO, SOS, GEO, ANT
+            # MAX SOS, EKO, SEJ, GEO, ANT
             ws['K{}'.format(t)] = "=MAX(K2:K{})".format(q)
             ws['L{}'.format(t)] = "=MAX(L2:L{})".format(q)
             ws['M{}'.format(t)] = "=MAX(M2:M{})".format(q)
             ws['N{}'.format(t)] = "=MAX(N2:N{})".format(q)
             ws['O{}'.format(t)] = "=MAX(O2:O{})".format(q)
             # MAX BIO, FIS, KIM 1, KIM 2
-            ws['P{}'.format(t)] = "=MAX(P2:P{})".format(q)
-            ws['Q{}'.format(t)] = "=MAX(Q2:Q{})".format(q)
-            ws['R{}'.format(t)] = "=MAX(R2:R{})".format(q)
-            ws['S{}'.format(t)] = "=MAX(S2:S{})".format(q)
+            # ws['P{}'.format(t)] = "=MAX(P2:P{})".format(q)
+            # ws['Q{}'.format(t)] = "=MAX(Q2:Q{})".format(q)
+            # ws['R{}'.format(t)] = "=MAX(R2:R{})".format(q)
+            # ws['S{}'.format(t)] = "=MAX(S2:S{})".format(q)
 
             # JML
             ws['T{}'.format(r)] = "=MAX(T2:T{})".format(q)
-            # Z MAT 1, MAT 2, IND, ENG
+            # Z MAT, FIS, KIM, BIO
             ws['U{}'.format(r)] = "=MAX(U2:U{})".format(q)
             ws['V{}'.format(r)] = "=MAX(V2:V{})".format(q)
             ws['W{}'.format(r)] = "=MAX(W2:W{})".format(q)
             ws['X{}'.format(r)] = "=MAX(X2:X{})".format(q)
-            # Z SEJ, EKO, SOS, GEO, ANT
+            # Z SOS, EKO, SEJ, GEO, ANT
             ws['Y{}'.format(r)] = "=MAX(Y2:Y{})".format(q)
             ws['Z{}'.format(r)] = "=MAX(Z2:Z{})".format(q)
             ws['AA{}'.format(r)] = "=MAX(AA2:AA{})".format(q)
             ws['AB{}'.format(r)] = "=MAX(AB2:AB{})".format(q)
             ws['AC{}'.format(r)] = "=MAX(AC2:AC{})".format(q)
             # Z BIO, FIS, KIM 1, KIM 2
-            ws['AD{}'.format(r)] = "=MAX(AD2:AD{})".format(q)
-            ws['AE{}'.format(r)] = "=MAX(AE2:AE{})".format(q)
-            ws['AF{}'.format(r)] = "=MAX(AF2:AF{})".format(q)
-            ws['AG{}'.format(r)] = "=MAX(AG2:AG{})".format(q)
+            # ws['AD{}'.format(r)] = "=MAX(AD2:AD{})".format(q)
+            # ws['AE{}'.format(r)] = "=MAX(AE2:AE{})".format(q)
+            # ws['AF{}'.format(r)] = "=MAX(AF2:AF{})".format(q)
+            # ws['AG{}'.format(r)] = "=MAX(AG2:AG{})".format(q)
 
-            # S MAT 1, MAT 2, IND, ENG
+            # S MAT, FIS, KIM, BIO
             ws['AH{}'.format(r)] = "=MAX(AH2:AH{})".format(q)
             ws['AI{}'.format(r)] = "=MAX(AI2:AI{})".format(q)
             ws['AJ{}'.format(r)] = "=MAX(AJ2:AJ{})".format(q)
             ws['AK{}'.format(r)] = "=MAX(AK2:AK{})".format(q)
-            # S SEJ, EKO, SOS, GEO, ANT
+            # S SOS, EKO, SEJ, GEO, ANT
             ws['AL{}'.format(r)] = "=MAX(AL2:AL{})".format(q)
             ws['AM{}'.format(r)] = "=MAX(AM2:AM{})".format(q)
             ws['AN{}'.format(r)] = "=MAX(AN2:AN{})".format(q)
             ws['AO{}'.format(r)] = "=MAX(AO2:AO{})".format(q)
             ws['AP{}'.format(r)] = "=MAX(AP2:AP{})".format(q)
             # S BIO, FIS, KIM 1, KIM 2
-            ws['AQ{}'.format(r)] = "=MAX(AQ2:AQ{})".format(q)
-            ws['AR{}'.format(r)] = "=MAX(AR2:AR{})".format(q)
-            ws['AS{}'.format(r)] = "=MAX(AS2:AS{})".format(q)
-            ws['AT{}'.format(r)] = "=MAX(AT2:AT{})".format(q)
+            # ws['AQ{}'.format(r)] = "=MAX(AQ2:AQ{})".format(q)
+            # ws['AR{}'.format(r)] = "=MAX(AR2:AR{})".format(q)
+            # ws['AS{}'.format(r)] = "=MAX(AS2:AS{})".format(q)
+            # ws['AT{}'.format(r)] = "=MAX(AT2:AT{})".format(q)
             # S JML, RANK NAS, RANK LOK
             ws['AU{}'.format(r)] = "=MAX(AU2:AU{})".format(q)
             ws['AV{}'.format(r)] = "=MAX(AV2:AV{})".format(q)
             ws['AW{}'.format(r)] = "=MAX(AW2:AW{})".format(q)
 
-            # MIN MAT 1, MAT 2, IND, ENG
+            # MIN MAT, FIS, KIM, BIO
             ws['G{}'.format(u)] = "=MIN(G2:G{})".format(q)
             ws['H{}'.format(u)] = "=MIN(H2:H{})".format(q)
             ws['I{}'.format(u)] = "=MIN(I2:I{})".format(q)
             ws['J{}'.format(u)] = "=MIN(J2:J{})".format(q)
-            # MIN SEJ, EKO, SOS, GEO, ANT
+            # MIN SOS, EKO, SEJ, GEO, ANT
             ws['K{}'.format(u)] = "=MIN(K2:K{})".format(q)
             ws['L{}'.format(u)] = "=MIN(L2:L{})".format(q)
             ws['M{}'.format(u)] = "=MIN(M2:M{})".format(q)
             ws['N{}'.format(u)] = "=MIN(N2:N{})".format(q)
             ws['O{}'.format(u)] = "=MIN(O2:O{})".format(q)
             # MIN BIO, FIS, KIM 1, KIM 2
-            ws['P{}'.format(u)] = "=MIN(P2:P{})".format(q)
-            ws['Q{}'.format(u)] = "=MIN(Q2:Q{})".format(q)
-            ws['R{}'.format(u)] = "=MIN(R2:R{})".format(q)
-            ws['S{}'.format(u)] = "=MIN(S2:S{})".format(q)
+            # ws['P{}'.format(u)] = "=MIN(P2:P{})".format(q)
+            # ws['Q{}'.format(u)] = "=MIN(Q2:Q{})".format(q)
+            # ws['R{}'.format(u)] = "=MIN(R2:R{})".format(q)
+            # ws['S{}'.format(u)] = "=MIN(S2:S{})".format(q)
 
-            # S MAT 1, MAT 2, IND, ENG
+            # S MAT, FIS, KIM, BIO
             ws['AH{}'.format(s)] = "=MIN(AH2:AH{})".format(q)
             ws['AI{}'.format(s)] = "=MIN(AI2:AI{})".format(q)
             ws['AJ{}'.format(s)] = "=MIN(AJ2:AJ{})".format(q)
             ws['AK{}'.format(s)] = "=MIN(AK2:AK{})".format(q)
-            # S SEJ, EKO, SOS, GEO, ANT
+            # S SOS, EKO, SEJ, GEO, ANT
             ws['AL{}'.format(s)] = "=MIN(AL2:AL{})".format(q)
             ws['AM{}'.format(s)] = "=MIN(AM2:AM{})".format(q)
             ws['AN{}'.format(s)] = "=MIN(AN2:AN{})".format(q)
             ws['AO{}'.format(s)] = "=MIN(AO2:AO{})".format(q)
             ws['AP{}'.format(s)] = "=MIN(AP2:AP{})".format(q)
             # S BIO, FIS, KIM 1, KIM 2
-            ws['AQ{}'.format(s)] = "=MIN(AQ2:AQ{})".format(q)
-            ws['AR{}'.format(s)] = "=MIN(AR2:AR{})".format(q)
-            ws['AS{}'.format(s)] = "=MIN(AS2:AS{})".format(q)
-            ws['AT{}'.format(s)] = "=MIN(AT2:AT{})".format(q)
+            # ws['AQ{}'.format(s)] = "=MIN(AQ2:AQ{})".format(q)
+            # ws['AR{}'.format(s)] = "=MIN(AR2:AR{})".format(q)
+            # ws['AS{}'.format(s)] = "=MIN(AS2:AS{})".format(q)
+            # ws['AT{}'.format(s)] = "=MIN(AT2:AT{})".format(q)
             # S JML
             ws['AU{}'.format(s)] = "=MIN(AU2:AU{})".format(q)
             
-            # S MAT 1, MAT 2, IND, ENG
+            # S MAT, FIS, KIM, BIO
             ws['AH{}'.format(t)] = "=ROUND(AVERAGE(AH2:AH{}),2)".format(q)
             ws['AI{}'.format(t)] = "=ROUND(AVERAGE(AI2:AI{}),2)".format(q)
             ws['AJ{}'.format(t)] = "=ROUND(AVERAGE(AJ2:AJ{}),2)".format(q)
             ws['AK{}'.format(t)] = "=ROUND(AVERAGE(AK2:AK{}),2)".format(q)
-            # S SEJ, EKO, SOS, GEO, ANT
+            # S SOS, EKO, SEJ, GEO, ANT
             ws['AL{}'.format(t)] = "=ROUND(AVERAGE(AL2:AL{}),2)".format(q)
             ws['AM{}'.format(t)] = "=ROUND(AVERAGE(AM2:AM{}),2)".format(q)
             ws['AN{}'.format(t)] = "=ROUND(AVERAGE(AN2:AN{}),2)".format(q)
             ws['AO{}'.format(t)] = "=ROUND(AVERAGE(AO2:AO{}),2)".format(q)
             ws['AP{}'.format(t)] = "=ROUND(AVERAGE(AP2:AP{}),2)".format(q)
             # S BIO, FIS, KIM 1, KIM 2
-            ws['AQ{}'.format(t)] = "=ROUND(AVERAGE(AQ2:AQ{}),2)".format(q)
-            ws['AR{}'.format(t)] = "=ROUND(AVERAGE(AR2:AR{}),2)".format(q)
-            ws['AS{}'.format(t)] = "=ROUND(AVERAGE(AS2:AS{}),2)".format(q)
-            ws['AT{}'.format(t)] = "=ROUND(AVERAGE(AT2:AT{}),2)".format(q)
+            # ws['AQ{}'.format(t)] = "=ROUND(AVERAGE(AQ2:AQ{}),2)".format(q)
+            # ws['AR{}'.format(t)] = "=ROUND(AVERAGE(AR2:AR{}),2)".format(q)
+            # ws['AS{}'.format(t)] = "=ROUND(AVERAGE(AS2:AS{}),2)".format(q)
+            # ws['AT{}'.format(t)] = "=ROUND(AVERAGE(AT2:AT{}),2)".format(q)
             # S JML
             ws['AU{}'.format(t)] = "=ROUND(AVERAGE(AU2:AU{}),2)".format(q)
 
-            # MAT 1 20, MAT 2 20, IND 20, ENG 20 
+            # MAT 20, FIS 20, KIM 20, BIO 20
             ws['AX{}'.format(r)] = "=SUM(AX2:AX{})".format(q)
             ws['AY{}'.format(r)] = "=SUM(AY2:AY{})".format(q)
             ws['AZ{}'.format(r)] = "=SUM(AZ2:AZ{})".format(q)
             ws['BA{}'.format(r)] = "=SUM(BA2:BA{})".format(q)
-            # SEJ 20, EKO 2 20, SOS 20, GEO 20, ANT 20
+            # SOS 20, EKO 20, SEJ 20, GEO 20, ANT 20
             ws['BB{}'.format(r)] = "=SUM(BB2:BB{})".format(q)
             ws['BC{}'.format(r)] = "=SUM(BC2:BC{})".format(q)
             ws['BD{}'.format(r)] = "=SUM(BD2:BD{})".format(q)
             ws['BE{}'.format(r)] = "=SUM(BE2:BE{})".format(q)
             ws['BF{}'.format(r)] = "=SUM(BF2:BF{})".format(q)
             # BIO 20, FIS 20, KIM 1 20, KIM 2 20
-            ws['BG{}'.format(r)] = "=SUM(BG2:BG{})".format(q)
-            ws['BH{}'.format(r)] = "=SUM(BH2:BH{})".format(q)
-            ws['BI{}'.format(r)] = "=SUM(BI2:BI{})".format(q)
-            ws['BJ{}'.format(r)] = "=SUM(BJ2:BJ{})".format(q)
+            # ws['BG{}'.format(r)] = "=SUM(BG2:BG{})".format(q)
+            # ws['BH{}'.format(r)] = "=SUM(BH2:BH{})".format(q)
+            # ws['BI{}'.format(r)] = "=SUM(BI2:BI{})".format(q)
+            # ws['BJ{}'.format(r)] = "=SUM(BJ2:BJ{})".format(q)
 
             # Jumlah Soal
             ws['F{}'.format(v)] = 'JUMLAH SOAL'
-            ws['G{}'.format(v)] = JML_SOAL_MAT_1
-            ws['H{}'.format(v)] = JML_SOAL_MAT_2
-            ws['I{}'.format(v)] = JML_SOAL_IND
-            ws['J{}'.format(v)] = JML_SOAL_ENG
-            ws['K{}'.format(v)] = JML_SOAL_SEJ
-            ws['L{}'.format(v)] = JML_SOAL_GEO
-            ws['M{}'.format(v)] = JML_SOAL_EKO
-            ws['N{}'.format(v)] = JML_SOAL_SOS
+            ws['G{}'.format(v)] = JML_SOAL_MAT
+            ws['H{}'.format(v)] = JML_SOAL_FIS
+            ws['I{}'.format(v)] = JML_SOAL_KIM
+            ws['J{}'.format(v)] = JML_SOAL_BIO
+            ws['K{}'.format(v)] = JML_SOAL_SOS
+            ws['L{}'.format(v)] = JML_SOAL_EKO
+            ws['M{}'.format(v)] = JML_SOAL_SEJ
+            ws['N{}'.format(v)] = JML_SOAL_GEO
             ws['O{}'.format(v)] = JML_SOAL_ANT
-            ws['P{}'.format(v)] = JML_SOAL_BIO
-            ws['Q{}'.format(v)] = JML_SOAL_FIS
-            ws['R{}'.format(v)] = JML_SOAL_KIM_1
+            # ws['P{}'.format(v)] = JML_SOAL_BIO
+            # ws['Q{}'.format(v)] = JML_SOAL_FIS
+            # ws['R{}'.format(v)] = JML_SOAL_KIM_1
             # ws['S{}'.format(v)] = JML_SOAL_KIM_2
 
             # new
             # iterasi 1 rata-rata - 1
-            # rata" MTK 1 ke MTK 1 tambahan dan mapel MTK 1 awal
+            # rata" MTK ke MTK tambahan dan mapel MTK awal
             ws['BQ{}'.format(r)] = "=IF($AX${}=0,$G${},$G${}-1)".format(r, r, r)
             ws['BQ{}'.format(s)] = "=STDEV(BQ2:BQ{})".format(q)
             ws['BQ{}'.format(t)] = "=MAX(BQ2:BQ{})".format(q)
             ws['BQ{}'.format(u)] = "=MIN(BQ2:BQ{})".format(q)
-            # rata" MTK 2 ke MTK 2 tambahan dan mapel MTK 2 awal
+            # rata" FIS ke FIS tambahan dan mapel FIS awal
             ws['BR{}'.format(r)] = "=IF($AY${}=0,$H${},$H${}-1)".format(r, r, r)
             ws['BR{}'.format(s)] = "=STDEV(BR2:BR{})".format(q)
             ws['BR{}'.format(t)] = "=MAX(BR2:BR{})".format(q)
             ws['BR{}'.format(u)] = "=MIN(BR2:BR{})".format(q)
-            # rata" IND ke IND tambahan dan mapel IND awal
+            # rata" KIM ke KIM tambahan dan mapel KIM awal
             ws['BS{}'.format(r)] = "=IF($AZ${}=0,$I${},$I${}-1)".format(r, r, r)
             ws['BS{}'.format(s)] = "=STDEV(BS2:BS{})".format(q)
             ws['BS{}'.format(t)] = "=MAX(BS2:BS{})".format(q)
             ws['BS{}'.format(u)] = "=MIN(BS2:BS{})".format(q)
-            # rata" ENG ke ENG tambahan dan mapel ENG awal
+            # rata" BIO ke BIO tambahan dan mapel BIO awal
             ws['BT{}'.format(r)] = "=IF($BA${}=0,$J${},$J${}-1)".format(r, r, r)
             ws['BT{}'.format(s)] = "=STDEV(BT2:BT{})".format(q)
             ws['BT{}'.format(t)] = "=MAX(BT2:BT{})".format(q)
             ws['BT{}'.format(u)] = "=MIN(BT2:BT{})".format(q)
-            # rata" SEJ ke SEJ tambahan dan mapel SEJ awal
+            # rata" SOS ke SOS tambahan dan mapel SOS awal
             ws['BU{}'.format(r)] = "=IF($BB${}=0,$K${},$K${}-1)".format(r, r, r)
             ws['BU{}'.format(s)] = "=STDEV(BU2:BU{})".format(q)
             ws['BU{}'.format(t)] = "=MAX(BU2:BU{})".format(q)
@@ -13632,7 +13631,7 @@ if authentication_status:
             ws['BV{}'.format(s)] = "=STDEV(BV2:BV{})".format(q)
             ws['BV{}'.format(t)] = "=MAX(BV2:BV{})".format(q)
             ws['BV{}'.format(u)] = "=MIN(BV2:BV{})".format(q)
-            # rata" SOS ke SOS tambahan dan mapel SOS awal
+            # rata" SEJ ke SEJ tambahan dan mapel SEJ awal
             ws['BW{}'.format(r)] = "=IF($BD${}=0,$M${},$M${}-1)".format(r, r, r)
             ws['BW{}'.format(s)] = "=STDEV(BW2:BW{})".format(q)
             ws['BW{}'.format(t)] = "=MAX(BW2:BW{})".format(q)
@@ -13648,63 +13647,63 @@ if authentication_status:
             ws['BY{}'.format(t)] = "=MAX(BY2:BY{})".format(q)
             ws['BY{}'.format(u)] = "=MIN(BY2:BY{})".format(q)
             # rata" BIO ke BIO tambahan dan mapel BIO awal
-            ws['BZ{}'.format(r)] = "=IF($BG${}=0,$P${},$P${}-1)".format(r, r, r)
-            ws['BZ{}'.format(s)] = "=STDEV(BZ2:BZ{})".format(q)
-            ws['BZ{}'.format(t)] = "=MAX(BZ2:BZ{})".format(q)
-            ws['BZ{}'.format(u)] = "=MIN(BZ2:BZ{})".format(q)
+            # ws['BZ{}'.format(r)] = "=IF($BG${}=0,$P${},$P${}-1)".format(r, r, r)
+            # ws['BZ{}'.format(s)] = "=STDEV(BZ2:BZ{})".format(q)
+            # ws['BZ{}'.format(t)] = "=MAX(BZ2:BZ{})".format(q)
+            # ws['BZ{}'.format(u)] = "=MIN(BZ2:BZ{})".format(q)
             # rata" FIS ke FIS tambahan dan mapel FIS awal
-            ws['CA{}'.format(r)] = "=IF($BH${}=0,$Q${},$Q${}-1)".format(r, r, r)
-            ws['CA{}'.format(s)] = "=STDEV(CA2:CA{})".format(q)
-            ws['CA{}'.format(t)] = "=MAX(CA2:CA{})".format(q)
-            ws['CA{}'.format(u)] = "=MIN(CA2:CA{})".format(q)
+            # ws['CA{}'.format(r)] = "=IF($BH${}=0,$Q${},$Q${}-1)".format(r, r, r)
+            # ws['CA{}'.format(s)] = "=STDEV(CA2:CA{})".format(q)
+            # ws['CA{}'.format(t)] = "=MAX(CA2:CA{})".format(q)
+            # ws['CA{}'.format(u)] = "=MIN(CA2:CA{})".format(q)
             # rata" KIM 1 ke KIM 1 tambahan dan mapel KIM 1 awal
-            ws['CB{}'.format(r)] = "=IF($BI${}=0,$R${},$R${}-1)".format(r, r, r)
-            ws['CB{}'.format(s)] = "=STDEV(CB2:CB{})".format(q)
-            ws['CB{}'.format(t)] = "=MAX(CB2:CB{})".format(q)
-            ws['CB{}'.format(u)] = "=MIN(CB2:CB{})".format(q)
+            # ws['CB{}'.format(r)] = "=IF($BI${}=0,$R${},$R${}-1)".format(r, r, r)
+            # ws['CB{}'.format(s)] = "=STDEV(CB2:CB{})".format(q)
+            # ws['CB{}'.format(t)] = "=MAX(CB2:CB{})".format(q)
+            # ws['CB{}'.format(u)] = "=MIN(CB2:CB{})".format(q)
             # rata" KIM 2 ke KIM 2 tambahan dan mapel KIM 2 awal
-            ws['CC{}'.format(r)] = "=IF($BJ${}=0,$S${},$S${}-1)".format(r, r, r)
-            ws['CC{}'.format(s)] = "=STDEV(CC2:CC{})".format(q)
-            ws['CC{}'.format(t)] = "=MAX(CC2:CC{})".format(q)
-            ws['CC{}'.format(u)] = "=MIN(CC2:CC{})".format(q)
+            # ws['CC{}'.format(r)] = "=IF($BJ${}=0,$S${},$S${}-1)".format(r, r, r)
+            # ws['CC{}'.format(s)] = "=STDEV(CC2:CC{})".format(q)
+            # ws['CC{}'.format(t)] = "=MAX(CC2:CC{})".format(q)
+            # ws['CC{}'.format(u)] = "=MIN(CC2:CC{})".format(q)
             # JML BENAR
             ws['CD{}'.format(r)] = "=ROUND(AVERAGE(CD2:CD{}),2)".format(q)
             ws['CD{}'.format(t)] = "=MAX(CD2:CD{})".format(q)
             ws['CD{}'.format(u)] = "=MIN(CD2:CD{})".format(q)
-            # MAX Z SCORE MAT 1, MAT 2, IND, ENG
+            # MAX Z SCORE MAT, FIS, KIM, BIO
             ws['CE{}'.format(r)] = "=MAX(CE2:CE{})".format(q)
             ws['CF{}'.format(r)] = "=MAX(CF2:CF{})".format(q)
             ws['CG{}'.format(r)] = "=MAX(CG2:CG{})".format(q)
             ws['CH{}'.format(r)] = "=MAX(CH2:CH{})".format(q)
-            # MAX Z SCORE SEJ, EKO, SOS, GEO, ANT
+            # MAX Z SCORE SOS, EKO, SEJ, GEO, ANT
             ws['CI{}'.format(r)] = "=MAX(CI2:CI{})".format(q)
             ws['CJ{}'.format(r)] = "=MAX(CJ2:CJ{})".format(q)
             ws['CK{}'.format(r)] = "=MAX(CK2:CK{})".format(q)
             ws['CL{}'.format(r)] = "=MAX(CL2:CL{})".format(q)
             ws['CM{}'.format(r)] = "=MAX(CM2:CM{})".format(q)
             # MAX Z SCORE BIO, FIS, KIM 1, KIM 2
-            ws['CN{}'.format(r)] = "=MAX(CN2:CN{})".format(q)
-            ws['CO{}'.format(r)] = "=MAX(CO2:CO{})".format(q)
-            ws['CP{}'.format(r)] = "=MAX(CP2:CP{})".format(q)
-            ws['CQ{}'.format(r)] = "=MAX(CQ2:CQ{})".format(q)
+            # ws['CN{}'.format(r)] = "=MAX(CN2:CN{})".format(q)
+            # ws['CO{}'.format(r)] = "=MAX(CO2:CO{})".format(q)
+            # ws['CP{}'.format(r)] = "=MAX(CP2:CP{})".format(q)
+            # ws['CQ{}'.format(r)] = "=MAX(CQ2:CQ{})".format(q)
 
-            # NILAI STANDAR MTK 1
+            # NILAI STANDAR MTK
             ws['CR{}'.format(r)] = "=MAX(CR2:CR{})".format(q)
             ws['CR{}'.format(s)] = "=MIN(CR2:CR{})".format(q)
             ws['CR{}'.format(t)] = "=ROUND(AVERAGE(CR2:CR{}),2)".format(q)
-            # NILAI STANDAR MTK 1
+            # NILAI STANDAR FIS
             ws['CS{}'.format(r)] = "=MAX(CS2:CS{})".format(q)
             ws['CS{}'.format(s)] = "=MIN(CS2:CS{})".format(q)
             ws['CS{}'.format(t)] = "=ROUND(AVERAGE(CS2:CS{}),2)".format(q)
-            # NILAI STANDAR IND
+            # NILAI STANDAR KIM
             ws['CT{}'.format(r)] = "=MAX(CT2:CT{})".format(q)
             ws['CT{}'.format(s)] = "=MIN(CT2:CT{})".format(q)
             ws['CT{}'.format(t)] = "=ROUND(AVERAGE(CT2:CT{}),2)".format(q)
-            # NILAI STANDAR ENG
+            # NILAI STANDAR BIO
             ws['CU{}'.format(r)] = "=MAX(CU2:CU{})".format(q)
             ws['CU{}'.format(s)] = "=MIN(CU2:CU{})".format(q)
             ws['CU{}'.format(t)] = "=ROUND(AVERAGE(CU2:CU{}),2)".format(q)
-            # NILAI STANDAR SEJ
+            # NILAI STANDAR SOS
             ws['CV{}'.format(r)] = "=MAX(CV2:CV{})".format(q)
             ws['CV{}'.format(s)] = "=MIN(CV2:CV{})".format(q)
             ws['CV{}'.format(t)] = "=ROUND(AVERAGE(CV2:CV{}),2)".format(q)
@@ -13712,7 +13711,7 @@ if authentication_status:
             ws['CW{}'.format(r)] = "=MAX(CW2:CW{})".format(q)
             ws['CW{}'.format(s)] = "=MIN(CW2:CW{})".format(q)
             ws['CW{}'.format(t)] = "=ROUND(AVERAGE(CW2:CW{}),2)".format(q)
-            # NILAI STANDAR SOS
+            # NILAI STANDAR SEJ
             ws['CX{}'.format(r)] = "=MAX(CX2:CX{})".format(q)
             ws['CX{}'.format(s)] = "=MIN(CX2:CX{})".format(q)
             ws['CX{}'.format(t)] = "=ROUND(AVERAGE(CX2:CX{}),2)".format(q)
@@ -13725,43 +13724,43 @@ if authentication_status:
             ws['CZ{}'.format(s)] = "=MIN(CZ2:CZ{})".format(q)
             ws['CZ{}'.format(t)] = "=ROUND(AVERAGE(CZ2:CZ{}),2)".format(q)
             # NILAI STANDAR BIO
-            ws['DA{}'.format(r)] = "=MAX(DA2:DA{})".format(q)
-            ws['DA{}'.format(s)] = "=MIN(DA2:DA{})".format(q)
-            ws['DA{}'.format(t)] = "=ROUND(AVERAGE(DA2:DA{}),2)".format(q)
+            # ws['DA{}'.format(r)] = "=MAX(DA2:DA{})".format(q)
+            # ws['DA{}'.format(s)] = "=MIN(DA2:DA{})".format(q)
+            # ws['DA{}'.format(t)] = "=ROUND(AVERAGE(DA2:DA{}),2)".format(q)
             # NILAI STANDAR FIS
-            ws['DB{}'.format(r)] = "=MAX(DB2:DB{})".format(q)
-            ws['DB{}'.format(s)] = "=MIN(DB2:DB{})".format(q)
-            ws['DB{}'.format(t)] = "=ROUND(AVERAGE(DB2:DB{}),2)".format(q)
+            # ws['DB{}'.format(r)] = "=MAX(DB2:DB{})".format(q)
+            # ws['DB{}'.format(s)] = "=MIN(DB2:DB{})".format(q)
+            # ws['DB{}'.format(t)] = "=ROUND(AVERAGE(DB2:DB{}),2)".format(q)
             # NILAI STANDAR KIM 1
-            ws['DC{}'.format(r)] = "=MAX(DC2:DC{})".format(q)
-            ws['DC{}'.format(s)] = "=MIN(DC2:DC{})".format(q)
-            ws['DC{}'.format(t)] = "=ROUND(AVERAGE(DC2:DC{}),2)".format(q)
+            # ws['DC{}'.format(r)] = "=MAX(DC2:DC{})".format(q)
+            # ws['DC{}'.format(s)] = "=MIN(DC2:DC{})".format(q)
+            # ws['DC{}'.format(t)] = "=ROUND(AVERAGE(DC2:DC{}),2)".format(q)
             # NILAI STANDAR KIM 2
-            ws['DD{}'.format(r)] = "=MAX(DD2:DD{})".format(q)
-            ws['DD{}'.format(s)] = "=MIN(DD2:DD{})".format(q)
-            ws['DD{}'.format(t)] = "=ROUND(AVERAGE(DD2:DD{}),2)".format(q)
+            # ws['DD{}'.format(r)] = "=MAX(DD2:DD{})".format(q)
+            # ws['DD{}'.format(s)] = "=MIN(DD2:DD{})".format(q)
+            # ws['DD{}'.format(t)] = "=ROUND(AVERAGE(DD2:DD{}),2)".format(q)
             # NILAI STANDAR JML
-            ws['DE{}'.format(r)] = "=MAX(DE2:DE{})".format(q)
-            ws['DE{}'.format(s)] = "=MIN(DE2:DE{})".format(q)
-            ws['DE{}'.format(t)] = "=ROUND(AVERAGE(DE2:DE{}),2)".format(q)
+            # ws['DE{}'.format(r)] = "=MAX(DE2:DE{})".format(q)
+            # ws['DE{}'.format(s)] = "=MIN(DE2:DE{})".format(q)
+            # ws['DE{}'.format(t)] = "=ROUND(AVERAGE(DE2:DE{}),2)".format(q)
 
             # TAMBAHAN
-            # MTK 1, MTK 2, IND, ENG
+            # MAT, FIS, KIM, BIO
             ws['DH{}'.format(r)] = "=SUM(DH2:DH{})".format(q)
             ws['DI{}'.format(r)] = "=SUM(DI2:DI{})".format(q)
             ws['DJ{}'.format(r)] = "=SUM(DJ2:DJ{})".format(q)
             ws['DK{}'.format(r)] = "=SUM(DK2:DK{})".format(q)
-            # SEJ, EKO, SOS, GEO, ANT
+            # SOS, EKO, SEJ, GEO, ANT
             ws['DL{}'.format(r)] = "=SUM(DL2:DL{})".format(q)
             ws['DM{}'.format(r)] = "=SUM(DM2:DM{})".format(q)
             ws['DN{}'.format(r)] = "=SUM(DN2:DN{})".format(q)
             ws['DO{}'.format(r)] = "=SUM(DO2:DO{})".format(q)
             ws['DP{}'.format(r)] = "=SUM(DP2:DP{})".format(q)
             # BIO, FIS, KIM 1, KIM 2
-            ws['DQ{}'.format(r)] = "=SUM(DQ2:DQ{})".format(q)
-            ws['DR{}'.format(r)] = "=SUM(DR2:DR{})".format(q)
-            ws['DS{}'.format(r)] = "=SUM(DS2:DS{})".format(q)
-            ws['DT{}'.format(r)] = "=SUM(DT2:DT{})".format(q)
+            # ws['DQ{}'.format(r)] = "=SUM(DQ2:DQ{})".format(q)
+            # ws['DR{}'.format(r)] = "=SUM(DR2:DR{})".format(q)
+            # ws['DS{}'.format(r)] = "=SUM(DS2:DS{})".format(q)
+            # ws['DT{}'.format(r)] = "=SUM(DT2:DT{})".format(q)
 
             # iterasi 2 rata-rata - 2
             # rata" MTK 1 ke MTK 1 tambahan dan mapel MTK 1 awal
