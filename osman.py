@@ -808,7 +808,7 @@ if authentication_status:
                                 placeholder="B9x1X01002425PPLS")
             
             col5, col6, col7, col8, col9 = st.columns(5)
-            with col8:
+            with col5:
                 ppls_sos = st.text_input("Kode Paket SOS",
                                 placeholder="L9x1X01002425PPLS")
             with col6:
