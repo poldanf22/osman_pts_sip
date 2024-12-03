@@ -56,7 +56,8 @@ if authentication_status:
                      "Nilai Std. 10, 11 IPS (K13)",
                      "Nilai Std. 11 SMA (KM)",
                      "Nilai Std. 10, 11, PPLS IPA",
-                     "Nilai Std. PPLS IPS"],
+                     "Nilai Std. PPLS IPS",
+                     "Nilai Std. PPLS"],
         )
    
     # k13
