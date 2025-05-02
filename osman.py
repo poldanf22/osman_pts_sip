@@ -316,15 +316,12 @@ if authentication_status:
                 k13_6sd_eng = st.text_input("Kode Paket B.ING",
                                 placeholder="E6d2O0123-24K13")
             with col6:
-                k13_6sd_ipa = st.text_input("Kode Paket IPA",
-                                placeholder="A6d2O0123-24K13")
-            with col7:
-                k13_6sd_ips = st.text_input("Kode Paket IPS",
-                                placeholder="Z6d2O0123-24K13")
+                k13_6sd_ipas = st.text_input("Kode Paket IPAS",
+                                placeholder="31k02D22425")
             k13_6sd = [k13_6sd_mat, k13_6sd_ind,
-                   k13_6sd_eng, k13_6sd_ipa, k13_6sd_ips]
+                   k13_6sd_eng, k13_6sd_ipas]
             column_order_k13_6sd = ['IDTAHUN', 'NAMA', 'NONF', 'KELAS', 'NAMA_SKLH', 'KD_LOK', 'MAT_6SD', 'IND_6SD',
-                                    'ENG_6SD', 'IPA_6SD', 'IPS_6SD']
+                                    'ENG_6SD', 'IPAS_6SD']
 
         # Kode Paket 6 SD KM
         elif KURIKULUM == 'KM' and KELAS == '6 SD':
@@ -954,7 +951,7 @@ if authentication_status:
                 columns={'name': 'NAMA', 'no_nf': 'NONF', 'lokasi_id': 'KD_LOK', 'sekolah': 'NAMA_SKLH', 'kelas_id': 'KELAS', 'tahun_ajaran': 'IDTAHUN',
                          k13_4sd_mat: 'MAT_4SD', k13_4sd_ind: 'IND_4SD', k13_4sd_eng: 'ENG_4SD', k13_4sd_ipa: 'IPA_4SD', k13_4sd_ips: 'IPS_4SD',
                          k13_5sd_mat: 'MAT_5SD', k13_5sd_ind: 'IND_5SD', k13_5sd_eng: 'ENG_5SD', k13_5sd_ipa: 'IPA_5SD', k13_5sd_ips: 'IPS_5SD',
-                         k13_6sd_mat: 'MAT_6SD', k13_6sd_ind: 'IND_6SD', k13_6sd_eng: 'ENG_6SD', k13_6sd_ipa: 'IPA_6SD', k13_6sd_ips: 'IPS_6SD',
+                         k13_6sd_mat: 'MAT_6SD', k13_6sd_ind: 'IND_6SD', k13_6sd_eng: 'ENG_6SD', k13_6sd_ipas: 'IPAS_6SD',
                          k13_7smp_mat: 'MAT_7SMP', k13_7smp_ind: 'IND_7SMP', k13_7smp_eng: 'ENG_7SMP', k13_7smp_ipa: 'IPA_7SMP', k13_7smp_ips: 'IPS_7SMP',
                          k13_8smp_mat: 'MAT_8SMP', k13_8smp_ind: 'IND_8SMP', k13_8smp_eng: 'ENG_8SMP', k13_8smp_ipa: 'IPA_8SMP', k13_8smp_ips: 'IPS_8SMP',
                          k13_9smp_mat: 'MAT_9SMP', k13_9smp_ind: 'IND_9SMP', k13_9smp_eng: 'ENG_9SMP', k13_9smp_ipa: 'IPA_9SMP', k13_9smp_ips: 'IPS_9SMP',
