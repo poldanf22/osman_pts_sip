@@ -305,7 +305,7 @@ if authentication_status:
         # Kode Paket 6 SD K13
         elif KURIKULUM == 'K13' and KELAS == '6 SD':
             st.subheader("Input Kode Paket Kelas 6 SD K13")
-            col3, col4, col5, col6, col7 = st.columns(5)
+            col3, col4, col5, col6 = st.columns(4)
             with col3:
                 k13_6sd_mat = st.text_input("Kode Paket MTK",
                                 placeholder="M6d2O0123-24K13")
