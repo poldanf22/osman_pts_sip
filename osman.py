@@ -2440,7 +2440,7 @@ if authentication_status:
                 "Buka file unduhan, klik 'Enable Editing' dan 'Save'")
            
   
-    if selected_file == "SMP (KM), 10 - 11 SMA (KM)" :  
+    if selected_file == "Nilai Std. SMP (KM), 10 - 11 SMA (KM)" :  
     # menghilangkan hamburger
         st.markdown("""
         <style>
