@@ -3031,11 +3031,11 @@ if authentication_status:
                 ws['Y{}'.format(
                     row)] = '=IF(X{}="","",COUNTIFS($F$2:$F${},F{},$X$2:$X${},"<"&X{})+1)'.format(row, q, row, q, row)
                 # TAMBAHAN
-                ws['Z{}'.format(row)] = '=IF(R{}=20; IF(G{} > ($G${}/5 - 1); 1; ""); "")'.format(row, row, v)
-                ws['AA{}'.format(row)] = '=IF(S{}=20; IF(H{} > ($H${}/5 - 1); 1; ""); "")'.format(row, row, v)
-                ws['AB{}'.format(row)] = '=IF(T{}=20; IF(I{} > ($I${}/5 - 1); 1; ""); "")'.format(row, row, v)
-                ws['AC{}'.format(row)] = '=IF(U{}=20; IF(J{} > ($J${}/5 - 1); 1; ""); "")'.format(row, row, v)
-                ws['AD{}'.format(row)] = '=IF(V{}=20; IF(K{} > ($K${}/5 - 1); 1; ""); "")'.format(row, row, v)
+                ws['Z{}'.format(row)] = '=IF(R{}=20, IF(G{} > ($G${}/5 - 1);,1;,"");,"")'.format(row, row, v)
+                ws['AA{}'.format(row)] = '=IF(S{}=20, IF(H{} > ($H${}/5 - 1);,1;,"");,"")'.format(row, row, v)
+                ws['AB{}'.format(row)] = '=IF(T{}=20, IF(I{} > ($I${}/5 - 1);,1;,"");,"")'.format(row, row, v)
+                ws['AC{}'.format(row)] = '=IF(U{}=20, IF(J{} > ($J${}/5 - 1);,1;,"");,"")'.format(row, row, v)
+                ws['AD{}'.format(row)] = '=IF(V{}=20, IF(K{} > ($K${}/5 - 1);,1;,"");,"")'.format(row, row, v)
 
         # new Z Score
             ws['AF1'] = 'NAMA_SISWA_2'
@@ -3188,11 +3188,11 @@ if authentication_status:
                 ws['BC{}'.format(
                     row)] = '=IF(BB{}="","",COUNTIFS($AJ$2:$AJ${},F{},$BB$2:$BB${},"<"&BB{})+1)'.format(row, q, row, q, row)
             #     TAMBAHAN
-                ws['BD{}'.format(row)] = '=IF(AV{}=20; IF(AK{} > ($G${}/5 - 1); 1; ""); "")'.format(row, row, v)
-                ws['BE{}'.format(row)] = '=IF(AW{}=20; IF(AL{} > ($H${}/5 - 1); 1; ""); "")'.format(row, row, v)
-                ws['BF{}'.format(row)] = '=IF(AX{}=20; IF(AM{} > ($I${}/5 - 1); 1; ""); "")'.format(row, row, v)
-                ws['BG{}'.format(row)] = '=IF(AY{}=20; IF(AN{} > ($J${}/5 - 1); 1; ""); "")'.format(row, row, v)
-                ws['BH{}'.format(row)] = '=IF(AZ{}=20; IF(AO{} > ($K${}/5 - 1); 1; ""); "")'.format(row, row, v)
+                ws['BD{}'.format(row)] = '=IF(AV{}=20, IF(AK{} > ($G${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['BE{}'.format(row)] = '=IF(AW{}=20, IF(AL{} > ($H${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['BF{}'.format(row)] = '=IF(AX{}=20, IF(AM{} > ($I${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['BG{}'.format(row)] = '=IF(AY{}=20, IF(AN{} > ($J${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['BH{}'.format(row)] = '=IF(AZ{}=20, IF(AO{} > ($K${}/5 - 1), 1, ""), "")'.format(row, row, v)
 
                 # new Z Score [2]
             ws['BJ1'] = 'NAMA_SISWA_3'
@@ -3345,11 +3345,11 @@ if authentication_status:
                 ws['CG{}'.format(
                     row)] = '=IF(CF{}="","",COUNTIFS($BN$2:$BN${},F{},$CF$2:$CF${},"<"&CF{})+1)'.format(row, q, row, q, row)
                 #     TAMBAHAN
-                ws['CH{}'.format(row)] = '=IF(BZ{}=20; IF(BO{} > ($G${}/5 - 1); 1; ""); "")'.format(row, row, v)
-                ws['CI{}'.format(row)] = '=IF(CA{}=20; IF(BP{} > ($H${}/5 - 1); 1; ""); "")'.format(row, row, v)
-                ws['CJ{}'.format(row)] = '=IF(CB{}=20; IF(BQ{} > ($I${}/5 - 1); 1; ""); "")'.format(row, row, v)
-                ws['CK{}'.format(row)] = '=IF(CC{}=20; IF(BR{} > ($J${}/5 - 1); 1; ""); "")'.format(row, row, v)
-                ws['CL{}'.format(row)] = '=IF(CD{}=20; IF(BS{} > ($K${}/5 - 1); 1; ""); "")'.format(row, row, v)
+                ws['CH{}'.format(row)] = '=IF(BZ{}=20, IF(BO{} > ($G${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['CI{}'.format(row)] = '=IF(CA{}=20, IF(BP{} > ($H${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['CJ{}'.format(row)] = '=IF(CB{}=20, IF(BQ{} > ($I${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['CK{}'.format(row)] = '=IF(CC{}=20, IF(BR{} > ($J${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['CL{}'.format(row)] = '=IF(CD{}=20, IF(BS{} > ($K${}/5 - 1), 1, ""), "")'.format(row, row, v)
 
                 # new Z Score [3]
             ws['CN1'] = 'NAMA_SISWA_4'
@@ -3502,11 +3502,11 @@ if authentication_status:
                 ws['DK{}'.format(
                     row)] = '=IF(DJ{}="","",COUNTIFS($CR$2:$CR${},F{},$DJ$2:$DJ${},"<"&DJ{})+1)'.format(row, q, row, q, row)
                 #     TAMBAHAN
-                ws['DL{}'.format(row)] = '=IF(DD{}=20; IF(CS{} > ($G${}/5 - 1); 1; ""); "")'.format(row, row, v)
-                ws['DM{}'.format(row)] = '=IF(DE{}=20; IF(CT{} > ($H${}/5 - 1); 1; ""); "")'.format(row, row, v)
-                ws['DN{}'.format(row)] = '=IF(DF{}=20; IF(CU{} > ($I${}/5 - 1); 1; ""); "")'.format(row, row, v)
-                ws['DO{}'.format(row)] = '=IF(DG{}=20; IF(CV{} > ($J${}/5 - 1); 1; ""); "")'.format(row, row, v)
-                ws['DP{}'.format(row)] = '=IF(DH{}=20; IF(CW{} > ($K${}/5 - 1); 1; ""); "")'.format(row, row, v)
+                ws['DL{}'.format(row)] = '=IF(DD{}=20, IF(CS{} > ($G${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['DM{}'.format(row)] = '=IF(DE{}=20, IF(CT{} > ($H${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['DN{}'.format(row)] = '=IF(DF{}=20, IF(CU{} > ($I${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['DO{}'.format(row)] = '=IF(DG{}=20, IF(CV{} > ($J${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['DP{}'.format(row)] = '=IF(DH{}=20, IF(CW{} > ($K${}/5 - 1), 1, ""), "")'.format(row, row, v)
 
             # new Z Score [4]
             ws['DR1'] = 'NAMA_SISWA_5'
@@ -3659,11 +3659,11 @@ if authentication_status:
                 ws['EO{}'.format(
                     row)] = '=IF(EN{}="","",COUNTIFS($DV$2:$DV${},F{},$EN$2:$EN${},"<"&EN{})+1)'.format(row, q, row, q, row)
                 #     TAMBAHAN
-                ws['EP{}'.format(row)] = '=IF(EH{}=20; IF(DW{} > ($G${}/5 - 1); 1; ""); "")'.format(row, row, v)
-                ws['EQ{}'.format(row)] = '=IF(EI{}=20; IF(DX{} > ($H${}/5 - 1); 1; ""); "")'.format(row, row, v)
-                ws['ER{}'.format(row)] = '=IF(EJ{}=20; IF(DY{} > ($I${}/5 - 1); 1; ""); "")'.format(row, row, v)
-                ws['ES{}'.format(row)] = '=IF(EK{}=20; IF(DZ{} > ($J${}/5 - 1); 1; ""); "")'.format(row, row, v)
-                ws['ET{}'.format(row)] = '=IF(EL{}=20; IF(EA{} > ($K${}/5 - 1); 1; ""); "")'.format(row, row, v)
+                ws['EP{}'.format(row)] = '=IF(EH{}=20, IF(DW{} > ($G${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['EQ{}'.format(row)] = '=IF(EI{}=20, IF(DX{} > ($H${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['ER{}'.format(row)] = '=IF(EJ{}=20, IF(DY{} > ($I${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['ES{}'.format(row)] = '=IF(EK{}=20, IF(DZ{} > ($J${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['ET{}'.format(row)] = '=IF(EL{}=20, IF(EA{} > ($K${}/5 - 1), 1, ""), "")'.format(row, row, v)
 
                 # new Z Score [5]
             ws['EV1'] = 'NAMA SISWA'
@@ -3816,11 +3816,11 @@ if authentication_status:
                 ws['FS{}'.format(
                     row)] = '=IF(FR{}="","",COUNTIFS($EZ$2:$EZ${},F{},$FR$2:$FR${},"<"&FR{})+1)'.format(row, q, row, q, row)
                 #     TAMBAHAN
-                ws['FT{}'.format(row)] = '=IF(FL{}=20; IF(FA{} > ($G${}/5 - 1); 1; ""); "")'.format(row, row, v)
-                ws['FU{}'.format(row)] = '=IF(FM{}=20; IF(FB{} > ($H${}/5 - 1); 1; ""); "")'.format(row, row, v)
-                ws['FV{}'.format(row)] = '=IF(FN{}=20; IF(FC{} > ($I${}/5 - 1); 1; ""); "")'.format(row, row, v)
-                ws['FW{}'.format(row)] = '=IF(FO{}=20; IF(FD{} > ($J${}/5 - 1); 1; ""); "")'.format(row, row, v)
-                ws['FX{}'.format(row)] = '=IF(FP{}=20; IF(FE{} > ($K${}/5 - 1); 1; ""); "")'.format(row, row, v)
+                ws['FT{}'.format(row)] = '=IF(FL{}=20, IF(FA{} > ($G${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['FU{}'.format(row)] = '=IF(FM{}=20, IF(FB{} > ($H${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['FV{}'.format(row)] = '=IF(FN{}=20, IF(FC{} > ($I${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['FW{}'.format(row)] = '=IF(FO{}=20, IF(FD{} > ($J${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['FX{}'.format(row)] = '=IF(FP{}=20, IF(FE{} > ($K${}/5 - 1), 1, ""), "")'.format(row, row, v)
 
             # Mengubah 'KELAS' sesuai dengan nilai yang dipilih dari selectbox 'KELAS'
             kelas = KELAS.lower().replace(" ", "")
