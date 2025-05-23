@@ -8077,13 +8077,13 @@ if authentication_status:
                 ws['DC{}'.format(
                     row)] = '=IF(DB{}="","",COUNTIFS($CD$2:$CD${},CD{},$DB$2:$DB${},"<"&DB{})+1)'.format(row, q, row, q, row)
             # TAMBAHAN, MAPEL DAN NILAI STANDAR
-                ws['DD{}'.format(row)] = '=IF(CE{}=20, IF(G{} > ($G${}/5 - 1), 1, ""), "")'.format(row, row, v)
-                ws['DE{}'.format(row)] = '=IF(CF{}=20, IF(H{} > ($H${}/5 - 1), 1, ""), "")'.format(row, row, v)
-                ws['DF{}'.format(row)] = '=IF(CG{}=20, IF(I{} > ($I${}/5 - 1), 1, ""), "")'.format(row, row, v)
-                ws['DG{}'.format(row)] = '=IF(CH{}=20, IF(J{} > ($J${}/5 - 1), 1, ""), "")'.format(row, row, v)
-                ws['DH{}'.format(row)] = '=IF(CI{}=20, IF(K{} > ($K${}/5 - 1), 1, ""), "")'.format(row, row, v)
-                ws['DI{}'.format(row)] = '=IF(CJ{}=20, IF(L{} > ($L${}/5 - 1), 1, ""), "")'.format(row, row, v)
-                ws['DJ{}'.format(row)] = '=IF(CK{}=20, IF(M{} > ($M${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['DD{}'.format(row)] = '=IF(CT{}=20, IF(G{} > ($G${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['DE{}'.format(row)] = '=IF(CU{}=20, IF(H{} > ($H${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['DF{}'.format(row)] = '=IF(CV{}=20, IF(I{} > ($I${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['DG{}'.format(row)] = '=IF(CW{}=20, IF(J{} > ($J${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['DH{}'.format(row)] = '=IF(CX{}=20, IF(K{} > ($K${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['DI{}'.format(row)] = '=IF(CY{}=20, IF(L{} > ($L${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['DJ{}'.format(row)] = '=IF(CZ{}=20, IF(M{} > ($M${}/5 - 1), 1, ""), "")'.format(row, row, v)
 
             # Z Score [4]
             ws['DL1'] = 'NAMA SISWA_D'
