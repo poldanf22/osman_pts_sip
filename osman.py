@@ -12840,10 +12840,10 @@ if authentication_status:
                 ws['BV{}'.format(
                     row)] = '=IF(BU{}="","",COUNTIFS($BF$2:$BF${},BF{},$BU$2:$BU${},"<"&BU{})+1)'.format(row, q, row, q, row)
                 # TAMBAHAN
-                ws['BW{}'.format(row)] = '=IF(BG{}=20, IF(G{} > ($G${}/5 - 1), 1, ""), "")'.format(row, row, v)
-                ws['BX{}'.format(row)] = '=IF(BH{}=20, IF(H{} > ($H${}/5 - 1), 1, ""), "")'.format(row, row, v)
-                ws['BY{}'.format(row)] = '=IF(BI{}=20, IF(I{} > ($I${}/5 - 1), 1, ""), "")'.format(row, row, v)
-                ws['BZ{}'.format(row)] = '=IF(BJ{}=20, IF(J{} > ($J${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['BW{}'.format(row)] = '=IF(BP{}=20, IF(G{} > ($G${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['BX{}'.format(row)] = '=IF(BQ{}=20, IF(H{} > ($H${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['BY{}'.format(row)] = '=IF(BR{}=20, IF(I{} > ($I${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['BZ{}'.format(row)] = '=IF(BS{}=20, IF(J{} > ($J${}/5 - 1), 1, ""), "")'.format(row, row, v)
 
             # Z Score iterasi 3
             ws['CB1'] = 'NAMA SISWA_D'
