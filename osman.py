@@ -7653,20 +7653,13 @@ if authentication_status:
                 ws['AE{}'.format(
                     row)] = '=IF(AD{}="","",COUNTIFS($F$2:$F${},F{},$AD$2:$AD${},"<"&AD{})+1)'.format(row, q, row, q, row)
             # TAMBAHAN
-                ws['AF{}'.format(row)] = '=IF($G${}=20,IF(AND(G{}>3,V{}=20),1,""),IF($G${}=25,IF(AND(G{}>4,V{}=20),1,""),IF($G${}=30,IF(AND(G{}>5,V{}=20),1,""),IF($G${}=35,IF(AND(G{}>6,V{}=20),1,""),IF($G${}=40,IF(AND(G{}>7,V{}=20),1,""),IF($G${}=45,IF(AND(G{}>8,V{}=20),1,"")))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['AG{}'.format(row)] = '=IF($H${}=20,IF(AND(H{}>3,W{}=20),1,""),IF($H${}=25,IF(AND(H{}>4,W{}=20),1,""),IF($H${}=30,IF(AND(H{}>5,W{}=20),1,""),IF($H${}=35,IF(AND(H{}>6,W{}=20),1,""),IF($H${}=40,IF(AND(H{}>7,W{}=20),1,""),IF($H${}=45,IF(AND(H{}>8,W{}=20),1,"")))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['AH{}'.format(row)] = '=IF($I${}=20,IF(AND(I{}>3,X{}=20),1,""),IF($I${}=25,IF(AND(I{}>4,X{}=20),1,""),IF($I${}=30,IF(AND(I{}>5,X{}=20),1,""),IF($I${}=35,IF(AND(I{}>6,X{}=20),1,""),IF($I${}=40,IF(AND(I{}>7,X{}=20),1,""),IF($I${}=45,IF(AND(I{}>8,X{}=20),1,"")))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['AI{}'.format(row)] = '=IF($J${}=20,IF(AND(J{}>3,Y{}=20),1,""),IF($J${}=25,IF(AND(J{}>4,Y{}=20),1,""),IF($J${}=30,IF(AND(J{}>5,Y{}=20),1,""),IF($J${}=35,IF(AND(J{}>6,Y{}=20),1,""),IF($J${}=40,IF(AND(J{}>7,Y{}=20),1,""),IF($J${}=45,IF(AND(J{}>8,Y{}=20),1,"")))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['AJ{}'.format(row)] = '=IF($K${}=20,IF(AND(K{}>3,Z{}=20),1,""),IF($K${}=25,IF(AND(K{}>4,Z{}=20),1,""),IF($K${}=30,IF(AND(K{}>5,Z{}=20),1,""),IF($K${}=35,IF(AND(K{}>6,Z{}=20),1,""),IF($K${}=40,IF(AND(K{}>7,Z{}=20),1,""),IF($K${}=45,IF(AND(K{}>8,Z{}=20),1,"")))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['AK{}'.format(row)] = '=IF($L${}=20,IF(AND(L{}>3,AA{}=20),1,""),IF($L${}=25,IF(AND(L{}>4,AA{}=20),1,""),IF($L${}=30,IF(AND(L{}>5,AA{}=20),1,""),IF($L${}=35,IF(AND(L{}>6,AA{}=20),1,""),IF($L${}=40,IF(AND(L{}>7,AA{}=20),1,""),IF($L${}=45,IF(AND(L{}>8,AA{}=20),1,"")))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['AL{}'.format(row)] = '=IF($M${}=20,IF(AND(M{}>3,AB{}=20),1,""),IF($M${}=25,IF(AND(M{}>4,AB{}=20),1,""),IF($M${}=30,IF(AND(M{}>5,AB{}=20),1,""),IF($M${}=35,IF(AND(M{}>6,AB{}=20),1,""),IF($M${}=40,IF(AND(M{}>7,AB{}=20),1,""),IF($M${}=45,IF(AND(M{}>8,AB{}=20),1,"")))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['AF{}'.format(row)] = '=IF(V{}=20, IF(G{} > ($G${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['AG{}'.format(row)] = '=IF(W{}=20, IF(H{} > ($H${}/5 - 1), 1, ""), "")'.format(row, row, v) 
+                ws['AH{}'.format(row)] = '=IF(X{}=20, IF(I{} > ($I${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['AI{}'.format(row)] = '=IF(Y{}=20, IF(J{} > ($J${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['AJ{}'.format(row)] = '=IF(Z{}=20, IF(K{} > ($K${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['AK{}'.format(row)] = '=IF(AA{}=20, IF(L{} > ($L${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['AL{}'.format(row)] = '=IF(AB{}=20, IF(M{} > ($M${}/5 - 1), 1, ""), "")'.format(row, row, v)
 
             # Z Score [2]
             ws['AN1'] = 'NAMA SISWA_B'
@@ -7868,20 +7861,13 @@ if authentication_status:
                 ws['BQ{}'.format(
                     row)] = '=IF(BP{}="","",COUNTIFS($AR$2:$AR${},AR{},$BP$2:$BP${},"<"&BP{})+1)'.format(row, q, row, q, row)
             # TAMBAHAN, MAPEL DAN NILAI STANDAR
-                ws['BR{}'.format(row)] = '=IF($G${}=20,IF(AND(AS{}>3,BH{}=20),1,""),IF($G${}=25,IF(AND(AS{}>4,BH{}=20),1,""),IF($G${}=30,IF(AND(AS{}>5,BH{}=20),1,""),IF($G${}=35,IF(AND(AS{}>6,BH{}=20),1,""),IF($G${}=40,IF(AND(AS{}>7,BH{}=20),1,""),IF($G${}=45,IF(AND(AS{}>8,BH{}=20),1,"")))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['BS{}'.format(row)] = '=IF($H${}=20,IF(AND(AT{}>3,BI{}=20),1,""),IF($H${}=25,IF(AND(AT{}>4,BI{}=20),1,""),IF($H${}=30,IF(AND(AT{}>5,BI{}=20),1,""),IF($H${}=35,IF(AND(AT{}>6,BI{}=20),1,""),IF($H${}=40,IF(AND(AT{}>7,BI{}=20),1,""),IF($H${}=45,IF(AND(AT{}>8,BI{}=20),1,"")))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['BT{}'.format(row)] = '=IF($I${}=20,IF(AND(AU{}>3,BJ{}=20),1,""),IF($I${}=25,IF(AND(AU{}>4,BJ{}=20),1,""),IF($I${}=30,IF(AND(AU{}>5,BJ{}=20),1,""),IF($I${}=35,IF(AND(AU{}>6,BJ{}=20),1,""),IF($I${}=40,IF(AND(AU{}>7,BJ{}=20),1,""),IF($I${}=45,IF(AND(AU{}>8,BJ{}=20),1,"")))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['BU{}'.format(row)] = '=IF($J${}=20,IF(AND(AV{}>3,BK{}=20),1,""),IF($J${}=25,IF(AND(AV{}>4,BK{}=20),1,""),IF($J${}=30,IF(AND(AV{}>5,BK{}=20),1,""),IF($J${}=35,IF(AND(AV{}>6,BK{}=20),1,""),IF($J${}=40,IF(AND(AV{}>7,BK{}=20),1,""),IF($J${}=45,IF(AND(AV{}>8,BK{}=20),1,"")))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['BV{}'.format(row)] = '=IF($K${}=20,IF(AND(AW{}>3,BL{}=20),1,""),IF($K${}=25,IF(AND(AW{}>4,BL{}=20),1,""),IF($K${}=30,IF(AND(AW{}>5,BL{}=20),1,""),IF($K${}=35,IF(AND(AW{}>6,BL{}=20),1,""),IF($K${}=40,IF(AND(AW{}>7,BL{}=20),1,""),IF($K${}=45,IF(AND(AW{}>8,BL{}=20),1,"")))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['BW{}'.format(row)] = '=IF($L${}=20,IF(AND(AX{}>3,BM{}=20),1,""),IF($L${}=25,IF(AND(AX{}>4,BM{}=20),1,""),IF($L${}=30,IF(AND(AX{}>5,BM{}=20),1,""),IF($L${}=35,IF(AND(AX{}>6,BM{}=20),1,""),IF($L${}=40,IF(AND(AX{}>7,BM{}=20),1,""),IF($L${}=45,IF(AND(AX{}>8,BM{}=20),1,"")))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['BX{}'.format(row)] = '=IF($M${}=20,IF(AND(AY{}>3,BN{}=20),1,""),IF($M${}=25,IF(AND(AY{}>4,BN{}=20),1,""),IF($M${}=30,IF(AND(AY{}>5,BN{}=20),1,""),IF($M${}=35,IF(AND(AY{}>6,BN{}=20),1,""),IF($M${}=40,IF(AND(AY{}>7,BN{}=20),1,""),IF($M${}=45,IF(AND(AY{}>8,BN{}=20),1,"")))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['BR{}'.format(row)] = '=IF(BH{}=20, IF(G{} > ($G${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['BS{}'.format(row)] = '=IF(BI{}=20, IF(H{} > ($H${}/5 - 1), 1, ""), "")'.format(row, row, v) 
+                ws['BT{}'.format(row)] = '=IF(BJ{}=20, IF(I{} > ($I${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['BU{}'.format(row)] = '=IF(BK{}=20, IF(J{} > ($J${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['BV{}'.format(row)] = '=IF(BL{}=20, IF(K{} > ($K${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['BW{}'.format(row)] = '=IF(BM{}=20, IF(L{} > ($L${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['BX{}'.format(row)] = '=IF(BN{}=20, IF(M{} > ($M${}/5 - 1), 1, ""), "")'.format(row, row, v)
 
             # Z Score [3]
             ws['BZ1'] = 'NAMA SISWA_C'
@@ -8091,20 +8077,13 @@ if authentication_status:
                 ws['DC{}'.format(
                     row)] = '=IF(DB{}="","",COUNTIFS($CD$2:$CD${},CD{},$DB$2:$DB${},"<"&DB{})+1)'.format(row, q, row, q, row)
             # TAMBAHAN, MAPEL DAN NILAI STANDAR
-                ws['DD{}'.format(row)] = '=IF($G${}=20,IF(AND(CE{}>3,CT{}=20),1,""),IF($G${}=25,IF(AND(CE{}>4,CT{}=20),1,""),IF($G${}=30,IF(AND(CE{}>5,CT{}=20),1,""),IF($G${}=35,IF(AND(CE{}>6,CT{}=20),1,""),IF($G${}=40,IF(AND(CE{}>7,CT{}=20),1,""),IF($G${}=45,IF(AND(CE{}>8,CT{}=20),1,"")))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['DE{}'.format(row)] = '=IF($H${}=20,IF(AND(CF{}>3,CU{}=20),1,""),IF($H${}=25,IF(AND(CF{}>4,CU{}=20),1,""),IF($H${}=30,IF(AND(CF{}>5,CU{}=20),1,""),IF($H${}=35,IF(AND(CF{}>6,CU{}=20),1,""),IF($H${}=40,IF(AND(CF{}>7,CU{}=20),1,""),IF($H${}=45,IF(AND(CF{}>8,CU{}=20),1,"")))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['DF{}'.format(row)] = '=IF($I${}=20,IF(AND(CG{}>3,CV{}=20),1,""),IF($I${}=25,IF(AND(CG{}>4,CV{}=20),1,""),IF($I${}=30,IF(AND(CG{}>5,CV{}=20),1,""),IF($I${}=35,IF(AND(CG{}>6,CV{}=20),1,""),IF($I${}=40,IF(AND(CG{}>7,CV{}=20),1,""),IF($I${}=45,IF(AND(CG{}>8,CV{}=20),1,"")))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['DG{}'.format(row)] = '=IF($J${}=20,IF(AND(CH{}>3,CW{}=20),1,""),IF($J${}=25,IF(AND(CH{}>4,CW{}=20),1,""),IF($J${}=30,IF(AND(CH{}>5,CW{}=20),1,""),IF($J${}=35,IF(AND(CH{}>6,CW{}=20),1,""),IF($J${}=40,IF(AND(CH{}>7,CW{}=20),1,""),IF($J${}=45,IF(AND(CH{}>8,CW{}=20),1,"")))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['DH{}'.format(row)] = '=IF($K${}=20,IF(AND(CI{}>3,CX{}=20),1,""),IF($K${}=25,IF(AND(CI{}>4,CX{}=20),1,""),IF($K${}=30,IF(AND(CI{}>5,CX{}=20),1,""),IF($K${}=35,IF(AND(CI{}>6,CX{}=20),1,""),IF($K${}=40,IF(AND(CI{}>7,CX{}=20),1,""),IF($K${}=45,IF(AND(CI{}>8,CX{}=20),1,"")))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['DI{}'.format(row)] = '=IF($L${}=20,IF(AND(CJ{}>3,CY{}=20),1,""),IF($L${}=25,IF(AND(CJ{}>4,CY{}=20),1,""),IF($L${}=30,IF(AND(CJ{}>5,CY{}=20),1,""),IF($L${}=35,IF(AND(CJ{}>6,CY{}=20),1,""),IF($L${}=40,IF(AND(CJ{}>7,CY{}=20),1,""),IF($L${}=45,IF(AND(CJ{}>8,CY{}=20),1,"")))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['DJ{}'.format(row)] = '=IF($M${}=20,IF(AND(CK{}>3,CZ{}=20),1,""),IF($M${}=25,IF(AND(CK{}>4,CZ{}=20),1,""),IF($M${}=30,IF(AND(CK{}>5,CZ{}=20),1,""),IF($M${}=35,IF(AND(CK{}>6,CZ{}=20),1,""),IF($M${}=40,IF(AND(CK{}>7,CZ{}=20),1,""),IF($M${}=45,IF(AND(CK{}>8,CZ{}=20),1,"")))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['DD{}'.format(row)] = '=IF(CE{}=20, IF(G{} > ($G${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['DE{}'.format(row)] = '=IF(CF{}=20, IF(H{} > ($H${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['DF{}'.format(row)] = '=IF(CG{}=20, IF(I{} > ($I${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['DG{}'.format(row)] = '=IF(CH{}=20, IF(J{} > ($J${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['DH{}'.format(row)] = '=IF(CI{}=20, IF(K{} > ($K${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['DI{}'.format(row)] = '=IF(CJ{}=20, IF(L{} > ($L${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['DJ{}'.format(row)] = '=IF(CK{}=20, IF(M{} > ($M${}/5 - 1), 1, ""), "")'.format(row, row, v)
 
             # Z Score [4]
             ws['DL1'] = 'NAMA SISWA_D'
@@ -8314,20 +8293,13 @@ if authentication_status:
                 ws['EO{}'.format(
                     row)] = '=IF(EN{}="","",COUNTIFS($DP$2:$DP${},DP{},$EN$2:$EN${},"<"&EN{})+1)'.format(row, q, row, q, row)
             # TAMBAHAN, MAPEL DAN NILAI STANDAR
-                ws['EP{}'.format(row)] = '=IF($G${}=20,IF(AND(DQ{}>3,EF{}=20),1,""),IF($G${}=25,IF(AND(DQ{}>4,EF{}=20),1,""),IF($G${}=30,IF(AND(DQ{}>5,EF{}=20),1,""),IF($G${}=35,IF(AND(DQ{}>6,EF{}=20),1,""),IF($G${}=40,IF(AND(DQ{}>7,EF{}=20),1,""),IF($G${}=45,IF(AND(DQ{}>8,EF{}=20),1,"")))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['EQ{}'.format(row)] = '=IF($H${}=20,IF(AND(DR{}>3,EG{}=20),1,""),IF($H${}=25,IF(AND(DR{}>4,EG{}=20),1,""),IF($H${}=30,IF(AND(DR{}>5,EG{}=20),1,""),IF($H${}=35,IF(AND(DR{}>6,EG{}=20),1,""),IF($H${}=40,IF(AND(DR{}>7,EG{}=20),1,""),IF($H${}=45,IF(AND(DR{}>8,EG{}=20),1,"")))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['ER{}'.format(row)] = '=IF($I${}=20,IF(AND(DS{}>3,EH{}=20),1,""),IF($I${}=25,IF(AND(DS{}>4,EH{}=20),1,""),IF($I${}=30,IF(AND(DS{}>5,EH{}=20),1,""),IF($I${}=35,IF(AND(DS{}>6,EH{}=20),1,""),IF($I${}=40,IF(AND(DS{}>7,EH{}=20),1,""),IF($I${}=45,IF(AND(DS{}>8,EH{}=20),1,"")))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['ES{}'.format(row)] = '=IF($J${}=20,IF(AND(DT{}>3,EI{}=20),1,""),IF($J${}=25,IF(AND(DT{}>4,EI{}=20),1,""),IF($J${}=30,IF(AND(DT{}>5,EI{}=20),1,""),IF($J${}=35,IF(AND(DT{}>6,EI{}=20),1,""),IF($J${}=40,IF(AND(DT{}>7,EI{}=20),1,""),IF($J${}=45,IF(AND(DT{}>8,EI{}=20),1,"")))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['ET{}'.format(row)] = '=IF($K${}=20,IF(AND(DU{}>3,EJ{}=20),1,""),IF($K${}=25,IF(AND(DU{}>4,EJ{}=20),1,""),IF($K${}=30,IF(AND(DU{}>5,EJ{}=20),1,""),IF($K${}=35,IF(AND(DU{}>6,EJ{}=20),1,""),IF($K${}=40,IF(AND(DU{}>7,EJ{}=20),1,""),IF($K${}=45,IF(AND(DU{}>8,EJ{}=20),1,"")))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['EU{}'.format(row)] = '=IF($L${}=20,IF(AND(DV{}>3,EK{}=20),1,""),IF($L${}=25,IF(AND(DV{}>4,EK{}=20),1,""),IF($L${}=30,IF(AND(DV{}>5,EK{}=20),1,""),IF($L${}=35,IF(AND(DV{}>6,EK{}=20),1,""),IF($L${}=40,IF(AND(DV{}>7,EK{}=20),1,""),IF($L${}=45,IF(AND(DV{}>8,EK{}=20),1,"")))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['EV{}'.format(row)] = '=IF($M${}=20,IF(AND(DW{}>3,EL{}=20),1,""),IF($M${}=25,IF(AND(DW{}>4,EL{}=20),1,""),IF($M${}=30,IF(AND(DW{}>5,EL{}=20),1,""),IF($M${}=35,IF(AND(DW{}>6,EL{}=20),1,""),IF($M${}=40,IF(AND(DW{}>7,EL{}=20),1,""),IF($M${}=45,IF(AND(DW{}>8,EL{}=20),1,"")))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['EP{}'.format(row)] = '=IF(EF{}=20, IF(G{} > ($G${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['EQ{}'.format(row)] = '=IF(EG{}=20, IF(H{} > ($H${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['ER{}'.format(row)] = '=IF(EH{}=20, IF(I{} > ($I${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['ES{}'.format(row)] = '=IF(EI{}=20, IF(J{} > ($J${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['ET{}'.format(row)] = '=IF(EJ{}=20, IF(K{} > ($K${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['EU{}'.format(row)] = '=IF(EK{}=20, IF(L{} > ($L${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['EV{}'.format(row)] = '=IF(EL{}=20, IF(M{} > ($M${}/5 - 1), 1, ""), "")'.format(row, row, v)
 
             # Z Score [5]
             ws['EX1'] = 'NAMA SISWA_E'
@@ -8537,20 +8509,13 @@ if authentication_status:
                 ws['GA{}'.format(
                     row)] = '=IF(FZ{}="","",COUNTIFS($FB$2:$FB${},FB{},$FZ$2:$FZ${},"<"&FZ{})+1)'.format(row, q, row, q, row)
             # TAMBAHAN, MAPEL DAN NILAI STANDAR
-                ws['GB{}'.format(row)] = '=IF($G${}=20,IF(AND(FC{}>3,FR{}=20),1,""),IF($G${}=25,IF(AND(FC{}>4,FR{}=20),1,""),IF($G${}=30,IF(AND(FC{}>5,FR{}=20),1,""),IF($G${}=35,IF(AND(FC{}>6,FR{}=20),1,""),IF($G${}=40,IF(AND(FC{}>7,FR{}=20),1,""),IF($G${}=45,IF(AND(FC{}>8,FR{}=20),1,"")))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['GC{}'.format(row)] = '=IF($H${}=20,IF(AND(FD{}>3,FS{}=20),1,""),IF($H${}=25,IF(AND(FD{}>4,FS{}=20),1,""),IF($H${}=30,IF(AND(FD{}>5,FS{}=20),1,""),IF($H${}=35,IF(AND(FD{}>6,FS{}=20),1,""),IF($H${}=40,IF(AND(FD{}>7,FS{}=20),1,""),IF($H${}=45,IF(AND(FD{}>8,FS{}=20),1,"")))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['GD{}'.format(row)] = '=IF($I${}=20,IF(AND(FE{}>3,FT{}=20),1,""),IF($I${}=25,IF(AND(FE{}>4,FT{}=20),1,""),IF($I${}=30,IF(AND(FE{}>5,FT{}=20),1,""),IF($I${}=35,IF(AND(FE{}>6,FT{}=20),1,""),IF($I${}=40,IF(AND(FE{}>7,FT{}=20),1,""),IF($I${}=45,IF(AND(FE{}>8,FT{}=20),1,"")))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['GE{}'.format(row)] = '=IF($J${}=20,IF(AND(FF{}>3,FU{}=20),1,""),IF($J${}=25,IF(AND(FF{}>4,FU{}=20),1,""),IF($J${}=30,IF(AND(FF{}>5,FU{}=20),1,""),IF($J${}=35,IF(AND(FF{}>6,FU{}=20),1,""),IF($J${}=40,IF(AND(FF{}>7,FU{}=20),1,""),IF($J${}=45,IF(AND(FF{}>8,FU{}=20),1,"")))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['GF{}'.format(row)] = '=IF($K${}=20,IF(AND(FG{}>3,FV{}=20),1,""),IF($K${}=25,IF(AND(FG{}>4,FV{}=20),1,""),IF($K${}=30,IF(AND(FG{}>5,FV{}=20),1,""),IF($K${}=35,IF(AND(FG{}>6,FV{}=20),1,""),IF($K${}=40,IF(AND(FG{}>7,FV{}=20),1,""),IF($K${}=45,IF(AND(FG{}>8,FV{}=20),1,"")))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['GG{}'.format(row)] = '=IF($L${}=20,IF(AND(FH{}>3,FW{}=20),1,""),IF($L${}=25,IF(AND(FH{}>4,FW{}=20),1,""),IF($L${}=30,IF(AND(FH{}>5,FW{}=20),1,""),IF($L${}=35,IF(AND(FH{}>6,FW{}=20),1,""),IF($L${}=40,IF(AND(FH{}>7,FW{}=20),1,""),IF($L${}=45,IF(AND(FH{}>8,FW{}=20),1,"")))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['GH{}'.format(row)] = '=IF($M${}=20,IF(AND(FI{}>3,FX{}=20),1,""),IF($M${}=25,IF(AND(FI{}>4,FX{}=20),1,""),IF($M${}=30,IF(AND(FI{}>5,FX{}=20),1,""),IF($M${}=35,IF(AND(FI{}>6,FX{}=20),1,""),IF($M${}=40,IF(AND(FI{}>7,FX{}=20),1,""),IF($M${}=45,IF(AND(FI{}>8,FX{}=20),1,"")))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['GB{}'.format(row)] = '=IF(FR{}=20, IF(G{} > ($G${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['GC{}'.format(row)] = '=IF(FS{}=20, IF(H{} > ($H${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['GD{}'.format(row)] = '=IF(FT{}=20, IF(I{} > ($I${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['GE{}'.format(row)] = '=IF(FU{}=20, IF(J{} > ($J${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['GF{}'.format(row)] = '=IF(FV{}=20, IF(K{} > ($K${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['GG{}'.format(row)] = '=IF(FW{}=20, IF(L{} > ($L${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['GH{}'.format(row)] = '=IF(FX{}=20, IF(M{} > ($M${}/5 - 1), 1, ""), "")'.format(row, row, v)
 
             # Z Score
             ws['GJ1'] = 'NAMA SISWA'
@@ -8760,20 +8725,13 @@ if authentication_status:
                 ws['HM{}'.format(
                     row)] = '=IF(HL{}="","",COUNTIFS($GN$2:$GN${},GN{},$HL$2:$HL${},"<"&HL{})+1)'.format(row, q, row, q, row)
             # TAMBAHAN, MAPEL DAN NILAI STANDAR
-                ws['HN{}'.format(row)] = '=IF($G${}=20,IF(AND(GO{}>3,HD{}=20),1,""),IF($G${}=25,IF(AND(GO{}>4,HD{}=20),1,""),IF($G${}=30,IF(AND(GO{}>5,HD{}=20),1,""),IF($G${}=35,IF(AND(GO{}>6,HD{}=20),1,""),IF($G${}=40,IF(AND(GO{}>7,HD{}=20),1,""),IF($G${}=45,IF(AND(GO{}>8,HD{}=20),1,"")))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['HO{}'.format(row)] = '=IF($H${}=20,IF(AND(GP{}>3,HE{}=20),1,""),IF($H${}=25,IF(AND(GP{}>4,HE{}=20),1,""),IF($H${}=30,IF(AND(GP{}>5,HE{}=20),1,""),IF($H${}=35,IF(AND(GP{}>6,HE{}=20),1,""),IF($H${}=40,IF(AND(GP{}>7,HE{}=20),1,""),IF($H${}=45,IF(AND(GP{}>8,HE{}=20),1,"")))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['HP{}'.format(row)] = '=IF($I${}=20,IF(AND(GQ{}>3,HF{}=20),1,""),IF($I${}=25,IF(AND(GQ{}>4,HF{}=20),1,""),IF($I${}=30,IF(AND(GQ{}>5,HF{}=20),1,""),IF($I${}=35,IF(AND(GQ{}>6,HF{}=20),1,""),IF($I${}=40,IF(AND(GQ{}>7,HF{}=20),1,""),IF($I${}=45,IF(AND(GQ{}>8,HF{}=20),1,"")))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['HQ{}'.format(row)] = '=IF($J${}=20,IF(AND(GR{}>3,HG{}=20),1,""),IF($J${}=25,IF(AND(GR{}>4,HG{}=20),1,""),IF($J${}=30,IF(AND(GR{}>5,HG{}=20),1,""),IF($J${}=35,IF(AND(GR{}>6,HG{}=20),1,""),IF($J${}=40,IF(AND(GR{}>7,HG{}=20),1,""),IF($J${}=45,IF(AND(GR{}>8,HG{}=20),1,"")))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['HR{}'.format(row)] = '=IF($K${}=20,IF(AND(GS{}>3,HH{}=20),1,""),IF($K${}=25,IF(AND(GS{}>4,HH{}=20),1,""),IF($K${}=30,IF(AND(GS{}>5,HH{}=20),1,""),IF($K${}=35,IF(AND(GS{}>6,HH{}=20),1,""),IF($K${}=40,IF(AND(GS{}>7,HH{}=20),1,""),IF($K${}=45,IF(AND(GS{}>8,HH{}=20),1,"")))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['HS{}'.format(row)] = '=IF($L${}=20,IF(AND(GT{}>3,HI{}=20),1,""),IF($L${}=25,IF(AND(GT{}>4,HI{}=20),1,""),IF($L${}=30,IF(AND(GT{}>5,HI{}=20),1,""),IF($L${}=35,IF(AND(GT{}>6,HI{}=20),1,""),IF($L${}=40,IF(AND(GT{}>7,HI{}=20),1,""),IF($L${}=45,IF(AND(GT{}>8,HI{}=20),1,"")))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['HT{}'.format(row)] = '=IF($M${}=20,IF(AND(GU{}>3,HJ{}=20),1,""),IF($M${}=25,IF(AND(GU{}>4,HJ{}=20),1,""),IF($M${}=30,IF(AND(GU{}>5,HJ{}=20),1,""),IF($M${}=35,IF(AND(GU{}>6,HJ{}=20),1,""),IF($M${}=40,IF(AND(GU{}>7,HJ{}=20),1,""),IF($M${}=45,IF(AND(GU{}>8,HJ{}=20),1,"")))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['HN{}'.format(row)] = '=IF(HD{}=20, IF(G{} > ($G${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['HO{}'.format(row)] = '=IF(HE{}=20, IF(H{} > ($H${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['HP{}'.format(row)] = '=IF(HF{}=20, IF(I{} > ($I${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['HQ{}'.format(row)] = '=IF(HG{}=20, IF(J{} > ($J${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['HR{}'.format(row)] = '=IF(HH{}=20, IF(K{} > ($K${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['HS{}'.format(row)] = '=IF(HI{}=20, IF(L{} > ($L${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['HT{}'.format(row)] = '=IF(HJ{}=20, IF(M{} > ($M${}/5 - 1), 1, ""), "")'.format(row, row, v)
 
             # Mengubah 'KELAS' sesuai dengan nilai yang dipilih dari selectbox 'KELAS'
             kelas = KELAS.lower().replace(" ", "")
@@ -12597,14 +12555,10 @@ if authentication_status:
                 ws['V{}'.format(
                     row)] = '=IF(U{}="","",COUNTIFS($F$2:$F${},F{},$U$2:$U${},"<"&U{})+1)'.format(row, q, row, q, row)
                 # TAMBAHAN
-                ws['W{}'.format(row)] = '=IF($G${}=25,IF(AND(G{}>4,P{}=20),1,""),IF($G${}=30,IF(AND(G{}>5,P{}=20),1,""),IF($G${}=35,IF(AND(G{}>6,P{}=20),1,""),IF($G${}=40,IF(AND(G{}>7,P{}=20),1,""),IF($G${}=45,IF(AND(G{}>8,P{}=20),1,""))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['X{}'.format(row)] = '=IF($H${}=25,IF(AND(H{}>4,Q{}=20),1,""),IF($H${}=30,IF(AND(H{}>5,Q{}=20),1,""),IF($H${}=35,IF(AND(H{}>6,Q{}=20),1,""),IF($H${}=40,IF(AND(H{}>7,Q{}=20),1,""),IF($H${}=45,IF(AND(H{}>8,Q{}=20),1,""))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['Y{}'.format(row)] = '=IF($I${}=25,IF(AND(I{}>4,R{}=20),1,""),IF($I${}=30,IF(AND(I{}>5,R{}=20),1,""),IF($I${}=35,IF(AND(I{}>6,R{}=20),1,""),IF($I${}=40,IF(AND(I{}>7,R{}=20),1,""),IF($I${}=45,IF(AND(I{}>8,R{}=20),1,""))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['Z{}'.format(row)] = '=IF($J${}=25,IF(AND(J{}>4,S{}=20),1,""),IF($J${}=30,IF(AND(J{}>5,S{}=20),1,""),IF($J${}=35,IF(AND(J{}>6,S{}=20),1,""),IF($J${}=40,IF(AND(J{}>7,S{}=20),1,""),IF($J${}=45,IF(AND(J{}>8,S{}=20),1,""))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['W{}'.format(row)] = '=IF(P{}=20, IF(G{} > ($G${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['X{}'.format(row)] = '=IF(Q{}=20, IF(H{} > ($H${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['Y{}'.format(row)] = '=IF(R{}=20, IF(I{} > ($I${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['Z{}'.format(row)] = '=IF(S{}=20, IF(J{} > ($J${}/5 - 1), 1, ""), "")'.format(row, row, v)
 
             # Z Score iterasi 1
             ws['AB1'] = 'NAMA SISWA_B'
@@ -12741,14 +12695,10 @@ if authentication_status:
                 ws['AV{}'.format(
                     row)] = '=IF(AU{}="","",COUNTIFS($AF$2:$AF${},AF{},$AU$2:$AU${},"<"&AU{})+1)'.format(row, q, row, q, row)
                 # TAMBAHAN
-                ws['AW{}'.format(row)] = '=IF($G${}=25,IF(AND(AG{}>4,AP{}=20),1,""),IF($G${}=30,IF(AND(AG{}>5,AP{}=20),1,""),IF($G${}=35,IF(AND(AG{}>6,AP{}=20),1,""),IF($G${}=40,IF(AND(AG{}>7,AP{}=20),1,""),IF($G${}=45,IF(AND(AG{}>8,AP{}=20),1,""))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['AX{}'.format(row)] = '=IF($H${}=25,IF(AND(AH{}>4,AQ{}=20),1,""),IF($H${}=30,IF(AND(AH{}>5,AQ{}=20),1,""),IF($H${}=35,IF(AND(AH{}>6,AQ{}=20),1,""),IF($H${}=40,IF(AND(AH{}>7,AQ{}=20),1,""),IF($H${}=45,IF(AND(AH{}>8,AQ{}=20),1,""))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['AY{}'.format(row)] = '=IF($I${}=25,IF(AND(AI{}>4,AR{}=20),1,""),IF($I${}=30,IF(AND(AI{}>5,AR{}=20),1,""),IF($I${}=35,IF(AND(AI{}>6,AR{}=20),1,""),IF($I${}=40,IF(AND(AI{}>7,AR{}=20),1,""),IF($I${}=45,IF(AND(AI{}>8,AR{}=20),1,""))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['AZ{}'.format(row)] = '=IF($J${}=25,IF(AND(AJ{}>4,AS{}=20),1,""),IF($J${}=30,IF(AND(AJ{}>5,AS{}=20),1,""),IF($J${}=35,IF(AND(AJ{}>6,AS{}=20),1,""),IF($J${}=40,IF(AND(AJ{}>7,AS{}=20),1,""),IF($J${}=45,IF(AND(AJ{}>8,AS{}=20),1,""))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['AW{}'.format(row)] = '=IF(AP{}=20, IF(G{} > ($G${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['AX{}'.format(row)] = '=IF(AQ{}=20, IF(H{} > ($H${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['AY{}'.format(row)] = '=IF(AR{}=20, IF(I{} > ($I${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['AZ{}'.format(row)] = '=IF(AS{}=20, IF(J{} > ($J${}/5 - 1), 1, ""), "")'.format(row, row, v)
 
             # Z Score iterasi 2
             ws['BB1'] = 'NAMA SISWA_C'
@@ -12890,14 +12840,10 @@ if authentication_status:
                 ws['BV{}'.format(
                     row)] = '=IF(BU{}="","",COUNTIFS($BF$2:$BF${},BF{},$BU$2:$BU${},"<"&BU{})+1)'.format(row, q, row, q, row)
                 # TAMBAHAN
-                ws['BW{}'.format(row)] = '=IF($G${}=25,IF(AND(BG{}>4,BP{}=20),1,""),IF($G${}=30,IF(AND(BG{}>5,BP{}=20),1,""),IF($G${}=35,IF(AND(BG{}>6,BP{}=20),1,""),IF($G${}=40,IF(AND(BG{}>7,BP{}=20),1,""),IF($G${}=45,IF(AND(BG{}>8,BP{}=20),1,""))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['BX{}'.format(row)] = '=IF($H${}=25,IF(AND(BH{}>4,BQ{}=20),1,""),IF($H${}=30,IF(AND(BH{}>5,BQ{}=20),1,""),IF($H${}=35,IF(AND(BH{}>6,BQ{}=20),1,""),IF($H${}=40,IF(AND(BH{}>7,BQ{}=20),1,""),IF($H${}=45,IF(AND(BH{}>8,BQ{}=20),1,""))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['BY{}'.format(row)] = '=IF($I${}=25,IF(AND(BI{}>4,BR{}=20),1,""),IF($I${}=30,IF(AND(BI{}>5,BR{}=20),1,""),IF($I${}=35,IF(AND(BI{}>6,BR{}=20),1,""),IF($I${}=40,IF(AND(BI{}>7,BR{}=20),1,""),IF($I${}=45,IF(AND(BI{}>8,BR{}=20),1,""))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['BZ{}'.format(row)] = '=IF($J${}=25,IF(AND(BJ{}>4,BS{}=20),1,""),IF($J${}=30,IF(AND(BJ{}>5,BS{}=20),1,""),IF($J${}=35,IF(AND(BJ{}>6,BS{}=20),1,""),IF($J${}=40,IF(AND(BJ{}>7,BS{}=20),1,""),IF($J${}=45,IF(AND(BJ{}>8,BS{}=20),1,""))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['BW{}'.format(row)] = '=IF(BG{}=20, IF(G{} > ($G${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['BX{}'.format(row)] = '=IF(BH{}=20, IF(H{} > ($H${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['BY{}'.format(row)] = '=IF(BI{}=20, IF(I{} > ($I${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['BZ{}'.format(row)] = '=IF(BJ{}=20, IF(J{} > ($J${}/5 - 1), 1, ""), "")'.format(row, row, v)
 
             # Z Score iterasi 3
             ws['CB1'] = 'NAMA SISWA_D'
@@ -13038,14 +12984,10 @@ if authentication_status:
                 ws['CV{}'.format(
                     row)] = '=IF(CU{}="","",COUNTIFS($CF$2:$CF${},CF{},$CU$2:$CU${},"<"&CU{})+1)'.format(row, q, row, q, row)
                 # TAMBAHAN
-                ws['CW{}'.format(row)] = '=IF($G${}=25,IF(AND(CG{}>4,CP{}=20),1,""),IF($G${}=30,IF(AND(CG{}>5,CP{}=20),1,""),IF($G${}=35,IF(AND(CG{}>6,CP{}=20),1,""),IF($G${}=40,IF(AND(CG{}>7,CP{}=20),1,""),IF($G${}=45,IF(AND(CG{}>8,CP{}=20),1,""))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['CX{}'.format(row)] = '=IF($H${}=25,IF(AND(CH{}>4,CQ{}=20),1,""),IF($H${}=30,IF(AND(CH{}>5,CQ{}=20),1,""),IF($H${}=35,IF(AND(CH{}>6,CQ{}=20),1,""),IF($H${}=40,IF(AND(CH{}>7,CQ{}=20),1,""),IF($H${}=45,IF(AND(CH{}>8,CQ{}=20),1,""))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['CY{}'.format(row)] = '=IF($I${}=25,IF(AND(CI{}>4,CR{}=20),1,""),IF($I${}=30,IF(AND(CI{}>5,CR{}=20),1,""),IF($I${}=35,IF(AND(CI{}>6,CR{}=20),1,""),IF($I${}=40,IF(AND(CI{}>7,CR{}=20),1,""),IF($I${}=45,IF(AND(CI{}>8,CR{}=20),1,""))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['CZ{}'.format(row)] = '=IF($J${}=25,IF(AND(CJ{}>4,CS{}=20),1,""),IF($J${}=30,IF(AND(CJ{}>5,CS{}=20),1,""),IF($J${}=35,IF(AND(CJ{}>6,CS{}=20),1,""),IF($J${}=40,IF(AND(CJ{}>7,CS{}=20),1,""),IF($J${}=45,IF(AND(CJ{}>8,CS{}=20),1,""))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['CW{}'.format(row)] = '=IF(CP{}=20, IF(G{} > ($G${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['CX{}'.format(row)] = '=IF(CQ{}=20, IF(H{} > ($H${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['CY{}'.format(row)] = '=IF(CR{}=20, IF(I{} > ($I${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['CZ{}'.format(row)] = '=IF(CS{}=20, IF(J{} > ($J${}/5 - 1), 1, ""), "")'.format(row, row, v)
 
             # Z Score iterasi 4
             ws['DB1'] = 'NAMA SISWA_E'
@@ -13187,14 +13129,10 @@ if authentication_status:
                 ws['DV{}'.format(
                     row)] = '=IF(DU{}="","",COUNTIFS($DF$2:$DF${},DF{},$DU$2:$DU${},"<"&DU{})+1)'.format(row, q, row, q, row)
                 # TAMBAHAN
-                ws['DW{}'.format(row)] = '=IF($G${}=25,IF(AND(DG{}>4,DP{}=20),1,""),IF($G${}=30,IF(AND(DG{}>5,DP{}=20),1,""),IF($G${}=35,IF(AND(DG{}>6,DP{}=20),1,""),IF($G${}=40,IF(AND(DG{}>7,DP{}=20),1,""),IF($G${}=45,IF(AND(DG{}>8,DP{}=20),1,""))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['DX{}'.format(row)] = '=IF($H${}=25,IF(AND(DH{}>4,DQ{}=20),1,""),IF($H${}=30,IF(AND(DH{}>5,DQ{}=20),1,""),IF($H${}=35,IF(AND(DH{}>6,DQ{}=20),1,""),IF($H${}=40,IF(AND(DH{}>7,DQ{}=20),1,""),IF($H${}=45,IF(AND(DH{}>8,DQ{}=20),1,""))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['DY{}'.format(row)] = '=IF($I${}=25,IF(AND(DI{}>4,DR{}=20),1,""),IF($I${}=30,IF(AND(DI{}>5,DR{}=20),1,""),IF($I${}=35,IF(AND(DI{}>6,DR{}=20),1,""),IF($I${}=40,IF(AND(DI{}>7,DR{}=20),1,""),IF($I${}=45,IF(AND(DI{}>8,DR{}=20),1,""))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['DZ{}'.format(row)] = '=IF($J${}=25,IF(AND(DJ{}>4,DS{}=20),1,""),IF($J${}=30,IF(AND(DJ{}>5,DS{}=20),1,""),IF($J${}=35,IF(AND(DJ{}>6,DS{}=20),1,""),IF($J${}=40,IF(AND(DJ{}>7,DS{}=20),1,""),IF($J${}=45,IF(AND(DJ{}>8,DS{}=20),1,""))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['DW{}'.format(row)] = '=IF(DP{}=20, IF(G{} > ($G${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['DX{}'.format(row)] = '=IF(DQ{}=20, IF(H{} > ($H${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['DY{}'.format(row)] = '=IF(DR{}=20, IF(I{} > ($I${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['DZ{}'.format(row)] = '=IF(DS{}=20, IF(J{} > ($J${}/5 - 1), 1, ""), "")'.format(row, row, v)
 
             # Z Score iterasi 5
             ws['EB1'] = 'NAMA SISWA'
@@ -13336,14 +13274,10 @@ if authentication_status:
                 ws['EV{}'.format(
                     row)] = '=IF(EU{}="","",COUNTIFS($EF$2:$EF${},EF{},$EU$2:$EU${},"<"&EU{})+1)'.format(row, q, row, q, row)
                 # TAMBAHAN
-                ws['EW{}'.format(row)] = '=IF($G${}=25,IF(AND(EG{}>4,EP{}=20),1,""),IF($G${}=30,IF(AND(EG{}>5,EP{}=20),1,""),IF($G${}=35,IF(AND(EG{}>6,EP{}=20),1,""),IF($G${}=40,IF(AND(EG{}>7,EP{}=20),1,""),IF($G${}=45,IF(AND(EG{}>8,EP{}=20),1,""))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['EX{}'.format(row)] = '=IF($H${}=25,IF(AND(EH{}>4,EQ{}=20),1,""),IF($H${}=30,IF(AND(EH{}>5,EQ{}=20),1,""),IF($H${}=35,IF(AND(EH{}>6,EQ{}=20),1,""),IF($H${}=40,IF(AND(EH{}>7,EQ{}=20),1,""),IF($H${}=45,IF(AND(EH{}>8,EQ{}=20),1,""))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['EY{}'.format(row)] = '=IF($I${}=25,IF(AND(EI{}>4,ER{}=20),1,""),IF($I${}=30,IF(AND(EI{}>5,ER{}=20),1,""),IF($I${}=35,IF(AND(EI{}>6,ER{}=20),1,""),IF($I${}=40,IF(AND(EI{}>7,ER{}=20),1,""),IF($I${}=45,IF(AND(EI{}>8,ER{}=20),1,""))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
-                ws['EZ{}'.format(row)] = '=IF($J${}=25,IF(AND(EJ{}>4,ES{}=20),1,""),IF($J${}=30,IF(AND(EJ{}>5,ES{}=20),1,""),IF($J${}=35,IF(AND(EJ{}>6,ES{}=20),1,""),IF($J${}=40,IF(AND(EJ{}>7,ES{}=20),1,""),IF($J${}=45,IF(AND(EJ{}>8,ES{}=20),1,""))))))'.format(
-                    v, row, row, v, row, row, v, row, row, v, row, row, v, row, row)
+                ws['EW{}'.format(row)] = '=IF(EP{}=20, IF(G{} > ($G${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['EX{}'.format(row)] = '=IF(EQ{}=20, IF(H{} > ($H${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['EY{}'.format(row)] = '=IF(ER{}=20, IF(I{} > ($I${}/5 - 1), 1, ""), "")'.format(row, row, v)
+                ws['EZ{}'.format(row)] = '=IF(ES{}=20, IF(J{} > ($J${}/5 - 1), 1, ""), "")'.format(row, row, v)
 
             # Mengubah 'KELAS' sesuai dengan nilai yang dipilih dari selectbox 'KELAS'
             kelas = KELAS.lower().replace(" ", "")
