@@ -647,7 +647,7 @@ if authentication_status:
         #                             'BIO_11SMA', 'FIS_11SMA', 'KIM_1_11SMA', 'KIM_2_11SMA']
         
         # Kode Paket 11 SMA KM 2425
-        elif KURIKULUM == 'KM' and KELAS == '11 SMA':
+        elif (KURIKULUM == 'KM' or KURIKULUM == 'K13') and (KELAS == '11 SMA' or KELAS == '11 IPA' or KELAS == '11 IPS'):
             st.subheader("Input Kode Paket Kelas 11 SMA KM")
             col3, col4, col5, col6 = st.columns(4)
             with col3:
