@@ -8799,14 +8799,14 @@ if authentication_status:
         with col8:
             PENILAIAN = st.selectbox(
                 "PENILAIAN",
-                ("--Pilih Penilaian--", "SUMATIF TENGAH SEMESTER", "SUMATIF AKHIR SEMESTER", "SUMATIF AKHIR TAHUN"))
+                ("--Pilih Penilaian--", "PENILAIAN TENGAH SEMESTER", "SUMATIF TENGAH SEMESTER", "PENILAIAN AKHIR SEMESTER", "SUMATIF AKHIR SEMESTER", "PENILAIAN AKHIR TAHUN", "SUMATIF AKHIR TAHUN"))
 
         col9 = st.container()
 
         with col9:
             KURIKULUM = st.selectbox(
                 "KURIKULUM",
-                ("--Pilih Kurikulum--", "KM"))
+                ("--Pilih Kurikulum--", "KM", "K13"))
 
         TAHUN = st.text_input("Masukkan Tahun Ajaran",
                               placeholder="contoh: 2022-2023")
@@ -8816,64 +8816,64 @@ if authentication_status:
         with col1:
             MTK_1 = st.selectbox(
                 "JML. SOAL MAT_1.",
-                (15, 20, 25, 30, 35, 40, 45, 50))
+                (0, 15, 20, 25, 30, 35, 40, 45, 50))
         
         with col2:
             MTK_2 = st.selectbox(
                 "JML. SOAL MAT._2",
-                (15, 20, 25, 30, 35, 40, 45, 50))
+                (0, 15, 20, 25, 30, 35, 40, 45, 50))
 
         with col3:
             IND = st.selectbox(
                 "JML. SOAL IND.",
-                (15, 20, 25, 30, 35, 40, 45, 50))
+                (0, 15, 20, 25, 30, 35, 40, 45, 50))
 
         with col4:
             ENG = st.selectbox(
                 "JML. SOAL ENG.",
-                (15, 20, 25, 30, 35, 40, 45, 50))
+                (0, 15, 20, 25, 30, 35, 40, 45, 50))
 
         col5, col6, col7, col8, col9 = st.columns(5)
         with col5:
             SEJ = st.selectbox(
                 "JML. SOAL SEJ.",
-                (15, 20, 25, 30, 35, 40, 45, 50))
+                (0, 15, 20, 25, 30, 35, 40, 45, 50))
 
         with col6:
             GEO = st.selectbox(
                 "JML. SOAL GEO.",
-                (15, 20, 25, 30, 35, 40, 45, 50))
+                (0, 15, 20, 25, 30, 35, 40, 45, 50))
 
         with col7:
             EKO = st.selectbox(
                 "JML. SOAL EKO.",
-                (15, 20, 25, 30, 35, 40, 45, 50))
+                (0, 15, 20, 25, 30, 35, 40, 45, 50))
 
         with col8:
             SOS = st.selectbox(
                 "JML. SOAL SOS.",
-                (15, 20, 25, 30, 35, 40, 45, 50))
+                (0, 15, 20, 25, 30, 35, 40, 45, 50))
         
         with col9:
             ANT = st.selectbox(
                 "JML. SOAL ANT.",
-                (15, 20, 25, 30, 35, 40, 45, 50))
+                (0, 15, 20, 25, 30, 35, 40, 45, 50))
 
         col10, col11, col12 = st.columns(3)
         with col10:
             BIO = st.selectbox(
                 "JML. SOAL BIO.",
-                (15, 20, 25, 30, 35, 40, 45, 50))
+                (0, 15, 20, 25, 30, 35, 40, 45, 50))
 
         with col11:
             FIS = st.selectbox(
                 "JML. SOAL FIS.",
-                (15, 20, 25, 30, 35, 40, 45, 50))
+                (0, 15, 20, 25, 30, 35, 40, 45, 50))
 
         with col12:
             KIM_1 = st.selectbox(
                 "JML. SOAL KIM_1.",
-                (15, 20, 25, 30, 35, 40, 45, 50))
+                (0, 15, 20, 25, 30, 35, 40, 45, 50))
         
         # with col13:
         #     KIM_2 = st.selectbox(
