@@ -54,7 +54,7 @@ if authentication_status:
                      "Nilai Std. 8 SMP (KM)",
                      "Nilai Std. SD (K13)",
                      "Nilai Std. 10, 11 IPS (K13)",
-                     "Nilai Std. 11 SMA (KM)",
+                     "Nilai Std. 11 SMA (KM/K13)",
                      "Nilai Std. 10, 11, PPLS IPA",
                      "Nilai Std. PPLS IPS",
                      "Nilai Std. PPLS"],
@@ -8759,7 +8759,7 @@ if authentication_status:
             st.warning(
                 "Buka file unduhan, klik 'Enable Editing' dan 'Save'")
             
-    if selected_file == "Nilai Std. 11 SMA (KM)":
+    if selected_file == "Nilai Std. 11 SMA (KM/K13)":
         # menghilangkan hamburger
         st.markdown("""
         <style>
@@ -8777,7 +8777,7 @@ if authentication_status:
         image = Image.open('logo resmi nf resize.png')
         st.image(image)
 
-        st.title("Olah Nilai Standar KM")
+        st.title("Olah Nilai Standar KM / K13")
         st.header("11 SMA")
 
         col6 = st.container()
@@ -8785,7 +8785,7 @@ if authentication_status:
         with col6:
             KELAS = st.selectbox(
                 "KELAS",
-                ("--Pilih Kelas--", "11 SMA"))
+                ("--Pilih Kelas--", "11 SMA", "11 IPA", "11 IPS"))
 
         col7 = st.container()
 
