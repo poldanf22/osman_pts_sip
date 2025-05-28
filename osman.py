@@ -2498,27 +2498,27 @@ if authentication_status:
         with col1:
             MTK = st.selectbox(
                 "JML. SOAL MAT.",
-                ("--Pilih--", 15, 20, 25, 30, 35, 40, 45))
+                ("--Pilih--", 0, 15, 20, 25, 30, 35, 40, 45))
 
         with col2:
             IND = st.selectbox(
                 "JML. SOAL IND.",
-                ("--Pilih--", 15, 20, 25, 30, 35, 40, 45))
+                ("--Pilih--", 0, 15, 20, 25, 30, 35, 40, 45))
 
         with col3:
             ENG = st.selectbox(
                 "JML. SOAL ENG.",
-                ("--Pilih--", 15, 20, 25, 30, 35, 40, 45))
+                ("--Pilih--", 0, 15, 20, 25, 30, 35, 40, 45))
 
         with col4:
             IPA = st.selectbox(
                 "JML. SOAL IPA.",
-                ("--Pilih--", 15, 20, 25, 30, 35, 40, 45))
+                ("--Pilih--", 0, 15, 20, 25, 30, 35, 40, 45))
 
         with col5:
             IPS = st.selectbox(
                 "JML. SOAL IPS.",
-                ("--Pilih--", 15, 20, 25, 30, 35, 40, 45))
+                ("--Pilih--", 0, 15, 20, 25, 30, 35, 40, 45))
 
         JML_SOAL_MAT = MTK
         JML_SOAL_IND = IND
