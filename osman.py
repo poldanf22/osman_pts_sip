@@ -520,7 +520,7 @@ if authentication_status:
                                     'ENG_9SMP', 'IPA_9SMP', 'IPS_9SMP']
         
         # Kode Paket 10 SMA KM
-        elif KURIKULUM == 'KM' and KELAS == '10 SMA':
+        elif (KURIKULUM == 'KM' or KURIKULUM == 'K13') and (KELAS == '10 SMA' or KELAS == '10 IPA' or KELAS == '10 IPS'):
             st.subheader("Input Kode Paket Kelas 10 SMA KM")
             col3, col4, col5, col6, col7 = st.columns(5)
             with col3:
