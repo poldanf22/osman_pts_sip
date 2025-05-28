@@ -2460,14 +2460,14 @@ if authentication_status:
 
         st.title("Olah Nilai Standar K13-KM")
 
-        st.header("SD-SMP")
+        st.header("SD-SMP-SMA")
 
         col6 = st.container()
 
         with col6:
             KELAS = st.selectbox(
                 "KELAS",
-                ("--Pilih Kelas--", "4 SD", "5 SD", "6 SD", "7 SMP", "8 SMP", "9 SMP", "10 SMA"))
+                ("--Pilih Kelas--", "4 SD", "5 SD", "6 SD", "7 SMP", "8 SMP", "9 SMP", "10 SMA", "10 IPA", "10 IPS"))
 
         col7 = st.container()
 
