@@ -890,11 +890,11 @@ if authentication_status:
                 kode_kls_kur = k13_9smp
                 column_order = column_order_k13_9smp
             elif KELAS == "10 IPA" and KURIKULUM == "K13":
-                kode_kls_kur = k13_10ipa
-                column_order = column_order_k13_10ipa
+                kode_kls_kur = km_10sma
+                column_order = column_order_km_10sma
             elif KELAS == "10 IPS" and KURIKULUM == "K13":
-                kode_kls_kur = k13_10ips
-                column_order = column_order_k13_10ips
+                kode_kls_kur = km_10sma
+                column_order = column_order_km_10sma
             elif KELAS == "11 IPA" and KURIKULUM == "K13":
                 kode_kls_kur = km_11sma
                 column_order = column_order_km_11sma
