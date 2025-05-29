@@ -920,7 +920,7 @@ if authentication_status:
             elif KELAS == "9 SMP" and KURIKULUM == "KM":
                 kode_kls_kur = km_9smp
                 column_order = column_order_km_9smp
-            elif KELAS == "10 SMA" and KURIKULUM == "KM":
+            elif KELAS == "10 SMA" and (KURIKULUM == "KM" or KURIKULUM == "K13"):
                 kode_kls_kur = km_10sma
                 column_order = column_order_km_10sma
             elif KELAS == "11 SMA" and KURIKULUM == "KM":
